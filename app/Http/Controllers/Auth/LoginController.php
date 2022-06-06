@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Rules\Recaptcha;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -56,8 +58,6 @@ class LoginController extends Controller
      *
      * @param Request $request
      * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     protected function validateLogin(Request $request)
     {
@@ -71,20 +71,26 @@ class LoginController extends Controller
     /**
      * The user has been authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
+     * @param Request $request
+     * @param mixed $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws ValidationException
      */
     protected function authenticated(Request $request, $user)
     {
         auth()->logout();
 
+        if (!$user->verified) {
+
+            $user->delete();
+
+            return back()->withErrors([$this->username() => __('auth.failed')]);
+        }
+
         session()->flash('user', [
             'user_id' => $user->id,
             'remember' => $request->has('remember')
         ]);
-
-        //TODO Send sms
 
         return redirect()->route('2fa.index');
     }

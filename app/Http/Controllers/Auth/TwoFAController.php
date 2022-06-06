@@ -12,10 +12,18 @@ use Psr\Container\NotFoundExceptionInterface;
 
 class TwoFAController extends Controller
 {
+
+    function __contruct() {
+        $this->middleware('wait2fa');
+    }
+
     public function index()
     {
         session()->reflash();
+
+        $code = $this->generate2FA();
         //TODO send 2fa code
+
         return view('auth.verify');
     }
 
@@ -29,7 +37,6 @@ class TwoFAController extends Controller
      */
     public function check(Request $request)
     {
-        $this->checkSessionData();
 
         $request->validate([
             'code' => ['required', 'numeric', 'digits:4'],
@@ -48,20 +55,29 @@ class TwoFAController extends Controller
             return redirect()->route('home');
         }
 
-        return back()->with('error', 'You entered wrong code.');
+        $request->session()->reflash();
+
+        alert()->error('Wrong Code');
+        return redirect()->back();
     }
 
     /**
      * Resend 2FA code
      *
      * @param Request $request
-     * @return void
+     * @return RedirectResponse
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function resend(Request $request)
     {
-        $code = $this->generate2FA();
+        $request->session()->reflash();
 
+        $code = $this->generate2FA();
         //TODO resend 2fa code
+
+        alert()->success('Success', '2FA Code resent.');
+        return redirect()->back();
     }
 
     /**
@@ -73,13 +89,15 @@ class TwoFAController extends Controller
      */
     public function generate2FA()
     {
-        $this->checkSessionData();
 
         $user = User::findOrFail(session()->get('user.user_id'));
 
         if ($TwoFACode = $this->getAliveCode($user)) {
+
             $code = $TwoFACode->code;
+
         } else {
+
             do {
                 $code = mt_rand(1000, 9999);
             } while ($this->checkCodeUnique($user, $code));
@@ -108,16 +126,5 @@ class TwoFAController extends Controller
     private function getAliveCode($user)
     {
         return $user->TwoFA()->where('expired_at', '>', now())->first();
-    }
-
-    /**
-     * Check if there is no phone number in session, redirect to login
-     *
-     * @return RedirectResponse|void
-     */
-    private function checkSessionData()
-    {
-        if (!session()->has('user_id'))
-            return redirect()->route('login');
     }
 }

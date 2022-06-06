@@ -20,7 +20,15 @@ class TwoFA extends Model
         $this->belongsTo(User::class);
     }
 
-    public function scopeVerifyCode($code, $user)
+    /**
+     * Verify the code for the user
+     *
+     * @param $query
+     * @param $code
+     * @param $user
+     * @return bool
+     */
+    public function scopeVerifyCode($query, $code, $user)
     {
         $find = $this->where('user_id', $user->id)
             ->whereCode($code)

@@ -12,12 +12,12 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Two Factor Authentication Code') }}</label>
+                                <label for="code" class="col-md-4 col-form-label text-md-end">{{ __('Two Factor Authentication Code') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="number" class="form-control @error('2fa') is-invalid @enderror" name="phone" value="{{ old('2fa') }}" required autofocus>
+                                    <input id="code" type="number" class="form-control @error('2fa') is-invalid @enderror" name="code" value="{{ old('code') }}" required autofocus>
 
-                                    @error('2fa')
+                                    @error('code')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

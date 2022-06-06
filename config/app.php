@@ -200,6 +200,11 @@ return [
          */
         Kavenegar\Laravel\ServiceProvider::class,
 
+        /*
+         * Sweetalert2 Service Provider
+         */
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+
     ],
 
     /*
@@ -216,6 +221,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Kavenegar' => Kavenegar\Laravel\Facade::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
 
 ];

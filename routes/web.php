@@ -27,3 +27,7 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
     Route::post('/', 'check');
     Route::get('/resend', 'resend')->name('resend');
 });
+
+Route::get('/test', function () {
+   return asset('css/all.min.css');
+});

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('zarin')->default(0);
             $table->boolean('vip')->default(0);
+            $table->boolean('verified')->default(0);
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
