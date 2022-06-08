@@ -22,6 +22,10 @@
         <div class="header-body-right">
             <!-- begin::navbar main body -->
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-home"></i>
+                    </a>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link" data-toggle="dropdown">
                         <i class="ti-plus"></i>
