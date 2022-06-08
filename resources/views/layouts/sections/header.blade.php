@@ -14,7 +14,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="index.html">خانه</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="index.html">دموهای صفحه اصلی</a></li>
+                                        <li><a class="dropdown-item" href="index.html">صفحه اصلی</a></li>
                                         <li><a class="dropdown-item" href="index-minimal.html">پیش فرض</a></li>
                                         <li><a class="dropdown-item" href="index-watches.html">ساعت مچی</a></li>
                                         <li><a class="dropdown-item" href="index-fatloss.html">پزشکی</a></li>
