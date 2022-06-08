@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminAuthenticated;
 use App\Http\Middleware\Verified;
 use App\Http\Middleware\WaitFor2FA;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
 //        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verified' => Verified::class,
         'wait2fa' => WaitFor2FA::class,
+        'auth.admin' => AdminAuthenticated::class,
     ];
 }

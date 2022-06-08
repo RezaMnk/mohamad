@@ -24,6 +24,8 @@ class User extends Authenticatable
         'password',
         'vip',
         'zarin',
+        'verified',
+        'role'
     ];
 
     /**
@@ -44,6 +46,30 @@ class User extends Authenticatable
     public function TwoFA()
     {
         return $this->hasMany(TwoFA::class);
+    }
+
+    /**
+     * Verify the user authentication
+     *
+     * @return void
+     */
+    public function verify()
+    {
+        if (! $this->verified) {
+
+            $this->verified = true;
+            $this->save();
+        }
+    }
+
+    /**
+     * Check if user is admin
+     *
+     * @return bool
+     */
+    public function is_admin()
+    {
+        return $this->role == 'admin';
     }
 
 }

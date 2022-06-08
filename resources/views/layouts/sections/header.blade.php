@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <nav class="navbar navbar-expand-lg nav-dark nav-primary-hover">
-                        <a class="navbar-brand" href="index.html"><img class="nav-logo" src="assets/images/logo/17.png" alt="Image not found !"></a>
+                        <a class="navbar-brand" href="index.html"><img class="nav-logo" src="{{ asset('storage/images/logo/17.png') }}" alt="Image not found !"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="flaticon-menu-2 flat-small text-primary"></i>
                         </button>
@@ -218,7 +218,7 @@
                                     <ul class="cart_list product_list_widget">
                                         <li class="mini-cart-item">
                                             <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="product-image"><img src="assets/images/products/squire-95.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
+                                            <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-95.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
                                             <a href="#" class="product-name">پیراهن مشکی زنانه</a>
                                             <div class="woocommerce-product-rating">
                                                 <div class="star-rating">
@@ -240,7 +240,7 @@
                                         </li>
                                         <li class="mini-cart-item">
                                             <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="product-image"><img src="assets/images/products/squire-105.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
+                                            <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-105.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
                                             <a href="#" class="product-name">کُت لی Blazar</a>
                                             <div class="woocommerce-product-rating">
                                                 <div class="star-rating">
@@ -599,7 +599,7 @@
                                 </div>
                             </nav>
                         </div>
-                        <a class="navbar-brand" href="index.html"><img class="nav-logo" src="assets/images/logo/17.png" alt="Image not found !"></a>
+                        <a class="navbar-brand" href="index.html"><img class="nav-logo" src="{{ asset('storage/images/logo/17.png') }}" alt="Image not found !"></a>
                     </div>
                 </div>
                 <div class="col-xxl-3 col-xl-4 col-lg-3 col-6 order-lg-3">
@@ -644,7 +644,7 @@
                                 <ul class="cart_list product_list_widget">
                                     <li class="mini-cart-item">
                                         <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                        <a href="#" class="product-image"><img src="assets/images/products/squire-95.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
+                                        <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-95.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
                                         <a href="#" class="product-name">پیراهن مشکی زنانه</a>
                                         <div class="woocommerce-product-rating">
                                             <div class="star-rating">
@@ -666,7 +666,7 @@
                                     </li>
                                     <li class="mini-cart-item">
                                         <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                        <a href="#" class="product-image"><img src="assets/images/products/squire-105.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
+                                        <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-105.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
                                         <a href="#" class="product-name">کُت لی Blazar</a>
                                         <div class="woocommerce-product-rating">
                                             <div class="star-rating">

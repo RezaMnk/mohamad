@@ -29,5 +29,5 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 });
 
 Route::get('/test', function () {
-   return asset('css/all.min.css');
+   return route('login');
 });

@@ -5,7 +5,7 @@
             <div class="col">
                 <div class="footer-widget my-5">
                     <div class="footer-logo mb-4">
-                        <a href="index.html"><img src="{{ storage_path('images/logo/19.png') }}" alt="Image not found!" /></a>
+                        <a href="index.html"><img src="{{ asset('storage/images/logo/19.png') }}" alt="Image not found!" /></a>
                     </div>
                     <div class="widget-ecommerce-contact">
                         <div class="text-general mt-20">چاپگرها و متون بلکه روزنامه و مجله در ستون <br> و سطرآنچنان که لازم است. </div>
@@ -70,16 +70,16 @@
             <div class="col-md-6">
                 <ul class="list-ml-30 d-flex align-items-center justify-content-md-end">
                     <li>
-                        <a href="index.html"><img src="assets/images/cards/1.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/cards/1.png') }}" alt=""></a>
                     </li>
                     <li>
-                        <a href="index.html"><img src="assets/images/cards/2.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/cards/2.png') }}" alt=""></a>
                     </li>
                     <li>
-                        <a href="index.html"><img src="assets/images/cards/3.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/cards/3.png') }}" alt=""></a>
                     </li>
                     <li>
-                        <a href="index.html"><img src="assets/images/cards/4.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('assets/images/cards/4.png') }}" alt=""></a>
                     </li>
                 </ul>
             </div>

@@ -12,7 +12,7 @@
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" href="{{ asset('storage/images/favicon.png') }}">
 
     <!--  CSS Style -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">

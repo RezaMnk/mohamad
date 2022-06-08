@@ -52,6 +52,8 @@ class TwoFAController extends Controller
 
             $user->TwoFA()->delete();
 
+            $user->verify();
+
             return redirect()->route('home');
         }
 

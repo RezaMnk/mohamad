@@ -1,5 +1,5 @@
 <!-- Include Scripts -->
-<script src="{{ asset('TEST') }}js/jquery.min.js"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/greensock.js') }}"></script>
 <script src="{{ asset('js/layerslider.transitions.js') }}"></script>
 <script src="{{ asset('js/layerslider.kreaturamedia.jquery.js') }}"></script>
