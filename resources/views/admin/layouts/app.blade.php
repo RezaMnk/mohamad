@@ -21,32 +21,8 @@
 </main>
 <!-- end::main content -->
 
-<!-- Plugin scripts -->
-<script src="vendors/bundle.js"></script>
+@include('admin.layouts.sections.footer-scripts')
 
-<!-- Chartjs -->
-<script src="vendors/charts/chartjs/chart.min.js"></script>
-
-<!-- Circle progress -->
-<script src="vendors/circle-progress/circle-progress.min.js"></script>
-
-<!-- Peity -->
-<script src="vendors/charts/peity/jquery.peity.min.js"></script>
-<script src="assets/js/examples/charts/peity.js"></script>
-
-<!-- Datepicker -->
-<script src="vendors/datepicker/daterangepicker.js"></script>
-
-<!-- Slick -->
-<script src="vendors/slick/slick.min.js"></script>
-
-<!-- Vamp -->
-<script src="vendors/vmap/jquery.vmap.min.js"></script>
-<script src="vendors/vmap/maps/jquery.vmap.usa.js"></script>
-<script src="assets/js/examples/vmap.js"></script>
-
-<!-- Dashboard scripts -->
-<script src="assets/js/examples/dashboard.js"></script>
 <div class="colors">
     <!-- To use theme colors with Javascript -->
     <div class="bg-primary"></div>
@@ -64,7 +40,8 @@
 </div>
 
 <!-- App scripts -->
-<script src="assets/js/app.js"></script>
+<script src="{{ asset('admin/js/app.js') }}"></script>
+
 </body>
 
 </html>

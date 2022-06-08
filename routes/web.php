@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(function () {
     Route::get('/', 'index')->name('index');
