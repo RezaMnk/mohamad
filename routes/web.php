@@ -19,6 +19,7 @@ Route::get('/', function () {
 })->name('index');
 
 //TODO check from vs code
+//TODO FRONT test
 
 Auth::routes();
 

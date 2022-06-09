@@ -113,11 +113,15 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        dd($user);
+        $user->delete();
+
+        alert('عملیات موفقیت آمیز بود','کاربر با موفقیت ویرایش شد', 'success');
+        return back();
     }
 }
