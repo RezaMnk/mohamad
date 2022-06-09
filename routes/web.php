@@ -34,3 +34,7 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 Route::get('/test', function () {
    return route('login');
 });
+
+Route::get('/test2', function () {
+    return route('register');
+});
