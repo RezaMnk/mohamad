@@ -25,7 +25,7 @@ class User extends Authenticatable
         'vip',
         'zarin',
         'verified',
-        'role'
+        'admin'
     ];
 
     /**
@@ -69,7 +69,7 @@ class User extends Authenticatable
      */
     public function is_admin()
     {
-        return $this->role == 'admin';
+        return $this->admin;
     }
 
 }

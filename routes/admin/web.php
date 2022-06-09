@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'DashboardController@index')->name('index');
-Route::get('/users', 'UserController@index')->name('index');
 
+Route::resource('users', 'UserController');

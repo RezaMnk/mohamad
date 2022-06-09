@@ -11143,7 +11143,7 @@ body.dark .nav a.nav-link:not(.active):active {
 	.header .breadcrumb {
 		display: none;
 	}
-	
+
 	.text-xs-center {
 		text-align: center !important;
 	}
@@ -11526,4 +11526,14 @@ body.dark .ui-datepicker select {
     background-color: #222538;
     color: inherit;
     border-color: #404356;
+}
+
+
+/*-- Custom Css --*/
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
 }
