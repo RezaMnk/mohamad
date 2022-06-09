@@ -43,5 +43,5 @@
 <script src="{{ asset('admin/js/app.js') }}"></script>
 
 </body>
-
+@include('sweetalert::alert')
 </html>
