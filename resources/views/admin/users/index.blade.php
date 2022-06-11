@@ -19,7 +19,7 @@
                             <th scope="col">شماره تلفن</th>
                             <th scope="col">وضعیت زرین</th>
                             <th scope="col">کاربر ویژه</th>
-                            <th scope="col" style="width: 10%">عملیات</th>
+                            <th scope="col">عملیات</th>
                         </tr>
                     </thead>
                     <tbody>

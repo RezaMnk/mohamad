@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -48,6 +49,7 @@ class UserController extends Controller
         if ($request->has('vip'))
             $data['vip'] = true;
 
+        $data['password'] = Hash::make($data['password']);
         $data['verified'] = true;
 
         $user = User::create($data);
@@ -71,11 +73,14 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Request $request
+     * @param User $user
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit(User $user)
+    public function edit(Request $request,User $user)
     {
+        $request->session()->flash('redirect_url', $request->headers->get('referer'));
+
         return view('admin.users.edit', compact('user'));
     }
 
@@ -95,19 +100,21 @@ class UserController extends Controller
 
         if ($request->has('vip'))
             $data['vip'] = true;
+        else
+            $data['vip'] = false;
 
         if (!! $request->password) {
             $request->validate([
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
 
-            $data['password'] = $request->password;
+            $data['password'] = Hash::make($request->password);
         }
 
         $user->update($data);
 
         alert('عملیات موفقیت آمیز بود','کاربر با موفقیت ویرایش شد', 'success');
-        return back();
+        return redirect($request->session()->get('redirect_url'));
     }
 
     /**
@@ -123,5 +130,29 @@ class UserController extends Controller
 
         alert('عملیات موفقیت آمیز بود','کاربر با موفقیت ویرایش شد', 'success');
         return back();
+    }
+
+
+    /**
+     * Display a listing of the vip users.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function vip_users()
+    {
+        $users = User::where('admin', false)->where('vip', true)->paginate(20);
+        return view('admin.users.index', compact('users'));
+    }
+
+
+    /**
+     * Display a listing of the non-zarin users.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function noZarin_users()
+    {
+        $users = User::where('admin', false)->where('zarin', false)->paginate(20);
+        return view('admin.users.index', compact('users'));
     }
 }

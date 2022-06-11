@@ -15,11 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 })->name('index');
-
-//TODO check from vs code
-//TODO FRONT test
 
 Auth::routes();
 
@@ -33,8 +30,4 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 
 Route::get('/test', function () {
    return route('login');
-});
-
-Route::get('/test2', function () {
-    return route('register');
 });

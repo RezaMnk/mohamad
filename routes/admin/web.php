@@ -19,4 +19,43 @@ Route::get('/', function () {
 
 Route::get('/', 'DashboardController@index')->name('index');
 
-Route::resource('users', 'UserController');
+
+/*
+ * Users routes
+ */
+Route::prefix('users')->name('users.')->controller('UserController')->group(function () {
+    Route::get('/vip', 'vip_users')->name('vip');
+    Route::get('/non-zarin', 'noZarin_users')->name('nonzarin');
+});
+
+Route::resource('users', 'UserController')->except('show');
+
+
+/*
+ * Products routes
+ */
+Route::prefix('products')->name('products.')->controller('ProductController')->group(function () {
+    //
+});
+
+Route::resource('products', 'ProductController');
+
+
+/*
+ * Categories routes
+ */
+Route::prefix('categories')->name('categories.')->controller('ProductController')->group(function () {
+    //
+});
+
+Route::resource('categories', 'CategoryController');
+
+
+/*
+ * Orders routes
+ */
+Route::prefix('orders')->name('orders.')->controller('OrderController')->group(function () {
+    //
+});
+
+Route::resource('orders', 'OrderController');
