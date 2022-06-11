@@ -54,13 +54,13 @@
         <ul id="UserSubMenu">
             <li class="navigation-divider">کاربران</li>
             <li>
-                <a href="{{ route('users') }}">همه کاربران</a>
+                <a href="{{ route('admin.users.index') }}">همه کاربران</a>
             </li>
             <li>
-                <a href="{{ route('users/vip') }}">تایید کاربران</a>
+                <a href="{{ route('admin.users.vip') }}">تایید کاربران</a>
             </li>
             <li>
-                <a href="{{ route('users/unapproved') }}">مشتریان ویژه</a>
+                <a href="{{ route('admin.users.unapproved') }}">مشتریان ویژه</a>
             </li>
             <li>
                 <a href="#" class="mb-2">
