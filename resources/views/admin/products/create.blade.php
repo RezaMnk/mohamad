@@ -1,19 +1,31 @@
 @extends('admin.layouts.app')
 
 
-@section('title', 'Create User')
+@section('title', 'Create Products')
 
 @section('content')
-
+    
     <div class="row">
-        <!-- ستون سمت راست -->
-        <div class="col-12 col-md-9">
+        <!-- right col start -->
+        <div class="col-12 col-md-8">
+            <!-- title card : start  -->
+            <div class="card">
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="نام محصول">
+                </div>
+            </div>
+            <!-- title card : end  -->
+
+            <!-- description card : start  -->
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title"> توضیحات محصول </h6>
                     <textarea id="description"></textarea>
                 </div>
             </div>
+            <!-- description card : end  -->
+
+            <!-- price card : start -->
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">قیمت محصول</h6>
@@ -29,39 +41,24 @@
                     </form>
                 </div>
             </div>
-            <div class="card">
-                <div class="row">
-                    <div class="card-body">
-                        <h6 class="card-title">ویژگی محصول</h6>
-                        <div class="" tabindex="7" style="outline: none;">
-                            <div class="">
+            <!-- price card : end -->
 
-                                <div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="card-title">ورودی برچسب</h6>
-                                            <div class="bootstrap-tagsinput"> <span class="tag label label-info"> CSS3<span data-role="remove"></span></span> <span class="tag label label-info"> JavaScript<span data-role="remove"></span></span> <span class="tag label label-info"> Laravel<span data-role="remove"></span></span> <span class="tag label label-info">sksak<span data-role="remove"></span></span> <input type="text" placeholder="برچسب ها" size="8"></div><input type="text" class="form-control tagsinput" placeholder="برچسب ها" value="HTML5, CSS3, JavaScript, Laravel" style="display: none;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            
+            <!-- shor description card : start -->
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title"> توضیحات کوتاه محصول </h6>
-                    <textarea id="editor-demo2"></textarea>
+                    <textarea id="short-description"></textarea>
                 </div>
             </div>
-            <div class="card">
-                <p class="card-title">ویژگی های محصول </p>
-                <div class="card-body"></div>
-            </div>
+            <!-- shor description card : end -->
         </div>
-        <!-- ستون سمت چپ -->
-        <div class="col-9 col-md-3">
+        <!-- right col end -->
+
+        <!-- left col start -->
+        <div class="col-9 col-md-4">
+            <!-- detail card : start  -->
             <div class="card">
                 <div class="card-body">
                     <p class="card-title">نویسنده :‌رضا نداف</p>
@@ -71,6 +68,8 @@
                     </div>
                 </div>
             </div>
+            <!-- detail card : end  -->
+            <!-- categories card : start -->
             <div class="card">
                 <div class="card-body">
                     <div class="" tabindex="7" style="outline: none;">
@@ -117,10 +116,34 @@
                     </div>
                 </div>
             </div>
+            <!-- categories card : end -->
+            <!-- attributes card : start -->
+            <div class="card">
+                <div class="row">
+                    <div class="card-body">
+                        <h6 class="card-title">ویژگی محصول</h6>
+                        <div class="" tabindex="7" style="outline: none;">
+                            <div class="">
+
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 class="card-title">ورودی برچسب</h6>
+                                            <div class="bootstrap-tagsinput"> <span class="tag label label-info"> CSS3<span data-role="remove"></span></span> <span class="tag label label-info"> JavaScript<span data-role="remove"></span></span> <span class="tag label label-info"> Laravel<span data-role="remove"></span></span> <span class="tag label label-info">sksak<span data-role="remove"></span></span> <input type="text" placeholder="برچسب ها" size="8"></div><input type="text" class="form-control tagsinput" placeholder="برچسب ها" value="HTML5, CSS3, JavaScript, Laravel" style="display: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- attributes card : end -->
+            <!-- image card : start -->
             <div class="card text-center">
                 <div class="card-body">
                     <p class="card-title">تصویر محصول</p>
-                    <img src="./assets/media/image/photo3.jpg" style="max-width: 100%; padding: 20px;">
+                    <img src="https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg" style="max-width: 100%; padding: 20px;">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl" style="width: 45%;margin: 0 auto 20px 20px ;font-size: 14px;"> تغییر عکس </button>
                     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
@@ -143,11 +166,14 @@
                     </div>
                 </div>
             </div>
+            <!-- image card : end -->
         </div>
+        <!-- left col end -->
     </div>
 
 @endsection
 
 @section('footer-scripts')
     @ckeditor('description')
+    @ckeditor('short-description')
 @endsection

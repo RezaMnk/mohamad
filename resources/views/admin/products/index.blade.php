@@ -46,7 +46,7 @@
                                     <button type="button" class="btn btn-danger">ناموجود</button>
                                 </td>
                                 <td>
-                                    <a href="edit-product.html">
+                                <a href="{{ route('admin.products.create') }}">
                                         <button type="button" class="btn btn-warning btn-floating"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                     </a>
                                     <button type="button" class="btn btn-danger btn-floating"> <i class="ti-trash"></i> </button>
@@ -59,7 +59,7 @@
                                     <button type="button" class="btn btn-success">موجود</button>
                                 </td>
                                 <td>
-                                    <a href="edit-product.html">
+                                    <a href="{{ route('admin.products.create') }}">
                                         <button type="button" class="btn btn-warning btn-floating"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                     </a>
                                     <button type="button" class="btn btn-danger btn-floating"> <i class="ti-trash"></i> </button>
