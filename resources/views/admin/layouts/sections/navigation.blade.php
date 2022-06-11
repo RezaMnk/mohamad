@@ -190,13 +190,14 @@
         <ul id="ProductsSubMenu" class="{{ request()->routeIs('admin.products*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">محصولات</li>
             <li>
-                <a href="products.html">همه محصولات</a>
+                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">محصولات</a>
+            </li>
+            <!-- todo: add product categories routes  -->
+            <li>
+                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">دسته بندی ها</a>
             </li>
             <li>
-                <a href="category.html">دسته بندی ها</a>
-            </li>
-            <li>
-                <a href="attibute.html">ویژگی محصولات</a>
+                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">ویژگی محصولات</a>
             </li>
         </ul>
     </div>
