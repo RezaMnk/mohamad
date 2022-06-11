@@ -49,7 +49,6 @@ class UserController extends Controller
         if ($request->has('vip'))
             $data['vip'] = true;
 
-        $data['password'] = Hash::make($data['password']);
         $data['verified'] = true;
 
         $user = User::create($data);
@@ -107,8 +106,6 @@ class UserController extends Controller
             $request->validate([
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
-
-            $data['password'] = Hash::make($request->password);
         }
 
         $user->update($data);

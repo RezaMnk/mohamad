@@ -72,4 +72,15 @@ class User extends Authenticatable
         return $this->admin;
     }
 
+    /**
+     * Set hashed password attribute for user
+     *
+     * @param $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attribute = bcrypt($value);
+    }
+
 }

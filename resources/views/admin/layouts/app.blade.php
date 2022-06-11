@@ -41,7 +41,7 @@
 
 <!-- App scripts -->
 <script src="{{ asset('admin/js/app.js') }}"></script>
-@yield('footer-scripts')
+@yield('footer-assets')
 
 </body>
 @include('sweetalert::alert')

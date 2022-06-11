@@ -29,4 +29,7 @@
 
     <!-- App styles -->
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}" type="text/css">
+
+    <!-- Layout header assets -->
+    @yield('header-assets')
 </head>
