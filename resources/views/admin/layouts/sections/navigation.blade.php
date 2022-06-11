@@ -2,7 +2,7 @@
 <div class="navigation">
     <div class="navigation-icon-menu">
         <ul>
-            <li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" data-toggle="tooltip" title="داشبورد">
+            <li class="{{ request()->routeIs('admin.index') ? 'active' : '' }}" data-toggle="tooltip" title="داشبورد">
                 <a href="#navigationDashboards" title="داشبوردها">
                     <i class="icon ti-pie-chart"></i>
                     <span class="badge badge-warning">2</span>
@@ -26,16 +26,10 @@
         </ul>
     </div>
     <div class="navigation-menu-body">
-        <ul id="navigationDashboards" class="{{ request()->routeIs('admin.dashboard') ? 'navigation-active' : '' }}">
+        <ul id="navigationDashboards" class="{{ request()->routeIs('admin.index') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">صفحه اصلی</li>
             <li>
-                <a href="index.html">صفحه اصلی</a>
-            </li>
-            <li>
-                <a href="404.html">404 Error</a>
-            </li>
-            <li>
-                <a href="503.html">503 Error</a>
+                <a class="{{ request()->routeIs('admin.index') ? 'active' : '' }}" href="{{ route('admin.index') }}">صفحه اصلی</a>
             </li>
         </ul>
         <!-- user sub menu -->
