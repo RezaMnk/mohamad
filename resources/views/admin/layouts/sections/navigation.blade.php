@@ -2,65 +2,53 @@
 <div class="navigation">
     <div class="navigation-icon-menu">
         <ul>
-            <li class="active" data-toggle="tooltip" title="داشبورد">
+            <li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" data-toggle="tooltip" title="داشبورد">
                 <a href="#navigationDashboards" title="داشبوردها">
                     <i class="icon ti-pie-chart"></i>
                     <span class="badge badge-warning">2</span>
                 </a>
             </li>
-            <li data-toggle="tooltip" title="کاربران">
+            <li class="{{ request()->routeIs('admin.users*') ? 'active' : '' }}" data-toggle="tooltip" title="کاربران">
                 <a href="#UserSubMenu" title="کاربران">
                     <i class="icon ti-user"></i>
                 </a>
             </li>
-            <li data-toggle="tooltip" title="سفارشات">
+            <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}" data-toggle="tooltip" title="سفارشات">
                 <a href="#OrdersSubMenu" title="سفارشات">
                     <i class="icon ti-layout-list-thumb"></i>
                 </a>
             </li>
-            <li data-toggle="tooltip" title="محصولات">
+            <li class="{{ request()->routeIs('admin.products*') ? 'active' : '' }}" data-toggle="tooltip" title="محصولات">
                 <a href="#ProductsSubMenu" title="محصولات">
                     <i class="icon ti-bag"></i>
                 </a>
             </li>
         </ul>
-        <ul>
-            <li data-toggle="tooltip" title="ویرایش پروفایل">
-                <a href="#" class="go-to-page">
-                    <i class="icon ti-settings"></i>
-                </a>
-            </li>
-            <li data-toggle="tooltip" title="خروج">
-                <a href="login.html" class="go-to-page">
-                    <i class="icon ti-power-off"></i>
-                </a>
-            </li>
-        </ul>
     </div>
     <div class="navigation-menu-body">
-        <ul id="navigationDashboards" class="navigation-active">
+        <ul id="navigationDashboards" class="{{ request()->routeIs('admin.dashboard') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">صفحه اصلی</li>
             <li>
-                <a class="active" href="index.html">صفحه اصلی</a>
+                <a href="index.html">صفحه اصلی</a>
             </li>
             <li>
-                <a class="active" href="404.html">404 Error</a>
+                <a href="404.html">404 Error</a>
             </li>
             <li>
-                <a class="active" href="503.html">503 Error</a>
+                <a href="503.html">503 Error</a>
             </li>
         </ul>
         <!-- user sub menu -->
-        <ul id="UserSubMenu">
+        <ul id="UserSubMenu" class="{{ request()->routeIs('admin.users*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">کاربران</li>
             <li>
-                <a href="{{ route('admin.users.index') }}">همه کاربران</a>
+                <a class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">همه کاربران</a>
             </li>
             <li>
-                <a href="{{ route('admin.users.unapproved') }}">تایید کاربران</a>
+                <a class="{{ request()->routeIs('admin.users.unapproved') ? 'active' : '' }}" href="{{ route('admin.users.unapproved') }}">تایید کاربران</a>
             </li>
             <li>
-                <a href="{{ route('admin.users.vip') }}">مشتریان ویژه</a>
+                <a class="{{ request()->routeIs('admin.users.vip') ? 'active' : '' }}" href="{{ route('admin.users.vip') }}">مشتریان ویژه</a>
             </li>
             <li>
                 <a href="#" class="mb-2">
@@ -110,7 +98,7 @@
         </ul>
         <!-- user sub menu  -->
         <!-- Orders -->
-        <ul id="OrdersSubMenu">
+        <ul id="OrdersSubMenu" class="{{ request()->routeIs('admin.orders*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">سفارشات</li>
             <li>
                 <a href="orders.html">همه سفارشات</a>
@@ -205,7 +193,7 @@
         </ul>
         <!-- Orders  -->
         <!-- Products -->
-        <ul id="ProductsSubMenu">
+        <ul id="ProductsSubMenu" class="{{ request()->routeIs('admin.products*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">محصولات</li>
             <li>
                 <a href="products.html">همه محصولات</a>
