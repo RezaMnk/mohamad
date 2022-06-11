@@ -1,5 +1,9 @@
 @extends('admin.layouts.app')
 
+@section('header-assets')
+    <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}">
+@endsection
+
 
 @section('title', 'Create Products')
 
@@ -143,9 +147,19 @@
             <div class="card text-center">
                 <div class="card-body">
                     <p class="card-title">تصویر محصول</p>
-                    <img src="https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg" style="max-width: 100%; padding: 20px;">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl" style="width: 45%;margin: 0 auto 20px 20px ;font-size: 14px;"> تغییر عکس </button>
-                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-hidden="true">
+                    
+                    <div class="w-100 position-relative product-image" style="background-size: contain !important; background: url('https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg');">
+                        <div class="d-flex justify-content-center align-items-center position-absolute product-image-hover w-100" data-toggle="modal" data-target="#exampleModal">
+                                <i class="ti-pencil"></i>
+                           
+                        </div>
+                    </div>
+                    
+
+
+
+                    <!-- image modal : start -->
+                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-hidden="true" id="exampleModal">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -164,6 +178,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- image modal : end -->
                 </div>
             </div>
             <!-- image card : end -->
@@ -173,7 +188,9 @@
 
 @endsection
 
-@section('footer-scripts')
+@section('footer-assets')
+    <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
     @ckeditor('description')
     @ckeditor('short-description')
 @endsection
+

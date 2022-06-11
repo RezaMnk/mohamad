@@ -11537,3 +11537,27 @@ body.dark .ui-datepicker select {
 .ls-2 {
     letter-spacing: 2px;
 }
+
+/* papa styles : start  */
+.product-image {
+	padding-top: 100%; 
+}
+.product-image:hover .product-image-hover {
+	display: flex !important;
+}
+.product-image-hover > i {
+	font-size: 30px;
+}
+.product-image-hover {
+	display: none !important;
+	transition: 0.3s;
+	top: 0; 
+	padding: auto !important; 
+	height: 100% !important;
+	cursor: pointer;
+}
+.product-image-hover:hover {
+	display: flex !important;
+	background: rgba(255, 255, 255, 0.454) !important;
+	transition: 0.3s;
+}
