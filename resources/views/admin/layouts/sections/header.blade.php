@@ -16,7 +16,25 @@
 
         <div class="header-body-left">
 
-            <h3 class="page-title">داشبورد</h3>
+            <h3 class="page-title">@yield('title')</h3>
+
+            <!-- begin::breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    @foreach(Request::segments() as $key => $segment)
+                        @if($key == array_key_last(Request::segments()))
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{ __($segment) }}
+                        </li>
+                        @else
+                        <li class="breadcrumb-item">
+                            <a href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$key+1, true)))}}">{{ __($segment) }}</a>
+                        </li>
+                        @endif
+                    @endforeach
+                </ol>
+            </nav>
+            <!-- end::breadcrumb -->
         </div>
 
         <div class="header-body-right">
