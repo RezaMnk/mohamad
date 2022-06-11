@@ -41,6 +41,7 @@
 
 <!-- App scripts -->
 <script src="{{ asset('admin/js/app.js') }}"></script>
+@yield('footer-scripts')
 
 </body>
 @include('sweetalert::alert')
