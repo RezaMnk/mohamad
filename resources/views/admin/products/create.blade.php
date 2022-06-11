@@ -2,6 +2,8 @@
 
 @section('header-assets')
     <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}">
+    <link rel="stylesheet" href="https://ciar4n.com/izmir/assets/css/izmir.css">
+
 @endsection
 
 
@@ -46,17 +48,14 @@
                 </div>
             </div>
             <!-- price card : end -->
-
-
-            
-            <!-- shor description card : start -->
+            <!-- short description card : start -->
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title"> توضیحات کوتاه محصول </h6>
                     <textarea id="short-description"></textarea>
                 </div>
             </div>
-            <!-- shor description card : end -->
+            <!-- short description card : end -->
         </div>
         <!-- right col end -->
 
@@ -73,6 +72,42 @@
                 </div>
             </div>
             <!-- detail card : end  -->
+            <!-- image card : start -->
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">قیمت محصول</h6>
+                <figure class="c4-izmir c4-border-cc-2 c4-gradient-bottom-left c4-image-zoom-in" style="--primary-color: #ef6698; --secondary-color: #4028ac;">
+                    <img src="https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg" alt="Sample Image">
+                    <figcaption class="c4-layout-center-center" data-toggle="modal" data-target="#exampleModal">
+                        <div class="c4-izmir-icon-wrapper c4-fade">
+                            <h6 class="card-title">تصویر محصول</h6>
+                        </div>
+                    </figcaption>
+                </figure>
+                <!-- image modal : start -->
+                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-hidden="true" id="exampleModal">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title">انتخاب یا تعویض عکس شاخص</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="بستن">
+                                    <i class="ti-close"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" class="dropzone"></form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                                <button type="button" class="btn btn-primary">ذخیره تغییرات</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- image modal : end -->
+                </div>
+            </div>  
+            <!-- image card : end -->
             <!-- categories card : start -->
             <div class="card">
                 <div class="card-body">
@@ -143,49 +178,9 @@
                 </div>
             </div>
             <!-- attributes card : end -->
-            <!-- image card : start -->
-            <div class="card text-center">
-                <div class="card-body">
-                    <p class="card-title">تصویر محصول</p>
-                    
-                    <div class="w-100 position-relative product-image" style="background-size: contain !important; background: url('https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg');">
-                        <div class="d-flex justify-content-center align-items-center position-absolute product-image-hover w-100" data-toggle="modal" data-target="#exampleModal">
-                                <i class="ti-pencil"></i>
-                           
-                        </div>
-                    </div>
-                    
-
-
-
-                    <!-- image modal : start -->
-                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-hidden="true" id="exampleModal">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title">انتخاب یا تعویض عکس شاخص</h6>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="بستن">
-                                        <i class="ti-close"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="#" class="dropzone"></form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-                                    <button type="button" class="btn btn-primary">ذخیره تغییرات</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- image modal : end -->
-                </div>
-            </div>
-            <!-- image card : end -->
         </div>
-        <!-- left col end -->
     </div>
-
+    <!-- left col end -->
 @endsection
 
 @section('footer-assets')
