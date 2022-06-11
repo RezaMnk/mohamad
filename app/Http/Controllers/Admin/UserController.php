@@ -150,7 +150,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function noZarin_users()
+    public function unapproved()
     {
         $users = User::where('admin', false)->where('zarin', false)->paginate(20);
         return view('admin.users.index', compact('users'));
