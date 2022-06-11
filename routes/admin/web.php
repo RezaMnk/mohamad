@@ -25,7 +25,7 @@ Route::get('/', 'DashboardController@index')->name('index');
  */
 Route::prefix('users')->name('users.')->controller('UserController')->group(function () {
     Route::get('/vip', 'vip_users')->name('vip');
-    Route::get('/non-zarin', 'noZarin_users')->name('nonzarin');
+    Route::get('/unapproved', 'unapproved')->name('unapproved');
 });
 
 Route::resource('users', 'UserController')->except('show');
