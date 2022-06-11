@@ -11537,3 +11537,8 @@ body.dark .ui-datepicker select {
 .ls-2 {
     letter-spacing: 2px;
 }
+
+/* papa styles : start  */
+figure {
+	cursor: pointer;
+}
