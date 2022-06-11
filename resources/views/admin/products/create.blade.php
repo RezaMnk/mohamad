@@ -63,11 +63,12 @@
         <div class="col-9 col-md-4">
             <!-- detail card : start  -->
             <div class="card">
-                <div class="card-body">
-                    <p class="card-title">نویسنده :‌رضا نداف</p>
-                    <p class="card-title">تاریخ انتشار :‌۱۲ / ۰۲ / ۱۴۰۰</p>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-success">انتشار</button>
+                <div class="card-body row">
+                    <div class="col-8">
+                        <button type="button" class="btn btn-success w-100 justify-content-center">انتشار</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-danger w-100 justify-content-center">لغو</button>
                     </div>
                 </div>
             </div>
@@ -75,7 +76,7 @@
             <!-- image card : start -->
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">قیمت محصول</h6>
+                    <h6 class="card-title">تصویر محصول</h6>
                 <figure class="c4-izmir c4-border-cc-2 c4-gradient-bottom-left c4-image-zoom-in" style="--primary-color: #ef6698; --secondary-color: #4028ac;">
                     <img src="https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg" alt="Sample Image">
                     <figcaption class="c4-layout-center-center" data-toggle="modal" data-target="#exampleModal">
@@ -114,17 +115,12 @@
                     <div class="" tabindex="7" style="outline: none;">
                         <div class="">
                             <div class="h-drk">
-                                <tr>
-                                    <th scope="col">دسته بندی</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
+                                <h6 class="card-title">دسته بندی محصولات</h6>
                             </div>
                             <div>
                                 <div>
                                     <div scope="row">
-                                        <ul class="ul-c" style="margin-right: 20px;">
+                                        <ul class="overflow-auto border pt-2 pb-2 pr-3 pl-3">
                                             <li>
                                                 <input type="checkbox">دسته 1
                                             </li>
