@@ -52,6 +52,16 @@ Route::resource('categories', 'CategoryController')->except('create');
 
 
 /*
+ * Attributes routes
+ */
+Route::prefix('attributes')->name('attributes.')->controller('AttributeController')->group(function () {
+    //
+});
+
+Route::resource('attributes', 'AttributeController')->except('create');
+
+
+/*
  * Orders routes
  */
 Route::prefix('orders')->name('orders.')->controller('OrderController')->group(function () {

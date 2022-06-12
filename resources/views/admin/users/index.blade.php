@@ -7,9 +7,9 @@
     <div class="card">
         <div class="card-body">
             <div class="dataTables_wrapper dt-bootstrap4">
-                <div class="row">
+                <div class="row align-items-end">
                     <div class="col-sm-12 col-md-6">
-                        <a class="btn btn-primary align-items-end mb-2" href="{{ route('admin.users.create') }}">افزودن</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('admin.users.create') }}">افزودن</a>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div id="example1_filter" class="dataTables_filter">
