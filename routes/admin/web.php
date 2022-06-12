@@ -44,11 +44,11 @@ Route::resource('products', 'ProductController');
 /*
  * Categories routes
  */
-Route::prefix('categories')->name('categories.')->controller('ProductController')->group(function () {
+Route::prefix('categories')->name('categories.')->controller('CategoryController')->group(function () {
     //
 });
 
-Route::resource('categories', 'CategoryController');
+Route::resource('categories', 'CategoryController')->except('create');
 
 
 /*
