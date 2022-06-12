@@ -11542,3 +11542,21 @@ body.dark .ui-datepicker select {
 figure {
 	cursor: pointer;
 }
+.h-100px {
+	height: 100px !important;
+}
+.h-200px {
+	height: 200px !important;
+}
+.h-300px {
+	height: 300px !important;
+}
+.h-400px {
+	height: 400px !important;
+}
+.h-500px {
+	height: 500px !important;
+}
+.h-600px {
+	height: 600px !important;
+}

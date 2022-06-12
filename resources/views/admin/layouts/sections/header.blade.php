@@ -59,6 +59,7 @@
                             toggler.classList.add("fa-moon-o");
                         }
                     }
+                    
                 </script>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">

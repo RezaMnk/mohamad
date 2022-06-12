@@ -24,6 +24,39 @@
                 </a>
             </li>
         </ul>
+        <!-- setting ul  -->
+        <ul>
+            <li id="title-toggler" data-toggle="tooltip" title="" data-original-title="بستن منو کاربری"  onclick="menu_toggler()">
+                <a href="#" class="go-to-page">
+                    <i class="icon ti-arrow-right" id="menu-toggler"></i>
+                </a>
+            </li>
+            <script>
+                // todo : add to script file
+                function menu_toggler() {
+                    var element = document.body;
+                    var toggler = document.getElementById('menu-toggler');
+                    var title = document.getElementById('title-toggler');
+                    element.classList.toggle("small-navigation");
+                    if (element.classList.contains("small-navigation")) {
+                        toggler.classList.remove("ti-arrow-right");
+                        toggler.classList.add("ti-arrow-left");
+                        title.removeAttribute("data-original-title");
+                        title.setAttribute("data-original-title", "باز کردن منو کاربری");
+                    } else {
+                        title.removeAttribute("data-original-title");
+                        title.setAttribute("data-original-title", "بستن منو کاربری");
+                        toggler.classList.remove("ti-arrow-left");
+                        toggler.classList.add("ti-arrow-right");
+                    }
+                }
+            </script>
+            <li data-toggle="tooltip" title="" data-original-title="خروج">
+                <a href="login.html" class="go-to-page">
+                    <i class="icon ti-power-off"></i>
+                </a>
+            </li>
+        </ul>
     </div>
     <div class="navigation-menu-body">
         <ul id="navigationDashboards" class="{{ request()->routeIs('admin.index') ? 'navigation-active' : '' }}">

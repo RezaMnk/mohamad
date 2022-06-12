@@ -3,6 +3,7 @@
 @section('header-assets')
     <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}">
     <link rel="stylesheet" href="https://ciar4n.com/izmir/assets/css/izmir.css">
+    <link rel="stylesheet" href="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/css/select2.min.css">
 
 @endsection
 
@@ -10,7 +11,7 @@
 @section('title', 'Create Products')
 
 @section('content')
-    
+    <!-- row : start  -->
     <div class="row">
         <!-- right col start -->
         <div class="col-12 col-md-8">
@@ -68,7 +69,9 @@
                         <button type="button" class="btn btn-success w-100 justify-content-center">انتشار</button>
                     </div>
                     <div class="col-4">
-                        <button type="button" class="btn btn-danger w-100 justify-content-center">لغو</button>
+                        <a href="{{ route('admin.products.index') }}">
+                            <button type="button" class="btn btn-danger w-100 justify-content-center">لغو</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -110,77 +113,114 @@
             </div>  
             <!-- image card : end -->
             <!-- categories card : start -->
-            <div class="card">
+            <div class="card h-300px">
                 <div class="card-body">
-                    <div class="" tabindex="7" style="outline: none;">
-                        <div class="">
-                            <div class="h-drk">
-                                <h6 class="card-title">دسته بندی محصولات</h6>
+                    <h6 class="card-title">دسته بندی محصولات</h6>
+                    <div class="h-200px overflow-auto">
+                        <div class="overflow-auto mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
                             </div>
-                            <div>
-                                <div>
-                                    <div scope="row">
-                                        <ul class="overflow-auto border pt-2 pb-2 pr-3 pl-3">
-                                            <li>
-                                                <input type="checkbox">دسته 1
-                                            </li>
-                                            <li>
-                                                <input type="checkbox">دسته 2
-                                            </li>
-                                            <li>
-                                                <ul>
-                                                    <li>
-                                                        <input type="checkbox">دسته 1
-                                                    </li>
-                                                    <li>
-                                                        <input type="checkbox">دسته 2
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox">دسته 3
-                                            </li>
-                                            <li>
-                                                <input type="checkbox">دسته 4
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            <div class="form-check ml-2">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check ml-4">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check ml-4">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check ml-6">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check ml-6">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check ml-6">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
+                
             </div>
             <!-- categories card : end -->
             <!-- attributes card : start -->
             <div class="card">
-                <div class="row">
-                    <div class="card-body">
-                        <h6 class="card-title">ویژگی محصول</h6>
-                        <div class="" tabindex="7" style="outline: none;">
-                            <div class="">
-
-                                <div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="card-title">ورودی برچسب</h6>
-                                            <div class="bootstrap-tagsinput"> <span class="tag label label-info"> CSS3<span data-role="remove"></span></span> <span class="tag label label-info"> JavaScript<span data-role="remove"></span></span> <span class="tag label label-info"> Laravel<span data-role="remove"></span></span> <span class="tag label label-info">sksak<span data-role="remove"></span></span> <input type="text" placeholder="برچسب ها" size="8"></div><input type="text" class="form-control tagsinput" placeholder="برچسب ها" value="HTML5, CSS3, JavaScript, Laravel" style="display: none;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <h6 class="card-title">ویژگی محصولات</h6>
+                    <select class="js-example-basic-single select2-hidden-accessible" multiple="" data-select2-id="12" tabindex="-1" aria-hidden="true">
+                        <option data-select2-id="39">انتخاب</option>
+                        <optgroup label="شهرها" data-select2-id="40">
+                            <option value="Wonosari" data-select2-id="41">تبریز</option>
+                            <option value="Antipolo" data-select2-id="42">تهران</option>
+                            <option value="Lesuhe" data-select2-id="43">اصفهان</option>
+                            <option selected="" value="Sunzhuang" data-select2-id="14">شیراز</option>
+                            <option value="Hongchuan" data-select2-id="44">همدان</option>
+                        </optgroup>
+                        <optgroup label="کشورها" data-select2-id="45">
+                            <option value="France" data-select2-id="46">ایران</option>
+                            <option selected="" value="Brazil" data-select2-id="15">برزیل</option>
+                            <option selected="" value="Yemen" data-select2-id="16">ایتالیا</option>
+                            <option selected="" value="United States" data-select2-id="17">آلمان</option>
+                            <option value="China" data-select2-id="47">چین</option>
+                            <option value="Argentina" data-select2-id="48">آرژانتین</option>
+                            <option value="Bulgaria" data-select2-id="49">اسپانیا</option>
+                        </optgroup>
+                    </select>                                            
                 </div>
             </div>
             <!-- attributes card : end -->
         </div>
+        <!-- left col : end -->
     </div>
-    <!-- left col end -->
+    <!-- row : end -->
 @endsection
 
 @section('footer-assets')
     <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
+    <script src="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/js/select2.min.js"></script>
+    <script src="https://v3dboy.ir/previews/html/nextable/default/assets/js/examples/select2.js"></script>
     @ckeditor('description')
     @ckeditor('short-description')
 @endsection
