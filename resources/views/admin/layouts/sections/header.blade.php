@@ -45,7 +45,7 @@
                         <i class="fa fa-moon-o" id="dark-mode-toggler"></i>
                     </a>
                 </li>
-                <!-- todo : add to script  -->
+                <!-- TODO : add to script  -->
                 <script>
                     function darkmode() {
                         var element = document.body;

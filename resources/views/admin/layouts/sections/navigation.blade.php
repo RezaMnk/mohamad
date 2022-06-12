@@ -32,7 +32,7 @@
                 </a>
             </li>
             <script>
-                // todo : add to script file
+                // TODO : add to script file
                 function menu_toggler() {
                     var element = document.body;
                     var toggler = document.getElementById('menu-toggler');
@@ -225,7 +225,7 @@
             <li>
                 <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">محصولات</a>
             </li>
-            <!-- todo: add product categories routes  -->
+            <!-- TODO: add product categories routes  -->
             <li>
                 <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">دسته بندی ها</a>
             </li>

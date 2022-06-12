@@ -2,6 +2,7 @@
 
 @section('header-assets')
     <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}">
+    <!-- TODO : all cdns should be local  -->
     <link rel="stylesheet" href="https://ciar4n.com/izmir/assets/css/izmir.css">
     <link rel="stylesheet" href="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/css/select2.min.css">
 
@@ -219,6 +220,7 @@
 
 @section('footer-assets')
     <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
+    <!-- TODO : all cdn should be local -->
     <script src="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/js/select2.min.js"></script>
     <script src="https://v3dboy.ir/previews/html/nextable/default/assets/js/examples/select2.js"></script>
     @ckeditor('description')
