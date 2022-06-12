@@ -40,10 +40,31 @@
         <div class="header-body-right">
             <!-- begin::navbar main body -->
             <ul class="navbar-nav">
+                <li class="nav-item"  onclick="darkmode()">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-moon-o" id="dark-mode-toggler"></i>
+                    </a>
+                </li>
+                <!-- todo : add to script  -->
+                <script>
+                    function darkmode() {
+                        var element = document.body;
+                        var toggler = document.getElementById('dark-mode-toggler');
+                        element.classList.toggle("dark");
+                        if (element.classList.contains("dark")) {
+                            toggler.classList.remove("fa-moon-o");
+                            toggler.classList.add("fa-sun-o");
+                        } else {
+                            toggler.classList.remove("fa-sun-o");
+                            toggler.classList.add("fa-moon-o");
+                        }
+                    }
+                </script>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fa fa-home"></i>
                     </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link" data-toggle="dropdown">
                         <i class="ti-plus"></i>
