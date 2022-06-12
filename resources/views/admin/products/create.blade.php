@@ -82,7 +82,7 @@
                 <div class="card-body">
                     <h6 class="card-title">تصویر محصول</h6>
                 <figure class="c4-izmir c4-border-cc-2 c4-gradient-bottom-left c4-image-zoom-in" style="--primary-color: #ef6698; --secondary-color: #4028ac;">
-                    <img src="https://media.gucci.com/style/HEXFFC7D4_Center_0_0_1200x1200/1652199383/702895_J1631_8029_001_100_0000_Light-adidas-x-Gucci-gourmette-necklace-with-Trefoil-pendant.jpg" alt="Sample Image">
+                    <img src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Sample Image">
                     <figcaption class="c4-layout-center-center" data-toggle="modal" data-target="#exampleModal">
                         <div class="c4-izmir-icon-wrapper c4-fade">
                             <h6 class="card-title">تصویر محصول</h6>
