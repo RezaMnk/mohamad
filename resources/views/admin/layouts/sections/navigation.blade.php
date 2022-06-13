@@ -227,7 +227,7 @@
             </li>
             <!-- TODO: add product categories routes  -->
             <li>
-                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">دسته بندی ها</a>
+            <a class="{{ request()->routeIs('admin.categories.index') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">دسته بندی محصولات</a>
             </li>
             <li>
                 <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">ویژگی محصولات</a>
