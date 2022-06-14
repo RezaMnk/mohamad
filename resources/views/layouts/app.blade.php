@@ -5,7 +5,7 @@
 @include('layouts.sections.head')
 
 <body dir="rtl">
-    <div id="page_wrapper" class="bg-white">
+    <div id="page_wrapper" class="bg-dark">
 
         @include('layouts.sections.header')
 

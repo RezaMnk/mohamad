@@ -1,5 +1,5 @@
 <!--==================== Footer Section Start ====================-->
-<footer class="full-row bg-white p-0">
+<footer class="full-row bg-dark p-0">
     <div class="container">
         <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
             <div class="col">
@@ -61,7 +61,7 @@
 <!--==================== Footer Section End ====================-->
 
 <!--==================== Copyright Section Start ====================-->
-<div class="full-row copyright bg-white py-3">
+<div class="full-row copyright bg-dark py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
