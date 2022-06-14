@@ -185,9 +185,9 @@
                                     <div class="product-wrapper">
                                         <div class="product-image">
                                             <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img class="product-hover" src="{{ asset('storage/site') }}/products/squire-268.png" alt="Product Image"></a>
-                                            
-                                            
-                                            
+
+
+
 
 
                                             <div class="product-variations">
@@ -918,16 +918,16 @@
         <!--==================== Inspirational Posts Section End ====================-->
 
         <div class="d-none" style="height: 100vh;width: 100%; position: fixed; top: 0; background: red; z-index: 999;" id="product-background-image">
-            
+
         </div>
-        
+
         <script>
             let product_hovers = document.querySelectorAll('.product-hover');
             let hoverbg = document.getElementById("product-background-image");
             product_hovers.forEach(
                 function(item){
                     item.addEventListener('mouseover', function(){
-                        this.style.zIndex = "99999999";
+                        this.style.zIndex = "1000";
                         hoverbg.classList.remove('d-none');
                         hoverbg.classList.add('d-block');
                         hoverbg.style.background = `url(${this.src}) no-repeat`;
@@ -938,17 +938,14 @@
                     });
                 }
             );
-            
+
         </script>
         <style>
             .product-hover {
-                z-index: 1000 !important;
+                position: relative;
             }
             main{
                 z-index: 2 !important;
-            }
-            .product-hover:hover #product-background-image{
-                display: block !important;
             }
         </style>
 @endsection

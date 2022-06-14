@@ -67,7 +67,7 @@
                         </table>
                     </div>
                 </div>
-                {{ $users->appends(Request::get())->links() }}
+                {{ $users->appends(Request::all())->links() }}
             </div>
         </div>
     </div>
