@@ -12,11 +12,12 @@
                         <a class="btn btn-primary mb-2" href="{{ route('admin.users.create') }}">افزودن</a>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                        <div id="example1_filter" class="dataTables_filter">
-                            <label>جستجو:
-                                <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">
+                        <form class="d-flex justify-content-end">
+
+                            <label for="search">جستجو:
+                            <input type="search" id="search" class="form-control form-control-sm" name="search" value="{{ request('search') ?? '' }}">
                             </label>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="row">
@@ -66,7 +67,7 @@
                         </table>
                     </div>
                 </div>
-                {{ $users->links() }}
+                {{ $users->appends(Request::get())->links() }}
             </div>
         </div>
     </div>

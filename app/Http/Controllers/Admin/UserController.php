@@ -18,7 +18,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('admin', false)->paginate(2);
+        $users = User::query();
+
+        if ($keyword = request('search')) {
+            $users->where('name', 'LIKE', "%$keyword%")->orWhere('phone', 'LIKE', "%$keyword%");
+        }
+
+        $users = $users->latest()->paginate(2);
         return view('admin.users.index', compact('users'));
     }
 
@@ -152,4 +158,5 @@ class UserController extends Controller
         $users = User::where('admin', false)->where('zarin', false)->paginate(20);
         return view('admin.users.index', compact('users'));
     }
+
 }
