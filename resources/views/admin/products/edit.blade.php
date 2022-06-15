@@ -13,7 +13,7 @@
 
 @section('content')
     <!-- row : start  -->
-    <div class="row">
+    <form action="{{ route('admin.products.update', $product->id) }}" class="row">
         <!-- right col start -->
         <div class="col-12 col-md-9">
             <!-- title card : start  -->
@@ -213,7 +213,7 @@
             <!-- categories card : end -->
         </div>
         <!-- left col : end -->
-    </div>
+    </form>
     <!-- row : end -->
 @endsection
 

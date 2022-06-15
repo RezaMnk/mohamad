@@ -20,7 +20,7 @@
 + Table Style
 + Shop Page Style
 	- Cart Page CSS
-	
+
 + Layout Position
 + Owl Carusel
 + Tab Nav
@@ -48,7 +48,7 @@
 + Social Media Style
 + Footer Style
 + Case Study
-+ Responsive Media Query CSS 
++ Responsive Media Query CSS
 
 --------------------------------------------------------*/
 
@@ -708,11 +708,11 @@ a.demo-example span {
 }
 
 
-/* a.text-primary:focus, 
+/* a.text-primary:focus,
 a.text-primary:hover,
 a.text-dark:hover,
 a.text-dark:focus {
-	color: 
+	color:
 } */
 
 [class*="overlay-"],
@@ -4872,7 +4872,7 @@ Newsletter Style
 
 
 /*====================================================
-	Responsive Media Query CSS 
+	Responsive Media Query CSS
 ======================================================*/
 
 .multi-demo li {
@@ -6625,4 +6625,8 @@ Newsletter Style
     .xs-d-none {
         display: none !important
     }
+}
+
+.cke_dialog *, .cke_editable *, .cke_1 * {
+    font-family: var(--theme-general-font) !important;
 }
