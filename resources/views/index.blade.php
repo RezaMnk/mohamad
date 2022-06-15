@@ -938,7 +938,6 @@
                     });
                 }
             );
-
         </script>
         <style>
             .product-hover {

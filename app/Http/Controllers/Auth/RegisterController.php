@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', 'digits:11', 'unique:users'],
+            'phone' => ['required', 'numeric', 'regex:/^09[0|1|2|3][0-9]{8}$/', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'g-recaptcha-response' => ['required', new Recaptcha],
         ]);
@@ -67,11 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
-        ]);
+        return User::create($data);
     }
 
     /**

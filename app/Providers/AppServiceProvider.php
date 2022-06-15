@@ -27,18 +27,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrapFive();
-
-        Blade::directive('recaptcha', function () {
-            return "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
-        <div class=\"g-recaptcha\" data-sitekey=\"{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}\"></div>";
-        });
-
-        Blade::directive('ckeditor', function ($textareaId) {
-            return
-                "<script src=\"https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js\"></script>
-                <script>
-                    CKEDITOR.replace($textareaId);
-                </script>";
-        });
     }
 }

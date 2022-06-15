@@ -48,7 +48,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', 'digits:11', 'unique:users'],
+            'phone' => ['required', 'numeric', 'regex:/^09[0|1|2|3][0-9]{8}$/', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -61,18 +61,6 @@ class UserController extends Controller
 
         alert('عملیات موفقیت آمیز بود','کاربر با موفقیت به لیست کاربران افزوده شد', 'success');
         return redirect()->route('admin.users.index');
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -82,7 +70,7 @@ class UserController extends Controller
      * @param User $user
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit(Request $request,User $user)
+    public function edit(Request $request, User $user)
     {
         $request->session()->flash('redirect_url', $request->headers->get('referer'));
 
@@ -100,7 +88,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', 'digits:11', Rule::unique('users')->ignore($user->id)],
+            'phone' => ['required', 'numeric', 'regex:/^09[0|1|2|3][0-9]{8}$/', Rule::unique('users')->ignore($user->id)],
         ]);
 
         if ($request->has('vip'))
@@ -128,7 +116,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        dd($user);
         $user->delete();
 
         alert('عملیات موفقیت آمیز بود','کاربر با موفقیت ویرایش شد', 'success');

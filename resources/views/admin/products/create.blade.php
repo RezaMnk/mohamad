@@ -15,7 +15,7 @@
     <!-- row : start  -->
     <div class="row">
         <!-- right col start -->
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-9">
             <!-- title card : start  -->
             <div class="card">
                 <div class="card-body">
@@ -88,7 +88,7 @@
         <!-- right col end -->
 
         <!-- left col start -->
-        <div class="col-9 col-md-4">
+        <div class="col-12 col-md-3">
             <!-- detail card : start  -->
             <div class="card">
                 <div class="card-body row">
@@ -137,7 +137,7 @@
                 </div>
                 <!-- image modal : end -->
                 </div>
-            </div>  
+            </div>
             <!-- image card : end -->
             <!-- categories card : start -->
             <div class="card h-300px">
@@ -206,10 +206,10 @@
                                 <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
             <!-- categories card : end -->
         </div>
@@ -223,7 +223,6 @@
     <!-- TODO : all cdn should be local -->
     <script src="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/js/select2.min.js"></script>
     <script src="https://v3dboy.ir/previews/html/nextable/default/assets/js/examples/select2.js"></script>
-    @ckeditor('description')
-    @ckeditor('short-description')
+    <x-ckeditor :text-area-id="['description', 'short-description']"></x-ckeditor>
 @endsection
 

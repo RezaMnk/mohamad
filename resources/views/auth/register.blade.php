@@ -70,7 +70,7 @@
                         <div class="row mb-3">
                             <div class="col-md-4">{{-- Only For Gap --}}</div>
                             <div class="col-md-6">
-                                @recaptcha
+                                <x-recaptcha :has-error="$errors->has('g-recaptcha-response')"></x-recaptcha>
                             </div>
                         </div>
 

@@ -38,7 +38,7 @@ Route::prefix('products')->name('products.')->controller('ProductController')->g
     //
 });
 
-Route::resource('products', 'ProductController');
+Route::resource('products', 'ProductController')->except('show');
 
 
 /*
