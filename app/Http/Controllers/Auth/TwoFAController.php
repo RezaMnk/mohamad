@@ -50,7 +50,7 @@ class TwoFAController extends Controller
 
             auth()->loginUsingId($user->id, session()->get('user.user_id'));
 
-            $user->TwoFA()->delete();
+            $user->twoFA()->delete();
 
             $user->verify();
 
@@ -104,7 +104,7 @@ class TwoFAController extends Controller
                 $code = mt_rand(1000, 9999);
             } while ($this->checkCodeUnique($user, $code));
 
-            $user->TwoFA()->create([
+            $user->twoFA()->create([
                 'code' => $code,
                 'expired_at' => now()->addMinutes(10)
             ]);
@@ -122,11 +122,11 @@ class TwoFAController extends Controller
      */
     private function checkCodeUnique($user, int $code)
     {
-        return !! $user->TwoFA()->whereCode($code)->first();
+        return !! $user->twoFA()->whereCode($code)->first();
     }
 
     private function getAliveCode($user)
     {
-        return $user->TwoFA()->where('expired_at', '>', now())->first();
+        return $user->twoFA()->where('expired_at', '>', now())->first();
     }
 }

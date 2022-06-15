@@ -47,7 +47,7 @@ class ProductController extends Controller
 
         ]);
 
-        $product = Product::create($data);
+        auth()->user()->products()->create($data);
 
         alert('عملیات موفقیت آمیز بود','محصول با موفقیت به لیست محصولات اضافه شد', 'success');
         return redirect()->route('admin.products.index');

@@ -39,13 +39,23 @@ class User extends Authenticatable
     ];
 
     /**
-     * Relation connection with Two Factor Ath
+     * Relation connection with Two Factor Auth
      *
      * @return HasMany
      */
-    public function TwoFA()
+    public function twoFA()
     {
         return $this->hasMany(TwoFA::class);
+    }
+
+    /**
+     * Relation connection with Products
+     *
+     * @return HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     /**

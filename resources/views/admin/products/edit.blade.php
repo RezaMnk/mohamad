@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title"> توضیحات محصول </h6>
-                    <textarea id="description"  value="{{ $product->description }}"></textarea>
+                    <textarea id="description" class="cke_rtl">{{ $product->description }}</textarea>
                 </div>
             </div>
             <!-- description card : end  -->
@@ -37,17 +37,15 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">مشخصات محصول</h6>
-                    <form _lpchecked="1">
-                        <div class="form-row">
-                            <div class="col-6">
-                                <input type="text" class="form-control"  value="{{ $product->id }}">
-                            </div>
-                            <div class="col">
-                                //TODO: code mahsool
-                                <input type="text" class="form-control text-left" placeholder="کد محصول" dir="ltr">
-                            </div>
+                    <div class="form-row">
+                        <div class="col-6">
+                            <input type="text" class="form-control"  value="{{ $product->id }}">
                         </div>
-                    </form>
+                        <div class="col">
+                            <!-- TODO: Code mahsool -->
+                            <input type="text" class="form-control text-left" value="{{ $product->code }}" dir="ltr">
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- price card : end -->
