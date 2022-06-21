@@ -15,14 +15,16 @@ class Category extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
+        'name',
         'parent_id'
     ];
 
+    // use children relationship
 
-    public function child()
+
+    public function children()
     {
-        $this->hasMany(Category::class, 'parent_id', 'id');
+        return $this->hasMany(Category::class, 'parent_id', 'id');
     }
 
     public function products()

@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-//    return view('index');
-    return jdate();
+    return view('index');
 })->name('index');
 
 Auth::routes();

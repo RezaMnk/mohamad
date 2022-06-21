@@ -15,13 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::query();
-
-        if ($keyword = request('search')) {
-            $categories->where('title', 'LIKE', "%$keyword%");
-        }
-
-        $categories = $categories->latest()->paginate(20);
+        $categories = Category::where('parent_id', 0)->get();
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -43,11 +37,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
         ]);
 
-        Category::create($data);
+        // validate parent_id and must be different with id
+//        TODO
+        if ($request->parent_id)
+            $request->validate([
+                'parent_id' => ['required', 'numeric', 'exists:categories,id', 'different:id']
+            ]);
+
+        Category::create($request->all());
 
         alert('عملیات موفقیت آمیز بود','دسته بندی با موفقیت به لیست اضافه شد', 'success');
         return redirect()->route('admin.categories.index');
@@ -61,7 +62,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        $categories = Category::where('parent_id', 0)->get();
+        return view('admin.categories.index', compact('category', 'categories'));
     }
 
     /**
@@ -73,15 +75,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $data = $request->validate([
-
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
         ]);
 
+        if ($request->parent_id)
+            $request->validate([
+                'parent_id' => ['required', 'numeric', 'exists:categories,id', 'different:id']
+            ]);
 
-        $category->update($data);
+        $category->update($request->all());
 
         alert('عملیات موفقیت آمیز بود','دسته بندی با موفقیت ویرایش شد', 'success');
-        return redirect($request->session()->get('redirect_url'));
+        return redirect()->route('admin.categories.index');
     }
 
     /**
