@@ -21,7 +21,7 @@ class ProductController extends Controller
             $products->where('title', 'LIKE', "%$keyword%")->orWhere('description', 'LIKE', "%$keyword%")->orWhere('short_description', 'LIKE', "%$keyword%");
         }
 
-        $products = $products->latest()->paginate(2);
+        $products = $products->latest()->paginate(20);
         return view('admin.products.index', compact('products'));
     }
 
@@ -47,7 +47,7 @@ class ProductController extends Controller
 
         ]);
 
-        auth()->user()->products()->create($data);
+        Product::create($data);
 
         alert('عملیات موفقیت آمیز بود','محصول با موفقیت به لیست محصولات اضافه شد', 'success');
         return redirect()->route('admin.products.index');
@@ -94,7 +94,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        alert('عملیات موفقیت آمیز بود','کاربر با موفقیت ویرایش شد', 'success');
+        alert('عملیات موفقیت آمیز بود','محصول با موفقیت حذف شد', 'success');
         return back();
     }
 }

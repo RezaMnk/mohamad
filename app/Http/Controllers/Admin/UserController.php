@@ -24,7 +24,7 @@ class UserController extends Controller
             $users->where('name', 'LIKE', "%$keyword%")->orWhere('phone', 'LIKE', "%$keyword%");
         }
 
-        $users = $users->latest()->paginate(2);
+        $users = $users->latest()->paginate(20);
         return view('admin.users.index', compact('users'));
     }
 

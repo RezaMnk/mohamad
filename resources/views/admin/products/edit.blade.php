@@ -13,7 +13,9 @@
 
 @section('content')
     <!-- row : start  -->
-    <form action="{{ route('admin.products.update', $product->id) }}" class="row">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="post" class="row">
+        @csrf
+        @method('patch')
         <!-- right col start -->
         <div class="col-12 col-md-9">
             <!-- title card : start  -->
@@ -92,7 +94,7 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col-8">
-                        <button type="submit" class="btn btn-success w-100 justify-content-center">انتشار</button>
+                        <button type="submit" class="btn btn-success w-100 justify-content-center">بروزرسانی</button>
                     </div>
                     <div class="col-4">
                         <a href="{{ route('admin.products.index') }}">

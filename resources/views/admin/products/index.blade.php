@@ -33,26 +33,28 @@
                             </thead>
                             <tbody>
                             @foreach($products as $k => $product)
-                                <tr role="row" class="{{ $k % 2 == 0 ? 'odd' : 'even' }}">
+                                <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }}">
                                     <td class="sorting_1" tabindex="0">
                                         <img src="{{ $product->title }}" alt="{{ $product->title }}" width="50px">
                                         <span>
-                                            {{ $product->title }}
+                                            {{ $product->name }}
                                         </span>
                                     </td>
-                                    <td>13662548</td>
+                                    <td>
+                                        {{ $product->code }}
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-danger">ناموجود</button>
                                     </td>
                                     <td>
-                                    <a href="{{ route('admin.products.edit', $product->id) }}">
-                                        <button type="button" class="btn btn-warning btn-floating">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        <a href="{{ route('admin.products.edit', $product->id) }}">
+                                            <button type="button" class="btn btn-warning btn-floating">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            </button>
+                                        </a>
+                                        <button type="button" class="btn btn-danger btn-floating">
+                                            <i class="ti-trash"></i>
                                         </button>
-                                    </a>
-                                    <button type="button" class="btn btn-danger btn-floating">
-                                        <i class="ti-trash"></i>
-                                    </button>
                                     </td>
                                 </tr>
                             @endforeach

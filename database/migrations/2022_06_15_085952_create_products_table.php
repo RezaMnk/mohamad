@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->integer('code');
             $table->text('description');
             $table->text('short_description')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('view_count')->default(0);
             $table->timestamps();
         });

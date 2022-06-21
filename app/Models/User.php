@@ -49,16 +49,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Relation connection with Products
-     *
-     * @return HasMany
-     */
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-
-    /**
      * Verify the user authentication
      *
      * @return void
