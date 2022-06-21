@@ -918,7 +918,7 @@
         <!--==================== Inspirational Posts Section End ====================-->
 
         <div class="d-none" style="height: 100vh;width: 100%; position: fixed; top: 0; background: red; z-index: 999;" id="product-background-image">
-
+            <div></div>
         </div>
 
         <script>
@@ -940,6 +940,14 @@
             );
         </script>
         <style>
+            #product-background-image > div{
+                width: 100%;
+                height: 100%;
+                -webkit-backdrop-filter: blur(20px) !important;
+                -o-backdrop-filter: blur(20px) !important;
+                -ms-backdrop-filter: blur(20px) !important;
+                backdrop-filter: blur(20px) !important;
+            }
             .product-hover {
                 position: relative;
             }
