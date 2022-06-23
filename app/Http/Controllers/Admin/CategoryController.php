@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         // validate parent_id and must be different with id
 //        TODO
-        if ($request->parent_id)
+        if ($request->parent_id != 0)
             $request->validate([
                 'parent_id' => ['required', 'numeric', 'exists:categories,id', 'different:id']
             ]);

@@ -19,11 +19,11 @@
             <h6 class="card-title">ایجاد / تغییر</h6>
             @if(isset($category))
                 <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
-                    @csrf
                     @method('PATCH')
             @else
-                <form action="{{ route('admin.categories.store') }}">
+                <form action="{{ route('admin.categories.store') }}" method="post">
             @endif
+                @csrf
 
                 @if($errors->any())
                     <div class="alert alert-danger">
