@@ -1,4 +1,4 @@
-/**	
+/**
 * Template Name: BigBazar - Multipurpose Ecommerce HTML Template
 * Version: 1.1
 * Author: Unicoder
@@ -14,18 +14,18 @@
 [ Table of contents ]
 
 # Common CSS Start
-# Time Counting Style Start 
+# Time Counting Style Start
 # Form Style Start
 # Side push nav and category Style Start
 # Popular Categories in Electronic Style Start
-# Category's Sub Categories in fashion store Style Start 
+# Category's Sub Categories in fashion store Style Start
 # Categroy List in Grocery Store Style Start
 # Quick View Modal Style Start
 # Header Section
     - Top Header Section Style Start
     - Main Header Section Style Start
     - Mega Menu Navigation Style Start
-# Slider banner part css Style Start 
+# Slider banner part css Style Start
 # Bootstrap Slider Style Start
 # Breadcrumb Style Start
 # Extra Banner Style Start
@@ -93,6 +93,13 @@
 	font-family: IRANYekan;
 	src: url('fonts/IRANYekan/eot/iranyekanwebbold.eot');
 	src: url('fonts/IRANYekan/eot/iranyekanwebbold.eot') format('embedded-opentype'), url('fonts/IRANYekan/woff/iranyekanwebboldfanum.woff') format('woff'), url('fonts/IRANYekan/ttf/iranyekanwebbold.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal
+}
+@font-face {
+	font-family: IranNastaliq;
+	src: url('fonts/IranNastaliq/IranNastaliq.eot');
+	src: url('fonts/IranNastaliq/IranNastaliq.eot') format('embedded-opentype'), url('fonts/IranNastaliq/IranNastaliq.woff') format('woff'), url('fonts/IranNastaliq/IranNastaliq.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal
 }
@@ -850,7 +857,7 @@ img.nav-logo {
 
 
 /*====================================================================
-Icons Style Start 
+Icons Style Start
 ====================================================================*/
 
 [class*="unicode-icon"] {
@@ -916,7 +923,7 @@ Icons Style Start
 
 
 /*====================================================================
-Time Counting Style Start 
+Time Counting Style Start
 ====================================================================*/
 
 .time-count ul {
@@ -1301,7 +1308,7 @@ Popular Categories in Electronic Style Start
 
 
 /*====================================================================
-Category's Sub Categories in fashion store Style Start 
+Category's Sub Categories in fashion store Style Start
 ====================================================================*/
 
 ul.sub-categories li a {
@@ -1721,8 +1728,8 @@ Main Header Section Style Start
     align-items: center;
 }
 
-.wishlist-view span.header-wishlist-count, 
-.refresh-view span.header-compare-count, 
+.wishlist-view span.header-wishlist-count,
+.refresh-view span.header-compare-count,
 [class*="header-cart-"] .cart .cart-icon .header-cart-count {
     position: absolute;
     width: 24px;
@@ -1865,8 +1872,8 @@ Main Header Section Style Start
 	position: relative;
 }
 
-.top-header [class*="header-cart-"] .cart-icon, .search-view>a, 
-.top-header .wishlist-view>a, 
+.top-header [class*="header-cart-"] .cart-icon, .search-view>a,
+.top-header .wishlist-view>a,
 .top-header .refresh-view>a,
 .top-header .sign-in > a {
     width: 30px;
@@ -1902,7 +1909,7 @@ Main Header Section Style Start
 }
 
 /*====================================================================
-Slider banner part css Style Start 
+Slider banner part css Style Start
 =====================================================================*/
 
 .slider-banner {
@@ -3108,7 +3115,7 @@ a.add_to_cart_button:hover,
     line-height: 36px;
 }
 
-.product-style-3 .product-wrapper .wishlist-button a::after, 
+.product-style-3 .product-wrapper .wishlist-button a::after,
 .product-style-3 .product-wrapper .compare-button a::after {
 	left: initial;
 	right: 0;
@@ -3304,7 +3311,7 @@ a.add_to_cart_button:hover,
     font-size: 12px;
 }
 
-.e-btn-set-two .product-wrapper .product-info .hover-area [class*="-button"]:not(.cart-button), 
+.e-btn-set-two .product-wrapper .product-info .hover-area [class*="-button"]:not(.cart-button),
 .e-btn-set-two .product-wrapper .product-info .hover-area .add_to_cart_button::after {
     display: none;
 }
@@ -4850,8 +4857,8 @@ input[type=number] {
     margin-bottom: 30px !important;
 }
 
-.entry-summary form div input, 
-.entry-summary select, 
+.entry-summary form div input,
+.entry-summary select,
 .quantity input {
     display: table;
     width: 70px;
@@ -7127,7 +7134,7 @@ Footer Section Style Start
     .bg-img-sizing-1 {
         background: none !important;
     }
-	.navbar-slide-push .navbar-nav .nav-item .nav-link, 
+	.navbar-slide-push .navbar-nav .nav-item .nav-link,
 	.categories-menu ul.menu li a {
 		font-size: 13px;
 		font-weight: 500;
@@ -7657,6 +7664,7 @@ Footer Section Style Start
 .gray-right-line-one h5{
 	font-family: 'vazir' , sans-serif
 }
+<<<<<<< HEAD
 
 
 /* product box styles  */
@@ -7845,3 +7853,5 @@ Footer Section Style Start
     transition-delay: 0.75s;
     
   }
+=======
+>>>>>>> df6d4967e3522ed71249108d53733d34584b0227
