@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attribute;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,19 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::where('parent_id', 0)->get();
+        $attributes = Attribute::where('parent_id', 0)->get();
+
+        $attributes_json = [];
+        foreach($attributes as $attribute) {
+            $attributes_json[$attribute->id] = [
+                'name' => $attribute->name,
+                'children' => $attribute->children
+            ];
+        }
+        $attributes_json = json_encode($attributes_json);
+
+        return view('admin.products.create', compact('attributes', 'categories', 'attributes_json'));
     }
 
     /**

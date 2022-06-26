@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the categorys.
+     * Display a listing of the categories.
      *
      * @return \Illuminate\Contracts\View\View
      */

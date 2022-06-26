@@ -23,115 +23,102 @@
             @else
                 <form action="{{ route('admin.categories.store') }}" method="post">
             @endif
-                @csrf
+                    @csrf
 
-                @if($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label for="name">نام</label>
+                        <input name="name" id="name" class="form-control @error('name') is-invalid @enderror"
+                               type="text" value="{{ $category->name ?? '' }}">
+
+                        @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                @endif
 
-                <div class="form-group">
-                    <label for="name">نام</label>
-                    <input name="name" id="name" class="form-control @error('name') is-invalid @enderror" type="text" value="{{ $category->name ?? '' }}">
+                    <!-- select box -->
+                    <div class="form-group">
+                        <label for="parent">دسته بندی</label>
+                        <select name="parent_id" id="parent" class="form-control">
+                            <option value="0">بدون والد</option>
+                            @include('admin.categories.select-list', ['categories' => $categories, 'current_category' => $category ?? null])
+                        </select>
 
-                    @error('name')
+                        @error('parent_id')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
-                    @enderror
-                </div>
-
-                <!-- select box -->
-                <div class="form-group">
-                    <label for="parent">دسته بندی</label>
-                    <select name="parent_id" id="parent" class="form-control">
-                        <option value="0">بدون والد</option>
-                        @include('admin.categories.select-list', ['categories' => $categories, 'current_category' => $category ?? null])
-                    </select>
-
-                    @error('parent_id')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <button type="submit" class="btn btn-primary w-100 justify-content-center">{{ isset($category) ? 'ویرایش دسته بندی' : 'افزودن دسته جدید' }}</button>
-            </form>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 justify-content-center">
+                        {{ isset($category) ? 'بروزرسانی دسته بندی' : 'افزودن دسته جدید' }}
+                    </button>
+                </form>
         </div>
         <!-- right col : end  -->
         <!-- left col : start  -->
         <div class="card-body col-9">
-        <div class="row">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-body">
-						<h6 class="card-title">دسته بندی ها</h6>
-						<p class="text-muted">شما می توانید دسته بندی ها را بکشید و درگ کنید</p>
-						<div class="dd" id="nestable1">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">دسته بندی ها</h6>
+                            <p class="text-muted">شما می توانید دسته بندی ها را بکشید و درگ کنید</p>
+                            <div class="dd" id="categories">
 
-                            <!-- TODO: add styles to .css -->
+                                <!-- TODO: add below styles to .css -->
 
-                            <style>
-                                .nested-list-item {
-                                    display: block;
-                                    height: 30px;
-                                    margin-bottom: 5px;
-                                    padding: 5px 10px;
-                                    color: #333;
-                                    text-decoration: none;
-                                    font-weight: bold;
-                                    border: 1px solid #dddddd;
-                                    background: #fafafa;
-                                    -webkit-border-radius: 3px;
-                                    border-radius: 3px;
-                                    box-sizing: border-box; -moz-box-sizing: border-box;
-                                }
-                            </style>
-                            @include('admin.categories.list', ['categories' => $categories])
+                                <style>
+                                    .nested-list-item {
+                                        display: block;
+                                        height: 30px;
+                                        margin-bottom: 5px;
+                                        padding: 5px 10px;
+                                        color: #333;
+                                        text-decoration: none;
+                                        font-weight: bold;
+                                        border: 1px solid #dddddd;
+                                        background: #fafafa;
+                                        -webkit-border-radius: 3px;
+                                        border-radius: 3px;
+                                        box-sizing: border-box;
+                                        -moz-box-sizing: border-box;
+                                    }
+                                </style>
+                                @include('admin.categories.categories-list', ['list' => $categories])
+                            </div>
                         </div>
-					</div>
-				</div>
-				<div class="form-group">
-					<textarea id="nestable1-output" class="form-control"></textarea>
-				</div>
-			</div>
-		</div>
-    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- left col : end  -->
-
 
 
     </div>
 @endsection
-    <!-- adding nestable js to project  -->
+<!-- adding nestable js to project  -->
 @section('footer-assets')
     <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
     <script src="{{ asset('admin/vendors/nestable/jquery.nestable-rtl.js') }}"></script>
     <script>
-		$(function () {
-			var updateOutput = function (e) {
-				var list = e.length ? e : $(e.target),
-					output = list.data('output');
-				if (window.JSON) {
-					output.val(window.JSON.stringify(list.nestable('serialize'))); //, null, 2));
-				} else {
-					output.val('JSON browser support required for this demo.');
-				}
-			};
-
-			$('#nestable1').nestable({
-				group: 1
-			}).on('change', updateOutput);
-
-			updateOutput($('#nestable1').data('output', $('#nestable1-output')));
-
-		});
-	</script>
+        $(function () {
+            $('#categories').nestable({
+                group: 1
+            });
+        });
+    </script>
     <script src="{{ asset('admin/vendors/select2/js/select2.min.js') }}"></script>
 
 @endsection

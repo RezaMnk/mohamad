@@ -19,7 +19,8 @@
                 <!-- title card : start  -->
                 <div class="card">
                     <div class="card-body">
-                        <input type="text" class="form-control" placeholder="نام محصول">
+                        <label for="name">نام محصول</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="النگو طلای 24 عیار">
                     </div>
                 </div>
                 <!-- title card : end  -->
@@ -39,10 +40,12 @@
                         <h6 class="card-title">مشخصات محصول</h6>
                         <div class="form-row">
                             <div class="col-6">
-                                <input type="text" class="form-control" placeholder="وزن">
+                                <label for="code">کد محصول</label>
+                                <input type="text" id="code" name="code" class="form-control" placeholder="55987-2">
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control text-left" placeholder="قیمت" dir="ltr">
+                            <div class="col-6">
+                                <label for="weight">وزن</label>
+                                <input type="text" id="weight" name="code" class="form-control" placeholder="12 گرم">
                             </div>
                         </div>
                     </div>
@@ -50,27 +53,22 @@
                 <!-- price card : end -->
                 <!-- attributes card : start -->
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" id="attributes-col">
                         <h6 class="card-title">ویژگی محصولات</h6>
-                        <select class="js-example-basic-single select2-hidden-accessible" multiple="" data-select2-id="12" tabindex="-1" aria-hidden="true">
-                            <option data-select2-id="39">انتخاب</option>
-                            <optgroup label="شهرها" data-select2-id="40">
-                                <option value="Wonosari" data-select2-id="41">تبریز</option>
-                                <option value="Antipolo" data-select2-id="42">تهران</option>
-                                <option value="Lesuhe" data-select2-id="43">اصفهان</option>
-                                <option selected="" value="Sunzhuang" data-select2-id="14">شیراز</option>
-                                <option value="Hongchuan" data-select2-id="44">همدان</option>
-                            </optgroup>
-                            <optgroup label="کشورها" data-select2-id="45">
-                                <option value="France" data-select2-id="46">ایران</option>
-                                <option selected="" value="Brazil" data-select2-id="15">برزیل</option>
-                                <option selected="" value="Yemen" data-select2-id="16">ایتالیا</option>
-                                <option selected="" value="United States" data-select2-id="17">آلمان</option>
-                                <option value="China" data-select2-id="47">چین</option>
-                                <option value="Argentina" data-select2-id="48">آرژانتین</option>
-                                <option value="Bulgaria" data-select2-id="49">اسپانیا</option>
-                            </optgroup>
-                        </select>
+                        <div class="form-group row pb-2">
+                            <label for="add-attribute" class="col-2 col-form-label">افزودن ویژگی</label>
+                            <div class="col-8">
+                                <select class="form-control form-select" id="add-attribute">
+                                    <option value="0">انتخاب کنید...</option>
+                                    @foreach($attributes as $attribute)
+                                        <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-primary btn-block" id="add-attribute-btn">افزودن</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- attributes card : end -->
@@ -143,68 +141,8 @@
                         <h6 class="card-title">دسته بندی محصولات</h6>
                         <div class="h-200px overflow-auto">
                             <div class="overflow-auto mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check ml-2">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check ml-4">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check ml-4">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check ml-6">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check ml-6">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check ml-6">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">مرا علامت بزنید</label>
-                                </div>
+                                @include('admin.products.categories-list', ['categories' => $categories])
                             </div>
-
                         </div>
                     </div>
 
@@ -218,9 +156,59 @@
 
 @section('footer-assets')
     <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
-    <!-- TODO : all cdn should be local -->
-    <script src="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/js/select2.min.js"></script>
-    <script src="https://v3dboy.ir/previews/html/nextable/default/assets/js/examples/select2.js"></script>
+    <script src="{{ asset('admin/vendors/select2/js/select2.min.js') }}"></script>
     <x-ckeditor :text-area-id="['description', 'short-description']"></x-ckeditor>
+    <script>
+        $(document).ready(function () {
+
+            let attributes = {!! $attributes_json !!};
+
+            $('#add-attribute-btn').on('click', function (){
+                let attribute_id = parseInt($('#add-attribute').val());
+
+                if(attribute_id && attribute_id > 0) {
+                    let attribute = attributes[attribute_id] || null;
+
+                    if (attribute) {
+                        let template = `<div class="form-group row border-top border-top pt-4" id="attribute-${attribute_id}-row">
+                            <label for="attribute-${attribute_id}" class="col-2 col-form-label">${attribute['name']}</label>
+                            <div class="col-9">
+                                <select class="form-control form-select" id="attribute-${attribute_id}" class="select2-hidden-accessible" multiple tabindex="-1" aria-hidden="true">`;
+
+                        attribute['children'].forEach(function(attribute_child) {
+                            template += `<option value="${attribute['id']}">${attribute_child['name']}</option>`
+                        })
+
+                        template += `</select>
+                            </div>
+                            <div class="col-1">
+                                <button type="button" class="btn btn-danger btn-block remove-attribute" data-id="${attribute_id}">حذف</button>
+                            </div>
+                        </div>`;
+
+                        $('#attributes-col').append(template);
+                        $('#attribute-' + attribute_id).select2({
+                            placeholder: 'انتخاب کنید...'
+                        });
+                        $('#add-attribute').val(0)
+                        $('#add-attribute option[value="' + attribute_id + '"]').prop('disabled', true);
+                    }
+                }
+
+                $('.remove-attribute').on('click', function (){
+
+                    let attribute_id = $(this).data('id');
+                    console.log(attribute_id);
+
+                    $('#attribute-' + attribute_id + '-row').remove();
+                    $('#add-attribute option[value="' + attribute_id + '"]').prop('disabled', false);
+                })
+            })
+
+
+
+
+        });
+    </script>
 @endsection
 

@@ -15,7 +15,6 @@ class ckeditor extends Component
      */
     public function __construct($textAreaId)
     {
-        dd($textAreaId);
         $this->textAreaId = $textAreaId;
     }
 

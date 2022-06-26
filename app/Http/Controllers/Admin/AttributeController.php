@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attribute;
 use Illuminate\Http\Request;
 
 class AttributeController extends Controller
@@ -14,72 +15,92 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        return view('admin.attributes.index');
+        $attributes = Attribute::where('parent_id', 0)->get();
+        return view('admin.attributes.index', compact('attributes'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new attribute.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('admin.attributes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
 
-    /**
-     * Display a listing of the specific attribute.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
-     */
-    public function show($id)
-    {
-        return view('admin.attributes.index');
+        // validate parent_id and must be different with id
+//        TODO
+        if ($request->parent_id != 0)
+            $request->validate([
+                'parent_id' => ['required', 'numeric', 'exists:attributes,id', 'different:id']
+            ]);
+
+        Attribute::create($request->all());
+
+        alert('عملیات موفقیت آمیز بود','دسته بندی با موفقیت به لیست اضافه شد', 'success');
+        return redirect()->route('admin.attributes.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Attribute $attribute
+     * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Attribute $attribute)
     {
-        //
+        $attributes = Attribute::where('parent_id', 0)->get();
+        return view('admin.attributes.index', compact('attribute', 'attributes'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Attribute $attribute
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Attribute $attribute)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        if ($request->parent_id)
+            $request->validate([
+                'parent_id' => ['required', 'numeric', 'exists:attributes,id', 'different:id']
+            ]);
+
+        $attribute->update($request->all());
+
+        alert('عملیات موفقیت آمیز بود','دسته بندی با موفقیت ویرایش شد', 'success');
+        return redirect()->route('admin.attributes.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Attribute $attribute
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Attribute $attribute)
     {
-        //
+        $attribute->delete();
+
+        alert('عملیات موفقیت آمیز بود','دسته بندی با موفقیت حذف شد', 'success');
+        return back();
     }
 }

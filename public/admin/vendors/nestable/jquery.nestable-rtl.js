@@ -4,7 +4,7 @@
  * Copyright (c)Farshad Ghanbari <eng.ghanbari2025@gmail.com>
  * http://farshadghanbari.ir/ - https://creativetm.ir/ - (+98) 919 648 1968
  */
- 
+
 ;(function ($, window, document, undefined) {
     var hasTouch = 'ontouchstart' in window;
 
@@ -51,8 +51,8 @@
         noDragClass: 'dd-nodrag',
         noChildrenClass: 'dd-nochildren',
         emptyClass: 'dd-empty',
-        expandBtnHTML: '<button class="dd-expand" data-action="expand" type="button">Expand</button>',
-        collapseBtnHTML: '<button class="dd-collapse" data-action="collapse" type="button">Collapse</button>',
+        expandBtnHTML: '<button class="fa dd-expand" data-action="expand" type="button">Expand</button>',
+        collapseBtnHTML: '<button class="fa dd-collapse" data-action="collapse" type="button">Collapse</button>',
         group: 0,
         maxDepth: 5,
         threshold: 20,

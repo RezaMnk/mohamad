@@ -4,7 +4,6 @@
 @section('title', 'Create User')
 
 @section('content')
-    @user(4)
     <div class="card card-body overflow-hidden" data-backround-image="{{ asset('admin/media/image/profile-bg.png') }}" style="background: url({{ asset('admin/media/image/profile-bg.png') }});">
         <div class="p-3 d-lg-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
