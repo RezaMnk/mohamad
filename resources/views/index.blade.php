@@ -457,26 +457,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="container">
-                                    <div class="card">
-                                      <div class="imgBx">
-                                        <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                      </div>
-                                      <div class="contentBx">
-                                        <h2>Golden Ring</h2>
-                                        <div class="size">
-                                          <h3>Size :</h3>
-                                          <span>7</span>
-                                          <span>8</span>
-                                          <span>9</span>
-                                          <span>10</span>
-                                        </div>
-                                        <a href="#">Buy Now</a>
-                                      </div>
-                                    </div>
-                                  </div>
-                            </div>
+                                <x-product-card count="4" type="top"></x-product-card>
+{{--                            <div class="col">--}}
+{{--                                <div class="container">--}}
+{{--                                    <div class="card">--}}
+{{--                                      <div class="imgBx">--}}
+{{--                                        <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">--}}
+{{--                                      </div>--}}
+{{--                                      <div class="contentBx">--}}
+{{--                                        <h2>Golden Ring</h2>--}}
+{{--                                        <div class="size">--}}
+{{--                                          <h3>Size :</h3>--}}
+{{--                                          <span>7</span>--}}
+{{--                                          <span>8</span>--}}
+{{--                                          <span>9</span>--}}
+{{--                                          <span>10</span>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="#">Buy Now</a>--}}
+{{--                                      </div>--}}
+{{--                                    </div>--}}
+{{--                                  </div>--}}
+{{--                            </div>--}}
                         </div>
 						</div>
 					</div>
@@ -562,6 +563,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <x-product-card slider="true"></x-product-card>
                             <div class="item">
                                 <div class="product type-product">
                                     <div class="product-wrapper">

@@ -34,6 +34,12 @@ Breadcrumbs::for('admin.users.create', function (BreadcrumbTrail $trail): void {
     $trail->push('ایجاد کاربر', route('admin.users.create'));
 });
 
+Breadcrumbs::for('admin.users.vip', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.users.index');
+
+    $trail->push('کاربران ویژه', route('admin.users.vip'));
+});
+
 
 /*
  * Prodcuts
