@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('code');
-            $table->text('description');
+            $table->integer('weight')->nullable();
+            $table->text('description')->nullable();
             $table->text('short_description')->nullable();
+            $table->boolean('status')->default(0);
             $table->integer('view_count')->default(0);
             $table->timestamps();
         });

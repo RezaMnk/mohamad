@@ -20,7 +20,7 @@ class ProductController extends Controller
         $products = Product::query();
 
         if ($keyword = request('search')) {
-            $products->where('title', 'LIKE', "%$keyword%")->orWhere('description', 'LIKE', "%$keyword%")->orWhere('short_description', 'LIKE', "%$keyword%");
+            $products->where('name', 'LIKE', "%$keyword%")->orWhere('description', 'LIKE', "%$keyword%")->orWhere('short_description', 'LIKE', "%$keyword%");
         }
 
         $products = $products->latest()->paginate(20);
@@ -57,12 +57,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $data = $request->validate([
-
+            'name' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'numeric', 'exists:categories,id'],
+            'attributes' => ['array'],
+            'weight' => ['required', 'numeric', 'digits_between:1,10'],
+            'code' => ['required', 'numeric', 'digits_between:1,10'],
+            'description' => ['string', 'nullable'],
+            'short_description' => ['string', 'nullable', 'max:1000'],
         ]);
 
-        Product::create($data);
+        $product = Product::create($data);
+        $product->categories()->sync($data['category']);
+
+        if($data['attributes'])
+            $product->attributes()->sync($data['attributes']);
+
+        if($request->status)
+            $product->update(['status' => true]);
 
         alert('عملیات موفقیت آمیز بود','محصول با موفقیت به لیست محصولات اضافه شد', 'success');
         return redirect()->route('admin.products.index');
@@ -76,7 +88,19 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = Category::where('parent_id', 0)->get();
+        $attributes = Attribute::where('parent_id', 0)->get();
+
+        $attributes_json = [];
+        foreach($attributes as $attribute) {
+            $attributes_json[$attribute->id] = [
+                'name' => $attribute->name,
+                'children' => $attribute->children
+            ];
+        }
+        $attributes_json = json_encode($attributes_json);
+
+        return view('admin.products.edit', compact('product', 'attributes', 'categories', 'attributes_json'));
     }
 
     /**
@@ -89,14 +113,27 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $data = $request->validate([
-
+            'name' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'numeric', 'exists:categories,id'],
+            'attributes' => ['array'],
+            'weight' => ['required', 'numeric', 'digits_between:1,10'],
+            'code' => ['required', 'numeric', 'digits_between:1,10'],
+            'description' => ['string', 'nullable'],
+            'short_description' => ['string', 'nullable', 'max:1000'],
         ]);
 
-
         $product->update($data);
+        $product->categories()->sync($data['category']);
+
+        $product->attributes()->sync($data['attributes'] ?? []);
+
+        if($request->status)
+            $product->update(['status' => true]);
+        else
+            $product->update(['status' => false]);
 
         alert('عملیات موفقیت آمیز بود','محصول با موفقیت ویرایش شد', 'success');
-        return redirect($request->session()->get('redirect_url'));
+        return redirect()->route('admin.products.index');
     }
 
     /**

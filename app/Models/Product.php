@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,10 +16,12 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
+        'name',
         'code',
+        'weight',
         'description',
         'short_description',
+        'status',
         'view_count'
     ];
 
@@ -31,5 +34,35 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+
+    /**
+     * Belongs to products
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function attributes()
+    {
+        return $this->belongsToMany(Attribute::class);
+    }
+
+
+    /**
+     * @return false|\Morilog\Jalali\Jalalian|string
+     */
+    public function created_at()
+    {
+        $time = $this->created_at;
+
+        if (!$time) {
+            return false;
+        }
+
+        if ($time > now()->subHours(24)) {
+            return jdate($time)->ago();
+        }
+
+        return jdate($time)->format('%B %d، %Y');
     }
 }

@@ -11560,3 +11560,10 @@ figure {
 .h-600px {
 	height: 600px !important;
 }
+
+.td-truncate {
+    width: 300px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}

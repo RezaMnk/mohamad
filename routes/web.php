@@ -28,6 +28,53 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
     Route::get('/resend', 'resend')->name('resend');
 });
 
+
 Route::get('/test', function () {
-   return route('login');
+    \App\Models\User::create([
+        'name' => 'Reza Nadaf',
+        'phone' => '09212969916',
+        'password' => '12345678',
+        'verified' => '1',
+        'admin' => '1',
+    ]);
+
+    \App\Models\Category::create([
+        'name' => 'دستبند',
+        'parent_id' => '0',
+    ]);
+
+    \App\Models\Category::create([
+        'name' => 'دستبند 1',
+        'parent_id' => '1',
+    ]);
+
+    \App\Models\Category::create([
+        'name' => 'دستبند 2',
+        'parent_id' => '1',
+    ]);
+
+    \App\Models\Category::create([
+        'name' => 'گردنبند',
+        'parent_id' => '0',
+    ]);
+
+    \App\Models\Attribute::create([
+        'name' => 'رنگ',
+        'parent_id' => '0',
+    ]);
+
+    \App\Models\Attribute::create([
+        'name' => 'صورتی',
+        'parent_id' => '1',
+    ]);
+
+    \App\Models\Attribute::create([
+        'name' => 'طلایی',
+        'parent_id' => '1',
+    ]);
+
+    \App\Models\Attribute::create([
+        'name' => 'مشکی',
+        'parent_id' => '1',
+    ]);
 });
