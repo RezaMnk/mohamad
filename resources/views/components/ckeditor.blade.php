@@ -5,6 +5,7 @@
     CKEDITOR.config.contentsCss = '{{ asset('admin/css/font/primary-iran-yekan.css') }}';
     CKEDITOR.config.font_names = 'primary-font';
     CKEDITOR.config.font_defaultLabel = 'primary-font';
+    CKEDITOR.config.filebrowserImageBrowseUrl = '/file-manager/ckeditor?leftDisk=product-descriptions'
 
 
     @if(is_array($textAreaId))

@@ -2,12 +2,11 @@
     @foreach($list as $item)
         <li class="dd-item dd-collapsed" data-id="{{ $item->id }}">
             <div class="nested-list-item">
-                <form action="{{ route('admin.attributes.edit', $item->id) }}" class="d-inline-block pr-2">
-
+                <a href="{{ route('admin.attributes.edit', $item->id) }}" class="d-inline-block pr-2">
                     <button type="submit" class="btn btn-default p-0">
                         <i class="fa fa-pencil font-size-12"></i>
                     </button>
-                </form>
+                </a>
 
                 {{ $item->name }}
             </div>
