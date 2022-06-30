@@ -175,7 +175,7 @@
                 <div class="card-body">
                     <h6 class="card-title">تصویر محصول</h6>
                     <figure class="c4-izmir c4-border-corners-2 c4-image-zoom-in" style="--primary-color: var(--light);">
-                        <img src="{{ asset('storage/products' . $product->gallery->first()->image) }}" alt="Product Image" id="product-image">
+                        <img src="{{ $product->gallery->first()->image }}" alt="Product Image" id="product-image">
                         <figcaption class="c4-layout-center-center" id="button-image">
                             <div class="c4-izmir-icon-wrapper c4-fade">
                                 <input type="hidden" id="image_label" class="form-control" name="image" value="{{ old('image') ?? $product->gallery->first()->image }}" required>
