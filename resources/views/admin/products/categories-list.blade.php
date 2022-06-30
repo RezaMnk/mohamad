@@ -9,7 +9,7 @@
     @endif
         <div class="form-check">
         {!! $tab !!}
-        <input type="radio" class="form-check-input" name="category" value="{{ $category->id }}" {{ (old('category') ?? isset($product) ? $product->categories->first()->id : '') == $category->id ? 'checked' : '' }} id="category-{{ $category->id }}" required>
+        <input type="radio" class="form-check-input" name="category" value="{{ $category->id }}" {{ (old('category') ?? (isset($product) ? $product->categories->first()->id : '')) == $category->id ? 'checked' : '' }} id="category-{{ $category->id }}" required>
         <label class="form-check-label" for="category-{{ $category->id }}">{{ $category->name }}</label>
     </div>
     @if (count($category->children))

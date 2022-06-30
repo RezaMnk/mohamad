@@ -29,6 +29,11 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 });
 
 
+Route::get('/img', function () {
+   return dd(\Illuminate\Support\Facades\Storage::disk('products')->exists('/squire-65.png'));
+   return dd(\Illuminate\Support\Facades\Storage::disk('products')->files(''));
+});
+
 Route::get('/test', function () {
     \App\Models\User::create([
         'name' => 'Reza Nadaf',

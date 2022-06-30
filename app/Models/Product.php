@@ -49,6 +49,17 @@ class Product extends Model
 
 
     /**
+     * Belongs to products
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function gallery()
+    {
+        return $this->hasMany(ProductGallery::class);
+    }
+
+
+    /**
      * @return false|\Morilog\Jalali\Jalalian|string
      */
     public function created_at()

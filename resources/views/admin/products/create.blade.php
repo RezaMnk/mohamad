@@ -59,7 +59,7 @@
                     <div class="form-row">
                         <div class="col-6">
                             <label for="code">کد محصول</label>
-                            <input type="text" id="code" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="کد محصول در زرین" value="{{ old('code') }}" required>
+                            <input type="number" id="code" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="کد محصول در زرین" value="{{ old('code') }}" required>
 
                             @error('code')
                                 <div class="invalid-feedback">
@@ -176,37 +176,21 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">تصویر محصول</h6>
-                    <figure class="c4-izmir c4-border-cc-2 c4-gradient-bottom-left c4-image-zoom-in" style="--primary-color: #ef6698; --secondary-color: #4028ac;">
-                        <img src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Sample Image">
-                        <figcaption class="c4-layout-center-center" data-toggle="modal" id="button-image" data-target="#exampleModal">
+                    <figure class="c4-izmir c4-border-corners-2 c4-image-zoom-in" style="--primary-color: var(--light);">
+                        <img src="{{ asset('storage/default.png') }}" alt="Product Image" id="product-image">
+                        <figcaption class="c4-layout-center-center" id="button-image">
                             <div class="c4-izmir-icon-wrapper c4-fade">
-                                <input type="text" id="image_label" class="form-control d-none" name="image"
-                                       aria-label="Image" aria-describedby="button-image">
-                                <button type="button" class="btn btn-light">تصویر محصول</button>
+                                <input type="hidden" id="image_label" class="form-control" name="image" value="{{ old('image') }}" required>
+                                <button type="button" class="btn btn-light w-100">تصویر محصول</button>
                             </div>
                         </figcaption>
                     </figure>
-                <!-- image modal : start -->
-{{--                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-hidden="true" id="exampleModal">--}}
-{{--                    <div class="modal-dialog modal-xl">--}}
-{{--                        <div class="modal-content">--}}
-{{--                            <div class="modal-header">--}}
-{{--                                <h6 class="modal-title">انتخاب یا تعویض عکس شاخص</h6>--}}
-{{--                                <button type="button" class="close" data-dismiss="modal" aria-label="بستن">--}}
-{{--                                    <i class="ti-close"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                            <div class="modal-body">--}}
-{{--                                <form action="#" class="dropzone"></form>--}}
-{{--                            </div>--}}
-{{--                            <div class="modal-footer">--}}
-{{--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>--}}
-{{--                                <button type="button" class="btn btn-primary">ذخیره تغییرات</button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-                <!-- image modal : end -->
+
+                    @error('image')
+                        <div class="text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <!-- image card : end -->
@@ -230,8 +214,6 @@
 
 @section('header-assets')
     <link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
-{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">--}}
-{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">--}}
 @endsection
 
 @section('footer-assets')
@@ -252,6 +234,7 @@
         // set file link
         function fmSetLink($url) {
             document.getElementById('image_label').value = $url;
+            document.getElementById('product-image').src = "{{ asset('storage/products') }}" + $url;
         }
 
 
