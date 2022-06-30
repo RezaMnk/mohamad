@@ -17,4 +17,15 @@ class ProductGallery extends Model
     {
         $this->belongsTo(Product::class);
     }
+
+
+    /**
+     * Get image url for product
+     *
+     * @return string
+     */
+    public function getImageAttribute()
+    {
+        return asset('storage/products') . $this->attributes['image'];
+    }
 }
