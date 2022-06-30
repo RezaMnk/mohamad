@@ -7689,7 +7689,7 @@ Footer Section Style Start
   }
   .container .card:before{
     content: '';
-    background: grey;
+    background: var(--theme-secondary-color);
     position: absolute;
     top: 0;
     left: 0;

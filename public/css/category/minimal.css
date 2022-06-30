@@ -8,12 +8,12 @@ Theme Color All Codes Variable
 }
 
 :root {
-    --theme-primary-color: #bf8072;
+    --theme-primary-color: #C19900;
     /* theme primary color ok*/
 }
 
 :root {
-    --theme-secondary-color: #fff;
+    --theme-secondary-color: #cbd0d8;
     /* theme secondary color ok*/
 }
 
@@ -23,7 +23,7 @@ Theme Color All Codes Variable
 }
 
 :root {
-    --theme-light-color: #f8f8f8;
+    --theme-light-color: #CBD0D8;
     /* theme light gray color ok*/
 }
 
@@ -33,7 +33,7 @@ Theme Color All Codes Variable
 }
 
 :root {
-    --theme-dark-color: #1b1b1e;
+    --theme-dark-color: #1E1E1E;
     /* theme dark color */
 }
 
