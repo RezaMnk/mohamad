@@ -25,12 +25,12 @@
                         <table id="example1" class="table table-striped table-bordered dataTable dtr-inline" width="100%" role="grid" aria-describedby="example1_info" style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 7%;" aria-label="کد : فعال سازی نمایش به صورت نزولی">کد</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="کد : فعال سازی نمایش به صورت نزولی">کد</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="نام : فعال سازی نمایش به صورت نزولی">نام</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 15%;" aria-label="وزن : فعال سازی نمایش به صورت نزولی">حدود وزن</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 15%;" aria-label="وضعیت : فعال سازی نمایش به صورت صعودی">وضعیت</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 10%;" aria-label="زمان ایجاد : فعال سازی نمایش به صورت صعودی">زمان ایجاد</th>
-                                <th style="width: 10%;">عملیات</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وزن : فعال سازی نمایش به صورت نزولی">حدود وزن</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وضعیت : فعال سازی نمایش به صورت صعودی">وضعیت</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="زمان ایجاد : فعال سازی نمایش به صورت صعودی">زمان ایجاد</th>
+                                <th>عملیات</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,7 +40,7 @@
                                         {{ $product->code }}
                                     </td>
                                     <td class="sorting_1" tabindex="0">
-                                        <img src="{{ $product->title }}" alt="{{ $product->title }}" width="50px">
+                                        <img src="{{ $product->gallery->first()->image }}" alt="{{ $product->title }}" width="50px">
                                         <span>
                                             {{ $product->name }}
                                         </span>

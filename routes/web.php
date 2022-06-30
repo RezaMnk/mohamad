@@ -35,13 +35,15 @@ Route::get('/img', function () {
 });
 
 Route::get('/test', function () {
-    \App\Models\User::create([
+    $user = \App\Models\User::create([
         'name' => 'Reza Nadaf',
         'phone' => '09212969916',
         'password' => '12345678',
         'verified' => '1',
         'admin' => '1',
     ]);
+
+    auth()->loginUsingId($user->id);
 
     \App\Models\Category::create([
         'name' => 'دستبند',
