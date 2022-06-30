@@ -7,6 +7,8 @@ use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -60,6 +62,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'numeric', 'exists:categories,id'],
+            'image' => ['required'],
             'attributes' => ['array'],
             'weight' => ['required', 'numeric', 'digits_between:1,10'],
             'code' => ['required', 'numeric', 'digits_between:1,10'],
@@ -67,7 +70,13 @@ class ProductController extends Controller
             'short_description' => ['string', 'nullable', 'max:1000'],
         ]);
 
+        if (!Storage::disk('products')->exists($data['image']))
+            return back()->withErrors(['image' => 'تصویر مورد نظر یافت نشد.']);
+
         $product = Product::create($data);
+
+        $product->gallery()->create($request->only('image'));
+
         $product->categories()->sync($data['category']);
 
         if($data['attributes'])
@@ -115,6 +124,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'numeric', 'exists:categories,id'],
+            'image' => ['required'],
             'attributes' => ['array'],
             'weight' => ['required', 'numeric', 'digits_between:1,10'],
             'code' => ['required', 'numeric', 'digits_between:1,10'],
@@ -122,7 +132,7 @@ class ProductController extends Controller
             'short_description' => ['string', 'nullable', 'max:1000'],
         ]);
 
-        $product->update($data);
+        $product->fill($data)->save();
         $product->categories()->sync($data['category']);
 
         $product->attributes()->sync($data['attributes'] ?? []);

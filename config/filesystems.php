@@ -44,18 +44,18 @@ return [
             'throw' => false,
         ],
 
-        'product-images' => [
+        'products' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/site/products/images'),
-            'url' => env('APP_URL').'/storage/images/product',
+            'root' => storage_path('app/public/products'),
+            'url' => '',
             'visibility' => 'public',
             'throw' => false,
         ],
 
         'product-descriptions' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/site/products/descriptions'),
-            'url' => env('APP_URL').'/storage/product',
+            'root' => storage_path('app/public/products/descriptions'),
+            'url' => '',
             'visibility' => 'public',
             'throw' => false,
         ],

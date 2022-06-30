@@ -31,7 +31,7 @@ return [
      * List of disk names that you want to use
      * (from config/filesystems)
      */
-    'diskList' => ['product-images', 'product-descriptions'],
+    'diskList' => ['products', 'product-descriptions'],
 
     /**
      * Default disk for left manager
