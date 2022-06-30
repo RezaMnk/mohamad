@@ -180,283 +180,210 @@
                     <div class="col-xl-8 col-lg-7">
 						<div class="products product-style-1">
 							<div class="row gy-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-sm-2 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img class="product-hover" src="{{ asset('storage/site') }}/products/squire-268.png" alt="Product Image"></a>
 
-
-
-
-
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>جدید</span></div>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
                                         </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی زنانه الفکس</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>2605000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
                                         </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card border-0">
+                                        <div class="imgBx">
+                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
+                                        </div>
+                                        <div class="contentBx">
+                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
+                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-269.png" class="product-hover" alt="Product Image"></a>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی زنانه آیس واچ</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>2850000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-270.png" alt="Product Image" class="product-hover"></a>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی  کاسیو مدل GA-400</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>36850000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-271.png" alt="Product Image" class="product-hover"></a>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی مردانه کاندینو</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>8130000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-272.png" alt="Product Image" class="product-hover"></a>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی زنانه دنیل کلین</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>1083000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-273.png" alt="Product Image" class="product-hover"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>جدید</span></div>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی زنانه دنیش دیزاین</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>3995000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="product type-product">
-                                    <div class="product-wrapper">
-                                        <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-273.png" alt="Product Image" class="product-hover"></a>
-                                            <div class="product-variations">
-                                                <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
-                                                <span><a href="#" style="background-color: #f1cc4e;"></a></span>
-                                                <span><a href="#" style="background-color: #31749e;"></a></span>
-                                                <span><a href="#" style="background-color: #672a4f;"></a></span>
-                                            </div>
-                                            <div class="product-labels">
-                                                <div class="badge1"><span>جدید</span></div>
-                                            </div>
-                                            <div class="hover-area">
-                                                <div class="cart-button">
-                                                    <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
-                                                </div>
-                                                <div class="wishlist-button">
-                                                    <a class="add_to_wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به علاقه مندی" aria-label="Add to Wishlist">افزودن به علاقه مندی</a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a class="compare button" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="مقایسه" aria-label="Compare">مقایسه</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <h3 class="product-title"><a href="single-shop.html">ساعت مچی زنانه دنیش دیزاین</a></h3>
-                                            <div class="product-price">
-                                                <div class="price">
-                                                    <ins>3995000 تومان</ins>
-                                                </div>
-                                            </div>
-                                            <div class="shipping-feed-back">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="index.html"><span>0 امتیاز</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<<<<<<< HEAD
+=======
                                 <x-product-card count="4" type="top"></x-product-card>
 {{--                            <div class="col">--}}
 {{--                                <div class="container">--}}
@@ -479,6 +406,7 @@
 {{--                                  </div>--}}
 {{--                            </div>--}}
                         </div>
+>>>>>>> 33fd57812c167435a8c28e9926d30d779cd22ec1
 						</div>
 					</div>
                 </div>
