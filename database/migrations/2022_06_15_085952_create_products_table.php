@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('short_description')->nullable();
             $table->boolean('status')->default(0);
             $table->integer('view_count')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

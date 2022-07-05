@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Attribute;
@@ -92,4 +93,20 @@ Breadcrumbs::for('admin.attributes.edit', function (BreadcrumbTrail $trail, Attr
     $trail->parent('admin.attributes.index');
 
     $trail->push($attribute->name, route('admin.attributes.edit', $attribute));
+});
+
+
+/*
+ * Orders
+ */
+Breadcrumbs::for('admin.orders.index', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.index');
+
+    $trail->push('سفارشات', route('admin.orders.index'));
+});
+
+Breadcrumbs::for('admin.orders.edit', function (BreadcrumbTrail $trail, Order $order): void {
+    $trail->parent('admin.orders.index');
+
+    $trail->push("سفارش $order->id", route('admin.orders.edit', $order));
 });

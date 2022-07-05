@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 
-@section('title', 'Users')
+@section('title', 'Orders')
 
 @section('content')
     <div class="card">
@@ -9,7 +9,7 @@
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row align-items-end">
                     <div class="col-sm-12 col-md-6">
-                        <a class="btn btn-primary mb-2" href="{{ route('admin.products.create') }}">افزودن</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('admin.orders.create') }}">افزودن</a>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <form class="d-flex justify-content-end">
@@ -25,51 +25,63 @@
                         <table id="example1" class="table table-striped table-bordered dataTable dtr-inline" width="100%" role="grid" aria-describedby="example1_info" style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="کد : فعال سازی نمایش به صورت نزولی">کد</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="نام : فعال سازی نمایش به صورت نزولی">نام</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وزن : فعال سازی نمایش به صورت نزولی">حدود وزن</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="کد : فعال سازی نمایش به صورت نزولی">شماره سفارش</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="نام : فعال سازی نمایش به صورت نزولی">نام خریدار</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وزن : فعال سازی نمایش به صورت نزولی">قیمت نهایی</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وضعیت : فعال سازی نمایش به صورت صعودی">وضعیت</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="زمان ایجاد : فعال سازی نمایش به صورت صعودی">زمان ایجاد</th>
                                 <th>عملیات</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($products as $k => $product)
+                            @foreach($orders as $k => $order)
                                 <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }}">
                                     <td>
-                                        {{ $product->code }}
+                                        {{ $order->id }}
                                     </td>
                                     <td class="sorting_1" tabindex="0">
-                                        <img src="{{ $product->gallery->first()->imageUrl }}" alt="{{ $product->title }}" width="50px">
                                         <span>
-                                            {{ $product->name }}
+                                            {{ $order->user->name }}
                                         </span>
                                     </td>
                                     <td>
-                                        {{ $product->weight }} گرم
+                                        {!! $order->total_price ? number_format($order->total_price) . ' ریال' : '<button type="button" class="btn btn-light disabled w-100 justify-content-center">در انتظار ثبت قیمت</button>' !!}
+
                                     </td>
                                     <td>
-                                        @if($product->status)
-                                            <button type="button" class="btn btn-success disabled w-100 justify-content-center">منتشر شده</button>
-                                        @else
-                                            <button type="button" class="btn btn-light disabled w-100 justify-content-center">پیش نویس</button>
-                                        @endif
+                                        @switch($order->status)
+                                            @case('unapproved')
+                                                <button type="button" class="btn btn-warning disabled w-100 justify-content-center">در انتظار بررسی</button>
+                                                @break
+                                            @case('priced')
+                                                <button type="button" class="btn btn-secondary disabled w-100 justify-content-center">در انتظار پرداخت</button>
+                                                @break
+                                            @case('paid')
+                                                <button type="button" class="btn btn-info disabled w-100 justify-content-center">پرداخت شده</button>
+                                                @break
+                                            @case('approved')
+                                                <button type="button" class="btn btn-success disabled w-100 justify-content-center">تکمیل شده</button>
+                                                @break
+                                            @case('canceled')
+                                                <button type="button" class="btn btn-light disabled w-100 justify-content-center">لغو شده</button>
+                                                @break
+                                        @endswitch
                                     </td>
                                     <td>
-                                        {{ $product->created_at() }}
+                                        {{ $order->created_at() }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.products.edit', $product->id) }}">
+                                        <a href="{{ route('admin.orders.edit', $order->id) }}">
                                             <button type="button" class="btn btn-warning btn-floating">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                             </button>
                                         </a>
-                                        <a href="{{ $product->status ? route('admin.products.edit', $product->id) : 'javascript:void(0)' }}">
-                                            <button type="button" class="btn btn-success btn-floating @if(!$product->status) disabled @endif">
+                                        <a href="{{ $order->status != 'canceled' ? route('admin.orders.edit', $order->id) : 'javascript:void(0)' }}">
+                                            <button type="button" class="btn btn-success btn-floating @if(!$order->status) disabled @endif">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>
                                         </a>
-                                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="post" class="d-inline">
+                                        <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
 
@@ -84,7 +96,7 @@
                         </table>
                     </div>
                 </div>
-                {{ $products->appends(['search' => request('search')])->links() }}
+                {{ $orders->appends(['search' => request('search')])->links() }}
             </div>
         </div>
     </div>
@@ -95,3 +107,4 @@
     <script src="{{ asset('admin/vendors/dataTable/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/dataTable/jquery.dataTables.min.js') }}"></script>
 @endsection
+

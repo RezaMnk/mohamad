@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -49,6 +50,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Relation connection with Orders
+     *
+     * @return HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
      * Verify the user authentication
      *
      * @return void
@@ -81,6 +92,27 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+
+    /**
+     * use for (12 hours ago) or (12-12-2012)
+     *
+     * @return false|\Morilog\Jalali\Jalalian|string
+     */
+    public function created_at()
+    {
+        $time = $this->created_at;
+
+        if (!$time) {
+            return false;
+        }
+
+        if ($time > now()->subHours(24)) {
+            return jdate($time)->ago();
+        }
+
+        return jdate($time)->format('%B %d، %Y');
     }
 
 }

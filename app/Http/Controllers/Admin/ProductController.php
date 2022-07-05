@@ -22,7 +22,9 @@ class ProductController extends Controller
         $products = Product::query();
 
         if ($keyword = request('search')) {
-            $products->where('name', 'LIKE', "%$keyword%")->orWhere('description', 'LIKE', "%$keyword%")->orWhere('short_description', 'LIKE', "%$keyword%");
+            $products->where('name', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%")
+                ->orWhere('short_description', 'LIKE', "%$keyword%");
         }
 
         $products = $products->latest()->paginate(20);

@@ -13,10 +13,8 @@
 
 @section('content')
     <!-- row : start  -->
-    <form action="{{ route('admin.products.update', $product->id) }}" method="post" class="row">
+    <form action="{{ route('admin.products.store') }}" method="post" class="row">
         @csrf
-        @method('patch')
-
         @if($errors->any())
             @foreach($errors->all() as $error)
                 {{ $error }}
@@ -28,12 +26,12 @@
             <div class="card">
                 <div class="card-body">
                     <label for="name">نام محصول</label>
-                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="النگو طلای 24 عیار" value="{{ old('name') ?? $product->name }}" required>
+                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="النگو طلای 24 عیار" value="{{ old('name') }}" required>
 
                     @error('name')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                     @enderror
                 </div>
             </div>
@@ -43,12 +41,12 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title"> توضیحات محصول </h6>
-                    <textarea id="description" name="description" @error('description') class="is-invalid" @enderror>{{ old('description') ?? $product->description }}</textarea>
+                    <textarea id="description" name="description" @error('description') class="is-invalid" @enderror>{{ old('description') }}</textarea>
 
                     @error('description')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                     @enderror
                 </div>
             </div>
@@ -61,22 +59,22 @@
                     <div class="form-row">
                         <div class="col-6">
                             <label for="code">کد محصول</label>
-                            <input type="text" id="code" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="کد محصول در زرین" value="{{ old('code') ?? $product->code }}" required>
+                            <input type="number" id="code" name="code" class="form-control @error('code') is-invalid @enderror" placeholder="کد محصول در زرین" value="{{ old('code') }}" required>
 
                             @error('code')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div class="col-6">
                             <label for="weight">وزن</label>
-                            <input type="number" id="weight" name="weight" class="form-control @error('weight') is-invalid @enderror" placeholder="حدود وزن به گرم" value="{{ old('weight') ?? $product->weight }}" required>
+                            <input type="number" id="weight" name="weight" class="form-control @error('weight') is-invalid @enderror" placeholder="حدود وزن به گرم" value="{{ old('weight') }}" required>
 
                             @error('weight')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -101,36 +99,40 @@
                             <button type="button" class="btn btn-primary btn-block" id="add-attribute-btn">افزودن</button>
                         </div>
                     </div>
-                    @php
-                        $parents = [];
-                    @endphp
-                    @foreach((old('attributes') ?? $product->attributes->pluck('id')->toArray()) as $selected_attribute)
+
+                    @if(old('attributes'))
                         @php
-                            $parent_id = \App\Models\Attribute::findOrFail($selected_attribute)->parent_id;
-                            $attribute = \App\Models\Attribute::findOrFail($parent_id);
-
-                            if (in_array($attribute->id, $parents)) {
-                                continue;
-                            }
-
-                            $parents[] = $attribute->id;
+                            $parents = [];
                         @endphp
-                        <div class="form-group row border-top border-top pt-4" id="attribute-{{ $attribute->id }}-row">
-                            <label for="attribute-{{ $attribute->id }}" class="col-2 col-form-label">{{ $attribute->name }}</label>
-                            <div class="col-9">
-                                <select id="attribute-{{ $attribute->id }}" name="attributes[]" class="select2-hidden-accessible" multiple tabindex="-1" aria-hidden="true" required="required">`;
-                                    @foreach($attribute->children as $attribute_child)
-                                        <option value="{{ $attribute_child->id }}" @if(in_array($attribute_child->id, (old('attributes') ?? $product->attributes->pluck('id')->toArray()))) selected @endif>
-                                            {{ $attribute_child->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                        @foreach(old('attributes') as $selected_attribute)
+                            @php
+                                $parent_id = \App\Models\Attribute::findOrFail($selected_attribute)->parent_id;
+                                $attribute = \App\Models\Attribute::findOrFail($parent_id);
+
+                                if (in_array($attribute->id, $parents)) {
+                                    continue;
+                                }
+
+                                $parents[] = $attribute->id;
+                            @endphp
+                            <div class="form-group row border-top border-top pt-4" id="attribute-{{ $attribute->id }}-row">
+                                <label for="attribute-{{ $attribute->id }}" class="col-2 col-form-label">{{ $attribute->name }}</label>
+                                <div class="col-9">
+                                    <select id="attribute-{{ $attribute->id }}" name="attributes[]" class="select2-hidden-accessible" multiple tabindex="-1" aria-hidden="true" required="required">`;
+                                        @foreach($attribute->children as $attribute_child)
+                                            <option value="{{ $attribute_child->id }}" @if(in_array($attribute_child->id, old('attributes'))) selected @endif>
+                                                {{ $attribute_child->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-1">
+                                    <button type="button" class="btn btn-danger btn-block remove-attribute" data-id="{{ $attribute->id }}">حذف</button>
+                                </div>
                             </div>
-                            <div class="col-1">
-                                <button type="button" class="btn btn-danger btn-block remove-attribute" data-id="{{ $attribute->id }}">حذف</button>
-                            </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+
+                    @endif
                 </div>
             </div>
             <!-- attributes card : end -->
@@ -138,12 +140,12 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title"> توضیحات کوتاه محصول </h6>
-                    <textarea id="short-description" name="short_description" @error('short_description') class=is-invalid" @enderror> {{ old('short_description') ?? $product->short_description }}</textarea>
+                    <textarea id="short-description" name="short_description" @error('short_description') class=is-invalid" @enderror> {{ old('short_description') }}</textarea>
 
                     @error('short_description')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                        <div class="invalid-feedback">
+{{--                            {{ $message }}--}}
+                        </div>
                     @enderror
                 </div>
             </div>
@@ -165,7 +167,7 @@
                         </a>
                     </div>
                     <div class="col-12 mt-4">
-                        <button type="submit" name="status" value="1" class="btn btn-success w-100 justify-content-center">بروزرسانی</button>
+                        <button type="submit" name="status" value="1" class="btn btn-success w-100 justify-content-center">انتشار</button>
                     </div>
                 </div>
             </div>
@@ -175,19 +177,19 @@
                 <div class="card-body">
                     <h6 class="card-title">تصویر محصول</h6>
                     <figure class="c4-izmir c4-border-corners-2 c4-image-zoom-in" style="--primary-color: var(--light);">
-                        <img src="{{ $product->gallery->first()->imageUrl }}" alt="Product Image" id="product-image">
+                        <img src="{{ asset('storage/default.png') }}" alt="Product Image" id="product-image">
                         <figcaption class="c4-layout-center-center" id="button-image">
                             <div class="c4-izmir-icon-wrapper c4-fade">
-                                <input type="hidden" id="image_label" class="form-control" name="image" value="{{ old('image') ?? $product->gallery->first()->image }}" required>
+                                <input type="hidden" id="image_label" class="form-control" name="image" value="{{ old('image') }}" required>
                                 <button type="button" class="btn btn-light w-100">تصویر محصول</button>
                             </div>
                         </figcaption>
                     </figure>
 
                     @error('image')
-                    <div class="text-danger">
-                        {{ $message }}
-                    </div>
+                        <div class="text-danger">
+                            {{ $message }}
+                        </div>
                     @enderror
                 </div>
             </div>
@@ -202,13 +204,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- categories card : end -->
         </div>
         <!-- left col : end -->
     </form>
     <!-- row : end -->
+@endsection
+
+@section('header-assets')
+    <link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
 @endsection
 
 @section('footer-assets')
@@ -231,6 +236,7 @@
             document.getElementById('image_label').value = $url;
             document.getElementById('product-image').src = "{{ asset('storage/products') }}" + $url;
         }
+
 
         $(document).ready(function () {
 
@@ -286,24 +292,26 @@
                 $('#add-attribute option[value="' + attribute_id + '"]').prop('disabled', false);
             })
 
-            @php
-                $parents = [];
-            @endphp
-            @foreach((old('attributes') ?? $product->attributes->pluck('id')->toArray()) as $selected_attribute)
+            @if(old('attributes'))
                 @php
-                    $parent_id = \App\Models\Attribute::findOrFail($selected_attribute)->parent_id;
-                    $attribute = \App\Models\Attribute::findOrFail($parent_id);
-
-                    if (in_array($attribute, $parents))
-                        continue;
-
-                    $parents[] = $attribute;
+                    $parents = [];
                 @endphp
-                $('#attribute-' + {{ $attribute->id }}).select2({
-                    placeholder: 'انتخاب کنید...'
-                });
-                $('#add-attribute option[value="' + {{ $attribute->id }} + '"]').prop('disabled', true);
-            @endforeach
+                @foreach(old('attributes') as $selected_attribute)
+                    @php
+                        $parent_id = \App\Models\Attribute::findOrFail($selected_attribute)->parent_id;
+                        $attribute = \App\Models\Attribute::findOrFail($parent_id);
+
+                        if (in_array($attribute, $parents))
+                            continue;
+
+                        $parents[] = $attribute;
+                    @endphp
+                    $('#attribute-' + {{ $attribute->id }}).select2({
+                        placeholder: 'انتخاب کنید...'
+                    });
+                    $('#add-attribute option[value="' + {{ $attribute->id }} + '"]').prop('disabled', true);
+                @endforeach
+            @endif
         });
     </script>
 @endsection

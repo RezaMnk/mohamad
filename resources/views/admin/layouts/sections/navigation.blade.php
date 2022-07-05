@@ -127,23 +127,26 @@
         <!-- Orders -->
         <ul id="OrdersSubMenu" class="{{ request()->routeIs('admin.orders*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">سفارشات</li>
+{{--            <li>--}}
+{{--                <a class="{{ request()->routeIs('admin.orders.index') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">همه سفارشات</a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->routeIs('admin.orders.approved') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">تکمیل شده</a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">در انتظار تایید</a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->routeIs('admin.orders.priced') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">در انتظار پرداخت</a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->routeIs('admin.orders.paid') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">پرداخت شده</a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">لغو شده</a>--}}
+{{--            </li>--}}
             <li>
-                <a href="orders.html">همه سفارشات</a>
-            </li>
-            <li>
-                <a href="orders.html">پیش فاکتور ها</a>
-            </li>
-            <li>
-                <a href="orders.html">در انتظار پرداخت</a>
-            </li>
-            <li>
-                <a href="orders.html">پرداخت شده</a>
-            </li>
-            <li>
-                <a href="orders.html">لغو شده</a>
-            </li>
-            <li>
-                <a href="#" class="mb-2">
+                <a class="{{ request()->routeIs('admin.orders.index') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-warning text-white mr-3">
@@ -152,13 +155,13 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">همه سفارشات</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">423</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('all') }}</h4>
                         </div>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#" class="mb-2">
+                <a class="{{ request()->routeIs('admin.orders.approved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-success text-white mr-3">
@@ -166,14 +169,29 @@
                             </div>
                         </div>
                         <div>
-                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">پیش فاکتور ها</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">214</h4>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">تکمیل شده</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('approved') }}</h4>
                         </div>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-info text-white mr-3">
+                                <i class="ti-user"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">در انتظار تایید</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('unapproved') }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('admin.orders.priced') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-info text-white mr-3">
@@ -182,13 +200,13 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">در انتظار پرداخت</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">512</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('priced') }}</h4>
                         </div>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a class="{{ request()->routeIs('admin.orders.paid') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-primary text-white mr-3">
@@ -197,13 +215,13 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">پرداخت شده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">512</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('paid') }}</h4>
                         </div>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-danger text-white mr-3">
@@ -212,7 +230,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">لغو شده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">512</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('canceled') }}</h4>
                         </div>
                     </div>
                 </a>

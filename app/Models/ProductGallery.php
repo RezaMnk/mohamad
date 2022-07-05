@@ -24,7 +24,7 @@ class ProductGallery extends Model
      *
      * @return string
      */
-    public function getImageAttribute()
+    public function getImageUrlAttribute()
     {
         return asset('storage/products') . $this->attributes['image'];
     }

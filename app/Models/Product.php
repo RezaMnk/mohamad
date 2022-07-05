@@ -5,10 +5,11 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +48,17 @@ class Product extends Model
         return $this->belongsToMany(Attribute::class);
     }
 
+    /**
+     * Belongs to products
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function orders()
+    {
+        return $this->belongsToMany(Orders::class)
+            ->withPivot(['amount', 'price']);
+    }
+
 
     /**
      * Belongs to products
@@ -60,6 +72,8 @@ class Product extends Model
 
 
     /**
+     * use for (12 hours ago) or (12-12-2012)
+     *
      * @return false|\Morilog\Jalali\Jalalian|string
      */
     public function created_at()
