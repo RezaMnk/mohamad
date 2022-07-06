@@ -10,6 +10,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
+                        <!-- TODO: add to slide -->
+                        <style>
+                            /* .ls-inner {
+                                background: transparent !important;
+                                -webkit-backdrop-filter: blur(30px) !important;
+                                -o-backdrop-filter: blur(20px) !important;
+                                -ms-backdrop-filter: blur(20px) !important;
+                                backdrop-filter: blur(30px) !important;
+                                
+                            } */
+                            /* .col.ls-direction-fix {
+                                background: url(https://data.whicdn.com/images/299842671/original.gif);
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+
+                            } */
+                        </style>
                         <div id="watch-slider" style="width:1420px; height:740px; margin:0 auto; margin-bottom: 0px;">
 
                             <!-- Slide 1-->
@@ -20,9 +38,9 @@
                                 <img width="450" height="450" src="{{ asset('storage') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
                                     alt="image not found!">
 
-                                <img width="1920" height="840" src="{{ asset('storage') }}/slider/34.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <img width="1920" height="840" src="{{ asset('storage') }}/slider/Comp3.gif" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
 
-                                <img width="311" height="503" src="{{ asset('storage') }}/slider/slider-1.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <!-- <img width="311" height="503" src="{{ asset('storage') }}/slider/slider-1.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!"> -->
 
                                 <p style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:50px; top:70px; right:20px; white-space:normal;" class="ls-l text-primary text-uppercase" data-ls="offsetyin:40; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:200; parallax:false;">برندهای لوکس</p>
 
@@ -47,9 +65,9 @@
                                 <img width="450" height="450" src="{{ asset('storage') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
                                     alt="image not found!">
 
-                                <img width="1920" height="840" src="{{ asset('storage') }}/slider/34.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <img width="1920" height="840" src="{{ asset('storage') }}/slider/Comp3.gif" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
 
-                                <img width="311" height="503" src="{{ asset('storage') }}/slider/slider-2.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <!-- <img width="311" height="503" src="{{ asset('storage') }}/slider/slider-2.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!"> -->
 
                                 <p style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:50px; top:70px; right:20px; white-space:normal;" class="ls-l text-primary text-uppercase" data-ls="offsetyin:40; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:200; parallax:false;">برندهای لوکس</p>
 
@@ -249,7 +267,7 @@
 
         <!--==================== Banner Full Section Start ====================-->
         <div class="full-row">
-            <div class="">
+            <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="banner-four" style="background: url({{ asset('storage') }}/background/15.png) no-repeat center / 100%; margin: 40px 0;">
