@@ -15,7 +15,7 @@
                             <!-- Slide 1-->
                             <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:10000; transition2d:3; timeshift:-500; deeplink:home; kenburnszoom:in; kenburnsrotate:0; kenburnsscale:1.2; parallaxevent:scroll; parallaxdurationmove:500;">
 
-                                <div style="width:100%; height:100%; top:50%; right:50%;" class="ls-l bg-dark" data-ls="easingin:easeOutQuint; durationout:400; parallaxlevel:0; static:forever; position:fixed;"></div>
+                                <div style="width:100%; height:100%; top:50%; right:50%;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:400; parallaxlevel:0; static:forever; position:fixed;"></div>
 
                                 <img width="450" height="450" src="{{ asset('storage') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
                                     alt="image not found!">
@@ -42,7 +42,7 @@
                             <!-- Slide 2 -->
                             <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:10000; transition2d:3; timeshift:-500; deeplink:home; kenburnszoom:in; kenburnsrotate:0; kenburnsscale:1.2; parallaxevent:scroll; parallaxdurationmove:500;">
 
-                                <div style="width:100%; height:100%; top:50%; right:50%;" class="ls-l bg-dark" data-ls="easingin:easeOutQuint; durationout:400; parallaxlevel:0; static:forever; position:fixed;"></div>
+                                <div style="width:100%; height:100%; top:50%; right:50%;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:400; parallaxlevel:0; static:forever; position:fixed;"></div>
 
                                 <img width="450" height="450" src="{{ asset('storage') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
                                     alt="image not found!">
@@ -174,153 +174,11 @@
                                 </div>
                             </div>
                             <a href="shop-grid-full.html" class="btn btn-primary">افزودن به سبد خرید</a>
-                            <div class="time-count time-box text-center flex-between" data-countdown="2021/12/31"></div>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7">
 						<div class="products product-style-1">
 							<div class="row gy-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-sm-2 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
-
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card border-0">
-                                        <div class="imgBx">
-                                            <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">
-                                        </div>
-                                        <div class="contentBx">
-                                            <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col">
                                     <div class="card border-0">
                                         <div class="imgBx">
