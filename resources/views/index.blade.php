@@ -7,7 +7,7 @@
 
         <!-- Slider HTML markup -->
         <div class="full-row py-0 overflow-hidden">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col">
                         <div id="watch-slider" style="width:1420px; height:740px; margin:0 auto; margin-bottom: 0px;">
@@ -17,12 +17,12 @@
 
                                 <div style="width:100%; height:100%; top:50%; right:50%;" class="ls-l bg-dark" data-ls="easingin:easeOutQuint; durationout:400; parallaxlevel:0; static:forever; position:fixed;"></div>
 
-                                <img width="450" height="450" src="{{ asset('storage/site') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
+                                <img width="450" height="450" src="{{ asset('storage') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
                                     alt="image not found!">
 
-                                <img width="1920" height="840" src="{{ asset('storage/site') }}/slider/34.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <img width="1920" height="840" src="{{ asset('storage') }}/slider/34.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
 
-                                <img width="311" height="503" src="{{ asset('storage/site') }}/slider/36.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <img width="311" height="503" src="{{ asset('storage') }}/slider/slider-1.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
 
                                 <p style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:50px; top:70px; right:20px; white-space:normal;" class="ls-l text-primary text-uppercase" data-ls="offsetyin:40; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:200; parallax:false;">برندهای لوکس</p>
 
@@ -44,12 +44,12 @@
 
                                 <div style="width:100%; height:100%; top:50%; right:50%;" class="ls-l bg-dark" data-ls="easingin:easeOutQuint; durationout:400; parallaxlevel:0; static:forever; position:fixed;"></div>
 
-                                <img width="450" height="450" src="{{ asset('storage/site') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
+                                <img width="450" height="450" src="{{ asset('storage') }}/slider/35.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; durationout:400; parallax:false; position:fixed; loop:true; loopduration:60000; loopstartat:transitioninstart + 0; looprotate:360; loopcount:-1;"
                                     alt="image not found!">
 
-                                <img width="1920" height="840" src="{{ asset('storage/site') }}/slider/34.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <img width="1920" height="840" src="{{ asset('storage') }}/slider/34.png" style="top:50%; right:50%;" class="ls-l" data-ls="offsetin:100; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
 
-                                <img width="311" height="503" src="{{ asset('storage/site') }}/slider/37.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
+                                <img width="311" height="503" src="{{ asset('storage') }}/slider/slider-2.png" style="top:50%; right:50.5%;" class="ls-l" data-ls="offsetin:200; fadein:true; rotatein:0; delayin:500; durationout:400; parallax:false; position:fixed;" alt="image not found!">
 
                                 <p style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:50px; top:70px; right:20px; white-space:normal;" class="ls-l text-primary text-uppercase" data-ls="offsetyin:40; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:200; parallax:false;">برندهای لوکس</p>
 
@@ -80,8 +80,8 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="row row-cols-1 g-4">
                             <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage/site') }}/banner/87.png) no-repeat;">
-                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/88.png" alt="Banner Image"></div>
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage') }}/banner/87.png) no-repeat;">
+                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/88.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی مردانه</a>
                                         <h4 class="title"><a href="#">بهترین کالکشن</a></h4>
@@ -90,8 +90,8 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage/site') }}/banner/91.png) no-repeat;">
-                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/90.png" alt="Banner Image"></div>
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage') }}/banner/91.png) no-repeat;">
+                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/90.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی زنانه</a>
                                         <h4 class="title"><a href="#">زیبایی در سادگی</a></h4>
@@ -103,7 +103,7 @@
                     </div>
                     <div class="col-xl-4 col-md-6">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-126 bg-dark">
-                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/89.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/89.png" alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <div class="middle-content">
                                     <a href="#" class="category">ساعت های مردانـه</a>
@@ -117,8 +117,8 @@
                     <div class="col-xl-4 col-dm-12">
                         <div class="row row-cols-xl-1 row-cols-md-2 row-cols-1 g-4">
                             <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage/site') }}/banner/92.png) no-repeat;">
-                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/93.png" alt="Banner Image"></div>
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage') }}/banner/92.png) no-repeat;">
+                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/93.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی بچگانه</a>
                                         <h4 class="title"><a href="#">محصولات جدید</a></h4>
@@ -127,8 +127,8 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage/site') }}/banner/94.png) no-repeat;">
-                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/95.png" alt="Banner Image"></div>
+                                <div class="banner-wrapper hover-img-zoom banner-one custom-class-125" style="background: url({{ asset('storage') }}/banner/94.png) no-repeat;">
+                                    <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/95.png" alt="Banner Image"></div>
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی ست</a>
                                         <h4 class="title"><a href="#">متنوع ترین برندها</a></h4>
@@ -152,7 +152,7 @@
                             <div class="product type-product">
                                 <div class="product-wrapper">
                                     <div class="product-image">
-                                        <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/height-21.png" alt="Product Image"></a>
+                                        <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/height-21.png" alt="Product Image"></a>
                                         <div class="on-sale">- 25%</div>
                                     </div>
                                     <div class="product-info">
@@ -382,31 +382,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-=======
-                                <x-product-card count="4" type="top"></x-product-card>
-{{--                            <div class="col">--}}
-{{--                                <div class="container">--}}
-{{--                                    <div class="card">--}}
-{{--                                      <div class="imgBx">--}}
-{{--                                        <img src="https://lavigueur.com/products/_crop_750x750/330JF50060010.PNG">--}}
-{{--                                      </div>--}}
-{{--                                      <div class="contentBx">--}}
-{{--                                        <h2>Golden Ring</h2>--}}
-{{--                                        <div class="size">--}}
-{{--                                          <h3>Size :</h3>--}}
-{{--                                          <span>7</span>--}}
-{{--                                          <span>8</span>--}}
-{{--                                          <span>9</span>--}}
-{{--                                          <span>10</span>--}}
-{{--                                        </div>--}}
-{{--                                        <a href="#">Buy Now</a>--}}
-{{--                                      </div>--}}
-{{--                                    </div>--}}
-{{--                                  </div>--}}
-{{--                            </div>--}}
-                        </div>
->>>>>>> 33fd57812c167435a8c28e9926d30d779cd22ec1
 						</div>
 					</div>
                 </div>
@@ -415,11 +390,11 @@
         <!--==================== Deal of the day Section End ====================-->
 
         <!--==================== Banner Full Section Start ====================-->
-        <div class="full-row pb-0">
-            <div class="container">
+        <div class="full-row">
+            <div class="">
                 <div class="row">
                     <div class="col">
-                        <div class="banner-four" style="background: url({{ asset('storage/site') }}/background/15.png) no-repeat center / 100%; margin: 40px 0;">
+                        <div class="banner-four" style="background: url({{ asset('storage') }}/background/15.png) no-repeat center / 100%; margin: 40px 0;">
                             <div class="row justify-content-center">
                                 <div class="col-xl-5 col-lg-6 offset-md-1 col-md-6 sm-mb-50">
                                     <div class="banner-four-content position-relative y-center watch-banner">
@@ -430,7 +405,7 @@
                                 </div>
                                 <div class="col-xl-4 col-lg-4 offset-lg-1 col-md-5 col-sm-8">
                                     <div style="margin: -40px 0;" class="banner-four d-table ml-auto position-relative md-ml-50">
-                                        <img src="{{ asset('storage/site') }}/banner/96.png" alt="Add Product">
+                                        <img src="{{ asset('storage') }}/banner/96.png" alt="Add Product">
                                     </div>
                                 </div>
                             </div>
@@ -442,7 +417,7 @@
         <!--==================== Banner Full Section End ====================-->
 
         <!--==================== Trending Products Section Start ====================-->
-        <div class="full-row pb-0">
+        <div class="full-row pb-0 bg-dark">
             <div class="container">
                 <div class="row justify-content-center wow fadeInUp animated" data-wow-delay="200ms" data-wow-duration="1000ms">
                     <div class="col-xxl-4 col-xl-6 col-lg-7 col-md-8">
@@ -460,7 +435,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-271.png" alt="Product Image" class="product-hover"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-271.png" alt="Product Image" class="product-hover"></a>
                                             <div class="hover-area">
                                                 <div class="cart-button">
                                                     <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
@@ -496,7 +471,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-272.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-272.png" alt="Product Image"></a>
                                             <div class="hover-area">
                                                 <div class="cart-button">
                                                     <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
@@ -531,7 +506,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-274.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-274.png" alt="Product Image"></a>
                                             <div class="product-variations">
                                                 <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
                                                 <span><a href="#" style="background-color: #f1cc4e;"></a></span>
@@ -575,7 +550,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-275.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-275.png" alt="Product Image"></a>
                                             <div class="product-variations">
                                                 <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
                                                 <span><a href="#" style="background-color: #f1cc4e;"></a></span>
@@ -619,7 +594,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-271.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-271.png" alt="Product Image"></a>
                                             <div class="hover-area">
                                                 <div class="cart-button">
                                                     <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
@@ -654,7 +629,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-272.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-272.png" alt="Product Image"></a>
                                             <div class="hover-area">
                                                 <div class="cart-button">
                                                     <a href="#" class="button add_to_cart_button" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="افزودن به سبد خرید" aria-label="Add to Cart">افزودن به سبد خرید</a>
@@ -689,7 +664,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-274.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-274.png" alt="Product Image"></a>
                                             <div class="product-variations">
                                                 <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
                                                 <span><a href="#" style="background-color: #f1cc4e;"></a></span>
@@ -733,7 +708,7 @@
                                 <div class="product type-product">
                                     <div class="product-wrapper">
                                         <div class="product-image">
-                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage/site') }}/products/squire-275.png" alt="Product Image"></a>
+                                            <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/squire-275.png" alt="Product Image"></a>
                                             <div class="product-variations">
                                                 <span class="active"><a href="#" style="background-color: #b78269;"></a></span>
                                                 <span><a href="#" style="background-color: #f1cc4e;"></a></span>
@@ -786,8 +761,8 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-xl-6 col-lg-8">
-                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-122 bg-dark" style="background: url({{ asset('storage/site') }}/banner/97.png) no-repeat;">
-                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/98.png" alt="Banner Image"></div>
+                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-122 bg-dark" style="background: url({{ asset('storage') }}/banner/97.png) no-repeat;">
+                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/98.png" alt="Banner Image"></div>
                             <div class="banner-content y-center position-absolute">
                                 <div class="middle-content">
                                     <span class="up-to-sale">تخفیف تا 20%</span>
@@ -799,7 +774,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-8 ms-auto">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-123 bg-dark">
-                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage/site') }}/banner/99.png" alt="Banner Image"></div>
+                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/99.png" alt="Banner Image"></div>
                             <div class="banner-content position-absolute">
                                 <div class="middle-content">
                                     <a href="single-shop.html" class="category">ساعت های مردانه</a>
@@ -814,100 +789,4 @@
             </div>
         </div>
         <!--==================== Banner Section End ====================-->
-
-        <!--==================== Our Partner Section Start ====================-->
-        <div class="full-row bg-dark pb-30 pt-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="owl-carousel partner-slider" dir="ltr">
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/18.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/19.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/20.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/21.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/22.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/23.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/24.png" alt="Image not found!" /></a>
-                            </div>
-                            <div class="item">
-                                <a href="#"><img src="{{ asset('storage/site') }}/partner/25.png" alt="Image not found!" /></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--==================== Our Partner Section End ====================-->
-
-        <!--==================== Inspirational Posts Section Start ====================-->
-        <div class="full-row bg-dark">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h3 class="down-line font-extra-large text-center font-500 mb-40">اخبار و مقالات</h3>
-                    </div>
-                </div>
-                <div class="row row-cols-xl-3 row-cols-md-2 row-cols-1 g-4 gy-xl-0">
-                    <div class="col">
-                        <div class="thumb-blog-simple text-center transation hover-img-zoom">
-                            <div class="post-image overflow-hidden">
-                                <img src="{{ asset('storage/site') }}/blog/2.png" alt="Image not found!">
-                            </div>
-                            <div class="post-content">
-                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                    <a href="blog-single-2.html"><span>مُد وفشن</span></a>
-                                </div>
-                                <h5><a href="blog-single.html" class="transation text-dark hover-text-primary d-table my-10 mx-auto font-500">ساعت مچی نامرئی که، مرئی شد!</a></h5>
-                                <p>در سال 1867، ژرارد پرگو، اولین ساعت مچی توربیلون خود با سه پل طلایی را...</p>
-                                <a href="blog-single.html" class="btn-link-down-line d-table mx-auto">ادامه مطلب</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="thumb-blog-simple text-center transation hover-img-zoom">
-                            <div class="post-image overflow-hidden">
-                                <img src="{{ asset('storage/site') }}/blog/4.png" alt="Image not found!">
-                            </div>
-                            <div class="post-content">
-                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                    <a href="#"><span>سبک زندگی</span></a>
-                                </div>
-                                <h5><a href="blog-single.html" class="transation text-dark hover-text-primary d-table my-10 mx-auto font-500">چگونه ساعتمان را تمیز کنیم ؟</a></h5>
-                                <p>اگر H. Moser & Cie یکی از ساعت مچی های شاخص خود به نام Perpetual 1 را...</p>
-                                <a href="blog-single.html" class="btn-link-down-line d-table mx-auto">ادامه مطلب</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="thumb-blog-simple text-center transation hover-img-zoom">
-                            <div class="post-image overflow-hidden">
-                                <img src="{{ asset('storage/site') }}/blog/3.png" alt="Image not found!">
-                            </div>
-                            <div class="post-content">
-                                <div class="post-meta font-small text-uppercase list-color-primary">
-                                    <a href="#"><span>ساعت مچی</span></a>
-                                </div>
-                                <h5><a href="blog-single.html" class="transation text-dark hover-text-primary d-table my-10 mx-auto font-500">کورنوگراف چیست؟</a></h5>
-                                <p>ساعتی خریده اید که یکی از مزیت های آن کرنوگراف است. این به چه معنا می‌باشد؟ در چه...</p>
-                                <a href="blog-single.html" class="btn-link-down-line d-table mx-auto">ادامه مطلب</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--==================== Inspirational Posts Section End ====================-->
 @endsection

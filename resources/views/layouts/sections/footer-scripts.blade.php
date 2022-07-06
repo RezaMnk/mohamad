@@ -24,6 +24,6 @@
         globalBGColor: '#ffffff',
         navStartStop: false,
         skinsPath: 'assets/skins/',
-        height: 450
+        height: 550
     });
 </script>
