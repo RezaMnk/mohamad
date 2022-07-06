@@ -34,6 +34,10 @@ Route::get('/img', function () {
    return dd(\Illuminate\Support\Facades\Storage::disk('products')->files(''));
 });
 
+Route::get('/logi', function () {
+    auth()->loginUsingId(1);
+});
+
 Route::get('/test', function () {
     $user = \App\Models\User::create([
         'name' => 'Reza Nadaf',

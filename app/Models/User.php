@@ -115,4 +115,26 @@ class User extends Authenticatable
         return jdate($time)->format('%B %d، %Y');
     }
 
+
+    /**
+     * count users by column name
+     *
+     * @param $type
+     * @param $bool
+     * @return false|int
+     */
+    public static function count($type, $bool = true)
+    {
+        $orders = User::query();
+        switch ($type) {
+            case('all'):
+                return count($orders->get());
+
+            default:
+                if (!in_array($type, ['zarin', 'verified', 'vip']))
+                    return false;
+                return count($orders->where($type, $bool)->get());
+        }
+    }
+
 }

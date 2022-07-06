@@ -131,17 +131,20 @@ class Order extends Model
         $this->update();
     }
 
-    public static function count($type)
+    public static function count($type, $bool = true)
     {
         $orders = Order::query();
         switch ($type) {
             case('all'):
                 return count($orders->get());
-
             default:
                 if (!in_array($type, ['unapproved', 'paid', 'priced', 'approved', 'canceled']))
                     return false;
-                return count($orders->whereStatus($type)->get());
+
+                if ($bool)
+                    return count($orders->whereStatus($type)->get());
+                return count($orders->whereNot('status', $type)->get());
+
         }
     }
 }

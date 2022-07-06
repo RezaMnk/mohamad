@@ -20,53 +20,53 @@
             @if(isset($attribute))
                 <form action="{{ route('admin.attributes.update', $attribute->id) }}" method="POST">
                     @method('PATCH')
-                    @else
-                        <form action="{{ route('admin.attributes.store') }}" method="post">
-                            @endif
-                            @csrf
+            @else
+                <form action="{{ route('admin.attributes.store') }}" method="post">
+            @endif
+                    @csrf
 
-                            @if($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-                            <div class="form-group">
-                                <label for="name">نام</label>
-                                <input name="name" id="name" class="form-control @error('name') is-invalid @enderror"
-                                       type="text" value="{{ $attribute->name ?? '' }}">
+                    <div class="form-group">
+                        <label for="name">نام</label>
+                        <input name="name" id="name" class="form-control @error('name') is-invalid @enderror"
+                               type="text" value="{{ $attribute->name ?? '' }}">
 
-                                @error('name')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
+                        @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
 
-                            <!-- select box -->
-                            <div class="form-group">
-                                <label for="parent">ویژگی</label>
-                                @php($current_attribute = $attribute ?? null)
-                                <select name="parent_id" id="parent" class="form-control" {{ $current_attribute ? 'disabled="disabled"' : '' }}>
-                                    <option value="0">بدون والد</option>
-                                    @foreach($attributes as $attribute)
-                                        <option value="{{ $attribute->id }}" {{ $current_attribute ? $current_attribute->parent_id == $attribute->id ? 'selected="selected"' : '' : '' }}>{{ $attribute->name }}</option>
-                                    @endforeach
-                                </select>
+                    <!-- select box -->
+                    <div class="form-group">
+                        <label for="parent">ویژگی</label>
+                        @php($current_attribute = $attribute ?? null)
+                        <select name="parent_id" id="parent" class="form-control" {{ $current_attribute ? 'disabled="disabled"' : '' }}>
+                            <option value="0">بدون والد</option>
+                            @foreach($attributes as $attribute_parent)
+                                <option value="{{ $attribute_parent->id }}" {{ $current_attribute ? $current_attribute->parent_id == $attribute_parent->id ? 'selected="selected"' : '' : '' }}>{{ $attribute_parent->name }}</option>
+                            @endforeach
+                        </select>
 
-                                @error('parent_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <button type="submit"
-                                    class="btn btn-primary w-100 justify-content-center">{{ isset($current_attribute) ? 'بروزرسانی ویژگی' : 'افزودن ویژگی جدید' }}</button>
-                        </form>
+                        @error('parent_id')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <button type="submit"
+                            class="btn btn-primary w-100 justify-content-center">{{ isset($current_attribute) ? 'بروزرسانی ویژگی' : 'افزودن ویژگی جدید' }}</button>
+                </form>
         </div>
         <!-- right col : end  -->
         <!-- left col : start  -->
@@ -106,8 +106,6 @@
             </div>
         </div>
         <!-- left col : end  -->
-
-
     </div>
 @endsection
 <!-- adding nestable js to project  -->

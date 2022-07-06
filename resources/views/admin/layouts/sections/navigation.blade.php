@@ -238,17 +238,17 @@
         </ul>
         <!-- Orders  -->
         <!-- Products -->
-        <ul id="ProductsSubMenu" class="{{ request()->routeIs('admin.products*') ? 'navigation-active' : '' }}">
+        <ul id="ProductsSubMenu" class="{{ request()->routeIs('admin.products*', 'admin.attributes*', 'admin.categories*',) ? 'navigation-active' : '' }}">
             <li class="navigation-divider">محصولات</li>
             <li>
                 <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">محصولات</a>
             </li>
             <!-- TODO: add product categories routes  -->
             <li>
-            <a class="{{ request()->routeIs('admin.categories.index') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">دسته بندی محصولات</a>
+            <a class="{{ request()->routeIs('admin.categories.index', 'admin.categories.edit') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">دسته بندی محصولات</a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">ویژگی محصولات</a>
+                <a class="{{ request()->routeIs('admin.attributes.index', 'admin.attributes.edit') ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">ویژگی محصولات</a>
             </li>
         </ul>
     </div>
