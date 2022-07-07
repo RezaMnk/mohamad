@@ -5,7 +5,6 @@
             <li class="{{ request()->routeIs('admin.index') ? 'active' : '' }}" data-toggle="tooltip" title="داشبورد">
                 <a href="#navigationDashboards" title="داشبوردها">
                     <i class="icon ti-pie-chart"></i>
-                    <span class="badge badge-warning">2</span>
                 </a>
             </li>
             <li class="{{ request()->routeIs('admin.users*') ? 'active' : '' }}" data-toggle="tooltip" title="کاربران">
@@ -13,9 +12,10 @@
                     <i class="icon ti-user"></i>
                 </a>
             </li>
-            <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}" data-toggle="tooltip" title="سفارشات">
+            <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}" data-toggle="tooltip" title="{{ \App\Models\Order::count('unapproved') }} سفارش تایید نشده">
                 <a href="#OrdersSubMenu" title="سفارشات">
                     <i class="icon ti-layout-list-thumb"></i>
+                    <span class="badge badge-warning">{{ \App\Models\Order::count('unapproved') > 0 ?? '' }}</span>
                 </a>
             </li>
             <li class="{{ request()->routeIs('admin.products*') ? 'active' : '' }}" data-toggle="tooltip" title="محصولات">
@@ -26,7 +26,7 @@
         </ul>
         <!-- setting ul  -->
         <ul>
-            <li id="title-toggler" data-toggle="tooltip" title="" data-original-title="بستن منو کاربری"  onclick="menu_toggler()">
+            <li id="title-toggler" data-toggle="tooltip" title="" data-original-title="بستن منو کاربری" onclick="menu_toggler()">
                 <a href="#" class="go-to-page">
                     <i class="icon ti-arrow-right" id="menu-toggler"></i>
                 </a>
@@ -62,62 +62,109 @@
         <ul id="navigationDashboards" class="{{ request()->routeIs('admin.index') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">صفحه اصلی</li>
             <li>
-                <a class="{{ request()->routeIs('admin.index') ? 'active' : '' }}" href="{{ route('admin.index') }}">صفحه اصلی</a>
+                <a class="{{ request()->routeIs('admin.index') ? 'active' : '' }} mb-2" href="{{ route('admin.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-primary text-white mr-3">
+                                <i class="fa fa-dashboard"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font mb-0">داشبورد</h6>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-success text-white mr-3">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">سفارشات</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('all') }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('admin.users.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.users.unapproved') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-warning text-white mr-3">
+                                <i class="fa fa-user-times"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">کاربران</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('all') }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }} mb-2" href="{{ route('admin.products.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-danger text-white mr-3">
+                                <i class="fa fa-dropbox"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">محصولات</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Product::count('all') }}</h4>
+                        </div>
+                    </div>
+                </a>
             </li>
         </ul>
         <!-- user sub menu -->
         <ul id="UserSubMenu" class="{{ request()->routeIs('admin.users*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">کاربران</li>
             <li>
-                <a class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">همه کاربران</a>
-            </li>
-            <li>
-                <a class="{{ request()->routeIs('admin.users.unapproved') ? 'active' : '' }}" href="{{ route('admin.users.unapproved') }}">تایید کاربران</a>
-            </li>
-            <li>
-                <a class="{{ request()->routeIs('admin.users.vip') ? 'active' : '' }}" href="{{ route('admin.users.vip') }}">مشتریان ویژه</a>
-            </li>
-            <li>
-                <a href="#" class="mb-2">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <div class="icon-block bg-warning text-white mr-3">
-                                <i class="ti-bar-chart"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">تعداد کاربران</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">423</h4>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="mb-2">
+                <a class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }} mb-2" href="{{ route('admin.users.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-success text-white mr-3">
-                                <i class="ti-email"></i>
+                                <i class="fa fa-users"></i>
                             </div>
                         </div>
                         <div>
-                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">تایید نشده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">214</h4>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">همه کاربران</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('all') }}</h4>
                         </div>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a class="{{ request()->routeIs('admin.users.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.users.unapproved') }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <div class="icon-block bg-info text-white mr-3">
-                                <i class="ti-user"></i>
+                            <div class="icon-block bg-warning text-white mr-3">
+                                <i class="fa fa-user-times"></i>
                             </div>
                         </div>
                         <div>
-                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">باشگاه مشتریان</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">512</h4>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">کاربران تایید نشده</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('zarin', false) }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('admin.users.vip') ? 'active' : '' }} mb-2" href="{{ route('admin.users.vip') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-info text-white mr-3">
+                                <i class="fa fa-user-plus"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">کاربران ویژه</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('vip') }}</h4>
                         </div>
                     </div>
                 </a>
@@ -127,30 +174,12 @@
         <!-- Orders -->
         <ul id="OrdersSubMenu" class="{{ request()->routeIs('admin.orders*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">سفارشات</li>
-{{--            <li>--}}
-{{--                <a class="{{ request()->routeIs('admin.orders.index') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">همه سفارشات</a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a class="{{ request()->routeIs('admin.orders.approved') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">تکمیل شده</a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">در انتظار تایید</a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a class="{{ request()->routeIs('admin.orders.priced') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">در انتظار پرداخت</a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a class="{{ request()->routeIs('admin.orders.paid') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">پرداخت شده</a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">لغو شده</a>--}}
-{{--            </li>--}}
             <li>
                 <a class="{{ request()->routeIs('admin.orders.index') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <div class="icon-block bg-warning text-white mr-3">
-                                <i class="ti-bar-chart"></i>
+                            <div class="icon-block bg-primary text-white mr-3">
+                                <i class="fa fa-list"></i>
                             </div>
                         </div>
                         <div>
@@ -165,7 +194,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-success text-white mr-3">
-                                <i class="ti-email"></i>
+                                <i class="fa fa-check"></i>
                             </div>
                         </div>
                         <div>
@@ -179,8 +208,8 @@
                 <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <div class="icon-block bg-info text-white mr-3">
-                                <i class="ti-user"></i>
+                            <div class="icon-block bg-warning text-white mr-3">
+                                <i class="fa fa-clock-o"></i>
                             </div>
                         </div>
                         <div>
@@ -194,8 +223,8 @@
                 <a class="{{ request()->routeIs('admin.orders.priced') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <div class="icon-block bg-info text-white mr-3">
-                                <i class="ti-user"></i>
+                            <div class="icon-block bg-secondary text-white mr-3">
+                                <i class="fa fa-money"></i>
                             </div>
                         </div>
                         <div>
@@ -209,8 +238,8 @@
                 <a class="{{ request()->routeIs('admin.orders.paid') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <div class="icon-block bg-primary text-white mr-3">
-                                <i class="ti-user"></i>
+                            <div class="icon-block bg-info text-white mr-3">
+                                <i class="fa fa-dollar"></i>
                             </div>
                         </div>
                         <div>
@@ -221,11 +250,11 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.index') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-danger text-white mr-3">
-                                <i class="ti-user"></i>
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
                         <div>
@@ -241,14 +270,49 @@
         <ul id="ProductsSubMenu" class="{{ request()->routeIs('admin.products*', 'admin.attributes*', 'admin.categories*',) ? 'navigation-active' : '' }}">
             <li class="navigation-divider">محصولات</li>
             <li>
-                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">محصولات</a>
+                <a class="{{ request()->routeIs('admin.products.index') ? 'active' : '' }} mb-2" href="{{ route('admin.products.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-primary text-white mr-3">
+                                <i class="fa fa-dropbox"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">محصولات</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Product::count('all') }}</h4>
+                        </div>
+                    </div>
+                </a>
             </li>
-            <!-- TODO: add product categories routes  -->
             <li>
-            <a class="{{ request()->routeIs('admin.categories.index', 'admin.categories.edit') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">دسته بندی محصولات</a>
+                <a class="{{ request()->routeIs('admin.categories.index') ? 'active' : '' }} mb-2" href="{{ route('admin.categories.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-success text-white mr-3">
+                                <i class="fa fa-th-list"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">دسته بندی ها</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Category::count('all') }}</h4>
+                        </div>
+                    </div>
+                </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.attributes.index', 'admin.attributes.edit') ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">ویژگی محصولات</a>
+                <a class="{{ request()->routeIs('admin.attributes.index') ? 'active' : '' }} mb-2" href="{{ route('admin.attributes.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-warning text-white mr-3">
+                                <i class="fa fa-list"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">ویژگی ها</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Attribute::count('all') }}</h4>
+                        </div>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>

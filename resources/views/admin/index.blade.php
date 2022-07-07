@@ -46,10 +46,10 @@
                                     </div>
                                 </div>
                                 <a href="{{ route('admin.orders.index') }}" class="font-size-13">سفارشات تایید نشده</a>
-                                <h2 class="mb-0 ml-auto font-weight-bold text-warning primary-font line-height-30">{{ \App\Models\Order::count('unapproved', false) }} از {{ \App\Models\Order::count('all') }}</h2>
+                                <h2 class="mb-0 ml-auto font-weight-bold text-warning primary-font line-height-30">{{ \App\Models\Order::count('unapproved') }} از {{ \App\Models\Order::count('all') }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ \App\Models\Order::count('unapproved', false) / \App\Models\Order::count('all') * 100 }}%" aria-valuenow="{{ \App\Models\Order::count('unapproved', false) / \App\Models\Order::count('all') * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ \App\Models\Order::count('unapproved') / \App\Models\Order::count('all') * 100 }}%" aria-valuenow="{{ \App\Models\Order::count('unapproved') / \App\Models\Order::count('all') * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -95,6 +95,65 @@
     </div>
 
     <div class="row">
+        <div class="col-xl-3 col-md-12">
+            <div class="card">
+                <div class="card-header">کل کاربرات</div>
+                <div class="card-body text-center">
+                    <div class="mb-2">
+                        <span class="bar-1">{{ join(',', $statistics->users->daily) }}</span>
+                    </div>
+                    <div class="font-size-40 font-weight-bold text-primary">{{ number_format($statistics->users->new) }}</div>
+                    <p class="m-b-0">
+                        <i class="fa fa-caret-up text-primary m-r-5"></i> {{ $statistics->users->new_diff_percent }}% افزایش در هفته پیش
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-12">
+            <div class="card">
+                <div class="card-header">کل سفارشات</div>
+                <div class="card-body text-center">
+                    <div class="mb-2">
+                        <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                    </div>
+                    <div class="font-size-40 font-weight-bold text-primary">1,241</div>
+                    <p class="m-b-0">
+                        <i class="fa fa-caret-up text-primary m-r-5"></i> 23% افزایش در هفته پیش
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-12">
+            <div class="card">
+                <div class="card-header">کل محصولات</div>
+                <div class="card-body text-center">
+                    <div class="mb-2">
+                        <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                    </div>
+                    <div class="font-size-40 font-weight-bold text-primary">1,241</div>
+                    <p class="m-b-0">
+                        <i class="fa fa-caret-up text-primary m-r-5"></i> 23% افزایش در هفته پیش
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-12">
+            <div class="card">
+                <div class="card-header">کل بازدید</div>
+                <div class="card-body text-center">
+                    <div class="mb-2">
+                        <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                    </div>
+                    <div class="font-size-40 font-weight-bold text-primary">1,241</div>
+                    <p class="m-b-0">
+                        <i class="fa fa-caret-up text-primary m-r-5"></i> 23% افزایش در هفته پیش
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-xl-6 col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
@@ -105,7 +164,7 @@
                 </div>
                 <div class="card-body pt-2">
                     <ul class="list-group list-group-flush">
-                        @foreach(\App\Models\Order::all()->take(4) as $order)
+                        @foreach(\App\Models\Order::all()->sortByDesc('created_at')->take(4) as $order)
                             <li class="list-group-item d-flex align-items-center p-l-r-0">
                                 <div>
                                     <h6 class="m-b-0 primary-font">سفارش شماره {{ $order->id }}</h6>
@@ -166,4 +225,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer-assets')
+    <script src="{{ asset('admin/js/exampled/peity.js') }}"></script>
 @endsection

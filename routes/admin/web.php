@@ -69,3 +69,8 @@ Route::prefix('orders')->name('orders.')->controller('OrderController')->group(f
 });
 
 Route::resource('orders', 'OrderController');
+
+
+Route::get('/test', function() {
+
+});

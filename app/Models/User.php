@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Statistics;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,7 +13,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Statistics;
+
+    public $Model = self::class;
 
     /**
      * The attributes that are mass assignable.
@@ -125,16 +128,26 @@ class User extends Authenticatable
      */
     public static function count($type, $bool = true)
     {
-        $orders = User::query();
+        $users = User::query();
         switch ($type) {
             case('all'):
-                return count($orders->get());
+                return count($users->get());
 
             default:
                 if (!in_array($type, ['zarin', 'verified', 'vip']))
                     return false;
-                return count($orders->where($type, $bool)->get());
+                return count($users->where($type, $bool)->get());
         }
     }
 
+
+    /**
+     * declare columns to use in statistics data
+     *
+     * @return string[]
+     */
+    protected function statistics_columns()
+    {
+        return ['vip', 'zarin'];
+    }
 }

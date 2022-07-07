@@ -31,4 +31,24 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+
+    /**
+     * count categories by column name
+     *
+     * @param $type
+     * @param $bool
+     * @return false|int
+     */
+    public static function count($type, $bool = true)
+    {
+        $categories = Category::query();
+        switch ($type) {
+            case('all'):
+                return count($categories->get());
+
+            default:
+                return false;
+        }
+    }
 }

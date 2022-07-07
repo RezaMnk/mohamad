@@ -178,13 +178,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-3 text-right">
-                            <ul class="list-inline small">
-                                <li class="list-inline-item">
-                                    <a href="#">علامت خوانده شده به همه</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </li>
             </ul>

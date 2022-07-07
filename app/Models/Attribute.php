@@ -31,4 +31,24 @@ class Attribute extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+
+    /**
+     * count attributes by column name
+     *
+     * @param $type
+     * @param $bool
+     * @return false|int
+     */
+    public static function count($type, $bool = true)
+    {
+        $attributes = self::query();
+        switch ($type) {
+            case('all'):
+                return count($attributes->get());
+
+            default:
+                return false;
+        }
+    }
 }

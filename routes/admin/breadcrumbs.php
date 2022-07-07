@@ -41,6 +41,12 @@ Breadcrumbs::for('admin.users.vip', function (BreadcrumbTrail $trail): void {
     $trail->push('کاربران ویژه', route('admin.users.vip'));
 });
 
+Breadcrumbs::for('admin.users.unapproved', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.users.index');
+
+    $trail->push('کاربران تایید نشده', route('admin.users.unapproved'));
+});
+
 
 /*
  * Prodcuts

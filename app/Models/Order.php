@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Statistics;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Statistics;
+
+    public $Model = self::class;
 
     /**
      * The attributes that are mass assignable.
@@ -133,7 +136,7 @@ class Order extends Model
 
     public static function count($type, $bool = true)
     {
-        $orders = Order::query();
+        $orders = self::query();
         switch ($type) {
             case('all'):
                 return count($orders->get());
