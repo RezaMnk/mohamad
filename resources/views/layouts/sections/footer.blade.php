@@ -87,7 +87,3 @@
     </div>
 </div>
 <!--==================== Copyright Section End ====================-->
-
-<!-- Scroll to top -->
-<a href="#" class="bg-primary text-white" id="scroll"><i class="fa fa-angle-up"></i></a>
-<!-- End Scroll To top -->

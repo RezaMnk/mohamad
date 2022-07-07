@@ -54,6 +54,7 @@
 # Footer Section Style Start
 
 --------------------------------------------------------*/
+
 @font-face {
 	font-family: IRANSans;
 	src: url('fonts/IRANSans(FaNum)/IRANSansWeb.eot');
@@ -7686,9 +7687,10 @@ Footer Section Style Start
   .container .card:hover {
     transition: 0.5s ease-in-out;
   }
+
   .container .card:before{
     content: '';
-    background: var(--theme-secondary-color);
+    background-color: var(--theme-primary-color);
     position: absolute;
     top: 0;
     left: 0;
@@ -7717,12 +7719,13 @@ Footer Section Style Start
     font-style: italic;
     color: rgba(255,255,25,0.05)
   }
-  
+  body {
+    overflow-x: hidden !important;
+  }
   .container .card .imgBx{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10000;
     width: 100%;
     height: 220px;
     transition: 0.5s;
@@ -7785,3 +7788,45 @@ Footer Section Style Start
     opacity: 1;
     transform: translateY(1.5rem);
   }
+
+  .ls-inner {
+    background: transparent !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    -o-backdrop-filter: blur(20px) !important;
+    -ms-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(30px) !important;
+    
+}
+
+
+.blur-bg {
+    -webkit-backdrop-filter: blur(20px) !important;
+    -o-backdrop-filter: blur(20px) !important;
+    -ms-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(20px) !important;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+
+    }
+}
+.rotate {
+    animation: rotation 30s infinite linear;
+}
+.rotate:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+/* .banner-content on hover pause rotate animation  */
+.banner-content:hover .rotate {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
