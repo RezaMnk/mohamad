@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\TwoFAController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::controller(HomeController::class)->name('home.')->group(function () {
+    Route::get('/', 'index')->name('index');
+
+    Route::get('/shop', 'shop')->name('shop');
+    Route::get('/product/{product}', 'product')->name('product');
+
+
+    Route::get('/about-us', 'about_us')->name('about_us');
+    Route::get('/contact-us', 'contact-us')->name('contact-us');
+    Route::get('/suggestions', 'suggestions')->name('suggestions');
+});
+
 
 Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(function () {
     Route::get('/', 'index')->name('index');
@@ -29,10 +38,10 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 });
 
 
-Route::get('/img', function () {
-   return dd(\Illuminate\Support\Facades\Storage::disk('products')->exists('/squire-65.png'));
-   return dd(\Illuminate\Support\Facades\Storage::disk('products')->files(''));
-});
+
+
+
+// -------------------------------------------- FOR TEST ONLY --------------------------------------------
 
 Route::get('/logi', function () {
     auth()->loginUsingId(1);
@@ -90,7 +99,7 @@ Route::get('/test', function () {
     ]);
 });
 
-Route::Get('/fake_products', function () {
+Route::get('/fake_products', function () {
 
     foreach (range(1, 30) as $i) {
         $product = \App\Models\Product::create([
