@@ -7679,9 +7679,8 @@ Footer Section Style Start
     border-radius: 0px;
     overflow: hidden;
     transition: 0.5s ease-in-out;
-    -webkit-box-shadow: 0px 0px 39px -5px rgba(0,0,0,0.78); 
-    box-shadow: 0px 0px 39px -5px rgba(0,0,0,0.78);
-    background: url(https://www.toptal.com/designers/subtlepatterns/uploads/memphis-mini-dark.png);
+    background: transparent;
+    /* background: url(https://www.toptal.com/designers/subtlepatterns/uploads/memphis-mini-dark.png); */
   }
   
   .container .card:hover {
@@ -7690,7 +7689,7 @@ Footer Section Style Start
 
   .container .card:before{
     content: '';
-    background-color: var(--theme-primary-color);
+    background-color: black;
     position: absolute;
     top: 0;
     left: 0;
@@ -7699,15 +7698,13 @@ Footer Section Style Start
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    clip-path: circle(19rem at 50% 157%);
+    clip-path: circle(37.7% at 50% 46%);
     transition: 0.5s ease-in-out;
   }
   
   .container .card:hover:before{
-    clip-path: circle(19rem at 50% -30%);
-
-    
-  }
+    clip-path: circle(100% at 50% 40%);
+}
   
   .container .card:after{
     content: '';

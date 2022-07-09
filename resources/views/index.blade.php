@@ -188,7 +188,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -198,7 +198,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -208,7 +208,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -218,7 +218,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -228,7 +228,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -238,7 +238,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +300,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -326,7 +326,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +338,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +350,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -362,7 +362,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +374,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -386,7 +386,7 @@
                                         </div>
                                         <div class="contentBx">
                                             <h2>حلقه طلای ۲۴ عیار ۹ گرمی</h2>
-                                            <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>                                        </div>
+                                            <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>                                        </div>
                                     </div>
                                 </div>
                             </div>
