@@ -30,7 +30,7 @@ class DashboardController extends Controller
         $statistics = (object) [
             'users' => User::statistics(now()->subWeek(), now()),
             'orders' => Order::statistics(now()->subWeek(), now()),
-            'orders' => Order::statistics(now()->subWeek(), now()),
+            'products' => Product::statistics(now()->subWeek(), now()),
         ];
         return view('admin.index', compact('statistics'));
     }

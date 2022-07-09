@@ -111,7 +111,8 @@ $(document).ready(function () {
     $(".bar-1").peity("bar", {
         "fill": [colors.primary, colors.primaryLight],
         "height": 50,
-        "width": 100
+        "width": 100,
+
     });
 
     $(".bar-2").peity("bar", {
@@ -134,6 +135,12 @@ $(document).ready(function () {
 
     $(".bar-5").peity("bar", {
         "fill": [colors.warning, colors.warningLight],
+        "height": 50,
+        "width": 100
+    });
+
+    $(".bar-6").peity("bar", {
+        "fill": [colors.info, colors.infoLight],
         "height": 50,
         "width": 100
     });

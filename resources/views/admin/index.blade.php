@@ -97,14 +97,14 @@
     <div class="row">
         <div class="col-xl-3 col-md-12">
             <div class="card">
-                <div class="card-header">کل کاربرات</div>
+                <div class="card-header">کل کاربران</div>
                 <div class="card-body text-center">
                     <div class="mb-2">
-                        <span class="bar-1">{{ join(',', $statistics->users->daily) }}</span>
+                        <span class="bar-4">{{ join(',', $statistics->users->daily) }}</span>
                     </div>
-                    <div class="font-size-40 font-weight-bold text-primary">{{ number_format($statistics->users->new) }}</div>
+                    <div class="font-size-40 font-weight-bold text-danger">{{ number_format($statistics->users->new) }}</div>
                     <p class="m-b-0">
-                        <i class="fa fa-caret-up text-primary m-r-5"></i> {{ $statistics->users->new_diff_percent }}% افزایش در هفته پیش
+                        <i class="fa {{ $statistics->users->increased ? 'fa-caret-up text-success' : 'fa-caret-down text-danger' }} m-r-5"></i> {{ $statistics->users->new_diff_percent }} % {{ $statistics->users->increased ? 'افزایش' : 'کاهش' }} نسبت به هفته پیش
                     </p>
                 </div>
             </div>
@@ -114,11 +114,11 @@
                 <div class="card-header">کل سفارشات</div>
                 <div class="card-body text-center">
                     <div class="mb-2">
-                        <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                        <span class="bar-5">{{ join(',', $statistics->orders->daily) }}</span>
                     </div>
-                    <div class="font-size-40 font-weight-bold text-primary">1,241</div>
+                    <div class="font-size-40 font-weight-bold text-warning">{{ number_format($statistics->orders->new) }}</div>
                     <p class="m-b-0">
-                        <i class="fa fa-caret-up text-primary m-r-5"></i> 23% افزایش در هفته پیش
+                        <i class="fa {{ $statistics->orders->increased ? 'fa-caret-up text-success' : 'fa-caret-down text-danger' }} m-r-5"></i> {{ $statistics->orders->new_diff_percent }} % {{ $statistics->orders->increased ? 'افزایش' : 'کاهش' }} نسبت به هفته پیش
                     </p>
                 </div>
             </div>
@@ -128,25 +128,25 @@
                 <div class="card-header">کل محصولات</div>
                 <div class="card-body text-center">
                     <div class="mb-2">
-                        <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                        <span class="bar-6">{{ join(',', $statistics->products->daily) }}</span>
                     </div>
-                    <div class="font-size-40 font-weight-bold text-primary">1,241</div>
+                    <div class="font-size-40 font-weight-bold text-info">{{ number_format($statistics->products->new) }}</div>
                     <p class="m-b-0">
-                        <i class="fa fa-caret-up text-primary m-r-5"></i> 23% افزایش در هفته پیش
+                        <i class="fa {{ $statistics->products->increased ? 'fa-caret-up text-success' : 'fa-caret-down text-danger' }} m-r-5"></i> {{ $statistics->products->new_diff_percent }} % {{ $statistics->products->increased ? 'افزایش' : 'کاهش' }} نسبت به هفته پیش
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-md-12">
             <div class="card">
-                <div class="card-header">کل بازدید</div>
+                <div class="card-header">کل بازدید محصولات</div>
                 <div class="card-body text-center">
                     <div class="mb-2">
-                        <span class="bar-1">2,5,9,6,5,2,4,3,7,5</span>
+                        <span class="bar-3">{{ join(',', $statistics->users->daily) }}</span>
                     </div>
-                    <div class="font-size-40 font-weight-bold text-primary">1,241</div>
+                    <div class="font-size-40 font-weight-bold text-success">{{ number_format($statistics->users->new) }}</div>
                     <p class="m-b-0">
-                        <i class="fa fa-caret-up text-primary m-r-5"></i> 23% افزایش در هفته پیش
+                        <i class="fa {{ $statistics->users->increased ? 'fa-caret-up text-success' : 'fa-caret-down text-danger' }} m-r-5"></i> {{ $statistics->users->new_diff_percent }} % {{ $statistics->users->increased ? 'افزایش' : 'کاهش' }} نسبت به هفته پیش
                     </p>
                 </div>
             </div>

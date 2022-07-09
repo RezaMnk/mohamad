@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Statistics;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Statistics;
 
     /**
      * The attributes that are mass assignable.
@@ -111,5 +112,20 @@ class Product extends Model
                     return false;
                 return count($products->where($type, $bool)->get());
         }
+    }
+
+
+    /**
+     * declare columns to use in statistics data
+     *
+     * @param $rules
+     * @return array
+     */
+    protected function statistics_columns($rules)
+    {
+        return [
+            'status' => $rules['status'] ?? [true, false],
+            'view_count' => ['>=', $rules['view_count'] ?? 0],
+        ];
     }
 }

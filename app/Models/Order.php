@@ -11,8 +11,6 @@ class Order extends Model
 {
     use HasFactory, SoftDeletes, Statistics;
 
-    public $Model = self::class;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -149,5 +147,26 @@ class Order extends Model
                 return count($orders->whereNot('status', $type)->get());
 
         }
+    }
+
+
+    /**
+     * declare columns to use in statistics data
+     *
+     * @param $rules
+     * @return array
+     */
+    protected function statistics_columns($rules)
+    {
+        return [
+            'status' => $rules['status'] ?? '*'
+            /*
+            'is_vip' => true,                                                                       For Booleans
+            'status' => $rules['status'],                                                           For Enums, strings, etc.
+            'description' => ['condition' => true, 'LIKE', '%'. $rules['description'] .'$'],        For Like
+            'view_count' => ['condition' => true, '>=', $rules['view_count']],                      For Coparisons
+            'code' => [$rules['code']]                                                              For Multiple data
+            */
+        ];
     }
 }

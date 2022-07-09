@@ -250,7 +250,7 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.index') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-danger text-white mr-3">

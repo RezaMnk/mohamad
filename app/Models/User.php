@@ -15,8 +15,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Statistics;
 
-    public $Model = self::class;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -144,10 +142,14 @@ class User extends Authenticatable
     /**
      * declare columns to use in statistics data
      *
-     * @return string[]
+     * @param $rules
+     * @return array
      */
-    protected function statistics_columns()
+    protected function statistics_columns($rules)
     {
-        return ['vip', 'zarin'];
+        return [
+            'vip' => true,
+            'zarin' => true,
+        ];
     }
 }
