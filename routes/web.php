@@ -89,3 +89,22 @@ Route::get('/test', function () {
         'parent_id' => '1',
     ]);
 });
+
+Route::Get('/fake_products', function () {
+
+    foreach (range(1, 30) as $i) {
+        $product = \App\Models\Product::create([
+            'name' => "test $i",
+            'code' => $i*15,
+            'weight' => '150',
+            'description' => "Description for test $i",
+            'short_description' => "test $i",
+            'status' => "1",
+        ]);
+
+        $product->gallery()->create(['image' => '/squire-'. $i .'.png']);
+
+        $product->attributes()->sync(['3', '2']);
+        $product->categories()->sync(['2']);
+    }
+});

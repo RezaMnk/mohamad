@@ -40,7 +40,7 @@
                                         {{ $product->code }}
                                     </td>
                                     <td class="sorting_1" tabindex="0">
-                                        <img src="{{ $product->gallery->first()->imageUrl }}" alt="{{ $product->title }}" width="50px">
+                                        <img src="{{ $product->gallery->first()->image_url }}" alt="{{ $product->title }}" width="50px">
                                         <span>
                                             {{ $product->name }}
                                         </span>

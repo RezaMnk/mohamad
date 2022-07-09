@@ -62,7 +62,7 @@
                                         {{ $loop->iteration }}
                                     </td>
                                     <td class="text-left">
-                                        <img src="{{ $product->gallery->first()->imageUrl }}" width="50px">
+                                        <img src="{{ $product->gallery->first()->image_url }}" width="50px">
                                     </td>
                                     <td class="text-left">
                                         {{ $product->name }}
