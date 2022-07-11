@@ -650,7 +650,7 @@ h6,
 }
 
 img.nav-logo {
-    min-width: 124px;
+    width: 50px;
 }
 
 .sign-in {
@@ -1098,7 +1098,7 @@ input.text-dark::placeholder {
 [class*="product-search-"] .search-line-shape.form-inline {
     border: 0;
     padding: 0;
-    border-bottom: 1px solid var(--theme-dark-color)
+    border-bottom: 1px solid var(--theme-light-color)
 }
 
 [class*="product-search-"] .search-line-shape.form-inline input.search-field {
@@ -6704,7 +6704,7 @@ Footer Section Style Start
 =====================================================================*/
 
 .footer-widget .widget-title {
-    color: var(--theme-dark-color);
+    color: var(--theme-light-color);
     font-family: var(--theme-general-font);
     font-weight: 500;
     font-size: 15px;
