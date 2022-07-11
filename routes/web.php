@@ -25,9 +25,12 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     Route::get('/product/{product}', 'product')->name('product');
 
 
-    Route::get('/about-us', 'about_us')->name('about_us');
-    Route::get('/contact-us', 'contact-us')->name('contact-us');
-    Route::get('/suggestions', 'suggestions')->name('suggestions');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/feedback', 'feedback')->name('feedback');
+    Route::get('/guide', 'guide')->name('guide');
+    Route::get('/faq', 'faq')->name('faq');
+    Route::get('/policy', 'policy')->name('policy');
 });
 
 
