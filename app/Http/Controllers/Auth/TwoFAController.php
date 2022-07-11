@@ -54,7 +54,7 @@ class TwoFAController extends Controller
 
             $user->verify();
 
-            return redirect()->route('home');
+            return redirect()->route('home.index');
         }
 
         $request->session()->reflash();

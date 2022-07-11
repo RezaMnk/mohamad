@@ -12,10 +12,10 @@
                     <i class="icon ti-user"></i>
                 </a>
             </li>
-            <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}" data-toggle="tooltip" title="{{ \App\Models\Order::count('unapproved') }} سفارش تایید نشده">
+            <li class="{{ request()->routeIs('admin.orders*') ? 'active' : '' }}" data-toggle="tooltip" title="{{ \App\Models\Order::calc(['status' => 'unapproved']) }} سفارش تایید نشده">
                 <a href="#OrdersSubMenu" title="سفارشات">
                     <i class="icon ti-layout-list-thumb"></i>
-                    <span class="badge badge-warning">{{ \App\Models\Order::count('unapproved') > 0 ?? '' }}</span>
+                    <span class="badge badge-warning">{{ \App\Models\Order::calc(['status' => 'unapproved']) > 0 ?? '' }}</span>
                 </a>
             </li>
             <li class="{{ request()->routeIs('admin.products*') ? 'active' : '' }}" data-toggle="tooltip" title="محصولات">
@@ -85,7 +85,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">سفارشات</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -100,7 +100,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">کاربران</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -115,7 +115,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">محصولات</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Product::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Product::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -134,7 +134,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">همه کاربران</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -149,7 +149,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">کاربران تایید نشده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('zarin', false) }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::calc(['zarin' => false]) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -164,7 +164,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">کاربران ویژه</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::count('vip') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\User::calc(['vip' => true]) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -184,7 +184,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">همه سفارشات</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -199,7 +199,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">تکمیل شده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('approved') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc(['status' => 'approved']) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -214,7 +214,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">در انتظار تایید</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('unapproved') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc(['status' => 'unapproved']) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -229,7 +229,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">در انتظار پرداخت</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('priced') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc(['status' => 'priced']) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -244,7 +244,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">پرداخت شده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('paid') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc(['status' => 'paid']) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -259,7 +259,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">لغو شده</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::count('canceled') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Order::calc(['status' => 'canceled]']) }}</h4>
                         </div>
                     </div>
                 </a>
@@ -279,7 +279,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">محصولات</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Product::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Product::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -294,7 +294,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">دسته بندی ها</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Category::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Category::calc() }}</h4>
                         </div>
                     </div>
                 </a>
@@ -309,7 +309,7 @@
                         </div>
                         <div>
                             <h6 class="font-size-13 line-height-22 primary-font m-b-5">ویژگی ها</h6>
-                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Attribute::count('all') }}</h4>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Attribute::calc() }}</h4>
                         </div>
                     </div>
                 </a>

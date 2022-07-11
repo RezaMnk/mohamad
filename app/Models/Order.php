@@ -132,23 +132,6 @@ class Order extends Model
         $this->update();
     }
 
-    public static function count($type, $bool = true)
-    {
-        $orders = self::query();
-        switch ($type) {
-            case('all'):
-                return count($orders->get());
-            default:
-                if (!in_array($type, ['unapproved', 'paid', 'priced', 'approved', 'canceled']))
-                    return false;
-
-                if ($bool)
-                    return count($orders->whereStatus($type)->get());
-                return count($orders->whereNot('status', $type)->get());
-
-        }
-    }
-
 
     /**
      * declare columns to use in statistics data
@@ -160,13 +143,6 @@ class Order extends Model
     {
         return [
             'status' => $rules['status'] ?? '*'
-            /*
-            'is_vip' => true,                                                                       For Booleans
-            'status' => $rules['status'],                                                           For Enums, strings, etc.
-            'description' => ['condition' => true, 'LIKE', '%'. $rules['description'] .'$'],        For Like
-            'view_count' => ['condition' => true, '>=', $rules['view_count']],                      For Coparisons
-            'code' => [$rules['code']]                                                              For Multiple data
-            */
         ];
     }
 }
