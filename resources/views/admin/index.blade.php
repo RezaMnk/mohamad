@@ -28,10 +28,10 @@
                                     </div>
                                 </div>
                                 <a href="{{ route('admin.users.unapproved') }}" class="font-size-13">کاربران تایید نشده</a>
-                                <h2 class="mb-0 ml-auto font-weight-bold text-danger primary-font line-height-30">{{ \App\Models\User::count('zarin', false) }} از {{ \App\Models\User::count('all') }}</h2>
+                                <h2 class="mb-0 ml-auto font-weight-bold text-danger primary-font line-height-30">{{ $statistics->users_zarin_false->zarin }} از {{ $statistics->users_zarin_false->new }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: {{ \App\Models\User::count('zarin', false) / \App\Models\User::count('all') * 100 }}%" aria-valuenow="{{ \App\Models\User::count('zarin', false) / \App\Models\User::count('all') * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $statistics->users_zarin_false->zarin_diff_percent }}%" aria-valuenow="{{ $statistics->users_zarin_false->zarin_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -46,10 +46,10 @@
                                     </div>
                                 </div>
                                 <a href="{{ route('admin.orders.index') }}" class="font-size-13">سفارشات تایید نشده</a>
-                                <h2 class="mb-0 ml-auto font-weight-bold text-warning primary-font line-height-30">{{ \App\Models\Order::count('unapproved') }} از {{ \App\Models\Order::count('all') }}</h2>
+                                <h2 class="mb-0 ml-auto font-weight-bold text-warning primary-font line-height-30">{{ $statistics->orders_unapproved->status }} از {{ $statistics->orders_unapproved->new }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ \App\Models\Order::statistics(false, now(), ['status' => 'unapproved'])->status_diff_percent }}%" aria-valuenow="{{ \App\Models\Order::statistics(false, now(), ['status' => 'unapproved'])->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $statistics->orders_unapproved->status_diff_percent }}%" aria-valuenow="{{ $statistics->orders_unapproved->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -64,10 +64,10 @@
                                     </div>
                                 </div>
                                 <a href="{{ route('admin.orders.index') }}" class="font-size-13">سفارشات نهایی نشده</a>
-                                <h2 class="mb-0 ml-auto font-weight-bold text-info primary-font line-height-30">{{ \App\Models\Order::count('paid', false) }} از {{ \App\Models\Order::count('all') }}</h2>
+                                <h2 class="mb-0 ml-auto font-weight-bold text-info primary-font line-height-30">{{ $statistics->orders_paid->status }} از {{ $statistics->orders_paid->new }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ \App\Models\Order::statistics(false, now(), ['status' => 'paid'])->status_diff_percent }}%" aria-valuenow="{{ \App\Models\Order::statistics(false, now(), ['status' => 'paid'])->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ $statistics->orders_paid->status_diff_percent }}%" aria-valuenow="{{ $statistics->orders_paid->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -82,10 +82,10 @@
                                     </div>
                                 </div>
                                 <a href="{{ route('admin.orders.index') }}" class="font-size-13">پیام های خوانده نشده</a>
-                                <h2 class="mb-0 ml-auto font-weight-bold text-success primary-font line-height-30">{{ \App\Models\Order::count('approved', false) }} از {{ \App\Models\Order::count('all') }}</h2>
+                                <h2 class="mb-0 ml-auto font-weight-bold text-success primary-font line-height-30">{{ $statistics->orders_approved->status }} از {{ $statistics->orders_approved->new }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ \App\Models\Order::statistics(false, now(), ['status' => 'approved'])->status_diff_percent }}%" aria-valuenow="{{ \App\Models\Order::statistics(false, now(), ['status' => 'approved'])->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ $statistics->orders_approved->status_diff_percent }}%" aria-valuenow="{{ $statistics->orders_approved->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>

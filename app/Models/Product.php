@@ -94,28 +94,6 @@ class Product extends Model
 
 
     /**
-     * count products by column name
-     *
-     * @param $type
-     * @param $bool
-     * @return false|int
-     */
-    public static function count($type, $bool = true)
-    {
-        $products = self::query();
-        switch ($type) {
-            case('all'):
-                return count($products->get());
-
-            default:
-                if (!in_array($type, ['status']))
-                    return false;
-                return count($products->where($type, $bool)->get());
-        }
-    }
-
-
-    /**
      * declare columns to use in statistics data
      *
      * @param $rules

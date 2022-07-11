@@ -118,28 +118,6 @@ class User extends Authenticatable
 
 
     /**
-     * count users by column name
-     *
-     * @param $type
-     * @param $bool
-     * @return false|int
-     */
-    public static function count($type, $bool = true)
-    {
-        $users = User::query();
-        switch ($type) {
-            case('all'):
-                return count($users->get());
-
-            default:
-                if (!in_array($type, ['zarin', 'verified', 'vip']))
-                    return false;
-                return count($users->where($type, $bool)->get());
-        }
-    }
-
-
-    /**
      * declare columns to use in statistics data
      *
      * @param $rules
@@ -148,8 +126,21 @@ class User extends Authenticatable
     protected function statistics_columns($rules)
     {
         return [
-            'vip' => true,
-            'zarin' => true,
+            'vip' => $rules['vip'] ?? '*',
+            'zarin' => $rules['zarin'] ?? '*',
+        ];
+    }
+
+    /**
+     * declare columns to except for statistics
+     *
+     * @param $rules
+     * @return array
+     */
+    protected function statistics_exceptions($rules)
+    {
+        return [
+            'admin' => false,
         ];
     }
 }

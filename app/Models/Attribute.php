@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Statistics;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Attribute extends Model
 {
-    use HasFactory;
+    use HasFactory, Statistics;
 
     /**
      * The attributes that are mass assignable.
@@ -30,25 +31,5 @@ class Attribute extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class);
-    }
-
-
-    /**
-     * count attributes by column name
-     *
-     * @param $type
-     * @param $bool
-     * @return false|int
-     */
-    public static function count($type, $bool = true)
-    {
-        $attributes = self::query();
-        switch ($type) {
-            case('all'):
-                return count($attributes->get());
-
-            default:
-                return false;
-        }
     }
 }

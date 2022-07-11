@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Statistics;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, Statistics;
 
     /**
      * The attributes that are mass assignable.
@@ -30,25 +31,5 @@ class Category extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class);
-    }
-
-
-    /**
-     * count categories by column name
-     *
-     * @param $type
-     * @param $bool
-     * @return false|int
-     */
-    public static function count($type, $bool = true)
-    {
-        $categories = Category::query();
-        switch ($type) {
-            case('all'):
-                return count($categories->get());
-
-            default:
-                return false;
-        }
     }
 }
