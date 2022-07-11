@@ -7827,3 +7827,7 @@ Footer Section Style Start
     -o-animation-play-state: paused;
     animation-play-state: paused;
 }
+
+.table-of-content {
+    top: 50px !important;
+}
