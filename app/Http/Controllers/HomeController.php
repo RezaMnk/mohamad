@@ -45,9 +45,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function contact_us()
+    public function contact()
     {
-        return view('site.contact-us');
+        return view('site.contact');
     }
 
 
@@ -56,9 +56,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function about_us()
+    public function about()
     {
-        return view('site.about-us');
+        return view('site.about');
     }
 
 
@@ -67,8 +67,41 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function suggestions()
+    public function feedback()
     {
-        return view('site.suggestions');
+        return view('site.feedback');
+    }
+
+
+    /**
+     * show the main page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function faq()
+    {
+        return view('site.faq');
+    }
+
+
+    /**
+     * show the main page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function guide()
+    {
+        return view('site.guide');
+    }
+
+
+    /**
+     * show the main page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function policy()
+    {
+        return view('site.policy');
     }
 }
