@@ -42,12 +42,12 @@ trait Statistics {
      * get statistics of a model by two Carbon date time
      *
      * @param $query
-     * @param Carbon $from
+     * @param Carbon|bool $from
      * @param Carbon $to
      * @param array $rules
      * @return object
      */
-    public function scopeStatistics($query, Carbon $from, Carbon $to, $rules = [])
+    public function scopeStatistics($query, Carbon|bool $from, Carbon $to, $rules = [])
     {
         $this_period = static::class::whereBetween('created_at', [$from, $to]);
         $last_period = static::class::whereBetween('created_at', [$to->diffAsCarbonInterval($from), $from]);
@@ -55,8 +55,13 @@ trait Statistics {
         $days = [];
         $to->subDay()->diffInDaysFiltered(function ($day) use (&$days) {
             $day_period = static::class::whereBetween('created_at', [$day, $day->copy()->addDay()]);
+            if ($day_period->count() > 0) {
+                dump($day_period->get());
+            }
             return $days[] = $day_period->count();
         }, $from);
+
+        dd($this);
 
         $data = [
             'new' => $this_period->count(),

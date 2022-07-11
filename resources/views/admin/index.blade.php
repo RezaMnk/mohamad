@@ -49,7 +49,7 @@
                                 <h2 class="mb-0 ml-auto font-weight-bold text-warning primary-font line-height-30">{{ \App\Models\Order::count('unapproved') }} از {{ \App\Models\Order::count('all') }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ \App\Models\Order::count('unapproved') / \App\Models\Order::count('all') * 100 }}%" aria-valuenow="{{ \App\Models\Order::count('unapproved') / \App\Models\Order::count('all') * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ \App\Models\Order::statistics(false, now(), ['status' => 'unapproved'])->status_diff_percent }}%" aria-valuenow="{{ \App\Models\Order::statistics(false, now(), ['status' => 'unapproved'])->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 <h2 class="mb-0 ml-auto font-weight-bold text-info primary-font line-height-30">{{ \App\Models\Order::count('paid', false) }} از {{ \App\Models\Order::count('all') }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ \App\Models\Order::count('paid', false) / \App\Models\Order::count('all') * 100 }}%" aria-valuenow="{{ \App\Models\Order::count('paid', false) / \App\Models\Order::count('all') * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ \App\Models\Order::statistics(false, now(), ['status' => 'paid'])->status_diff_percent }}%" aria-valuenow="{{ \App\Models\Order::statistics(false, now(), ['status' => 'paid'])->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                                 <h2 class="mb-0 ml-auto font-weight-bold text-success primary-font line-height-30">{{ \App\Models\Order::count('approved', false) }} از {{ \App\Models\Order::count('all') }}</h2>
                             </div>
                             <div class="progress" style="height: 5px">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ \App\Models\Order::count('approved', false) / \App\Models\Order::count('all') * 100 }}%" aria-valuenow="{{ \App\Models\Order::count('approved', false) / \App\Models\Order::count('all') * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ \App\Models\Order::statistics(false, now(), ['status' => 'approved'])->status_diff_percent }}%" aria-valuenow="{{ \App\Models\Order::statistics(false, now(), ['status' => 'approved'])->status_diff_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -102,6 +102,7 @@
                     <div class="mb-2">
                         <span class="bar-4">{{ join(',', $statistics->users->daily) }}</span>
                     </div>
+{{--                    @php(dd($statistics->users))--}}
                     <div class="font-size-40 font-weight-bold text-danger">{{ number_format($statistics->users->new) }}</div>
                     <p class="m-b-0">
                         <i class="fa {{ $statistics->users->increased ? 'fa-caret-up text-success' : 'fa-caret-down text-danger' }} m-r-5"></i> {{ $statistics->users->new_diff_percent }} % {{ $statistics->users->increased ? 'افزایش' : 'کاهش' }} نسبت به هفته پیش

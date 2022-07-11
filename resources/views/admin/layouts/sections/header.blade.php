@@ -63,7 +63,7 @@
 
                 </script>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link" href="{{ route('home.index') }}">
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
