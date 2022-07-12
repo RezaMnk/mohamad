@@ -5,7 +5,7 @@
 @endphp
 <ul class="swatch-filter-pa_brands">
     @foreach($categories as $category)
-        <li class="@if($loop->last) mb-4 @endif">
+        <li @class(['mb-4' => $loop->last])>
             {!! $tab !!}
             <form class="d-inline">
                 <button type="submit" name="filter[category]" value="{{ $category->id }}" class="text-light">{{ $category->name }}</button>
