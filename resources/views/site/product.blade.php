@@ -72,32 +72,6 @@
                                     </nav>
                                 </div>
                                 <h1 class="product_title entry-title">ساعت مچی دیجیتال مردانه پیائوما</h1>
-                                <div class="product-price-summary exclamation-mark open">
-                                    <div class="price-summary">
-                                        <div class="price-summary-content">
-                                            <ul class="price-summary-list">
-                                                <li class="regular-price"> <label>حداکثر قیمت تک فروشی<br> <span>(با احتساب مالیات)</span> </label>
-                                                    <span style="text-decoration:line-through">
-                                                        <span class="woocommerce-Price-amount amount"><bdi>287500<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
-                                                    </span>
-                                                    </span>
-                                                </li>
-                                                <li class="selling-price"> <label>قیمت فروش</label> <span><span class="woocommerce-Price-amount amount"><bdi>245000<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
-                                                    </span>
-                                                    </span>
-                                                </li>
-                                                <li class="discount"> <label>تخفیف</label> <span>19%</span></li>
-                                                <li class="total-discount"> <label>جمع کل</label> <span> <span class="woocommerce-Price-amount amount"><bdi>245000<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
-                                                    </span>
-                                                    </span>
-                                                </li>
-                                                <li class="overall-discount"> مبلغ پس انداز <span class="amount-discount"><span class="woocommerce-Price-amount amount"><bdi>24500<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
-                                                    </span>
-                                                    </span> <span class="percentage-discount">(19%)</span> روی این محصول</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                                 <h2 class="my-3">مشخصات</h2>
 								<table class="borderless woocommerce-product-attributes shop_attributes">
 									<tbody><tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_color">
