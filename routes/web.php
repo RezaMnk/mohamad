@@ -31,6 +31,7 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     Route::get('/guide', 'guide')->name('guide');
     Route::get('/faq', 'faq')->name('faq');
     Route::get('/policy', 'policy')->name('policy');
+    Route::get('/product', 'product')->name('product');
 });
 
 

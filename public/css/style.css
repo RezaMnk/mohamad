@@ -7831,3 +7831,7 @@ Footer Section Style Start
 .table-of-content {
     top: 50px !important;
 }
+.add-to-cart {
+    top: 85px !important;
+    z-index: 999;
+}

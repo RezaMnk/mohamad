@@ -424,25 +424,25 @@
     }
 
 
-    if ($('#single-image-zoom').length) {
-        //initiate the plugin and pass the id of the div containing gallery images
-        $("#single-image-zoom").elevateZoom({
-            gallery: 'gallery_09',
-            zoomType: "inner",
-            cursor: "crosshair",
-            galleryActiveClass: 'active',
-            imageCrossfade: true,
-            loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
-        });
+    // if ($('#single-image-zoom').length) {
+    //     //initiate the plugin and pass the id of the div containing gallery images
+    //     $("#single-image-zoom").elevateZoom({
+    //         gallery: 'gallery_09',
+    //         zoomType: "inner",
+    //         cursor: "crosshair",
+    //         galleryActiveClass: 'active',
+    //         imageCrossfade: true,
+    //         loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'
+    //     });
 
-        //pass the images to Fancybox
-        $("#single-image-zoom").on("bind click", function(e) {
-            var ez = $('#single-image-zoom').data('elevateZoom');
-            $.fancybox(ez.getGalleryList());
-            return false;
-        });
+    //     //pass the images to Fancybox
+    //     $("#single-image-zoom").on("bind click", function(e) {
+    //         var ez = $('#single-image-zoom').data('elevateZoom');
+    //         $.fancybox(ez.getGalleryList());
+    //         return false;
+    //     });
 
-    }
+    // }
     // Single Accordean
     var acc = document.getElementsByClassName("accordion");
     var i;
