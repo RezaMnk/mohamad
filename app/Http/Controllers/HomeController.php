@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attribute;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,47 @@ class HomeController extends Controller
      */
     public function shop()
     {
-        return view('site.shop');
+        $products = Product::query();
+
+
+        if ($filter = request('filter')) {
+            $filter_is = function ($is) use ($filter) { return in_array($is, array_keys($filter)); };
+
+            if ($filter_is('order'))
+            {
+                switch ($filter['order'])
+                {
+                    case 'new':
+                        $products->latest();
+                        break;
+
+                    case 'popular':
+                        $products->orderBy('view_count', 'desc');
+                        break;
+
+                    case 'sold':
+                        $products->withCount('orders')->orderBy('orders_count', 'desc');
+                        break;
+                }
+            }
+
+            elseif ($filter_is('attribute'))
+            {
+                dd($filter['attribute']);
+            }
+
+            elseif ($filter_is('category'))
+            {
+                $products->whereRelation('categories','id', request('filter')['category']);
+            }
+        }
+
+        $products = $products->latest()->paginate(12);
+
+        $attributes = Attribute::where('parent_id', 0)->get();
+        $categories = Category::where('parent_id', 0)->get();
+
+        return view('site.shop', compact('products', 'attributes', 'categories'));
     }
 
 

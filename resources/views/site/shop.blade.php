@@ -94,6 +94,24 @@
                                     </li>
                                 </ul>
                             </div>
+                            <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle">
+                                <h2 class="widget-title">دسته بندی</h2>
+                                @include('layouts.shop.categories', ['categories' => $categories])
+                            </div>
+                            @foreach($attributes as $attribute)
+                                <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle">
+                                    <h2 class="widget-title">{{ $attribute->name }}</h2>
+                                    <ul class="swatch-filter-pa_brands">
+
+                                    @foreach($attribute->children as $child_attribute)
+                                            <li class="wc-layered-nav-term">
+                                                <span class="nav-title">{{ $child_attribute->name }}</span>
+                                                <span class="count me-2">({{ $child_attribute->products()->count() }})</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endforeach
                             <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle">
                                 <h2 class="widget-title">فیلتر براساس قیمت</h2>
                                 <ul class="price-filter-list">
@@ -213,44 +231,62 @@
                         </div>
                     </div>
                     <div class="col-lg-9">
-                        <div class="products-header d-flex justify-content-between align-items-center py-10 px-20 bg-light md-mt-30">
-                            <div class="products-header-left d-flex align-items-center">
-                                <h6 class="woocommerce-products-header__title page-title">همه دسته بندی</h6>
-                                <div class="woocommerce-result-count"> ( نمایش 1 – 28 محصول از 23945 محصول )</div>
-                            </div>
-                            <div class="products-header-right">
-                                <div class="product-show">
-                                    <span class="h6 font-700 text-secondary mb-0">نمایش:</span>
-                                    <select class="show-number">
-                                        <option value="1">6</option>
-                                        <option value="2">9</option>
-                                        <option value="3" selected="selected">12</option>
-                                        <option value="4">24</option>
-                                        <option value="5">36</option>
-                                        <option value="6">48</option>
-                                    </select>
-                                </div>
-                                <form class="woocommerce-ordering" method="get">
-                                    <select name="orderby" class="orderby" aria-label="Shop order">
-                                        <option value="1" selected="selected">مرتب سازی پیش فرض</option>
-                                        <option value="2">مرتب سازی براساس محبوب ترین</option>
-                                        <option value="3">مرتب سازی براساس امتیاز بالا</option>
-                                        <option value="4">مرتب سازی براساس جدیدترین</option>
-                                        <option value="5">مرتب سازی براساس قیمت: پایین به بالا</option>
-                                        <option value="6">مرتب سازی براساس قیمت: بالا به پایین</option>
-                                    </select>
-                                    <input type="hidden" name="paged" value="1">
-                                    <input type="hidden" name="shop-page-layout" value="left-sidebar">
-                                </form>
-                                <div class="products-view">
-                                    <a class="grid-view active" data-shopview="grid-view" href="#"><i class="flaticon-menu-1 flat-mini"></i></a>
-                                    <a class="list-view" data-shopview="list-view" href="#"><i class="flaticon-list flat-mini"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <form class="border-bottom-gray pb-2">
+                            <p class="d-inline ms-2">
+                                مرتب سازی براساس:
+                            </p>
+                            <button type="submit" name="filter[order]" value="new" class="text-light ms-4">
+                                جدیدترین
+                            </button>
+                            <button type="submit" name="filter[order]" value="popular" class="text-warning font-600 ms-4">
+                                مجبوب‌ترین
+                            </button>
+                            <button type="submit" name="filter[order]" value="sold" class="text-light ms-4">
+                                پرفروش‌ترین
+                            </button>
+                        </form>
+{{--                        <div class="products-header d-flex justify-content-between align-items-center py-10 px-20 bg-light md-mt-30">--}}
+{{--                            <div class="products-header-left d-flex align-items-center">--}}
+{{--                                <h6 class="woocommerce-products-header__title page-title">همه دسته بندی</h6>--}}
+{{--                                <div class="woocommerce-result-count"> ( نمایش 1 – 28 محصول از 23945 محصول )</div>--}}
+{{--                            </div>--}}
+{{--                            <div class="products-header-right">--}}
+{{--                                <div class="product-show">--}}
+{{--                                    <span class="h6 font-700 text-secondary mb-0">نمایش:</span>--}}
+{{--                                    <select class="show-number">--}}
+{{--                                        <option value="1">6</option>--}}
+{{--                                        <option value="2">9</option>--}}
+{{--                                        <option value="3" selected="selected">12</option>--}}
+{{--                                        <option value="4">24</option>--}}
+{{--                                        <option value="5">36</option>--}}
+{{--                                        <option value="6">48</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <form class="woocommerce-ordering" method="get">--}}
+{{--                                    <select name="orderby" class="orderby" aria-label="Shop order">--}}
+{{--                                        <option value="1" selected="selected">مرتب سازی پیش فرض</option>--}}
+{{--                                        <option value="2">مرتب سازی براساس محبوب ترین</option>--}}
+{{--                                        <option value="3">مرتب سازی براساس امتیاز بالا</option>--}}
+{{--                                        <option value="4">مرتب سازی براساس جدیدترین</option>--}}
+{{--                                        <option value="5">مرتب سازی براساس قیمت: پایین به بالا</option>--}}
+{{--                                        <option value="6">مرتب سازی براساس قیمت: بالا به پایین</option>--}}
+{{--                                    </select>--}}
+{{--                                    <input type="hidden" name="paged" value="1">--}}
+{{--                                    <input type="hidden" name="shop-page-layout" value="left-sidebar">--}}
+{{--                                </form>--}}
+{{--                                <div class="products-view">--}}
+{{--                                    <a class="grid-view active" data-shopview="grid-view" href="#"><i class="flaticon-menu-1 flat-mini"></i></a>--}}
+{{--                                    <a class="list-view" data-shopview="list-view" href="#"><i class="flaticon-list flat-mini"></i></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="showing-products pt-30 pb-50 border-2 border-bottom border-light">
                             <div class="row gy-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-sm-2 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
-                                <x-product-card type="new" count="12"></x-product-card>
+                                @forelse($products as $product)
+                                    <x-product-card id="{{ $product->id }}"></x-product-card>
+                                @empty
+                                    <p class="text-light">محصولی یافت نشد! مشاهده <a href="{{ route('home.shop') }}">همه محصولات</a></p>
+                                @endforelse
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center pt-3">

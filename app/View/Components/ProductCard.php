@@ -11,18 +11,25 @@ class ProductCard extends Component
     private int $count;
     public $products;
     public $slider;
+    public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type = 'new', $count = 3, $slider = false)
+    public function __construct($type = 'new', $count = 3, $slider = false, $id = 0)
     {
         $this->type = $type;
         $this->count = $count;
         $this->slider = boolval($slider);
+        $this->id = $id;
 
         $products = Product::query();
+
+        if ($id) {
+            return $this->products = $products->whereId($id)->get();
+        }
+
         if ($this->type == 'new')
             $products->latest();
 
