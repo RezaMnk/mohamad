@@ -78,7 +78,7 @@ class HomeController extends Controller
      */
     public function product(Product $product)
     {
-        return view('site.product');
+        return view('site.product', compact('product'));
     }
 
 

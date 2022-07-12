@@ -9,3 +9,4 @@ yarn-error.log
 .env
 vendor/
 public/storage
+!resources/views/vendor
