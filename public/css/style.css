@@ -7671,7 +7671,7 @@ Footer Section Style Start
 .container{
     position: relative;
   }
-  
+
   .container .card{
     position: relative;
     width: 100%;
@@ -7682,7 +7682,7 @@ Footer Section Style Start
     background: transparent;
     /* background: url(https://www.toptal.com/designers/subtlepatterns/uploads/memphis-mini-dark.png); */
   }
-  
+
   .container .card:hover {
     transition: 0.5s ease-in-out;
   }
@@ -7701,11 +7701,11 @@ Footer Section Style Start
     clip-path: circle(37.7% at 50% 46%);
     transition: 0.5s ease-in-out;
   }
-  
+
   .container .card:hover:before{
     clip-path: circle(100% at 50% 40%);
 }
-  
+
   .container .card:after{
     content: '';
     position: absolute;
@@ -7727,13 +7727,13 @@ Footer Section Style Start
     height: 220px;
     transition: 0.5s;
   }
-  
+
   .container .card:hover .imgBx{
     top: 0%;
     transform: translateY(0%);
-      
+
   }
-  
+
   .container .card .imgBx img{
     position: absolute;
     top: 50%;
@@ -7741,7 +7741,7 @@ Footer Section Style Start
     transform: translate(-50%, -50%) rotate(-25deg);
     width: 270px;
   }
-  
+
   .container .card .contentBx{
     position: absolute;
     bottom: 0;
@@ -7751,11 +7751,11 @@ Footer Section Style Start
     transition: 1s;
     z-index: 10;
   }
-  
+
   .container .card:hover .contentBx{
     height: 210px;
   }
-  
+
   .container .card .contentBx h2{
     position: relative;
     font-size: 16px;
@@ -7774,13 +7774,13 @@ Footer Section Style Start
     transition: 0.75s;
   }
 
-  
-  
+
+
   .container .card:hover .contentBx {
     opacity: 1;
     transform: translateY(5.5rem);
   }
-  
+
   .container .card:hover .contentBx a{
     opacity: 1;
     transform: translateY(1.5rem);
@@ -7792,7 +7792,7 @@ Footer Section Style Start
     -o-backdrop-filter: blur(20px) !important;
     -ms-backdrop-filter: blur(20px) !important;
     backdrop-filter: blur(30px) !important;
-    
+
 }
 
 
@@ -7831,7 +7831,28 @@ Footer Section Style Start
 .table-of-content {
     top: 50px !important;
 }
+<<<<<<< HEAD
 .add-to-cart {
     top: 85px !important;
     z-index: 999;
+=======
+
+
+@media screen and ( max-width: 400px ){
+
+    li.page-item {
+
+        display: none;
+    }
+
+    .page-item:first-child,
+    .page-item:nth-child( 2 ),
+    .page-item:nth-last-child( 2 ),
+    .page-item:last-child,
+    .page-item.active,
+    .page-item.disabled {
+
+        display: block;
+    }
+>>>>>>> 0b12cd0d5a978da81b0cfb4c590f918943e6eee4
 }

@@ -53,7 +53,7 @@ class HomeController extends Controller
 
             elseif ($filter_is('attribute'))
             {
-                dd($filter['attribute']);
+                $products->whereRelation('attributes','id', request('filter')['attribute']);
             }
 
             elseif ($filter_is('category'))
