@@ -4882,7 +4882,7 @@ input[type=number] {
 
 .quantity .quantity-button {
     cursor: pointer;
-    border: 1px solid var(--theme-gray-color);
+    border: 1px solid var(--theme-primary-color);
     width: 40px;
     text-align: center;
     color: var(--theme-general-color);
@@ -7831,12 +7831,13 @@ Footer Section Style Start
 .table-of-content {
     top: 50px !important;
 }
-<<<<<<< HEAD
 .add-to-cart {
     top: 85px !important;
     z-index: 999;
-=======
-
+}
+.borderless {
+    border-style: hidden !important;
+}
 
 @media screen and ( max-width: 400px ){
 
@@ -7854,5 +7855,4 @@ Footer Section Style Start
 
         display: block;
     }
->>>>>>> 0b12cd0d5a978da81b0cfb4c590f918943e6eee4
 }
