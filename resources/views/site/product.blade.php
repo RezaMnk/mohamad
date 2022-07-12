@@ -58,7 +58,6 @@
                                     <a href="#" class="social-telegram"><i class="fab fa-google-plus-g"></i></a>
                                     <a href="#" class="social-pinterest"><i class="fab fa-pinterest-p"></i></a>
                                 </div>
-<<<<<<< HEAD
                                 <h1 class="product_title entry-title">ساعت مچی دیجیتال مردانه پیائوما</h1>
                                 <h2 class="my-3">مشخصات</h2>
 								<table class="borderless woocommerce-product-attributes shop_attributes">
@@ -114,77 +113,6 @@
 								</div>
                                 
                             </div>
-=======
-                            </div>
-                        </div>
-                        <div class="entry-breadcrumbs">
-                            <nav class="breadcrumb-divider-slash" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                                    <li class="breadcrumb-item"><a href="#">فروشگاه</a></li>
-                                    <li class="breadcrumb-item"><a href="#">مردانه</a></li>
-                                    <li class="breadcrumb-item"><a href="#">ساعت هوشمند</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">ساعت مچی دیجیتال مردانه پیائوما</li>
-                                </ol>
-                            </nav>
-                        </div>
-                        <h1 class="product_title entry-title">{{ $product->name }}</h1>
-                        <h2 class="my-3">مشخصات</h2>
-                        <table class="borderless woocommerce-product-attributes shop_attributes">
-                            <tbody>
-                                @foreach($product->attributes as $attribute)
-                                    <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_color">
-                                        <th class="woocommerce-product-attributes-item__label">وزن :</th>
-                                        <td class="woocommerce-product-attributes-item__value">
-                                            <p>۳۸.۸ گرم</p>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-{{--                                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_size">--}}
-{{--                                    <th class="woocommerce-product-attributes-item__label">ابعاد قاب :</th>--}}
-{{--                                    <td class="woocommerce-product-attributes-item__value">--}}
-{{--                                        <p>۴۵x۳۸x۱۰.۷ میلی‌متر</p>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_size">--}}
-{{--                                    <th class="woocommerce-product-attributes-item__label">ظرفیت باتری :</th>--}}
-{{--                                    <td class="woocommerce-product-attributes-item__value">--}}
-{{--                                        <p>نامشخص میلی آمپر ساعت</p>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_size">--}}
-{{--                                    <th class="woocommerce-product-attributes-item__label">مدل :</th>--}}
-{{--                                    <td class="woocommerce-product-attributes-item__value">--}}
-{{--                                        <p>MF841HN/A</p>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_size">--}}
-{{--                                    <th class="woocommerce-product-attributes-item__label">سیستم عامل :</th>--}}
-{{--                                    <td class="woocommerce-product-attributes-item__value">--}}
-{{--                                        <p>WatchOS</p>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_size">--}}
-{{--                                    <th class="woocommerce-product-attributes-item__label">سایر مشخصات سخت افزاری :</th>--}}
-{{--                                    <td class="woocommerce-product-attributes-item__value">--}}
-{{--                                        <p>پردازنده دو هسته ای</p>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-                            </tbody>
-                        </table>
-                        <div class="position-sticky add-to-cart" style="">
-                            <form class="variations_form cart kapee-swatches-wrap" action="#" method="post" enctype="multipart/form-data">
-                                <div class="single_variation_wrap align-items-start">
-                                    <div class="quantity">
-                                        <input type="number" min="1" max="9" step="1" value="1">
-                                    </div>
-                                    <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
-                                        <button type="submit" class="btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>
-                                    </div>
-                                </div>
-                            </form>
->>>>>>> c73a27bff36b280f8c9a105064d626e3531ec8d2
                         </div>
 
                     </div>
