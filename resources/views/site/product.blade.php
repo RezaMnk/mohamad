@@ -13,7 +13,7 @@
                             <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
                                 <figure class="woocommerce-product-gallery__wrapper">
                                     <div class="bg-light">
-                                        <img id="single-image-zoom" src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
+                                        <img id="single-image-zoom" src="{{ $product->gallery->first()->image_url }}" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
                                     </div>
 
                                     <div id="gallery_09" class="product-slide-thumb">
@@ -89,19 +89,20 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="position-sticky add-to-cart" style="">
-                                <form class="variations_form cart kapee-swatches-wrap" action="#" method="post" enctype="multipart/form-data">
-                                    <div class="single_variation_wrap align-items-start">
-                                        <div class="quantity">
-                                            <input type="number" min="1" max="9" step="1" value="1">
+                            @unless(Auth::guest())
+                                <div class="position-sticky add-to-cart" style="">
+                                    <form class="variations_form cart kapee-swatches-wrap" action="#" method="post" enctype="multipart/form-data">
+                                        <div class="single_variation_wrap align-items-start">
+                                            <div class="quantity">
+                                                <input type="number" min="1" max="9" step="1" value="1">
+                                            </div>
+                                            <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
+                                                <button type="submit" class="btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>
+                                            </div>
                                         </div>
-                                        <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
-                                            <button type="submit" class="btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
+                                    </form>
+                                </div>
+                            @endunless
                         </div>
                     </div>
                 </div>

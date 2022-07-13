@@ -64,7 +64,7 @@
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                             </button>
                                         </a>
-                                        <a href="{{ $product->status ? route('admin.products.edit', $product->id) : 'javascript:void(0)' }}">
+                                        <a href="{{ $product->status ? route('home.product', $product->id) : 'javascript:void(0)' }}">
                                             <button type="button" class="btn btn-success btn-floating @if(!$product->status) disabled @endif">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>

@@ -48,8 +48,7 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 // -------------------------------------------- FOR TEST ONLY --------------------------------------------
 
 Route::get('/date', function() {
-    $this_period = \App\Models\User::whereBetween('created_at', [false, now()])->get();
-    dd($this_period);
+    phpinfo();
 });
 
 Route::get('/logi', function () {

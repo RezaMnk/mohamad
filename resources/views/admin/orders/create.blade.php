@@ -3,8 +3,8 @@
 @section('header-assets')
     <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}">
     <!-- TODO : all cdns should be local  -->
-    <link rel="stylesheet" href="https://ciar4n.com/izmir/assets/css/izmir.css">
-    <link rel="stylesheet" href="https://v3dboy.ir/previews/html/nextable/default/vendors/select2/css/select2.min.css">
+    <link rel="stylesheet" href="{{ asset('admin/css/izmir.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendors/select2/css/select2.min.css') }}">
 
 @endsection
 

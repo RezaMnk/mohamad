@@ -7,7 +7,7 @@
                 </div>
                 <div class="contentBx">
                     <h2>{{ $product->name }}</h2>
-                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary">مشاهده و خرید</a>
+                    <a href="{{ route('home.product', $product->id) }}" class="btn btn-primary">مشاهده و خرید</a>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="contentBx">
                         <h2>{{ $product->name }}</h2>
-                        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary">مشاهده و خرید</a>
+                        <a href="{{ route('home.product', $product->id) }}" class="btn btn-primary">مشاهده و خرید</a>
                     </div>
                 </div>
             </div>
