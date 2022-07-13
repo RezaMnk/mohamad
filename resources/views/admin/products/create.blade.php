@@ -177,10 +177,10 @@
                 <div class="card-body">
                     <h6 class="card-title">تصویر محصول</h6>
                     <figure class="c4-izmir c4-border-corners-2 c4-image-zoom-in" style="--primary-color: var(--light);">
-                        <img src="{{ asset('storage/default.png') }}" alt="Product Image" id="product-image">
+                        <img src="{{ asset('storage/default.png') }}" class="aspect-ratio-1" alt="Product Image" id="product-image">
                         <figcaption class="c4-layout-center-center" id="button-image">
                             <div class="c4-izmir-icon-wrapper c4-fade">
-                                <input type="hidden" id="image_label" class="form-control" name="image" value="{{ old('image') }}" required>
+                                <input type="hidden" id="product-image-input" class="form-control" name="image" value="{{ old('image') }}" required>
                                 <button type="button" class="btn btn-light w-100">تصویر محصول</button>
                             </div>
                         </figcaption>
@@ -191,6 +191,14 @@
                             {{ $message }}
                         </div>
                     @enderror
+
+                    <div class="d-flex flex-wrap">
+                        <div class="px-1" id ="add-gallery" style="max-width: 33.3%">
+                            <figure class="c4-izmir c4-image-zoom-in" id="add-gallery-image" style="--primary-color: var(--light);">
+                                <img src="{{ asset('storage/plus.png') }}" alt="Add product gallery image">
+                            </figure>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- image card : end -->
@@ -222,19 +230,27 @@
     <script src="{{ asset('admin/vendors/select2/js/select2.min.js') }}"></script>
     <x-ckeditor :text-area-id="['description', 'short-description']"></x-ckeditor>
     <script>
+
         document.addEventListener("DOMContentLoaded", function() {
 
             document.getElementById('button-image').addEventListener('click', (event) => {
                 event.preventDefault();
 
+                inputId = 'product-image-input';
+                imageId = 'product-image';
+
                 window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
             });
         });
 
+        // input
+        let inputId = '';
+        let imageId = '';
+
         // set file link
         function fmSetLink($url) {
-            document.getElementById('image_label').value = $url;
-            document.getElementById('product-image').src = "{{ asset('storage/products') }}" + $url;
+            document.getElementById(inputId).value = $url;
+            document.getElementById(imageId).src = "{{ asset('storage/products') }}" + $url;
         }
 
 
@@ -276,7 +292,6 @@
                 $('.remove-attribute').on('click', function (){
 
                     let attribute_id = $(this).data('id');
-                    console.log(attribute_id);
 
                     $('#attribute-' + attribute_id + '-row').remove();
                     $('#add-attribute option[value="' + attribute_id + '"]').prop('disabled', false);
@@ -286,7 +301,6 @@
             $('.remove-attribute').on('click', function (){
 
                 let attribute_id = $(this).data('id');
-                console.log(attribute_id);
 
                 $('#attribute-' + attribute_id + '-row').remove();
                 $('#add-attribute option[value="' + attribute_id + '"]').prop('disabled', false);
@@ -312,6 +326,43 @@
                     $('#add-attribute option[value="' + {{ $attribute->id }} + '"]').prop('disabled', true);
                 @endforeach
             @endif
+
+            let gallery_id = 1;
+            $('#add-gallery-image').on('click', function () {
+                let html = `<div class="px-1" style="max-width: 33.3%">
+                            <figure class="c4-izmir c4-border-corners-2 c4-image-zoom-in gallery" style="--primary-color: var(--light);" data-id="${gallery_id}">
+                                <img src="{{ asset('storage/default.png') }}" class="aspect-ratio-1" alt="Gallery image ${gallery_id}" id="product-gallery-${gallery_id}">
+                                <figcaption class="c4-layout-center-center gallery-image">
+                                    <div class="c4-izmir-icon-wrapper c4-fade">
+                                        <input type="hidden" id="input-gallery-${gallery_id}" class="form-control" name="image" required>
+                                    </div>
+                                    <button type="button" class="btn btn-danger btn-floating position-absolute top-0 left-0" style="transform: translate(30%, -30%); width: 20px; height: 20px">
+                                        <i class="ti-close font-size-10"></i>
+                                    </button>
+                                </figcaption>
+                            </figure>
+                        </div>`;
+
+                $('#add-gallery').before(html);
+                gallery_id++;
+
+                $('.gallery').on('click', function () {
+                    console.log('test');
+                    inputId = 'input-gallery-' + $(this).data('id');
+                    imageId = 'product-gallery-' + $(this).data('id');
+
+                    window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+                })
+            })
+
+            $('.gallery').on('click', function () {
+                console.log('test');
+                inputId = 'input-gallery-' + $(this).data('id');
+                imageId = 'product-gallery-' + $(this).data('id');
+
+                window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+            })
+
         });
     </script>
 @endsection
