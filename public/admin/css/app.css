@@ -11567,3 +11567,7 @@ figure {
     white-space:nowrap;
     text-overflow: ellipsis;
 }
+
+.aspect-ratio-1 {
+    aspect-ratio: 1;
+}
