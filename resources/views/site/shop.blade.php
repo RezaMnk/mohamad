@@ -7,7 +7,7 @@
 <div class="full-row pt-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div id="sidebar" class="widget-title-bordered-full">
                             <div id="woocommerce_product_categories-4" class="widget woocommerce widget_product_categories widget-toggle">
                                 <h2 class="widget-title">دسته بندی محصولات</h2>
@@ -166,7 +166,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-10">
                         <form class="border-bottom-gray pb-2">
                             <p class="d-inline ms-2">
                                 مرتب سازی براساس:
@@ -182,7 +182,7 @@
                             </button>
                         </form>
                         <div class="showing-products pt-30 pb-50 border-2 border-bottom border-light">
-                            <div class="row gy-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-sm-2 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
+                            <div class="row gy-4 row-cols-xl-4 row-cols-lg-4 row-cols-md-4 row-cols-sm-4 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
                                 @forelse($products as $product)
                                     <x-product-card id="{{ $product->id }}"></x-product-card>
                                 @empty

@@ -7856,3 +7856,6 @@ Footer Section Style Start
         display: block;
     }
 }
+.banner-wrapper {
+    background-size: contain !important;
+}
