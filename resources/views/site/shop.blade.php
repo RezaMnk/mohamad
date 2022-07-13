@@ -13,7 +13,7 @@
                                 <h2 class="widget-title">دسته بندی</h2>
                                 @include('layouts.shop.categories', ['categories' => $categories])
                             </div>
-                            <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle">
+                            <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle closed">
                                 <h2 class="widget-title">فیلتر براساس وزن</h2>
                                 <ul class="price-filter-list">
                                     <li class="wc-layered-nav-term">
@@ -63,8 +63,39 @@
                                     </li>
                                 </ul>
                             </div>
+                            <form>
+                                <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle closed">
+                                    <h2 class="widget-title">فیلتر براساس تست</h2>
+
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Checked checkbox
+                                        </label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">اعمال فیلتر ها</button>
+                            </form>
                             @foreach($attributes as $attribute)
-                                <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle">
+                                <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle closed">
                                     <h2 class="widget-title">{{ $attribute->name }}</h2>
                                     <ul class="swatch-filter-pa_brands">
 

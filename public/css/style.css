@@ -7859,3 +7859,10 @@ Footer Section Style Start
 .banner-wrapper {
     background-size: contain !important;
 }
+.checkbox {
+    display: flex;
+}
+.form-check label {
+    margin-right: 30px;
+    margin-left: 0px !important;
+}
