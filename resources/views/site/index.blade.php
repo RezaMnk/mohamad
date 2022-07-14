@@ -27,13 +27,13 @@
 
                                 <p style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:50px; top:70px; right:20px; white-space:normal;" class="ls-l text-primary text-uppercase" data-ls="offsetyin:40; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:200; parallax:false;">برندهای لوکس</p>
 
-                                <p style="font-weight:600; text-align:right; width:400px; font-size:45px; line-height:60px; top:120px; right:20px; white-space:normal; font-family: 'IRANyekan' !important" class="ls-l higlight-font text-secondary" data-ls="offsetyin:40; delayin:250; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:400; parallax:false;">ساعت مچی مردانه مدل دیزل Diesel</p>
+                                <p style="font-weight:600; text-align:right; width:400px; font-size:45px; line-height:60px; top:120px; right:20px; white-space:normal; font-family: 'IRANyekan' !important" class="ls-l higlight-font text-secondary" data-ls="offsetyin:40; delayin:250; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:400; parallax:false;">انگشتر ۱۰ قیراتی از طلای ۱۲ عیار</p>
 
-                                <p style="font-weight:400; text-align:right; width:380px; font-size:17px; line-height:30px; top:270px; right:20px; white-space:normal;" class="ls-l text-general" data-ls="offsetyin:40; delayin:450; easingin:easeOutQuint; offsetyout:-200; durationout:400; parallax:false;">کالاهای لوکس مانند ساعت نباید گران باشند و به همین دلیل است که ما تصمیم به تاسیس شرکت خود گرفته ایم.</p>
+                                <p style="font-weight:400; text-align:right; width:380px; font-size:17px; line-height:30px; top:270px; right:20px; white-space:normal;" class="ls-l text-general" data-ls="offsetyin:40; delayin:450; easingin:easeOutQuint; offsetyout:-200; durationout:400; parallax:false;">طلای مناسب شخصیت مناسب</p>
 
-                                <p style="font-weight:400; text-align:right; width:300px; font-size:16px; line-height:30px; top:150px; right:87.5%; white-space:normal;" class="ls-l higlight-font text-secondary" data-ls="offsetyin:40; delayin:700; easingin:easeOutQuint; offsetyout:-250; durationout:400; parallax:false;">با هر خرید 10% مبلغ خود را هدیه بگیرید!</p>
+                                <p style="font-weight:400; text-align:right; width:300px; font-size:16px; line-height:30px; top:150px; right:87.5%; white-space:normal;" class="ls-l higlight-font text-secondary" data-ls="offsetyin:40; delayin:700; easingin:easeOutQuint; offsetyout:-250; durationout:400; parallax:false;">تعداد محدود</p>
 
-                                <div style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:30px; top:190px; right:87.5%; white-space:normal;" dir="rtl" class="ls-l higlight-font text-secondary" data-ls="offsetyin:40; delayin:900; easingin:easeOutQuint; offsetyout:-250; durationout:400; parallax:false;"><ins class="text-primary">1640000 تومان</ins> <del>1148000 تومان</del></div>
+                                <div style="font-weight:400; text-align:right; width:300px; font-size:17px; line-height:30px; top:190px; right:87.5%; white-space:normal;" dir="rtl" class="ls-l higlight-font text-secondary" data-ls="offsetyin:40; delayin:900; easingin:easeOutQuint; offsetyout:-250; durationout:400; parallax:false;"><ins class="text-primary"></ins> <del></del></div>
 
                                 <a class="ls-l ls-hide-phone" href="shop-grid-full.html" target="_self" data-ls="offsetyin:150; durationin:700; delayin:1100; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400; hover:true; hoveropacity:1; hoverbgcolor:#e74c3c ; parallaxlevel:0;">
                                     <p style="cursor:pointer; font-weight: 400; padding-top:12px; padding-bottom:12px; font-size:13px; top:250px; right:93%; background:#141926; color:#ffffff; padding-right:25px; padding-left:25px; line-height:25px;" class="text-uppercase">مشاهده</p>
@@ -75,6 +75,8 @@
         <!--Slider Section End-->
 
         <!--==================== Banner Section Start ====================-->
+        <br>
+        <br>
         <div class="full-row m-4" style="background: url(https://www.globalagrocorp.com/assets/img/Vector-Smart-Object.png); background-size: contain; background-position: center; background-repeat: no-repeat">
             <div class="container">
                 <div class="row g-4">
