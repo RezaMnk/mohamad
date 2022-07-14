@@ -7,98 +7,13 @@
 <div class="full-row pt-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div id="sidebar" class="widget-title-bordered-full">
-                            <div id="woocommerce_product_categories-4" class="widget woocommerce widget_product_categories widget-toggle">
-                                <h2 class="widget-title">دسته بندی محصولات</h2>
-                                <ul class="product-categories">
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">اکسسوری <span class="count">(7)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">کیف و کمربند <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">کلاه مردانه <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">لباس زیر مردانه <span class="count">(2)</span></a></li>
-                                            <li class="cat-item"><a href="#">عینک آفتابی <span class="count">(2)</span></a></li>
-                                            <li class="cat-item"><a href="#">ساعت مچی <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">کیف <span class="count">(4)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">کیف پول <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">کیف لپ تاب <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">چمدان و کوله پشتی <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">کیف دستی <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">زیبایی و سلامت <span class="count">(2)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">لوازم آرایشی <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">مداد چشم <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">زیورآلات نقره <span class="count">(4)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">گردنبد و گوشواره <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">ست زیورآلات <span class="count">(2)</span></a></li>
-                                            <li class="cat-item"><a href="#">دستبند و پابند <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">ست انگشتر مردانه و زنانه <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">پیرسینگ <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">اکسسوری <span class="count">(7)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">کیف و کمربند <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">کلاه مردانه <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">لباس زیر مردانه <span class="count">(2)</span></a></li>
-                                            <li class="cat-item"><a href="#">عینک آفتابی <span class="count">(2)</span></a></li>
-                                            <li class="cat-item"><a href="#">ساعت مچی <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">کیف <span class="count">(4)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">کیف پول <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">کیف لپ تاب <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">چمدان و کوله پشتی <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">کیف دستی <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">زیبایی و سلامت <span class="count">(2)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">لوازم آرایشی <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">مداد چشم <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item cat-parent">
-                                        <a href="#">زیورآلات نقره <span class="count">(4)</span></a>
-                                        <span class="has-child"></span>
-                                        <ul class="children">
-                                            <li class="cat-item"><a href="#">گردنبد و گوشواره <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">ست زیورآلات <span class="count">(2)</span></a></li>
-                                            <li class="cat-item"><a href="#">دستبند و پابند <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">ست انگشتر مردانه و زنانه <span class="count">(1)</span></a></li>
-                                            <li class="cat-item"><a href="#">پیرسینگ <span class="count">(1)</span></a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
                             <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle">
                                 <h2 class="widget-title">دسته بندی</h2>
                                 @include('layouts.shop.categories', ['categories' => $categories])
                             </div>
-                            <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle">
+                            <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle closed">
                                 <h2 class="widget-title">فیلتر براساس وزن</h2>
                                 <ul class="price-filter-list">
                                     <li class="wc-layered-nav-term">
@@ -148,8 +63,39 @@
                                     </li>
                                 </ul>
                             </div>
+                            <form>
+                                <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle closed">
+                                    <h2 class="widget-title">فیلتر براساس تست</h2>
+
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Default checkbox
+                                        </label>
+                                    </div>
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Checked checkbox
+                                        </label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">اعمال فیلتر ها</button>
+                            </form>
                             @foreach($attributes as $attribute)
-                                <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle">
+                                <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle closed">
                                     <h2 class="widget-title">{{ $attribute->name }}</h2>
                                     <ul class="swatch-filter-pa_brands">
 
@@ -166,7 +112,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-10">
                         <form class="border-bottom-gray pb-2">
                             <p class="d-inline ms-2">
                                 مرتب سازی براساس:
@@ -182,7 +128,7 @@
                             </button>
                         </form>
                         <div class="showing-products pt-30 pb-50 border-2 border-bottom border-light">
-                            <div class="row gy-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-sm-2 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
+                            <div class="row gy-4 row-cols-xl-4 row-cols-lg-4 row-cols-md-4 row-cols-sm-4 row-cols-1 e-title-hover-primary e-hover-image-zoom e-info-center">
                                 @forelse($products as $product)
                                     <x-product-card id="{{ $product->id }}"></x-product-card>
                                 @empty
