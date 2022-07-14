@@ -65,6 +65,8 @@ class ProductController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'numeric', 'exists:categories,id'],
             'image' => ['required'],
+            'gallery' => ['array'],
+            'gallery.*' => ['string'],
             'attributes' => ['array'],
             'weight' => ['required', 'numeric', 'digits_between:1,10'],
             'code' => ['required', 'numeric', 'digits_between:1,10'],
@@ -73,11 +75,19 @@ class ProductController extends Controller
         ]);
 
         if (!Storage::disk('products')->exists($data['image']))
-            return back()->withErrors(['image' => 'تصویر مورد نظر یافت نشد.']);
+            return back()->withErrors(['image' => 'تصویر/تصاویر مورد نظر یافت نشد.']);
+
+        foreach($data['gallery'] as $gallery_image)
+            if (!Storage::disk('products')->exists($gallery_image))
+                return back()->withErrors(['image' => 'تصویر/تصاویر مورد نظر یافت نشد.']);
 
         $product = Product::create($data);
 
-        $product->gallery()->create($request->only('image'));
+        $product->gallery()->create(['image' => $data['image'], 'main' => true]);
+
+        foreach ($data['gallery'] as $gallery_image)
+            $product->gallery()->create(['image' => $gallery_image]);
+
 
         $product->categories()->sync($data['category']);
 
@@ -127,6 +137,8 @@ class ProductController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'numeric', 'exists:categories,id'],
             'image' => ['required'],
+            'gallery' => ['array'],
+            'gallery.*' => ['string'],
             'attributes' => ['array'],
             'weight' => ['required', 'numeric', 'digits_between:1,10'],
             'code' => ['required', 'numeric', 'digits_between:1,10'],
@@ -135,6 +147,11 @@ class ProductController extends Controller
         ]);
 
         $product->fill($data)->save();
+
+//        $product->gallery()->where('main', true)->first()->update(['image' => $data['image']]);
+
+        $product->update_gallery($data['gallery']);
+
         $product->categories()->sync($data['category']);
 
         $product->attributes()->sync($data['attributes'] ?? []);

@@ -185,7 +185,6 @@
                             </div>
                         </figcaption>
                     </figure>
-
                     @error('image')
                         <div class="text-danger">
                             {{ $message }}
@@ -200,6 +199,12 @@
                         </div>
                     </div>
                 </div>
+                @error('gallery')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+                @enderror
+
             </div>
             <!-- image card : end -->
             <!-- categories card : start -->
@@ -334,7 +339,7 @@
                                 <img src="{{ asset('storage/default.png') }}" class="aspect-ratio-1" alt="Gallery image ${gallery_id}" id="product-gallery-${gallery_id}">
                                 <figcaption class="c4-layout-center-center gallery-image">
                                     <div class="c4-izmir-icon-wrapper c4-fade">
-                                        <input type="hidden" id="input-gallery-${gallery_id}" class="form-control" name="image" required>
+                                        <input type="hidden" id="input-gallery-${gallery_id}" class="form-control" name="gallery[]" required>
                                     </div>
                                     <button type="button" class="btn btn-danger btn-floating position-absolute top-0 left-0" style="transform: translate(30%, -30%); width: 20px; height: 20px">
                                         <i class="ti-close font-size-10"></i>
@@ -344,15 +349,20 @@
                         </div>`;
 
                 $('#add-gallery').before(html);
+
+                inputId = 'input-gallery-' + gallery_id;
+                imageId = 'product-gallery-' + gallery_id;
+
+                window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+
                 gallery_id++;
 
                 $('.gallery').on('click', function () {
-                    console.log('test');
                     inputId = 'input-gallery-' + $(this).data('id');
                     imageId = 'product-gallery-' + $(this).data('id');
 
                     window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-                })
+                });
             })
 
             $('.gallery').on('click', function () {
@@ -361,7 +371,7 @@
                 imageId = 'product-gallery-' + $(this).data('id');
 
                 window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-            })
+            });
 
         });
     </script>

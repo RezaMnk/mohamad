@@ -13,33 +13,21 @@
                             <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
                                 <figure class="woocommerce-product-gallery__wrapper">
                                     <div class="bg-light">
-                                        <img id="single-image-zoom" src="{{ $product->gallery->first()->image_url }}" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
+                                        <img id="single-image-zoom" src="{{ $product->featuring_image()->image_url }}" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
                                     </div>
-
-                                    <div id="gallery_09" class="product-slide-thumb">
-                                        <div class="owl-carousel four-carousel dot-disable nav-arrow-middle owl-mx-5" dir="ltr">
-                                            <div class="item">
-                                                <a class="active" href="#" data-image="assets/images/products/squire-269.png" data-zoom-image="assets/images/products/squire-269.png">
-                                                    <img src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Thumb Image" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="#" data-image="assets/images/products/squire-270.png" data-zoom-image="assets/images/products/squire-270.png">
-                                                    <img src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Thumb Image" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="#" data-image="assets/images/products/squire-271.png" data-zoom-image="assets/images/products/squire-271.png">
-                                                    <img src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Thumb Image" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="#" data-image="assets/images/products/squire-271.png" data-zoom-image="assets/images/products/squire-271.png">
-                                                    <img src="https://rahamteam.ir/wp-content/uploads/2022/05/rEZ.png" alt="Thumb Image" />
-                                                </a>
+                                    @if($product->gallery->count())
+                                        <div class="product-slide-thumb">
+                                            <div class="owl-carousel four-carousel dot-disable nav-arrow-middle owl-mx-5" dir="ltr">
+                                                @foreach($product->gallery as $gallery)
+                                                    <div class="item">
+                                                        <a href="#">
+                                                            <img src="{{ $gallery->thumbnail }}" alt="Product {{ $product->id }} gallery image" />
+                                                        </a>
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </figure>
                             </div>
                         </div>

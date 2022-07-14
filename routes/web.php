@@ -48,7 +48,9 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 // -------------------------------------------- FOR TEST ONLY --------------------------------------------
 
 Route::get('/date', function() {
-    phpinfo();
+    $gallery = \App\Models\Product::find(1)->gallery->first();
+    return $gallery->thumbnail;
+//    phpinfo();
 });
 
 Route::get('/logi', function () {
@@ -109,7 +111,7 @@ Route::get('/test', function () {
 
 Route::get('/fake_products', function () {
 
-    foreach (range(1, 30) as $i) {
+    foreach (range(1, 1) as $i) {
         $product = \App\Models\Product::create([
             'name' => "test $i",
             'code' => $i*15,
@@ -119,7 +121,9 @@ Route::get('/fake_products', function () {
             'status' => "1",
         ]);
 
-        $product->gallery()->create(['image' => '/squire-'. $i .'.png']);
+        $product->gallery()->create(['image' => '/squire-'. $i .'.png', 'main' => true]);
+        $product->gallery()->create(['image' => '/squire-'. $i+10 .'.png']);
+        $product->gallery()->create(['image' => '/squire-'. $i+15 .'.png']);
 
         $product->attributes()->sync(['3', '2']);
         $product->categories()->sync(['2']);

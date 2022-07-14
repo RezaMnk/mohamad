@@ -72,6 +72,12 @@ class Product extends Model
     }
 
 
+    public function getGalleryAttribute()
+    {
+        return $this->gallery()->where('main', false)->get();
+    }
+
+
     /**
      * use for (12 hours ago) or (12-12-2012)
      *
@@ -92,6 +98,51 @@ class Product extends Model
         return jdate($time)->format('%B %d، %Y');
     }
 
+
+    /**
+     * update gallery of product with image path [data]
+     *
+     * @param $galleries
+     * @return void
+     */
+    public function update_gallery($galleries)
+    {
+        $keys = [];
+
+        $galleries = array_unique($galleries);
+
+        $galleries_arr = $this->gallery->where('main', '!=', true)->pluck('image')->toArray();
+
+        $new_diff = array_diff($galleries, $galleries_arr);
+        $old_diff = array_diff($galleries_arr, $galleries);
+
+        if (count($new_diff) > count($old_diff))
+        {
+            foreach ($new_diff as $item)
+                $this->gallery()->create(['image' => $item]);
+        }
+        if (count($new_diff) < count($old_diff))
+        {
+            foreach ($old_diff as $item)
+                $this->gallery->where('image', $item)->first()->delete();
+        }
+        if ((count($new_diff) && count($old_diff)) && count($new_diff) == count($old_diff))
+        {
+            foreach ($this->gallery->where('main', false) as $key => $gallery)
+                $gallery->update(['image' => $galleries[--$key]]);
+        }
+    }
+
+
+    /**
+     * get featuring image of product
+     *
+     * @return Model|\Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function featuring_image()
+    {
+        return $this->gallery()->where('main', true)->firstOrFail();
+    }
 
     /**
      * declare columns to use in statistics data

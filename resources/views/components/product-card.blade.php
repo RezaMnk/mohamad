@@ -3,7 +3,7 @@
         <div class="col">
             <div class="card border-0">
                 <div class="imgBx">
-                    <img src="{{ $product->gallery->first()->image_url }}" alt="{{ $product->name }}">
+                    <img src="{{ $product->featuring_image()->image_url }}" alt="{{ $product->name }}">
                 </div>
                 <div class="contentBx">
                     <h2>{{ $product->name }}</h2>
@@ -16,7 +16,7 @@
             <div class="col">
                 <div class="card border-0">
                     <div class="imgBx">
-                        <img src="{{ $product->gallery->first()->image_url }}" alt="{{ $product->name }}">
+                        <img src="{{ $product->featuring_image()->image_url }}" alt="{{ $product->name }}">
                     </div>
                     <div class="contentBx">
                         <h2>{{ $product->name }}</h2>
