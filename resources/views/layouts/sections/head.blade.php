@@ -25,4 +25,5 @@
     <link rel="stylesheet" href="{{ asset('css/template.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/category/minimal.css') }}">
+    @yield('header-assets')
 </head>

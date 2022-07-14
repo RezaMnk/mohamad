@@ -20,5 +20,6 @@
     @include('layouts.sections.footer-scripts')
 
 </body>
+@yield('footer-assets')
 @include('sweetalert::alert')
 </html>

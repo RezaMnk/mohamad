@@ -13,14 +13,16 @@
                             <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1; transition: opacity 0.25s ease-in-out 0s;">
                                 <figure class="woocommerce-product-gallery__wrapper">
                                     <div class="bg-light">
-                                        <img id="single-image-zoom" src="{{ $product->featuring_image()->image_url }}" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
+                                        <a href="{{ $product->featuring_image()->image_url }}" data-fslightbox>
+                                            <img id="single-image-zoom" src="{{ $product->featuring_image()->image_url }}" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
+                                        </a>
                                     </div>
                                     @if($product->gallery->count())
                                         <div class="product-slide-thumb">
                                             <div class="owl-carousel four-carousel dot-disable nav-arrow-middle owl-mx-5" dir="ltr">
                                                 @foreach($product->gallery as $gallery)
                                                     <div class="item">
-                                                        <a href="#">
+                                                        <a href="{{ $gallery->image_url }}" data-fslightbox>
                                                             <img src="{{ $gallery->thumbnail }}" alt="Product {{ $product->id }} gallery image" />
                                                         </a>
                                                     </div>
@@ -123,5 +125,8 @@
         </div>
     </div>
     <!--==================== Related Products Section End ====================-->
+@endsection
 
+@section('footer-assets')
+    <script src="{{ asset('js/fslightbox.js') }}"></script>
 @endsection
