@@ -88,7 +88,7 @@
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی مردانه</a>
                                         <h4 class="title"><a href="#">بهترین کالکشن</a></h4>
-                                        <a href="shop-grid-full.html" class="btn btn-outline-primary">مشاهده و خرید</a>
+                                        <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی زنانه</a>
                                         <h4 class="title"><a href="#">زیبایی در سادگی</a></h4>
-                                        <a href="shop-grid-full.html" class="btn btn-outline-primary">مشاهده و خرید</a>
+                                        <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -110,10 +110,9 @@
                             </div>
                             <div class="banner-content position-absolute">
                                 <div class="middle-content bg-dark p-5 rounded-circle">
-                                    <a href="#" class="category">ساعت های مردانـه</a>
-                                    <span class="sale">casio</span>
-                                    <span class="up-to-sale">swiss made</span>
-                                    <a href="shop-grid-full.html" class="btn btn-secondary mx-auto">مشاهده و خرید</a>
+                                    <span class="sale">رینگ</span>
+                                    <span class="up-to-sale">در انواع طرح ها</span>
+                                    <a href="shop-grid-full.html" class="btn btn-light">مشاهده و خرید</a>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +125,7 @@
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی بچگانه</a>
                                         <h4 class="title"><a href="#">محصولات جدید</a></h4>
-                                        <a href="shop-grid-full.html" class="btn btn-outline-primary">مشاهده و خرید</a>
+                                        <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +135,7 @@
                                     <div class="banner-content position-absolute">
                                         <a href="#" class="category">ساعت مچی ست</a>
                                         <h4 class="title"><a href="#">متنوع ترین برندها</a></h4>
-                                        <a href="shop-grid-full.html" class="btn btn-outline-primary">مشاهده و خرید</a>
+                                        <a href="shop-grid-full.html" class="btn btn-primary">مشاهده و خرید</a>
                                     </div>
                                 </div>
                             </div>

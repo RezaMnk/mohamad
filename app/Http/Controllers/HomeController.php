@@ -146,4 +146,15 @@ class HomeController extends Controller
     {
         return view('site.policy');
     }
+
+
+    /**
+     * show the main page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function profile()
+    {
+        return view('site.profile');
+    }
 }
