@@ -7,13 +7,15 @@
     @foreach($categories as $category)
         <li @class(['mb-4' => $loop->last])>
             {!! $tab !!}
-            <form class="d-inline">
-                <button type="submit" name="filter[category]" value="{{ $category->id }}" class="text-light">{{ $category->name }}</button>
-            </form>
-            <span class="count">({{ $category->products()->count() }})</span>
+            @if(request()->category == $category->id)
+                <i class="fas fa-caret-left text-primary"></i>
+            @endif
+            <a href="{{ route('home.shop', ['category' => $category->id, ...request()->except('category')]) }}" class="{{ request()->category == $category->id ? 'fw-bolder' : 'text-light' }}">
+                {{ $category->name }} ({{ $category->products()->count() }})
+            </a>
         </li>
         @if(count($category->children))
-            @include('layouts.shop.categories', ['categories' => $category->children, 'spaces' => $spaces + 1])
+            @include('partials.categories.shop', ['categories' => $category->children, 'spaces' => $spaces + 1])
         @endif
     @endforeach
 </ul>

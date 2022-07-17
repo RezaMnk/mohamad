@@ -29,8 +29,7 @@ class HomeController extends Controller
     {
         $products = Product::query();
 
-        if ($filter = $request->filter)
-            $products = $this->filterShop($filter);
+        $products = $this->filterShop($request);
 
         $products = $products->latest()->paginate(12);
 
@@ -41,15 +40,13 @@ class HomeController extends Controller
         return view('site.shop', compact('products', 'attributes', 'categories'));
     }
 
-    private function filterShop(mixed $filter)
+    private function filterShop(Request $request)
     {
         $products = Product::query();
 
-        $filter_is = function ($is) use ($filter) { return in_array($is, array_keys($filter)); };
-
-        if ($filter_is('order'))
+        if ($request->has('order'))
         {
-            switch ($filter['order'])
+            switch ($request->order)
             {
                 case 'new':
                     $products->latest();
@@ -65,16 +62,34 @@ class HomeController extends Controller
             };
         }
 
-        elseif ($filter_is('attribute'))
+        elseif ($request->has('attribute'))
         {
-            foreach ($filter['attribute'] as $attribute)
-                $products->whereRelation('attributes','id', $attribute);
+            foreach ($request->attribute as $attribute)
+            {
+                $products->orWhereRelation('attributes','id', $attribute);
+            }
         }
 
-        elseif ($filter_is('category'))
+        elseif ($request->has('weight'))
         {
-            foreach ($filter['category'] as $category)
-                $products->whereRelation('categories','id', $category);
+            foreach ($request->weight as $weight)
+            {
+                $weight_l = explode('-', $weight);
+                if (count($weight_l) == 2)
+                    $products->orWhereBetween('weight', [$weight_l[0], $weight_l[1]]);
+
+                elseif (str_contains($weight, '+'))
+                {
+                    $weight = substr($weight, 1);
+                    $products->orWhere('weight', '>', $weight);
+                }
+
+            }
+        }
+
+        elseif ($request->has('category'))
+        {
+            $products->orWhereRelation('categories','id', $request->category);
         }
 
         return $products;
