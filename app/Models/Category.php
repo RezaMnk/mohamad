@@ -32,4 +32,12 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function shop_route()
+    {
+        if (isset($this->id))
+            return route('home.shop', ['filter[category]' => $this->id]);
+        else
+            return false;
+    }
 }

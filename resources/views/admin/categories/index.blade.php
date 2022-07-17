@@ -52,7 +52,7 @@
                         <label for="parent">دسته بندی</label>
                         <select name="parent_id" id="parent" class="form-control">
                             <option value="0">بدون والد</option>
-                            @include('admin.categories.select-list', ['categories' => $categories, 'current_category' => $category ?? null])
+                            @include('admin.partials.categories.categories-select', ['categories' => $categories, 'current_category' => $category ?? null])
                         </select>
 
                         @error('parent_id')
@@ -96,7 +96,7 @@
                                         -moz-box-sizing: border-box;
                                     }
                                 </style>
-                                @include('admin.categories.categories-list', ['list' => $categories])
+                                @include('admin.partials.categories.categories', ['list' => $categories])
                             </div>
                         </div>
                     </div>

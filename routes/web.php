@@ -47,18 +47,11 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 
 
 // -------------------------------------------- FOR TEST ONLY --------------------------------------------
-
-Route::get('/date', function() {
-    $gallery = \App\Models\Product::find(1)->gallery->first();
-    return $gallery->thumbnail;
-//    phpinfo();
-});
-
-Route::get('/logi', function () {
+Route::get('/force_login', function () {
     auth()->loginUsingId(1);
 });
 
-Route::get('/test', function () {
+Route::get('/produce', function () {
     $user = \App\Models\User::create([
         'name' => 'Reza Nadaf',
         'phone' => '09212969916',
@@ -108,11 +101,29 @@ Route::get('/test', function () {
         'name' => 'مشکی',
         'parent_id' => '1',
     ]);
+
+    foreach (range(1, 40) as $i) {
+        $product = \App\Models\Product::create([
+            'name' => "test $i",
+            'code' => $i*15,
+            'weight' => '150',
+            'description' => "Description for test $i",
+            'short_description' => "test $i",
+            'status' => "1",
+        ]);
+
+        $product->gallery()->create(['image' => '/squire-'. $i .'.png', 'main' => true]);
+        $product->gallery()->create(['image' => '/squire-'. $i+10 .'.png']);
+        $product->gallery()->create(['image' => '/squire-'. $i+15 .'.png']);
+
+        $product->attributes()->sync(['3', '2']);
+        $product->categories()->sync(['2']);
+    }
 });
 
 Route::get('/fake_products', function () {
 
-    foreach (range(1, 1) as $i) {
+    foreach (range(1, 40) as $i) {
         $product = \App\Models\Product::create([
             'name' => "test $i",
             'code' => $i*15,

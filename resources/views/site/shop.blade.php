@@ -9,107 +9,76 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div id="sidebar" class="widget-title-bordered-full">
-                            <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle">
-                                <h2 class="widget-title">دسته بندی</h2>
-                                @include('layouts.shop.categories', ['categories' => $categories])
-                            </div>
-                            <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle closed">
-                                <h2 class="widget-title">فیلتر براساس وزن</h2>
-                                <ul class="price-filter-list">
-                                    <li class="wc-layered-nav-term">
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>0<span class="woocommerce-Price-currencySymbol"></span></bdi>
-                                        </span> -
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>2<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>
-                                        </span>
-                                    </li>
-                                    <li class="wc-layered-nav-term">
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>2<span class="woocommerce-Price-currencySymbol"></span></bdi>
-                                        </span> -
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>4<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>
-                                        </span>
-                                    </li>
-                                    <li class="wc-layered-nav-term">
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>4<span class="woocommerce-Price-currencySymbol"></span></bdi>
-                                        </span> -
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>6<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>
-                                        </span>
-                                    </li>
-                                    <li class="wc-layered-nav-term">
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>6<span class="woocommerce-Price-currencySymbol"></span></bdi>
-                                        </span> -
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>10<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>
-                                        </span>
-                                    </li>
-                                    <li class="wc-layered-nav-term">
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>10<span class="woocommerce-Price-currencySymbol"></span></bdi>
-                                        </span> -
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>20<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>
-                                        </span>
-                                    </li>
-                                    <li class="wc-layered-nav-term">
-                                        <span class="woocommerce-Price-amount amount">
-                                                <bdi>20 +<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
                             <form>
-                                <div id="bigbazar-price-filter-list-1" class="widget bigbazar_widget_price_filter_list widget_layered_nav widget-toggle closed">
-                                    <h2 class="widget-title">فیلتر براساس تست</h2>
-
-                                    <div class="form-check checkbox">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Default checkbox
-                                        </label>
-                                    </div>
-                                    <div class="form-check checkbox">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Default checkbox
-                                        </label>
-                                    </div>
-                                    <div class="form-check checkbox">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Default checkbox
-                                        </label>
-                                    </div>
-                                    <div class="form-check checkbox">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Checked checkbox
-                                        </label>
-                                    </div>
+                                <div class="widget woocommerce widget_layered_nav widget-toggle">
+                                    <h2 class="widget-title">دسته بندی</h2>
+                                    @include('layouts.shop.categories', ['categories' => $categories])
                                 </div>
-                                <button class="btn btn-primary">اعمال فیلتر ها</button>
-                            </form>
-                            @foreach($attributes as $attribute)
-                                <div id="bigbazar-attributes-filter-4" class="widget woocommerce bigbazar-attributes-filter widget_layered_nav widget-toggle closed">
-                                    <h2 class="widget-title">{{ $attribute->name }}</h2>
-                                    <ul class="swatch-filter-pa_brands">
+                                <div class="widget widget_layered_nav widget-toggle closed">
+                                    <h2 class="widget-title">فیلتر براساس وزن</h2>
 
-                                    @foreach($attribute->children as $child_attribute)
-                                        <li @class(['mb-4' => $loop->last])>
-                                            <form class="d-inline">
-                                                <button type="submit" name="filter[attribute]" value="{{ $child_attribute->id }}" class="text-light">{{ $child_attribute->name }}</button>
-                                            </form>
-                                            <span class="count">({{ $child_attribute->products()->count() }})</span>
-                                        </li>
-                                    @endforeach
+                                    <ul class="price-filter-list">
+                                        <div class="form-check checkbox my-3 align-items-center">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" {{ request()->input('filter.weight') == 'w-0-2' ? '' : 'checked="checked"' }} value="w-0-2">
+                                            <label class="form-check-label">
+                                                0 - 2 گرم
+                                            </label>
+                                        </div>
+                                        <div class="form-check checkbox my-3 align-items-center">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" value="0-2">
+                                            <label class="form-check-label">
+                                                2 - 4 گرم
+                                            </label>
+                                        </div>
+                                        <div class="form-check checkbox my-3 align-items-center">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" value="0-2">
+                                            <label class="form-check-label">
+                                                4 - 6 گرم
+                                            </label>
+                                        </div>
+                                        <div class="form-check checkbox my-3 align-items-center">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" value="0-2">
+                                            <label class="form-check-label">
+                                                6 - 10 گرم
+                                            </label>
+                                        </div>
+                                        <div class="form-check checkbox my-3 align-items-center">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight]" value="0-2">
+                                            <label class="form-check-label">
+                                                10 - 20 گرم
+                                            </label>
+                                        </div>
+                                        <div class="form-check checkbox my-3 align-items-center">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight]" value="0-2">
+                                            <label class="form-check-label">
+                                                +20 گرم
+                                            </label>
+                                        </div>
+                                        {{--                                    <li class="wc-layered-nav-term">--}}
+                                        {{--                                        <span class="woocommerce-Price-amount amount">--}}
+                                        {{--                                                <bdi>20 +<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>--}}
+                                        {{--                                        </span>--}}
+                                        {{--                                    </li>--}}
                                     </ul>
                                 </div>
-                            @endforeach
+                                @foreach($attributes as $attribute)
+                                    <div class="widget woocommerce widget_layered_nav widget-toggle closed">
+                                        <h2 class="widget-title">{{ $attribute->name }}</h2>
+                                        <ul class="swatch-filter-pa_brands">
+
+                                            @foreach($attribute->children as $child_attribute)
+                                                <div class="form-check checkbox my-3 align-items-center @if($loop->last) mb-4 @endif">
+                                                    <input class="form-check-input checkbox-sm" type="checkbox" name="filter[attribute][]" value="{{ $child_attribute->id }}">
+                                                    <label class="form-check-label">
+                                                        {{ $child_attribute->name }} ({{ $child_attribute->products()->count() }})
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endforeach
+                                <button type="submit" class="btn btn-primary w-100 mt-3">اعمال فیلتر ها</button>
+                            </form>
                         </div>
                     </div>
                     <div class="col-lg-10">

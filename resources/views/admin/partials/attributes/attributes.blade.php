@@ -17,7 +17,7 @@
                 @endunless
             </div>
             @if(count($item->children))
-                @include('admin.attributes.attributes-list', ['list' => $item->children])
+                @include('admin.partials.attributes.attributes', ['list' => $item->children])
             @endif
         </li>
     @endforeach

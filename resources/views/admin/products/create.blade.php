@@ -213,7 +213,7 @@
                     <h6 class="card-title">دسته بندی محصولات</h6>
                     <div class="h-200px overflow-auto border p-3">
                         <div class="overflow-auto mb-4">
-                            @include('admin.products.categories-list', ['categories' => $categories])
+                            @include('admin.partials.categories.shop', ['categories' => $categories])
                         </div>
                     </div>
                 </div>
