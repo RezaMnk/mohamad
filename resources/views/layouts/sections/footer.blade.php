@@ -63,9 +63,8 @@
                                 <a href="{{ route('home.index') }}"><img class="nav-logo" src="{{ asset('storage/logo/17.png') }}" alt="Image not found!" /></a>
                             </div>
                               <div class="widget-ecommerce-contact">
-                                <span class="font-medium font-500 text-light">آیا سوالی دارید؟ با ما تماس بگیرید!</span>
                                 <div class="text-light font-medium font-400 mt-2 ltr text-right">(090) 8001-8588, (090) 874 548</div>
-                                <span class="h6 mt-5 text-secondary">آدرس:</span>
+                                <span class="h6 text-secondary">آدرس:</span>
                                 <div class="text-general">ایران، تهران  شهرک غرب، خیابان ظفر برج گردون</div>
                             </div>
                         </div>
@@ -81,13 +80,11 @@
                         <div class="footer-widget category-widget mb-5">
                             <h3 class="widget-title mb-4">سایر دسته بندی ها</h3>
                             <ul>
-                                <li><a href="#">لپ تاب و کامپیوتر</a></li>
-                                <li><a href="#">دوربین عکاسی</a></li>
-                                <li><a href="#">تبلت و گوشی موبایل</a></li>
-                                <li><a href="#">کنسول های بازی</a></li>
-                                <li><a href="#">صوتی و تصویری</a></li>
-                                <li><a href="#">لوازم جانبی کامپیوتر</a></li>
-                                <li><a href="#">سایر کالای دیجیتال</a></li>
+                                <li><a href="#">النگو</a></li>
+                                <li><a href="#">گردن بند</a></li>
+                                <li><a href="#">انگشتر</a></li>
+                                <li><a href="#">گوشواره</a></li>
+                                <li><a href="#">پا بند</a></li>
                             </ul>
                         </div>
                     </div>
@@ -95,12 +92,11 @@
                         <div class="footer-widget category-widget mb-5">
                             <h3 class="widget-title mb-4 xs-mx-none">&nbsp;</h3>
                             <ul>
-                                <li><a href="#">درباره ما</a></li>
-                                <li><a href="#">پشتیبانی</a></li>
-                                <li><a href="#">تماس با ما</a></li>
-                                <li><a href="#">مقایسه محصول</a></li>
-                                <li><a href="#">سوالات متداول</a></li>
-                                <li><a href="#">دایرکتوری فروشگاه</a></li>
+                                <li><a href="{{ route('home.about') }}">درباره ما</a></li>
+                                <li><a href="{{ route('home.contact') }}">تماس با ما</a></li>
+                                <li><a href="{{ route('home.shop') }}">فروشگاه</a></li>
+                                <li><a href="{{ route('home.feedback') }}">پیشنهادات و انتقادات</a></li>
+                                <li><a href="{{ route('home.faq') }}">سوالات متداول</a></li>
                             </ul>
                         </div>
                     </div>
@@ -108,13 +104,11 @@
                         <div class="footer-widget widget-nav mb-5">
                             <h3 class="widget-title mb-4">حساب کاربری</h3>
                             <ul>
-                                <li><a href="#">پیشخوان</a></li>
-                                <li><a href="#">پیگیری سفارشات</a></li>
-                                <li><a href="#">لیست علاقه مندی</a></li>
-                                <li><a href="#">ارسال تیکت</a></li>
-                                <li><a href="#">مرجوعی ها</a></li>
-                                <li><a href="#">سوالات متداول</a></li>
-                                <li><a href="#">پشتیبانی محصول</a></li>
+                                <li><a href="{{ route('home.profile') }}">پروفایل</a></li>
+                                <li><a href="{{ route('home.cart') }}">سبد خرید</a></li>
+                                <li><a href="{{ route('home.wishlist') }}">لیست علاقه مندی</a></li>
+                                <li><a href="{{ route('home.guide') }}">نحوه ثبت سفارش</a></li>
+                                <li><a href="{{ route('home.policy') }}">قوانین فروشگاه</a></li>
                             </ul>
                         </div>
                     </div>
@@ -132,20 +126,7 @@
 
                     </div>
                     <div class="col-md-6">
-                        <ul class="list-ml-30 d-flex align-items-center justify-content-md-end">
-                            <li>
-                                <a href="#"><img src="assets/images/cards/1.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="assets/images/cards/2.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="assets/images/cards/3.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="assets/images/cards/4.png" alt=""></a>
-                            </li>
-                        </ul>
+                    <span class="text-light sm-mb-10 d-block">© 2021 تمام حقوق این سایت متعلق به بیگ بازار می باشد.</span>
                     </div>
                 </div>
             </div>

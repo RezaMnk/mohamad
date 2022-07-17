@@ -168,4 +168,26 @@ class HomeController extends Controller
         return view('site.profile');
     }
 
+
+    /**
+     * show the main page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function wishlist()
+    {
+        return view('site.wishlist');
+    }
+
+
+    /**
+     * show the main page
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function cart()
+    {
+        return view('site.cart');
+    }
+
 }

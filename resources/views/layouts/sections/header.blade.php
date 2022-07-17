@@ -90,19 +90,13 @@
                             </form>
                         </div>
                         <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 me-5">
-                            <div class="sign-in my-account-dropdown position-relative">
-                                <a href="my-account.html" class="has-dropdown d-flex align-items-center text-white text-decoration-none">
+                            <div class="wishlist-view">
+                                <a href="{{ route('home.profile') }}" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
                                     <i class="flaticon-user-3 flat-mini mx-auto text-dark"></i>
                                 </a>
-                                
-                                <ul class="my-account-popup">
-                                    <li><a href="my-account.html"><span class="menu-item-text">حساب کاربری</span></a></li>
-                                    <li><a href="checkout.html"><span class="menu-item-text">تسویه حساب</span></a></li>
-                                    <li><a href="wishlist.html"><span class="menu-item-text">موردعلاقه های من</span></a></li>
-                                </ul>
                             </div>
                             <div class="wishlist-view">
-                                <a href="wishlist.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
+                                <a href="{{ route('home.wishlist') }}" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
                                     <i class="flaticon-like flat-mini text-dark mx-auto"></i>
                                 </a>
                             </div>
@@ -176,8 +170,7 @@
                                         </div>
                                     </div>
                                     <div class="buttons">
-                                        <a href="cart.html" class="btn btn-primary rounded-0 view-cart">سبد خرید</a>
-                                        <a href="checkout.html" class="btn btn-secondary rounded-0 checkout">تسویه حساب</a>
+                                        <a href="{{ route('home.cart') }}" class="btn btn-primary rounded-0 view-cart w-100">سبد خرید</a>
                                     </div>
                                 </div>
                             </div>
