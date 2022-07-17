@@ -12,64 +12,64 @@
                             <form>
                                 <div class="widget woocommerce widget_layered_nav widget-toggle">
                                     <h2 class="widget-title">دسته بندی</h2>
-                                    @include('partials.categories.shop', ['categories' => $categories])
+                                    @include('layouts.shop.categories', ['categories' => $categories])
                                 </div>
-                                <div class="widget widget_layered_nav widget-toggle {{ in_request_array(['0-2', '2-4', '4-6', '4-10', '10-20', '+20'], 'weight') ? '' : 'closed' }}">
+                                <div class="widget widget_layered_nav widget-toggle closed">
                                     <h2 class="widget-title">فیلتر براساس وزن</h2>
 
                                     <ul class="price-filter-list">
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            <input class="form-check-input checkbox-sm" type="checkbox" name="weight[]" {{ in_request_array('0-2', 'weight') ? 'checked="checked"' : '' }} value="0-2">
+                                            @php(dd(request()->input('filter.weight')))
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" {{ request()->input('filter.weight') == 'w-0-2' ? 'checked="checked"' : '' }} value="w-0-2">
                                             <label class="form-check-label">
                                                 0 - 2 گرم
-                                                ({{ \App\Models\Product::all()->whereBetween('weight', [0,2])->count() }})
                                             </label>
                                         </div>
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            <input class="form-check-input checkbox-sm" type="checkbox" name="weight[]" {{ in_request_array('2-4', 'weight') ? 'checked="checked"' : '' }} value="2-4">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" value="0-2">
                                             <label class="form-check-label">
                                                 2 - 4 گرم
-                                                ({{ \App\Models\Product::all()->whereBetween('weight', [2,4])->count() }})
                                             </label>
                                         </div>
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            <input class="form-check-input checkbox-sm" type="checkbox" name="weight[]" {{ in_request_array('4-6', 'weight') ? 'checked="checked"' : '' }} value="4-6">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" value="0-2">
                                             <label class="form-check-label">
                                                 4 - 6 گرم
-                                                ({{ \App\Models\Product::all()->whereBetween('weight', [4,6])->count() }})
                                             </label>
                                         </div>
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            <input class="form-check-input checkbox-sm" type="checkbox" name="weight[]" {{ in_request_array('4-10', 'weight') ? 'checked="checked"' : '' }} value="4-10">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" value="0-2">
                                             <label class="form-check-label">
                                                 6 - 10 گرم
-                                                ({{ \App\Models\Product::all()->whereBetween('weight', [4-10])->count() }})
                                             </label>
                                         </div>
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            <input class="form-check-input checkbox-sm" type="checkbox" name="weight[]" {{ in_request_array('10-20', 'weight') ? 'checked="checked"' : '' }} value="10-20">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight]" value="0-2">
                                             <label class="form-check-label">
                                                 10 - 20 گرم
-                                                ({{ \App\Models\Product::all()->whereBetween('weight', [10-20])->count() }})
                                             </label>
                                         </div>
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            <input class="form-check-input checkbox-sm" type="checkbox" name="weight[]" {{ in_request_array('+20', 'weight') ? 'checked="checked"' : '' }} value="+20">
+                                            <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight]" value="0-2">
                                             <label class="form-check-label">
                                                 +20 گرم
-                                                ({{ \App\Models\Product::all()->where('weight', '>', 20)->count() }})
                                             </label>
                                         </div>
+                                        {{--                                    <li class="wc-layered-nav-term">--}}
+                                        {{--                                        <span class="woocommerce-Price-amount amount">--}}
+                                        {{--                                                <bdi>20 +<span class="woocommerce-Price-currencySymbol me-1">گرم</span></bdi>--}}
+                                        {{--                                        </span>--}}
+                                        {{--                                    </li>--}}
                                     </ul>
                                 </div>
                                 @foreach($attributes as $attribute)
-                                    <div class="widget woocommerce widget_layered_nav widget-toggle {{ in_request_array(\App\Models\Attribute::all()->pluck('id')->toArray(), 'attribute') ? '' : 'closed' }}">
+                                    <div class="widget woocommerce widget_layered_nav widget-toggle closed">
                                         <h2 class="widget-title">{{ $attribute->name }}</h2>
                                         <ul class="swatch-filter-pa_brands">
 
                                             @foreach($attribute->children as $child_attribute)
                                                 <div class="form-check checkbox my-3 align-items-center @if($loop->last) mb-4 @endif">
-                                                    <input class="form-check-input checkbox-sm" type="checkbox" name="attribute[]" {{ in_request_array($child_attribute->id, 'attribute') ? 'checked="checked"' : '' }} value="{{ $child_attribute->id }}">
+                                                    <input class="form-check-input checkbox-sm" type="checkbox" name="filter[attribute][]" value="{{ $child_attribute->id }}">
                                                     <label class="form-check-label">
                                                         {{ $child_attribute->name }} ({{ $child_attribute->products()->count() }})
                                                     </label>
@@ -87,13 +87,13 @@
                             <p class="d-inline ms-2">
                                 مرتب سازی براساس:
                             </p>
-                            <button type="submit" name="order" value="new" class="ms-4 {{ request()->order == 'new' ? 'text-primary fw-bolder' : 'text-light' }}">
+                            <button type="submit" name="filter[order]" value="new" class="text-light ms-4">
                                 جدیدترین
                             </button>
-                            <button type="submit" name="order" value="popular" class="ms-4 {{ request()->order == 'popular' ? 'text-primary fw-bolder' : 'text-light' }}">
+                            <button type="submit" name="filter[order]" value="popular" class="text-warning font-600 ms-4">
                                 مجبوب‌ترین
                             </button>
-                            <button type="submit" name="order" value="sold" class="ms-4 {{ request()->order == 'sold' ? 'text-primary fw-bolder' : 'text-light' }}">
+                            <button type="submit" name="filter[order]" value="sold" class="text-light ms-4">
                                 پرفروش‌ترین
                             </button>
                         </form>

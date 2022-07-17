@@ -33,6 +33,8 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     Route::get('/policy', 'policy')->name('policy');
     Route::get('/product/{product}', 'product')->name('product');
     Route::get('/profile', 'profile')->name('profile');
+    Route::get('/wishlist', 'wishlist')->name('wishlist');
+    Route::get('/cart', 'cart')->name('cart');
 });
 
 

@@ -6548,7 +6548,7 @@ table.cart {
 }
 
 .product-name a {
-    color: var(--theme-dark-color)
+    color: var(--theme-light-color)
 }
 
 .product-add-to-cart .add_to_cart_button {
@@ -7740,8 +7740,11 @@ Footer Section Style Start
     left: 50%;
     transform: translate(-50%, -50%) rotate(-25deg);
     width: 270px;
+    transition: 0.75s;
   }
-
+  .container .card:hover .imgBx img {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
   .container .card .contentBx{
     position: absolute;
     bottom: 0;
@@ -7872,4 +7875,7 @@ Footer Section Style Start
 .checkbox-sm {
     width: 1em;
     height: 1em;
+}
+.sticky-section {
+    top: 100px;
 }
