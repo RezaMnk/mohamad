@@ -33,7 +33,7 @@ class ProductCard extends Component
         if ($this->type == 'new')
             $products->latest();
 
-        elseif ($this->type == 'top')
+        elseif ($this->type == 'popular')
             $products->orderBy('view_count', 'desc');
 
         $this->products = $products->take($this->count)->get();

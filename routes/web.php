@@ -50,7 +50,7 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
 
 // -------------------------------------------- FOR TEST ONLY --------------------------------------------
 Route::get('/force_login', function () {
-    auth()->loginUsingId(1);
+    auth()->loginUsingId(1, true);
 });
 
 Route::get('/produce', function () {

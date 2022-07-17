@@ -52,9 +52,14 @@
                 }
             </script>
             <li data-toggle="tooltip" title="" data-original-title="خروج">
-                <a href="login.html" class="go-to-page">
-                    <i class="icon ti-power-off"></i>
-                </a>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <a href="javascript:void(0)" class="go-to-page">
+                        <button type="submit" class="btn btn-default">
+                            <i class="icon ti-power-off"></i>
+                        </button>
+                    </a>
+                </form>
             </li>
         </ul>
     </div>

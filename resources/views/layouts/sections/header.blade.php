@@ -84,10 +84,21 @@
                 <div class="col-lg-5">
                     <div class="d-flex h-100 justify-content-end">
                         <div class="product-search-one flex-grow-1 global-search touch-screen-view">
-                            <form class="form-inline search-line-shape" action="#" method="post">
-                                <input type="text" class="form-control search-field" name="search" placeholder="جستجو کالا...">
-                                <button type="submit" name="submit" class="search-submit"><i class="flaticon-search flat-mini"></i></button>
-                            </form>
+                            @if(request()->routeIs('home.shop'))
+                                <div class="form-inline search-line-shape">
+                                    <input type="text" form="filter" class="form-control search-field text-light" name="search" value="{{ request()->search }}" placeholder="جستجو کالا...">
+                                    <button type="submit" name="submit" class="search-submit">
+                                        <i class="flaticon-search flat-mini"></i>
+                                    </button>
+                                </div>
+                            @else
+                                <form class="form-inline search-line-shape" action="{{ route('home.shop') }}">
+                                    <input type="text" class="form-control search-field text-light" name="search" placeholder="جستجو کالا...">
+                                    <button type="submit" name="submit" class="search-submit">
+                                        <i class="flaticon-search flat-mini"></i>
+                                    </button>
+                                </form>
+                            @endif
                         </div>
                         <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 me-5">
                             <div class="wishlist-view">

@@ -62,7 +62,7 @@ class HomeController extends Controller
             };
         }
 
-        elseif ($request->has('attribute'))
+        if ($request->has('attribute'))
         {
             foreach ($request->attribute as $attribute)
             {
@@ -70,7 +70,7 @@ class HomeController extends Controller
             }
         }
 
-        elseif ($request->has('weight'))
+        if ($request->has('weight'))
         {
             foreach ($request->weight as $weight)
             {
@@ -87,9 +87,17 @@ class HomeController extends Controller
             }
         }
 
-        elseif ($request->has('category'))
+        if ($request->has('category'))
         {
             $products->orWhereRelation('categories','id', $request->category);
+        }
+
+        if ($request->has('search') && !is_null($request->search))
+        {
+            $products->where('name', 'LIKE', '%'. $request->search .'%')
+                ->orWhere('description', 'LIKE', '%'. $request->search .'%')
+                ->orWhere('short_description', 'LIKE', '%'. $request->search .'%')
+                ->orWhere('id', 'LIKE', '%'. $request->search .'%');
         }
 
         return $products;
