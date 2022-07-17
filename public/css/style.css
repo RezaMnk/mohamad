@@ -4042,6 +4042,8 @@ Food Corner Page Style Start
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    height: 20rem;
+    width: 20rem;
 }
 
 .custom-class-123 .banner-content .category {
@@ -4064,7 +4066,6 @@ Food Corner Page Style Start
     font-weight: 600;
     text-transform: uppercase;
     color: var(--theme-extra-color);
-	letter-spacing: 10px;
     display: block;
 	font-family: vazir-bold
 }
@@ -4180,7 +4181,6 @@ Food Corner Page Style Start
     display: block;
     margin-bottom: 25px;
 	/* font-family: 'IRANYekan'; */
-    letter-spacing: 6px;
 }
 
 .custom-class-126 .banner-content .btn {

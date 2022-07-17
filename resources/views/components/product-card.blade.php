@@ -16,7 +16,7 @@
         
     @else
     <div class="item">
-        <a href="href="{{ route('home.product', $product->id) }}"">
+        <a href="{{ route('home.product', $product->id) }}">
             <div class="col">
                 <div class="card border-0">
                     <div class="imgBx">
