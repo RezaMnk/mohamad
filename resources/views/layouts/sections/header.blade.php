@@ -16,7 +16,8 @@
                                 </li>
                                 <li class="nav-item dropdown mega-dropdown {{ request()->routeIs('home.shop') ? 'active' : '' }}">
                                     <a class="nav-link dropdown-toggle" href="{{ route('home.shop') }}">فروشگاه</a>
-                                    <ul class="dropdown-menu mega-dropdown-menu">
+                                    <!-- TODO : delete if not want -->
+                                    <!-- <ul class="dropdown-menu mega-dropdown-menu">
                                         <li class="mega-container">
                                             <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
                                                 <div class="col">
@@ -71,7 +72,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('home.feedback') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home.feedback') }}">پیشنهادات و انتقادات</a></li>
                                 <li class="nav-item {{ request()->routeIs('home.contact') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home.contact') }}">تماس با ما</a></li>
@@ -93,11 +94,17 @@
                                 <a href="my-account.html" class="has-dropdown d-flex align-items-center text-white text-decoration-none">
                                     <i class="flaticon-user-3 flat-mini mx-auto text-dark"></i>
                                 </a>
+                                
                                 <ul class="my-account-popup">
                                     <li><a href="my-account.html"><span class="menu-item-text">حساب کاربری</span></a></li>
                                     <li><a href="checkout.html"><span class="menu-item-text">تسویه حساب</span></a></li>
                                     <li><a href="wishlist.html"><span class="menu-item-text">موردعلاقه های من</span></a></li>
                                 </ul>
+                            </div>
+                            <div class="wishlist-view">
+                                <a href="wishlist.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
+                                    <i class="flaticon-like flat-mini text-dark mx-auto"></i>
+                                </a>
                             </div>
                             <div class="search-view d-xxl-none">
                                 <a href="#" class="search-pop top-quantity d-flex align-items-center text-decoration-none">
@@ -217,7 +224,7 @@
                                                         <li class="nav-item highlight-item"><a class="nav-link" href="#">کالاهای جدید</a></li>
                                                         <li class="nav-item dropdown">
                                                             <a class="nav-link dropdown-toggle" href="index.html">خانه</a>
-                                                            <ul class="dropdown-menu">
+                                                            <!-- <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="index.html">دموهای صفحه اصلی</a></li>
                                                                 <li><a class="dropdown-item" href="index-minimal.html">پیش فرض</a></li>
                                                                 <li><a class="dropdown-item" href="index-watches.html">ساعت مچی</a></li>
@@ -234,7 +241,7 @@
                                                                 <li><a class="dropdown-item" href="index-man-fashion.html">فشن و مُد مردانه</a></li>
                                                                 <li><a class="dropdown-item" href="index-electronic.html">لوازم الکترونیکی</a></li>
                                                                 <li><a class="dropdown-item" href="index-standard.html">استاندارد</a></li>
-                                                            </ul>
+                                                            </ul> -->
                                                         </li>
                                                         <li class="nav-item dropdown mega-dropdown">
                                                             <a class="nav-link dropdown-toggle" href="#">فروشگاه</a>
@@ -243,7 +250,7 @@
                                                                     <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
                                                                         <div class="col">
                                                                             <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">طرح بندی شبکه ای محصولات</span>
-                                                                            <ul>
+                                                                            <!-- <ul>
                                                                                 <li><a class="dropdown-item" href="shop-grid-full.html">نمای تمام صفحه</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-grid-left-sidebar.html">لیست محصولات پیش فرض</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-grid-left-sidebar-1.html">فروشگاه نوار کناری سمت چپ 1</a></li>
@@ -252,11 +259,11 @@
                                                                                 <li><a class="dropdown-item" href="shop-grid-right-sidebar-1.html">فروشگاه نوار کناری سمت راست 1</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-grid-right-sidebar-2.html">فروشگاه نوار کناری سمت راست 2</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-grid-right-sidebar-3.html">فروشگاه نوار کناری سمت راست 3</a></li>
-                                                                            </ul>
+                                                                            </ul> -->
                                                                         </div>
                                                                         <div class="col">
                                                                             <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">طرح بندی لیست محصولات</span>
-                                                                            <ul>
+                                                                            <!-- <ul>
                                                                                 <li><a class="dropdown-item" href="shop-list-full.html">نمای تمام صفحه</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-list-left-sidebar.html">لیست محصولات پیش فرض</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-list-left-sidebar-1.html">فروشگاه نوار کناری سمت چپ 1</a></li>
@@ -265,11 +272,11 @@
                                                                                 <li><a class="dropdown-item" href="shop-list-right-sidebar-1.html">فروشگاه نوار کناری سمت راست 1</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-list-right-sidebar-2.html">فروشگاه نوار کناری سمت راست 2</a></li>
                                                                                 <li><a class="dropdown-item" href="shop-list-right-sidebar-3.html">فروشگاه نوار کناری سمت راست 3</a></li>
-                                                                            </ul>
+                                                                            </ul> -->
                                                                         </div>
                                                                         <div class="col">
                                                                             <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">صفحات فروشگاه</span>
-                                                                            <ul>
+                                                                            <!-- <ul>
                                                                                 <li><a class="dropdown-item" href="cart.html">سبد خرید</a></li>
                                                                                 <li><a class="dropdown-item" href="checkout.html">تسویه حساب</a></li>
                                                                                 <li><a class="dropdown-item" href="my-account.html">حساب کاربری</a></li>
@@ -278,24 +285,24 @@
                                                                                 <li><a class="dropdown-item" href="single-shop.html">جزئیات محصول 1</a></li>
                                                                                 <li><a class="dropdown-item" href="single-shop-2.html">جزئیات محصول 2</a></li>
                                                                                 <li><a class="dropdown-item" href="single-shop-3.html">جزئیات محصول 3</a></li>
-                                                                            </ul>
+                                                                            </ul> -->
                                                                         </div>
                                                                         <div class="col">
                                                                             <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">افکت هاور</span>
-                                                                            <ul>
+                                                                            <!-- <ul>
                                                                                 <li><a class="dropdown-item" href="hover-bg-light.html">پس زمینه روشن</a></li>
                                                                                 <li><a class="dropdown-item" href="hover-shadow-active.html">سایه</a></li>
                                                                                 <li><a class="dropdown-item" href="hover-image-zoom.html">بزرگنمایی تصویر</a></li>
                                                                                 <li><a class="dropdown-item" href="hover-btn-slide-1.html">نوار سبد خرید نوع 1</a></li>
                                                                                 <li><a class="dropdown-item" href="hover-btn-slide-2.html">نوار سبد خرید نوع 2</a></li>
                                                                                 <li><a class="dropdown-item" href="hover-btn-slide-3.html">نوار سبد خرید نوع 3</a></li>
-                                                                            </ul>
+                                                                            </ul> -->
                                                                         </div>
                                                                     </div>
                                                                 </li>
                                                             </ul>
                                                         </li>
-                                                        <li class="nav-item dropdown">
+                                                        <!-- <li class="nav-item dropdown">
                                                             <a class="nav-link dropdown-toggle" href="#">صفحات</a>
                                                             <ul class="dropdown-menu">
                                                                 <li class="dropdown">
@@ -326,10 +333,10 @@
                                                                 <li><a class="dropdown-item" href="gallery.html">گالری تصاویر</a></li>
                                                                 <li><a class="dropdown-item" href="404.html">صفحه 404</a></li>
                                                             </ul>
-                                                        </li>
+                                                        </li> -->
                                                         <li class="nav-item dropdown">
                                                             <a class="nav-link dropdown-toggle" href="blog-grid-left-sidebar.html">وبلاگ</a>
-                                                            <ul class="dropdown-menu">
+                                                            <!-- <ul class="dropdown-menu">
                                                                 <li class="dropdown">
                                                                     <a class="dropdown-toggle dropdown-item" href="blog-grid-modern.html">طرح بندی شبکه ای</a>
                                                                     <ul class="dropdown-menu">
@@ -356,11 +363,11 @@
                                                                 </li>
                                                                 <li><a class="dropdown-item" href="blog-missionary-grid.html">طرح بندی شبکه ای نوع 2</a></li>
                                                                 <li><a class="dropdown-item" href="blog-video-grid.html">نمایش ویدئو</a></li>
-                                                            </ul>
+                                                            </ul> -->
                                                         </li>
                                                         <li class="nav-item dropdown">
                                                             <a class="nav-link dropdown-toggle" href="#">المان های دیگر</a>
-                                                            <ul class="dropdown-menu">
+                                                            <!-- <ul class="dropdown-menu">
                                                                 <li class="dropdown">
                                                                     <a class="dropdown-toggle dropdown-item" href="#">لیست محصولات</a>
                                                                     <ul class="dropdown-menu">
@@ -376,7 +383,7 @@
                                                                 <li><a class="dropdown-item" href="element-flash-deal.html">شگفت انگیزها</a></li>
                                                                 <li><a class="dropdown-item" href="element-product-category.html">دسته بندی محصولات</a></li>
                                                                 <li><a class="dropdown-item" href="element-countdown.html">شمارنده</a></li>
-                                                            </ul>
+                                                            </ul> -->
                                                         </li>
                                                         <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
                                                     </ul>
@@ -523,11 +530,6 @@
                         <div class="wishlist-view">
                             <a href="wishlist.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
                                 <i class="flaticon-like flat-mini text-dark mx-auto"></i>
-                            </a>
-                        </div>
-                        <div class="refresh-view">
-                            <a href="#" class="position-relative top-quantity d-flex align-items-center text-dark text-decoration-none">
-                                <i class="flaticon-shuffle flat-mini mx-auto text-dark"></i>
                             </a>
                         </div>
                         <div class="header-cart-1">

@@ -19,7 +19,6 @@
 
                                     <ul class="price-filter-list">
                                         <div class="form-check checkbox my-3 align-items-center">
-                                            @php(dd(request()->input('filter.weight')))
                                             <input class="form-check-input checkbox-sm" type="checkbox" name="filter[weight][]" {{ request()->input('filter.weight') == 'w-0-2' ? 'checked="checked"' : '' }} value="w-0-2">
                                             <label class="form-check-label">
                                                 0 - 2 گرم
