@@ -35,6 +35,9 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/wishlist', 'wishlist')->name('wishlist');
     Route::get('/cart', 'cart')->name('cart');
+    Route::get('/get-cart', function () {
+        dd(app('cart')->get(2));
+    })->name('cart');
 });
 
 
