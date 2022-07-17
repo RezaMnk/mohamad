@@ -98,7 +98,7 @@
                                         -moz-box-sizing: border-box;
                                     }
                                 </style>
-                                @include('admin.attributes.attributes-list', ['list' => $attributes])
+                                @include('admin.partials.attributes.attributes', ['list' => $attributes])
                             </div>
                         </div>
                     </div>

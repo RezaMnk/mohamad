@@ -25,49 +25,59 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function shop()
+    public function shop(Request $request)
     {
         $products = Product::query();
 
-
-        if ($filter = request('filter')) {
-            $filter_is = function ($is) use ($filter) { return in_array($is, array_keys($filter)); };
-
-            if ($filter_is('order'))
-            {
-                switch ($filter['order'])
-                {
-                    case 'new':
-                        $products->latest();
-                        break;
-
-                    case 'popular':
-                        $products->orderBy('view_count', 'desc');
-                        break;
-
-                    case 'sold':
-                        $products->withCount('orders')->orderBy('orders_count', 'desc');
-                        break;
-                }
-            }
-
-            elseif ($filter_is('attribute'))
-            {
-                $products->whereRelation('attributes','id', request('filter')['attribute']);
-            }
-
-            elseif ($filter_is('category'))
-            {
-                $products->whereRelation('categories','id', request('filter')['category']);
-            }
-        }
+        if ($filter = $request->filter)
+            $products = $this->filterShop($filter);
 
         $products = $products->latest()->paginate(12);
 
         $attributes = Attribute::where('parent_id', 0)->get();
         $categories = Category::where('parent_id', 0)->get();
 
+
         return view('site.shop', compact('products', 'attributes', 'categories'));
+    }
+
+    private function filterShop(mixed $filter)
+    {
+        $products = Product::query();
+
+        $filter_is = function ($is) use ($filter) { return in_array($is, array_keys($filter)); };
+
+        if ($filter_is('order'))
+        {
+            switch ($filter['order'])
+            {
+                case 'new':
+                    $products->latest();
+                    break;
+
+                case 'popular':
+                    $products->orderBy('view_count', 'desc');
+                    break;
+
+                case 'sold':
+                    $products->withCount('orders')->orderBy('orders_count', 'desc');
+                    break;
+            };
+        }
+
+        elseif ($filter_is('attribute'))
+        {
+            foreach ($filter['attribute'] as $attribute)
+                $products->whereRelation('attributes','id', $attribute);
+        }
+
+        elseif ($filter_is('category'))
+        {
+            foreach ($filter['category'] as $category)
+                $products->whereRelation('categories','id', $category);
+        }
+
+        return $products;
     }
 
 
@@ -146,4 +156,5 @@ class HomeController extends Controller
     {
         return view('site.policy');
     }
+
 }

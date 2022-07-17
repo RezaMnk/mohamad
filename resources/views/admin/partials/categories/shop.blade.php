@@ -13,6 +13,6 @@
         <label class="form-check-label" for="category-{{ $category->id }}">{{ $category->name }}</label>
     </div>
     @if (count($category->children))
-        @include('admin.products.categories-list', ['categories' => $category->children, 'spaces' => $spaces + 1])
+        @include('admin.partials.categories.shop', ['categories' => $category->children, 'spaces' => $spaces + 1])
     @endif
 @endforeach

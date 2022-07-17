@@ -40,7 +40,7 @@
                         <div class="summary-inner">
                             <div class="product-navigation-share">
                                 <div class="product-share bigbazar-arrow">
-                                    <div class="bigbazar-social">
+                                    <div class="product-social">
                                         <a href="#" class="social-facebook"><i class="fab fa-facebook-f"></i></a>
                                         <a href="#" class="social-twitter"><i class="fab fa-twitter"></i></a>
                                         <a href="#" class="social-linkedin"><i class="fab fa-linkedin-in"></i></a>
@@ -52,10 +52,9 @@
                             <div class="entry-breadcrumbs">
                                 <nav class="breadcrumb-divider-slash" aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                                        <li class="breadcrumb-item"><a href="#">فروشگاه</a></li>
-                                        <li class="breadcrumb-item"><a href="#">مردانه</a></li>
-                                        <li class="breadcrumb-item"><a href="#">ساعت هوشمند</a></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('home.index') }}">خانه</a></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('home.shop') }}">فروشگاه</a></li>
+                                        @include('partials.categories.product-breadcrumb', ['categories' => $product->categories])
                                         <li class="breadcrumb-item active" aria-current="page">ساعت مچی دیجیتال مردانه پیائوما</li>
                                     </ol>
                                 </nav>

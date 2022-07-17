@@ -4564,7 +4564,7 @@ Woocommerce Single Shop Style Start
     height: 30px;
 }
 
-.product-navigation-share .bigbazar-social {
+.product-navigation-share .product-social {
     box-shadow: 0 0 3px rgba(0, 0, 0, .1);
     position: absolute;
     opacity: 0;
@@ -4576,12 +4576,12 @@ Woocommerce Single Shop Style Start
     background-color: var(--theme-white-color);
 }
 
-.product-navigation-share .product-share:hover .bigbazar-social {
+.product-navigation-share .product-share:hover .product-social {
     opacity: 1;
     visibility: visible;
 }
 
-.product-navigation-share .product-share .bigbazar-social a {
+.product-navigation-share .product-share .product-social a {
     font-size: 12px;
     line-height: 30px;
     width: 30px;
@@ -4590,7 +4590,7 @@ Woocommerce Single Shop Style Start
     color: var(--theme-dark-color);
 }
 
-.product-navigation-share .product-share .bigbazar-social a:hover {
+.product-navigation-share .product-share .product-social a:hover {
     color: var(--theme-primary-color);
 }
 
@@ -7859,10 +7859,17 @@ Footer Section Style Start
 .banner-wrapper {
     background-size: contain !important;
 }
+
 .checkbox {
     display: flex;
 }
+
 .form-check label {
     margin-right: 30px;
     margin-left: 0px !important;
+}
+
+.checkbox-sm {
+    width: 1em;
+    height: 1em;
 }

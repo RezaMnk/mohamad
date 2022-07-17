@@ -7,6 +7,8 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -28,13 +30,28 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Event::listen('Alexusmai\LaravelFileManager\Events\FileCreated',
+        Event::listen('Alexusmai\LaravelFileManager\Events\FilesUploaded',
             function ($event) {
-                Log::info('FileCreated:', [
-                    $event->disk(),
-                    $event->path(),
-                    $event->name(),
-                ]);
+//                Log::info('FilesUploaded:', [
+//                    $event->disk(),
+//                    $event->path(),
+//                    $event->files(),
+//                    $event->overwrite(),
+//                ]);
+                foreach ($event->files() as $file) {
+                    $supported = ['jpg', 'jpeg', 'gif', 'webp'];
+                    if (!in_array($file['extension'], $supported))
+                        return;
+
+                    if ($file['extension'] == 'jpeg')
+                        $file['extension'] = 'jpg';
+
+                    $image = Image::make(Storage::disk('products')->path($file['path']));
+                    $thumb = $image->resize(300, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                    Storage::disk($event->disk())->put('thumbs'. $file['path'], $thumb->encode($file['extension'], 75));
+                }
             }
         );
     }
