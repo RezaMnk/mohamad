@@ -108,19 +108,19 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $data = $request->validate([
-            'amount' => ['required', 'array'],
-            'amount.*' => ['required', 'numeric', 'min:1'],
+            'quantity' => ['required', 'array'],
+            'quantity.*' => ['required', 'numeric', 'min:1'],
             'price' => ['required', 'array'],
             'price.*' => ['required', 'numeric'],
         ]);
 
-        if (array_keys($data['amount'] ) !== array_keys($data['price']))
+        if (array_keys($data['quantity'] ) !== array_keys($data['price']))
             return redirect()->back()->withErrors(['ids' => 'مقادیر وارد شده معتبر نمی باشد. صفحه را رفرش کنید.']);
 
         $sync = [];
-        foreach($data['amount'] as $product_id => $amount)
+        foreach($data['quantity'] as $product_id => $quantity)
             $sync[$product_id] = [
-                'amount' => $amount,
+                'quantity' => $quantity,
                 'price' => $data['price'][$product_id],
             ];
 

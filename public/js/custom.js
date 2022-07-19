@@ -2,7 +2,7 @@
     'use strict';
 
     /* Settings List Table
-	
+
 	  * Parallax - START CODE
 	  * Scroll top by clicking arrow up
 	  * Auto active class adding with navigation
@@ -32,7 +32,7 @@
 	  * Ten item slide
 	  * Start When document is Scrollig, do
 	  * Date Counting
-    
+
     */
 
     // Cache jQuery Selector
@@ -222,7 +222,7 @@
             btnUp = spinner.find('.quantity-up'),
             btnDown = spinner.find('.quantity-down'),
             min = input.attr('min'),
-            max = input.attr('max');
+            max = input.attr('max') ?? 999;
 
         btnUp.on('click', function() {
             var oldValue = parseFloat(input.val());
@@ -316,7 +316,7 @@
 
 
 
-    // dropdown submenu on hover in desktopand dropdown sub menu on click in mobile 
+    // dropdown submenu on hover in desktopand dropdown sub menu on click in mobile
     $navigation.each(function() {
         $dropdown.on('click', function(e) {
             if ($window.width() < 1100) {
@@ -665,7 +665,7 @@
     }
 
     // One item slide
-    
+
         $auto_single_carousel.owlCarousel({
             loop: true,
             margin: 30,
@@ -688,7 +688,7 @@
                 }
             }
         });
-   
+
     // Two item slide
     if ($two_carousel.length) {
         $two_carousel.owlCarousel({
@@ -762,7 +762,7 @@
                 }
             }
         });
-    }    
+    }
 	// Four item slide
     if ($four_carousel2.length) {
         $four_carousel2.owlCarousel({

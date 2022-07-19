@@ -80,10 +80,11 @@
                             </table>
                             @unless(Auth::guest())
                                 <div class="position-sticky add-to-cart" style="">
-                                    <form class="variations_form cart kapee-swatches-wrap" action="#" method="post" enctype="multipart/form-data">
+                                    <form class="variations_form cart kapee-swatches-wrap" action="{{ route('cart.add' , $product->id) }}" method="post">
+                                        @csrf
                                         <div class="single_variation_wrap align-items-start">
                                             <div class="quantity">
-                                                <input type="number" min="1" max="9" step="1" value="1">
+                                                <input type="number" name="quantity" min="1" step="1" value="1">
                                             </div>
                                             <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
                                                 <button type="submit" class="btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>

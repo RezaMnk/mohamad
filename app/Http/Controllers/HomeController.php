@@ -57,7 +57,7 @@ class HomeController extends Controller
                     break;
 
                 case 'sold':
-                    $products->withCount('orders')->orderBy('orders_count', 'desc');
+                    $products->withQuantity('orders')->orderBy('orders_quantity', 'desc');
                     break;
             };
         }

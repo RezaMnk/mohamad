@@ -17,13 +17,8 @@ class Order extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'code',
-        'weight',
-        'description',
-        'short_description',
-        'status',
-        'view_count'
+        'user_id',
+        'status'
     ];
 
     /**
@@ -34,7 +29,7 @@ class Order extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class)
-            ->withPivot(['amount', 'price']);
+            ->withPivot(['quantity', 'price']);
     }
 
     /**
@@ -73,8 +68,8 @@ class Order extends Model
     {
         $total_price = 0;
         foreach ($this->products as $product) {
-            if ($product->pivot->price && $product->pivot->amount)
-                $total_price += $product->pivot->price * $product->pivot->amount;
+            if ($product->pivot->price && $product->pivot->quantity)
+                $total_price += $product->pivot->price * $product->pivot->quantity;
             else {
                 $total_price = null;
                 break;

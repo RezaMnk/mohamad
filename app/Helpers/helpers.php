@@ -13,3 +13,10 @@ if (!function_exists('in_request_array')) {
         return in_array($needle, request()->input($haystack) ?? []);
     }
 }
+
+if (!function_exists('cart')) {
+    function cart()
+    {
+        return new \App\Helpers\Cart\CartService;
+    }
+}

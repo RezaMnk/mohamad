@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\TwoFAController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +37,14 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/wishlist', 'wishlist')->name('wishlist');
     Route::get('/cart', 'cart')->name('cart');
-    Route::get('/get-cart', function () {
-        dd(app('cart')->get(2));
-    })->name('cart');
+});
+
+Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function () {
+    Route::post('add/{product}', 'add')->name('add');
+});
+
+Route::controller(OrderController::class)->prefix('order')->name('order.')->group(function () {
+    Route::post('create', 'create')->name('create');
 });
 
 
@@ -65,7 +72,7 @@ Route::get('/produce', function () {
         'admin' => '1',
     ]);
 
-    auth()->loginUsingId($user->id);
+    auth()->loginUsingId($user->id, true);
 
     \App\Models\Category::create([
         'name' => 'دستبند',
@@ -145,4 +152,14 @@ Route::get('/fake_products', function () {
         $product->attributes()->sync(['3', '2']);
         $product->categories()->sync(['2']);
     }
+});
+
+Route::get('test', function () {
+    $product = \App\Models\Product::find(39);
+    dump(cart()->get($product));
+    dump(cart()->all());
+});
+
+Route::get('ses', function () {
+    dd(session()->all());
 });

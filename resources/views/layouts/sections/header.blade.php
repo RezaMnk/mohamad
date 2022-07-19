@@ -120,7 +120,7 @@
                                 <a href="cart.html" class="cart has-cart-data" title="View Cart">
                                     <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i> <span class="header-cart-count">2</span></div>
                                     <div class="cart-wrap">
-                                        <div class="cart-text">خریـد</div>
+                                        <div class="cart-text">خرید</div>
                                         <span class="header-cart-count">تعداد (2)</span>
                                         <span class="woocommerce-Price-amount amount">
                                                     <bdi>78500<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
@@ -540,7 +540,7 @@
                             <a href="cart.html" class="cart has-cart-data" title="View Cart">
                                 <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i> <span class="header-cart-count">2</span></div>
                                 <div class="cart-wrap">
-                                    <div class="cart-text">خریـد</div>
+                                    <div class="cart-text">خرید</div>
                                     <span class="header-cart-count">تعداد (2)</span>
                                     <span class="woocommerce-Price-amount amount">
                                                     <bdi>78500<span class="woocommerce-Price-currencySymbol">ت</span></bdi>
