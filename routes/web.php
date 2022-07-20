@@ -33,11 +33,18 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     Route::get('/guide', 'guide')->name('guide');
     Route::get('/faq', 'faq')->name('faq');
     Route::get('/policy', 'policy')->name('policy');
-    Route::get('/product/{product}', 'product')->name('product');
-    Route::get('/profile', 'profile')->name('profile');
-    Route::get('/wishlist', 'wishlist')->name('wishlist');
-    Route::get('/cart', 'cart')->name('cart');
+
+    /*
+     * Only if user is logged in
+     */
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', 'profile')->name('profile');
+        Route::get('/wishlist', 'wishlist')->name('wishlist');
+        Route::get('/cart', 'cart')->name('cart');
+    });
 });
+
+
 
 Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function () {
     Route::post('add/{product}', 'add')->name('add');
@@ -45,6 +52,7 @@ Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(f
 
 Route::controller(OrderController::class)->prefix('order')->name('order.')->group(function () {
     Route::post('create', 'create')->name('create');
+    Route::get('invoice', 'invoice')->name('invoice');
 });
 
 

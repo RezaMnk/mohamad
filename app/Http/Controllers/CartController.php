@@ -15,6 +15,7 @@ class CartController extends Controller
 
         cart()->put($product, $request->quantity);
 
-        return redirect()->route('home.cart');
+        toast('محصول با موفقیت با <a href="'. route('home.cart') .'">سبد خرید</a> افزوده شد', 'success');
+        return redirect()->back();
     }
 }
