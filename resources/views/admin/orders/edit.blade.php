@@ -17,7 +17,7 @@
     @csrf
     @method('patch')
 
-        <div class="card-body p-50">
+        <div class="card-body p-50" id="section-to-print">
             <div class="invoice">
                 <div class="d-md-flex justify-content-between align-items-center">
                     <h2 class="d-flex align-items-center">
@@ -50,7 +50,7 @@
                             <th>#</th>
                             <th>تصویر محصول</th>
                             <th>نام محصول</th>
-                            <th style="width: 7%">تعداد</th>
+                            <th style="width: 12%">تعداد</th>
                             <th>قیمت</th>
                             <th style="width: 25%" class="text-right">جمع</th>
                         </tr>
@@ -102,10 +102,26 @@
             </div>
             <div class="text-right d-print-none">
                 <hr class="m-t-b-50">
-                <button type="submit" class="btn btn-primary my-1">
-                    <i class="fa fa-send m-r-5"></i>
-                    ارسال صورتحساب
-                </button>
+                @if($order->status == 'unapproved')
+                    <button type="submit" class="btn btn-primary my-1">
+                        <i class="fa fa-send m-r-5"></i>
+                        ارسال صورتحساب
+                    </button>
+                @elseif($order->status == 'priced')
+                    <button type="submit" class="btn btn-danger my-1">
+                        <i class="fa fa-close m-r-5"></i>
+                        لغو سفارش
+                    </button>
+                @elseif($order->status == 'paid')
+                    <button type="submit" class="btn btn-primary my-1">
+                        <i class="fa fa-clipboard m-r-5"></i>
+                        مشاهده رسید پرداخت
+                    </button>
+                    <button type="submit" class="btn btn-primary my-1">
+                        <i class="fa fa-send m-r-5"></i>
+                        ارسال صورتحساب
+                    </button>
+                @endif
                 <a href="javascript:window.print()" class="btn btn-success m-l-5 my-1">
                     <i class="fa fa-print m-r-5"></i> چاپ
                 </a>
@@ -121,34 +137,36 @@
 @endsection
 
 @section('footer-assets')
-    <script>
-        $(document).ready(function () {
-            $('.product-price, .amount').on('keyup change', function () {
-                let id = $(this).data('id')
-                let amount = parseInt($('.amount[data-id='+ id +']').val());
-                let price = parseInt($('.product-price[data-id='+ id +']').val());
-                if (typeof price === 'number' && typeof amount === 'number') {
-                    let total_val = splitnumber(price * amount)
+    @if($order->status == 'unapproved')
+        <script>
+            $(document).ready(function () {
+                $('.product-price, .amount').on('keyup change', function () {
+                    let id = $(this).data('id')
+                    let amount = parseInt($('.amount[data-id='+ id +']').val());
+                    let price = parseInt($('.product-price[data-id='+ id +']').val());
+                    if (price > 0 && price > 0 ) {
+                        let total_val = splitnumber(price * amount)
 
-                    $('td[data-id=' + id + ']').html(total_val);
+                        $('td[data-id=' + id + ']').html(total_val);
 
-                    let total_price = 0;
-                    $('.product-price').each(function () {
-                        let this_price = parseInt($(this).val());
-                        let this_amount = parseInt($('.amount[data-id='+ $(this).data('id') +']').val());
-                        if (typeof this_price === 'number' && typeof this_amount === 'number')
-                            total_price += this_price * this_amount;
-                    });
+                        let total_price = 0;
+                        $('.product-price').each(function () {
+                            let this_price = parseInt($(this).val());
+                            let this_amount = parseInt($('.amount[data-id='+ $(this).data('id') +']').val());
+                            if (typeof this_price === 'number' && typeof this_amount === 'number')
+                                total_price += this_price * this_amount;
+                        });
 
-                    $('#total_price').html(splitnumber(total_price));
-                    $('#total_price_with_tax').html(splitnumber(total_price));
+                        $('#total_price').html(splitnumber(total_price));
+                        $('#total_price_with_tax').html(splitnumber(total_price));
+                    }
+                })
+
+                function splitnumber(number) {
+                    return parseInt(number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' ریال';
                 }
             })
-
-            function splitnumber(number) {
-                return parseInt(number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' ریال';
-            }
-        })
-    </script>
+        </script>
+    @endif
 @endsection
 

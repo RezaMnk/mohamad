@@ -54,15 +54,19 @@
                                                 {{ $order->created_at() }}
                                             </td>
                                             <td>
-                                                @if($order->status == 'priced')
-                                                    <button type="button" class="btn btn-success w-50">
-                                                        ثبت پرداخت
-                                                    </button>
+                                                @if($order->status == 'unapproved')
                                                     <a href="{{ route('order.invoice', $order->id) }}">
-                                                        <button type="button" class="btn btn-light w-50 float-start">
+                                                        <button type="button" class="btn btn-light w-50 float-end">
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
+                                                    <form action="{{ route('order.cancel', $order->id) }}" method="post">
+                                                        @csrf
+
+                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger w-50">
+                                                            لغو سفارش
+                                                        </button>
+                                                    </form>
                                                 @else
                                                     <a href="{{ route('order.invoice', $order->id) }}">
                                                         <button type="button" class="btn btn-light w-100">

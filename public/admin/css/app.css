@@ -11571,3 +11571,34 @@ figure {
 .aspect-ratio-1 {
     aspect-ratio: 1;
 }
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    body {
+        background: transparent;
+    }
+    #section-to-print, #section-to-print * {
+        visibility: visible;
+    }
+    .print-text-dark,
+    .print-text-dark *
+    {
+        color: black !important;
+    }
+    .print-border {
+        border: 1px solid black;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+}

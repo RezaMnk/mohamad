@@ -46,4 +46,19 @@ class OrderController extends Controller
     {
         return view('site.invoice', compact('order'));
     }
+
+    public function cancel(Request $request)
+    {
+        $request->validate([
+            'order' => ['required', 'numeric', 'exists:orders,id']
+        ]);
+
+        $order = Order::find($request->order);
+
+        if ($order->status == 'unapproved')
+            $order->cancel();
+
+        alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت لغپ گردید');
+        return redirect()->back();
+    }
 }
