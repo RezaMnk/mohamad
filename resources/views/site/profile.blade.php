@@ -54,7 +54,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -86,7 +86,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -118,7 +118,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -150,7 +150,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -182,7 +182,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -214,7 +214,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -246,7 +246,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -278,7 +278,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -310,7 +310,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -342,7 +342,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -374,7 +374,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -406,7 +406,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -438,7 +438,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -470,7 +470,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -502,7 +502,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -534,7 +534,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -566,7 +566,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -598,7 +598,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -630,7 +630,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -662,7 +662,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -694,7 +694,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -726,7 +726,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -758,7 +758,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -790,7 +790,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -822,7 +822,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -854,7 +854,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -886,7 +886,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -918,7 +918,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -950,7 +950,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -982,7 +982,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1014,7 +1014,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1046,7 +1046,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1078,7 +1078,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1110,7 +1110,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1142,7 +1142,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1174,7 +1174,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1206,7 +1206,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1238,7 +1238,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1270,7 +1270,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1302,7 +1302,7 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                         <tr role="row" class="odd">
@@ -1334,37 +1334,38 @@
                                                         دانلود فاکتور
                                                     </button>
                                                 </a>
-                                                
+
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
             <!-- profile detail part -->
             <div class="col-3 bg-light d-flex justify-content-center flex-wrap h-100 position-sticky sticky-section">
                 <!--  prodile image start -->
-                
-                <div class="rounded-circle profile-image p-2 w-100 d-flex justify-content-center flex-wrap">
+
+                <div class="rounded-circle profile-image p-1 mt-3 w-100 d-flex justify-content-center flex-wrap">
                     <img src="http://localhost:8000/admin/media/image/avatar.jpg" class="rounded-circle w-75" alt="">
                 </div>
                 <!-- profile image end -->
                 <!-- profile info start -->
                 <div class="p-2">
                     <h5 class="text-center text-dark">
-                        <span class="badge rounded-pill bg-warning text-dark">
-                            کاربر ویژه
-                        </span>
+                        @if($user->vip)
+                            <span class="badge rounded-pill bg-warning text-dark">
+                                کاربر ویژه
+                            </span>
+                        @endif
                         رضا میر نداف
                     </h5>
-                    <p class="text-center text-dark">rezaforever@gmail.com</p>
-                    <p class="text-center text-dark">+98 912 123 4567</p>
+                    <p class="text-center text-dark">{{ $user->phone }}</p>
                     <p class="text-center text-dark">خیابان آزادی، شهر آزادی، کوچه آزادی، پلاک آزادی</p>
-                    
+
 
                 </div>
             </div>
