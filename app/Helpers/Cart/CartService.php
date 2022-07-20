@@ -4,6 +4,7 @@ namespace App\Helpers\Cart;
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class CartService extends Facade

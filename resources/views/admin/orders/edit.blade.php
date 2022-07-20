@@ -21,9 +21,9 @@
             <div class="invoice">
                 <div class="d-md-flex justify-content-between align-items-center">
                     <h2 class="d-flex align-items-center">
-                        <img class="m-r-20" src="{{ asset('admin.media/image/logo-sm.png') }}" alt="image">
+                        <img class="m-r-20" src="{{ asset('logo-sm.png') }}" alt="image">
                     </h2>
-                    <h3 class="text-xs-left m-b-0">صورتحساب #123456</h3>
+                    <h3 class="text-xs-left m-b-0">صورتحساب #{{ $order->id }}</h3>
                 </div>
                 <hr class="m-t-b-50">
                 <div class="row">
@@ -68,7 +68,7 @@
                                         {{ $product->name }}
                                     </td>
                                     <td class="text-left">
-                                        <input type="number" class="form-control amount" data-id="{{ $loop->iteration }}" name="amount[{{ $product->id }}]" required="required" autocomplete="off" value="{{ $product->pivot->amount }}">
+                                        <input type="number" class="form-control amount" data-id="{{ $loop->iteration }}" name="quantity[{{ $product->id }}]" required="required" autocomplete="off" value="{{ $product->pivot->quantity }}">
                                     </td>
                                     <td class="text-left">
                                         <div class="input-group">

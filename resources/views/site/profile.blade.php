@@ -34,10 +34,10 @@
                                             <td>
                                                 @switch($order->status)
                                                     @case('unapproved')
-                                                    <button type="button" class="btn btn-warning disabled w-100 justify-content-center">در انتظار بررسی</button>
+                                                    <button type="button" class="btn btn-secondary disabled w-100 justify-content-center">در انتظار بررسی</button>
                                                     @break
                                                     @case('priced')
-                                                    <button type="button" class="btn btn-secondary disabled w-100 justify-content-center">در انتظار پرداخت</button>
+                                                    <button type="button" class="btn btn-warning disabled w-100 justify-content-center">در انتظار پرداخت</button>
                                                     @break
                                                     @case('paid')
                                                     <button type="button" class="btn btn-info disabled w-100 justify-content-center">پرداخت شده</button>
@@ -46,7 +46,7 @@
                                                     <button type="button" class="btn btn-success disabled w-100 justify-content-center">تکمیل شده</button>
                                                     @break
                                                     @case('canceled')
-                                                    <button type="button" class="btn btn-light disabled w-100 justify-content-center">لغو شده</button>
+                                                    <button type="button" class="btn btn-danger disabled w-100 justify-content-center">لغو شده</button>
                                                     @break
                                                 @endswitch
                                             </td>
@@ -55,15 +55,21 @@
                                             </td>
                                             <td>
                                                 @if($order->status == 'priced')
-                                                    <button type="button" class="btn btn-dark">
-                                                        پرداخت
+                                                    <button type="button" class="btn btn-success w-50">
+                                                        ثبت پرداخت
                                                     </button>
+                                                    <a href="{{ route('order.invoice', $order->id) }}">
+                                                        <button type="button" class="btn btn-light w-50 float-start">
+                                                            مشاهده فاکتور
+                                                        </button>
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('order.invoice', $order->id) }}">
+                                                        <button type="button" class="btn btn-light w-100">
+                                                            مشاهده فاکتور
+                                                        </button>
+                                                    </a>
                                                 @endif
-                                                <a href="{{ route('order.invoice', $order->id) }}">
-                                                    <button type="button" class="btn btn-light">
-                                                        مشاهده فاکتور
-                                                    </button>
-                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

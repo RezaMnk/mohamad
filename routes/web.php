@@ -52,7 +52,7 @@ Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(f
 
 Route::controller(OrderController::class)->prefix('order')->name('order.')->group(function () {
     Route::post('create', 'create')->name('create');
-    Route::get('invoice', 'invoice')->name('invoice');
+    Route::get('invoice/{order}', 'invoice')->name('invoice');
 });
 
 
@@ -163,10 +163,8 @@ Route::get('/fake_products', function () {
 });
 
 Route::get('test', function () {
-    $product = \App\Models\Product::find(39);
-    dump(cart()->get($product));
-    dump(cart()->all());
-});
+//    cart()->clear();
+})->name('test');
 
 Route::get('ses', function () {
     dd(session()->all());

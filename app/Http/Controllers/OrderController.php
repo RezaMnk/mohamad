@@ -35,10 +35,15 @@ class OrderController extends Controller
             'status' => 'unapproved'
         ]);
 
-        $d = $order->products()->sync($sync);
+        $order->products()->sync($sync);
 
         cart()->clear();
 
-        return dd($d);
+        return redirect()->route('home.profile');
+    }
+
+    public function invoice(Order $order)
+    {
+        return view('site.invoice', compact('order'));
     }
 }
