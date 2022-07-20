@@ -4,9 +4,9 @@
     <!-- begin::header logo -->
     <div class="header-logo">
         <a href="index.html">
-            <img class="large-logo" src="assets/media/image/logo.png" alt="image">
-            <img class="small-logo" src="assets/media/image/logo-sm.png" alt="image">
-            <img class="dark-logo" src="assets/media/image/logo-dark.png" alt="image">
+            <img class="large-logo" src="{{ asset('storage') }}/logo/19.png" alt="image">
+            <img class="small-logo" src="{{ asset('storage') }}/logo/19.png" alt="image">
+            <img class="dark-logo" src="{{ asset('storage') }}/logo/21.png" alt="image">
         </a>
     </div>
     <!-- end::header logo -->
@@ -76,105 +76,36 @@
                             <h6 class="font-size-13 m-b-15">دسترسی سریع</h6>
                             <div class="row">
                                 <div class="col-6">
-                                    <a href="#">
+                                    <a href="{{ route('admin.products.create') }}">
                                         <div class="d-flex flex-column font-size-13 bg-danger-bright bg-hover pt-3 pb-3 border-radius-1 text-danger text-center mb-3">
-                                            <i class="fa fa-sitemap mb-2 font-size-20"></i>
-                                            دسته‌بندی ها
+                                            <i class="fa fa-shopping-bag mb-2 font-size-20"></i>
+                                            محصول جدید
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-6">
-                                    <a href="#">
+                                    <a href="{{ route('admin.users.create') }}">
                                         <div class="d-flex flex-column font-size-13 bg-info-bright bg-hover pt-3 pb-3 border-radius-1 text-info text-center mb-3">
-                                            <i class="ti-game mb-2 font-size-20"></i>
-                                            محصولات
+                                            <i class="fa fa-user mb-2 font-size-20"></i>
+                                            کاربر جدید
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-6">
-                                    <a href="#">
+                                    <a href="{{ route('admin.categories.index') }}">
                                         <div class="d-flex flex-column font-size-13 bg-warning-bright bg-hover pt-3 pb-3 border-radius-1 text-warning text-center">
-                                            <i class="ti-bar-chart-alt mb-2 font-size-20"></i>
-                                            گزارشات
+                                            <i class="fa fa-th-list mb-2 font-size-20"></i>
+                                            دسته بندی جدید
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-6">
-                                    <a href="#">
+                                    <a href="{{ route('admin.attributes.index') }}">
                                         <div class="d-flex flex-column font-size-13 bg-secondary-bright bg-hover pt-3 pb-3 border-radius-1 text-secondary text-center">
-                                            <i class="fa fa-share mb-2 font-size-20"></i>
-                                            سایر
+                                            <i class="fa fa-th-list mb-2 font-size-20"></i>
+                                            ویژگی جدید
                                         </div>
                                     </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" data-toggle="dropdown">
-                        <i class="ti-bell"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                        <div class="p-4 text-center" data-backround-image="assets/media/image/image1.png">
-                            <h6 class="m-b-0">اعلان ها</h6>
-                            <small class="font-size-13 opacity-7">2 اعلان خوانده نشده</small>
-                        </div>
-                        <div class="p-3">
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div>
-                                        <figure class="avatar avatar-state-danger avatar-sm m-r-15 bring-forward">
-												<span class="avatar-title bg-info-bright text-info rounded-circle">
-													<i class="fa fa-file-text-o font-size-20"></i>
-												</span>
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <p class="m-b-5">
-                                            <a href="#">استیو جابز</a> یک ضمیمه جدید به تیکت افزود
-                                            <a href="#">گزارش باگ نرم افزار</a>
-                                        </p>
-                                        <small class="text-muted">
-                                            <i class="fa fa-clock-o m-r-5"></i> 8 ساعت پیش
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div>
-                                        <figure class="avatar avatar-state-danger avatar-sm m-r-15 bring-forward">
-												<span class="avatar-title bg-warning-bright text-warning rounded-circle">
-													<i class="fa fa-money font-size-20"></i>
-												</span>
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <p class="m-b-5">
-                                            <a href="#">کاترین</a> یک تیکت جدید ثبت کرد
-                                            <a href="#">نحوه پرداخت</a>
-                                        </p>
-                                        <small class="text-muted">
-                                            <i class="fa fa-clock-o m-r-5"></i> دیروز
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div>
-                                        <figure class="avatar avatar-sm m-r-15 bring-forward">
-												<span class="avatar-title bg-success-bright text-success rounded-circle">
-													<i class="fa fa-dollar font-size-20"></i>
-												</span>
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <p class="m-b-5">
-                                            <a href="#">کاترین</a> تنظیمات دسته تیکت را تغییر داد
-                                            <a href="#">پرداخت و صورتحساب</a>
-                                        </p>
-                                        <small class="text-muted">
-                                            <i class="fa fa-clock-o m-r-5"></i> 1 روز پیش
-                                        </small>
-                                    </div>
                                 </div>
                             </div>
                         </div>
