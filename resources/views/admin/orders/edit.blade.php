@@ -16,11 +16,15 @@
 
         @if($order->status == 'unapproved')
             <form action="{{ route('admin.orders.update', $order->id) }}" method="post" class="card">
+                @csrf
+                @method('patch')
         @elseif($order->status == 'paid')
             <form action="{{ route('admin.orders.approve') }}" method="post" class="card">
+                @csrf
+                @method('patch')
+        @else
+            <form action="#" class="card">
         @endif
-        @csrf
-        @method('patch')
 
         <div class="card-body p-50" id="section-to-print">
             <div class="invoice">
@@ -75,7 +79,7 @@
                                     <td class="text-left">
                                         @if($order->status == 'unapproved')
                                             <input type="number" class="form-control amount" data-id="{{ $loop->iteration }}" name="quantity[{{ $product->id }}]" required="required" autocomplete="off" value="{{ $product->pivot->quantity }}">
-                                        @elseif($order->status == 'paid')
+                                        @else
                                             <p class="form-control m-0">{{ $product->pivot->quantity }}</p>
                                         @endif
                                     </td>
@@ -83,34 +87,34 @@
                                         <div class="input-group">
                                             @if($order->status == 'unapproved')
                                                 <input type="number" class="form-control text-left product-price" data-id="{{ $loop->iteration }}" name="price[{{ $product->id }}]" required="required" autocomplete="off">
-                                            @elseif($order->status == 'paid')
-                                                <p class="form-control text-left">{{ number_format($product->pivot->price) }}</p>
+                                            @else
+                                                <p class="form-control text-left">{{ $product->pivot->price ? number_format($product->pivot->price) : 'قیمت تعیین نشده' }}</p>
                                             @endif
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">ریال</span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="" data-id="{{ $loop->iteration }}">
-                                        0 ریال
+                                    <td data-id="{{ $loop->iteration }}">
+                                        {{ number_format($product->pivot->quantity * $product->pivot->price) ?? '0'}}
+                                        ریال
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="text-right">
-                    <p>جمع مبالغ: <span id="total_price">0 ریال</span></p>
+                    <p>جمع مبالغ: <span id="total_price">{{ number_format($order->total_price) ?? '0'}} ریال</span></p>
                     <p>مالیات (0%): 0 ریال</p>
-                    <h4 class="primary-font">جمع: <span id="total_price_with_tax">0 ریال</span></h4>
+                    <h4 class="primary-font">جمع: <span id="total_price_with_tax">{{ number_format($order->total_price) ?? '0'}} ریال</span></h4>
                 </div>
                 <p class="text-center small text-muted  m-t-50">
-						<span class="row">
-							<span class="col-md-6 offset-md-3">
-								لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-							</span>
-						</span>
+                    <span class="row">
+                        <span class="col-md-6 offset-md-3">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                        </span>
+                    </span>
                 </p>
             </div>
             <div class="text-right d-print-none">

@@ -105,27 +105,26 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="" data-id="{{ $loop->iteration }}">
+                                <td data-id="{{ $loop->iteration }}">
                                     {{ number_format($product->pivot->quantity * $product->pivot->price) ?? '0'}}
                                      ریال
                                 </td>
-
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="text-right">
-                    <p>جمع مبالغ: <span id="total_price">{{ number_format($product->pivot->quantity * $product->pivot->price) ?? '0'}} ریال</span></p>
+                    <p>جمع مبالغ: <span id="total_price">{{ number_format($order->total_price) ?? '0'}} ریال</span></p>
                     <p>مالیات (0%): 0 ریال</p>
-                    <h4 class="primary-font">جمع: <span id="total_price_with_tax">{{ number_format($product->pivot->quantity * $product->pivot->price) ?? '0'}} ریال</span></h4>
+                    <h4 class="primary-font">جمع: <span id="total_price_with_tax">{{ number_format($order->total_price) ?? '0'}} ریال</span></h4>
                 </div>
                 <p class="text-center small text-muted  m-t-50">
-						<span class="row">
-							<span class="col-md-6 offset-md-3">
-								لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-							</span>
-						</span>
+                    <span class="row">
+                        <span class="col-md-6 offset-md-3">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                        </span>
+                    </span>
                 </p>
             </div>
             <div class="text-right d-print-none">
