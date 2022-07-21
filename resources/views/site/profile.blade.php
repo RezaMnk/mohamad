@@ -50,21 +50,22 @@
                                                     @break
                                                 @endswitch
                                             </td>
+
                                             <td>
                                                 {{ $order->created_at() }}
                                             </td>
                                             <td>
                                                 @if($order->status == 'unapproved')
                                                     <a href="{{ route('order.invoice', $order->id) }}">
-                                                        <button type="button" class="btn btn-light w-50 float-end">
+                                                        <button type="button" class="btn btn-light float-end" style="width: 70%">
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
-                                                    <form action="{{ route('order.cancel', $order->id) }}" method="post">
+                                                    <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
                                                         @csrf
 
-                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger w-50">
-                                                            لغو سفارش
+                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger" style="width: 30%">
+                                                            لغو
                                                         </button>
                                                     </form>
                                                 @else

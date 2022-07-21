@@ -117,9 +117,9 @@
                         <i class="fa fa-clipboard m-r-5"></i>
                         مشاهده رسید پرداخت
                     </button>
-                    <button type="submit" class="btn btn-primary my-1">
+                    <button type="submit" class="btn btn-sucess my-1">
                         <i class="fa fa-send m-r-5"></i>
-                        ارسال صورتحساب
+                        تایید سفارش
                     </button>
                 @endif
                 <a href="javascript:window.print()" class="btn btn-success m-l-5 my-1">
