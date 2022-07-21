@@ -4,13 +4,12 @@
 @include('admin.layouts.sections.head')
 
 @section('header-assets')
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}" type="text/css">
 @endsection
 
 @section('title', 'Invoice')
 
 <body>
+    <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}" type="text/css">
 
 <!-- begin::page loader-->
 <div class="page-loader">
@@ -177,6 +176,7 @@
 <!-- App scripts -->
 <script src="{{ asset('admin/js/app.js') }}"></script>
 <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
+<script src="{{ asset('admin/vendors/bundle.js') }}"></script>
 <script>
     Dropzone.autoDiscover = false;
 
