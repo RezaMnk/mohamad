@@ -130,10 +130,12 @@
             </div>
             <div class="text-right d-print-none">
                 <hr class="m-t-b-50">
-                <button type="submit" class="btn btn-primary my-1">
-                    <i class="fa fa-dollar m-r-5"></i>
-                    ثبت پرداخت
-                </button>
+                @if($order->status == 'priced')
+                    <button type="submit" class="btn btn-primary my-1">
+                        <i class="fa fa-dollar m-r-5"></i>
+                        ثبت پرداخت
+                    </button>
+                @endif
                 <a href="javascript:window.print()" class="btn btn-light m-l-5 my-1">
                     <i class="fa fa-print m-r-5"></i> چاپ
                 </a>
