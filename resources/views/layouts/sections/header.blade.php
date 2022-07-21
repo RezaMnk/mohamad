@@ -118,70 +118,40 @@
                             </div>
                             <div class="header-cart-1">
                                 <a href="{{ route('home.cart') }}" class="cart has-cart-data" title="View Cart">
-                                    <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i> <span class="header-cart-count">3</span></div>
+                                    <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i>
+                                        <span class="header-cart-count">{{ cart()->all()->count() }}</span>
+                                    </div>
                                     <div class="cart-wrap">
                                         <div class="cart-text">خرید</div>
                                         <span class="header-cart-count">تعداد (2)</span>
                                         <span class="woocommerce-Price-amount amount">
-                                                    <bdi>78500<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
-                                                </span>
+                                            <bdi>78500<span class="woocommerce-Price-currencySymbol"> تومان</span></bdi>
+                                        </span>
                                     </div>
                                 </a>
                                 <div class="cart-popup">
                                     <ul class="cart_list product_list_widget">
-                                        <li class="mini-cart-item">
-                                            <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-95.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
-                                            <a href="#" class="product-name">پیراهن مشکی زنانه</a>
-                                            <div class="woocommerce-product-rating">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.9 (68)</span></a>
-                                                    </div>
+                                        @forelse(cart()->all() as $cart_item)
+                                            @php($product = $cart_item['product'])
+                                            <li class="mini-cart-item">
+                                                <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                                <a href="#" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                                <a href="#" class="product-name">{{ $product->name }}</a>
+                                                <div class="variation">
+                                                    <span>دسته بندی:</span>
+                                                    <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
                                                 </div>
-                                            </div>
-                                            <div class="variation">
-                                                <span>دسته بندی:</span>
-                                                <span>پوشاک زنانه</span>
-                                            </div>
-                                            <div class="cart-item-quantity">
-                                                XL
-                                                <span class="woocommerce-Price-amount amount">
-                                                            <bdi>24000 <span class="woocommerce-Price-currencySymbol"></span>تومان</bdi>
-                                                        </span>
-                                            </div>
-                                        </li>
-                                        <li class="mini-cart-item">
-                                            <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-105.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
-                                            <a href="#" class="product-name">کُت لی Blazar</a>
-                                            <div class="woocommerce-product-rating">
-                                                <div class="star-rating">
-                                                    <div class="rating-wrap">
-                                                        <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7 (73)</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="variation">
-                                                <span>دسته بندی:</span>
-                                                <span>پوشاک مردانه</span>
-                                            </div>
-                                            <div class="cart-item-quantity">
-                                                L
-                                                <span class="woocommerce-Price-amount amount">
-                                                            <bdi>38000 <span class="woocommerce-Price-currencySymbol"></span>تومان</bdi>
-                                                        </span>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        @empty
+                                            <li>
+                                            <span class="text-dark font-sixteen">
+                                                هیچ محصولی در سبد خرید وجود ندارد!
+                                            </span>
+                                            </li>
+                                        @endforelse
                                     </ul>
-                                    <div class="total-cart">
-                                        <div class="title">جمع کل:</div>
-                                        <div class="price">
-                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>62000</span> تومان
-                                        </div>
-                                    </div>
                                     <div class="buttons">
-                                        <a href="{{ route('home.cart') }}" class="btn btn-primary rounded-0 view-cart w-100">سبد خرید</a>
+                                        <a href="{{ route('home.cart') }}" class="btn btn-primary w-100">سبد خرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -538,71 +508,40 @@
                         </div>
                         <div class="header-cart-1">
                             <a href="cart.html" class="cart has-cart-data" title="View Cart">
-                                <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i> <span class="header-cart-count">3</span></div>
+                                <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i>
+                                    <span class="header-cart-count">{{ cart()->all()->count() }}</span>
+                                </div>
                                 <div class="cart-wrap">
                                     <div class="cart-text">خرید</div>
                                     <span class="header-cart-count">تعداد (2)</span>
                                     <span class="woocommerce-Price-amount amount">
-                                                    <bdi>78500<span class="woocommerce-Price-currencySymbol">ت</span></bdi>
-                                                </span>
+                                        <bdi>78500<span class="woocommerce-Price-currencySymbol">ت</span></bdi>
+                                    </span>
                                 </div>
                             </a>
                             <div class="cart-popup">
                                 <ul class="cart_list product_list_widget">
-                                    <li class="mini-cart-item">
-                                        <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                        <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-95.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
-                                        <a href="#" class="product-name">پیراهن مشکی زنانه</a>
-                                        <div class="woocommerce-product-rating">
-                                            <div class="star-rating">
-                                                <div class="rating-wrap">
-                                                    <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.9 (68)</span></a>
-                                                </div>
+                                    @forelse(cart()->all() as $cart_item)
+                                        @php($product = $cart_item['product'])
+                                        <li class="mini-cart-item">
+                                            <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                            <a href="#" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                            <a href="#" class="product-name">{{ $product->name }}</a>
+                                            <div class="variation">
+                                                <span>دسته بندی:</span>
+                                                <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
                                             </div>
-                                        </div>
-                                        <div class="variation">
-                                            <span>دسته بندی:</span>
-                                            <span>پوشاک زنانه</span>
-                                        </div>
-                                        <div class="cart-item-quantity">
-                                            XL
-                                            <span class="woocommerce-Price-amount amount">
-                                                            <bdi>24000 <span class="woocommerce-Price-currencySymbol"></span>تومان</bdi>
-                                                        </span>
-                                        </div>
-                                    </li>
-                                    <li class="mini-cart-item">
-                                        <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                        <a href="#" class="product-image"><img src="{{ asset('storage/images/products/squire-105.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Cart product" /></a>
-                                        <a href="#" class="product-name">کُت لی Blazar</a>
-                                        <div class="woocommerce-product-rating">
-                                            <div class="star-rating">
-                                                <div class="rating-wrap">
-                                                    <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7 (73)</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="variation">
-                                            <span>دسته بندی:</span>
-                                            <span>پوشاک مردانه</span>
-                                        </div>
-                                        <div class="cart-item-quantity">
-                                            L
-                                            <span class="woocommerce-Price-amount amount">
-                                                            <bdi>38000 <span class="woocommerce-Price-currencySymbol"></span>تومان</bdi>
-                                                        </span>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @empty
+                                        <li>
+                                            <span class="text-dark font-sixteen">
+                                                هیچ محصولی در سبد خرید وجود ندارد!
+                                            </span>
+                                        </li>
+                                    @endforelse
                                 </ul>
-                                <div class="total-cart">
-                                    <div class="title">جمع کل:</div>
-                                    <div class="price">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>62000</span> تومان
-                                    </div>
-                                </div>
                                 <div class="buttons">
-                                    <a href="cart.html" class="btn btn-primary rounded-0 view-cart">سبد خرید</a>
-                                    <a href="checkout.html" class="btn btn-secondary rounded-0 checkout">تسویه حساب</a>
+                                    <a href="{{ route('home.cart') }}" class="btn btn-primary w-100 mt-2">سبد خرید</a>
                                 </div>
                             </div>
                         </div>

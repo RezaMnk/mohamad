@@ -11,17 +11,20 @@ class ProductCard extends Component
     private int $count;
     public $products;
     public $slider;
+    public $category;
+    public $ignore;
     public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type = 'new', $count = 3, $slider = false, $id = 0)
+    public function __construct($type = 'new', $count = 3, $slider = false, $ignore = false, $id = 0)
     {
         $this->type = $type;
         $this->count = $count;
         $this->slider = boolval($slider);
+        $this->ignore = $ignore;
         $this->id = $id;
 
         $products = Product::query();
@@ -35,6 +38,9 @@ class ProductCard extends Component
 
         elseif ($this->type == 'popular')
             $products->orderBy('view_count', 'desc');
+
+        if ($this->ignore)
+            $products->whereNot('id', $this->ignore);
 
         $this->products = $products->take($this->count)->get();
     }

@@ -54,7 +54,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{ route('home.index') }}">خانه</a></li>
                                         <li class="breadcrumb-item"><a href="{{ route('home.shop') }}">فروشگاه</a></li>
-                                        @include('partials.categories.product-breadcrumb', ['categories' => $product->categories])
+                                        @include('partials.categories.product-breadcrumb', ['category' => $product->categories->first()])
                                         <li class="breadcrumb-item active" aria-current="page">ساعت مچی دیجیتال مردانه پیائوما</li>
                                     </ol>
                                 </nav>
@@ -110,14 +110,14 @@
                 <div class="col-12">
                     <div class="section-head border-bottom d-flex justify-content-between align-items-center mb-2">
                         <div class="d-flex section-head-side-title">
-                            <h4 class="text-light mb-0">کالاهای مشابه</h4>
+                            <h4 class="text-light mb-0">جدیدترین محصولات</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="products product-style-1 owl-mx-15">
                         <div class="five-carousel owl-carousel dot-disable nav-arrow-middle-show e-title-hover-primary e-hover-image-zoom e-info-center" dir="ltr">
-                            <x-product-card type="new" count="9" :slider="true"></x-product-card>
+                            <x-product-card type="new" count="10" ignore="{{ $product->id }}" :slider="true"></x-product-card>
                         </div>
                     </div>
                 </div>

@@ -164,7 +164,7 @@ Route::get('/fake_products', function () {
 });
 
 Route::get('test', function () {
-//    cart()->clear();
+    dd(\App\Models\Product::whereRelation('categories', 'id', '1')->get());
 })->name('test');
 
 Route::get('ses', function () {

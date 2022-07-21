@@ -779,8 +779,8 @@ img.nav-logo {
 
 .cart-popup .mini-cart-item .product-name {
     margin-bottom: 10px;
-    color: var(--theme-secondary-color);
-    font-size: 15px;
+    color: var(--theme-dark-color);
+    font-size: 16px;
 }
 
 .cart-popup .mini-cart-item .rating-wrap a {

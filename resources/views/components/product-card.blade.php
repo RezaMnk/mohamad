@@ -13,7 +13,7 @@
             </div>
         </a>
     </div>
-        
+
     @else
     <div class="item">
         <a href="{{ route('home.product', $product->id) }}">
@@ -30,6 +30,6 @@
             </div>
         </a>
     </div>
-        
+
     @endunless
 @endforeach
