@@ -5,6 +5,7 @@
 
 @section('header-assets')
     <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}" type="text/css">
 @endsection
 
 @section('title', 'Invoice')
@@ -130,7 +131,7 @@
             <div class="text-right d-print-none">
                 <hr class="m-t-b-50">
                 @if($order->status == 'priced')
-                    <button type="submit" class="btn btn-primary my-1">
+                    <button type="submit" class="btn btn-primary my-1" data-toggle="modal" data-target="#Checkout">
                         <i class="fa fa-dollar m-r-5"></i>
                         ثبت پرداخت
                     </button>
@@ -150,10 +151,55 @@
 </main>
 <!-- end::main content -->
 
+<!-- Checkout Modal -->
+<div class="modal fade" id="Checkout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">ثبت فایل پرداخت</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#" class="dropzone"></form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-primary">ارسال فایل</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @include('admin.layouts.sections.footer-scripts')
 
 <!-- App scripts -->
 <script src="{{ asset('admin/js/app.js') }}"></script>
+<script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
+<script>
+    Dropzone.autoDiscover = false;
+
+    $(document).ready(function () {
+
+        new Dropzone(".dropzone", {
+            dictDefaultMessage:"فایل ها را برای ارسال اینجا بکشید",
+            dictFallbackMessage:"مرورگر شما از کشیدن و رها سازی برای ارسال فایل پشتیبانی نمی کند.",
+            dictFallbackText:"لطفا از فرم زیر برای ارسال فایل های خود مانند گذشته استفاده کنید.",
+            dictFileTooBig:"فایل خیلی بزرگ است (@{{filesize}}MiB). حداکثر اندازه مجاز: @{{maxFilesize}}MiB.",
+            dictInvalidFileType:"شما مجاز به ارسال این نوع فایل نیستید.",
+            dictResponseError:"سرور با کد @{{statusCode}} پاسخ داد.",
+            dictCancelUpload:"لغو ارسال",
+            dictUploadCanceled:"ارسال لغو شد.",
+            dictCancelUploadConfirmation:"آیا از لغو این ارسال اطمینان دارید؟",
+            dictRemoveFile:"حذف فایل",
+            dictRemoveFileConfirmation:"آیا از حذف این فایل اطمینان دارید؟",
+            dictMaxFilesExceeded:"شما نمی توانید فایل دیگری ارسال کنید."
+        });
+
+    });
+</script>
+
 
 </body>
 </html>
