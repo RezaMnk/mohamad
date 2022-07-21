@@ -13,9 +13,14 @@
 
 @section('content')
     <!-- row : start  -->
-    <form action="{{ route('admin.orders.update', $order->id) }}" method="post" class="card">
-    @csrf
-    @method('patch')
+
+        @if($order->status == 'unapproved')
+            <form action="{{ route('admin.orders.update', $order->id) }}" method="post" class="card">
+        @elseif($order->status == 'paid')
+            <form action="{{ route('admin.orders.approve') }}" method="post" class="card">
+        @endif
+        @csrf
+        @method('patch')
 
         <div class="card-body p-50" id="section-to-print">
             <div class="invoice">
@@ -68,11 +73,19 @@
                                         {{ $product->name }}
                                     </td>
                                     <td class="text-left">
-                                        <input type="number" class="form-control amount" data-id="{{ $loop->iteration }}" name="quantity[{{ $product->id }}]" required="required" autocomplete="off" value="{{ $product->pivot->quantity }}">
+                                        @if($order->status == 'unapproved')
+                                            <input type="number" class="form-control amount" data-id="{{ $loop->iteration }}" name="quantity[{{ $product->id }}]" required="required" autocomplete="off" value="{{ $product->pivot->quantity }}">
+                                        @elseif($order->status == 'paid')
+                                            <p class="form-control m-0">{{ $product->pivot->quantity }}</p>
+                                        @endif
                                     </td>
                                     <td class="text-left">
                                         <div class="input-group">
-                                            <input type="number" class="form-control text-left product-price" data-id="{{ $loop->iteration }}" name="price[{{ $product->id }}]" required="required" autocomplete="off">
+                                            @if($order->status == 'unapproved')
+                                                <input type="number" class="form-control text-left product-price" data-id="{{ $loop->iteration }}" name="price[{{ $product->id }}]" required="required" autocomplete="off">
+                                            @elseif($order->status == 'paid')
+                                                <p class="form-control text-left">{{ number_format($product->pivot->price) }}</p>
+                                            @endif
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">ریال</span>
                                             </div>
@@ -113,16 +126,16 @@
                         لغو سفارش
                     </button>
                 @elseif($order->status == 'paid')
-                    <button type="submit" class="btn btn-primary my-1">
+                    <button type="button" class="btn btn-primary my-1">
                         <i class="fa fa-clipboard m-r-5"></i>
                         مشاهده رسید پرداخت
                     </button>
-                    <button type="submit" class="btn btn-sucess my-1">
-                        <i class="fa fa-send m-r-5"></i>
+                    <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-success m-l-5 my-1">
+                        <i class="fa fa-check m-r-5"></i>
                         تایید سفارش
                     </button>
                 @endif
-                <a href="javascript:window.print()" class="btn btn-success m-l-5 my-1">
+                <a href="javascript:window.print()" class="btn btn-light m-l-5 my-1">
                     <i class="fa fa-print m-r-5"></i> چاپ
                 </a>
             </div>

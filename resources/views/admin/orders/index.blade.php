@@ -45,25 +45,28 @@
                                         </span>
                                     </td>
                                     <td>
-                                        {!! $order->total_price ? number_format($order->total_price) . ' ریال' : '<button type="button" class="btn btn-light disabled w-100 justify-content-center">در انتظار ثبت قیمت</button>' !!}
-
+                                        @if($order->total_price)
+                                            {{ number_format($order->total_price) }} ریال
+                                        @else
+                                            <button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">قیمت تعیین نشده</button>
+                                        @endunless
                                     </td>
                                     <td>
                                         @switch($order->status)
                                             @case('unapproved')
-                                                <button type="button" class="btn btn-warning disabled w-100 justify-content-center">در انتظار بررسی</button>
+                                                <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
                                                 @break
                                             @case('priced')
-                                                <button type="button" class="btn btn-secondary disabled w-100 justify-content-center">در انتظار پرداخت</button>
+                                                <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
                                                 @break
                                             @case('paid')
-                                                <button type="button" class="btn btn-info disabled w-100 justify-content-center">پرداخت شده</button>
+                                                <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
                                                 @break
                                             @case('approved')
-                                                <button type="button" class="btn btn-success disabled w-100 justify-content-center">تکمیل شده</button>
+                                                <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
                                                 @break
                                             @case('canceled')
-                                                <button type="button" class="btn btn-light disabled w-100 justify-content-center">لغو شده</button>
+                                                <button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">لغو شده</button>
                                                 @break
                                         @endswitch
                                     </td>
@@ -76,8 +79,8 @@
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                             </button>
                                         </a>
-                                        <a href="{{ $order->status != 'canceled' ? route('admin.orders.edit', $order->id) : 'javascript:void(0)' }}">
-                                            <button type="button" class="btn btn-success btn-floating @if(!$order->status) disabled @endif">
+                                        <a href="{{ route('order.invoice', $order->id) }}">
+                                            <button type="button" class="btn btn-success btn-floating" @if(!$order->status) disabled="disabled" @endif>
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>
                                         </a>

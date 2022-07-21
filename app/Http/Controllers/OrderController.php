@@ -13,6 +13,13 @@ class OrderController extends Controller
         $this->middleware(['auth']);
     }
 
+
+    /**
+     * create order by cart data
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function create(Request $request)
     {
         $data = $request->validate([
@@ -44,9 +51,21 @@ class OrderController extends Controller
 
     public function invoice(Order $order)
     {
+        if (
+            ($order->user_id != auth()->user()->id)
+            && !(auth()->user()->admin)
+        )
+            abort(404);
+
         return view('site.invoice', compact('order'));
     }
 
+    /**
+     * set order to canceled status
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function cancel(Request $request)
     {
         $request->validate([
@@ -58,7 +77,7 @@ class OrderController extends Controller
         if ($order->status == 'unapproved')
             $order->cancel();
 
-        alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت لغپ گردید');
+        alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت لغو گردید');
         return redirect()->back();
     }
 }

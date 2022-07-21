@@ -23,30 +23,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($user->orders as $order)
+                                    @forelse($user->orders as $order)
                                         <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }} align-middle">
                                             <td>
                                                 {{ $order->id }}
                                             </td>
                                             <td>
-                                                {!! $order->total_price ? number_format($order->total_price) . ' ریال' : '<button type="button" class="btn btn-light disabled w-100 justify-content-center">در انتظار ثبت قیمت</button>' !!}
+                                                {!! $order->total_price ? number_format($order->total_price) . ' ریال' : '<button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">قیمت تعیین نشده</button>' !!}
                                             </td>
                                             <td>
                                                 @switch($order->status)
                                                     @case('unapproved')
-                                                    <button type="button" class="btn btn-secondary disabled w-100 justify-content-center">در انتظار بررسی</button>
+                                                    <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
                                                     @break
                                                     @case('priced')
-                                                    <button type="button" class="btn btn-warning disabled w-100 justify-content-center">در انتظار پرداخت</button>
+                                                    <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
                                                     @break
                                                     @case('paid')
-                                                    <button type="button" class="btn btn-info disabled w-100 justify-content-center">پرداخت شده</button>
+                                                    <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
                                                     @break
                                                     @case('approved')
-                                                    <button type="button" class="btn btn-success disabled w-100 justify-content-center">تکمیل شده</button>
+                                                    <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
                                                     @break
                                                     @case('canceled')
-                                                    <button type="button" class="btn btn-danger disabled w-100 justify-content-center">لغو شده</button>
+                                                    <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">لغو شده</button>
                                                     @break
                                                 @endswitch
                                             </td>
@@ -77,7 +77,13 @@
                                                 @endif
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="5"  class="py-3">
+                                                هیچ سفارشی یافت نشد!
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>

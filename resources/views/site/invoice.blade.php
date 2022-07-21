@@ -28,7 +28,29 @@
                     <h2 class="d-flex align-items-center">
                         <img class="m-r-20" src="{{ asset('storage/logo/19.png') }}" alt="image">
                     </h2>
-                    <h3 class="text-xs-left m-b-0">صورتحساب #{{ $order->id }}</h3>
+                    <div>
+                        <h3 class="text-xs-left m-b-0">صورتحساب #{{ $order->id }}</h3>
+                        <p class="text-xs-left m-t-2">وضعیت:
+                            @switch($order->status)
+                                @case('unapproved')
+                                    در انتظار بررسی
+                                    @break
+                                @case('priced')
+                                    در انتظار پرداخت
+                                    @break
+                                @case('paid')
+                                    پرداخت شده
+                                    @break
+                                @case('approved')
+                                    تکمیل شده
+                                    @break
+                                @case('canceled')
+                                    لغو شده
+                                    @break
+                            @endswitch
+                        </p>
+                    </div>
+
                 </div>
                 <hr class="m-t-b-50">
                 <div class="row">
@@ -112,7 +134,7 @@
                     <i class="fa fa-dollar m-r-5"></i>
                     ثبت پرداخت
                 </button>
-                <a href="javascript:window.print()" class="btn btn-success m-l-5 my-1">
+                <a href="javascript:window.print()" class="btn btn-light m-l-5 my-1">
                     <i class="fa fa-print m-r-5"></i> چاپ
                 </a>
             </div>

@@ -146,4 +146,20 @@ class OrderController extends Controller
         return back();
         */
     }
+
+
+    public function approve(Request $request)
+    {
+        $request->validate([
+            'order' => ['required', 'numeric', 'exists:orders,id']
+        ]);
+
+        $order = Order::find($request->order);
+
+        if ($order->status == 'paid')
+            $order->approve();
+
+        alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت تایید شد');
+        return redirect()->route('admin.orders.index');
+    }
 }

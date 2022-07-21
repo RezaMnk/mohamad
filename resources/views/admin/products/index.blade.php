@@ -50,9 +50,9 @@
                                     </td>
                                     <td>
                                         @if($product->status)
-                                            <button type="button" class="btn btn-success disabled w-100 justify-content-center">منتشر شده</button>
+                                            <button type="button" class="btn btn-successw-100 justify-content-center" disabled="disabled">منتشر شده</button>
                                         @else
-                                            <button type="button" class="btn btn-light disabled w-100 justify-content-center">پیش نویس</button>
+                                            <button type="button" class="btn btn-lightw-100 justify-content-center" disabled="disabled">پیش نویس</button>
                                         @endif
                                     </td>
                                     <td>
@@ -65,7 +65,7 @@
                                             </button>
                                         </a>
                                         <a href="{{ $product->status ? route('home.product', $product->id) : 'javascript:void(0)' }}">
-                                            <button type="button" class="btn btn-success btn-floating @if(!$product->status) disabled @endif">
+                                            <button type="button" class="btn btn-success btn-floating" @if(!$product->status) disabled="disabled" @endif>
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>
                                         </a>

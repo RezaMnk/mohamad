@@ -65,7 +65,7 @@ Route::resource('attributes', 'AttributeController')->except('create');
  * Orders routes
  */
 Route::prefix('orders')->name('orders.')->controller('OrderController')->group(function () {
-    //
+    Route::patch('approve', 'approve')->name('approve');
 });
 
 Route::resource('orders', 'OrderController');
