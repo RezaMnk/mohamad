@@ -19,7 +19,7 @@
                                         <th>قیمت نهایی</th>
                                         <th>وضعیت</th>
                                         <th> ایجاد</th>
-                                        <th>عملیات</th>
+                                        <th class="w-30">عملیات</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -55,19 +55,24 @@
                                                 {{ $order->created_at() }}
                                             </td>
                                             <td>
-                                                @if($order->status == 'unapproved')
+                                                @if(in_array($order->status, ['unapproved', 'priced']))
                                                     <a href="{{ route('order.invoice', $order->id) }}">
                                                         <button type="button" class="btn btn-light float-end" style="width: 70%">
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
+                                                    @if($order->status = 'priced')
+                                                        <span class="btn btn-danger countdown p-0" title="لغو سفارش" style="width: 30%">
+                                                            10:00
+                                                        </span>
+                                                    @else
                                                     <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
                                                         @csrf
-
-                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger" style="width: 30%">
+                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger p-0" style="width: 30%">
                                                             لغو
                                                         </button>
                                                     </form>
+                                                @endif
                                                 @else
                                                     <a href="{{ route('order.invoice', $order->id) }}">
                                                         <button type="button" class="btn btn-light w-100">
@@ -118,4 +123,33 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer-assets')
+    <script>
+        function TimerCountdown(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let time_left = 60 * 10,
+                countdowns = document.querySelectorAll('.countdown');
+            countdowns.forEach(function (countdown) {
+                TimerCountdown(time_left, countdown);
+            })
+        };
+    </script>
 @endsection

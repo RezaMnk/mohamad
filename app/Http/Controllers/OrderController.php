@@ -24,7 +24,7 @@ class OrderController extends Controller
     {
         $data = $request->validate([
             'quantity' => ['required', 'array'],
-            'quantity.*' => ['required', 'numeric']
+            'quantity.*' => ['required', 'numeric', 'min:1']
         ]);
 
         $sync = [];

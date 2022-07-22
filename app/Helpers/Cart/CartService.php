@@ -20,21 +20,45 @@ class CartService extends Facade
      * put product data to cart session
      *
      * @param Product $product
-     * @param int $count
+     * @param int $quantity
      * @return $this
      */
-    public function put(Product $product, int $count)
+    public function put(Product $product, int $quantity)
     {
         $value = [
             'id' => Str::random(10),
             'product' => $product->id,
-            'count' => $count,
+            'quantity' => $quantity,
         ];
 
         $this->cart->put($value['id'], $value);
         session()->put('cart', $this->cart);
 
         return $this;
+    }
+
+    /**
+     * update product data in cart session
+     *
+     * @param Product $product
+     * @param int $quantity
+     * @return bool
+     */
+    public function update(Product $product, int $quantity, $force_quantity = false)
+    {
+        $this->cart = $this->cart->map(function ($item) use ($quantity, $product, $force_quantity) {
+            if($item['product'] == $product->id)
+                if($force_quantity)
+                    $item['quantity'] = $quantity;
+                else
+                    $item['quantity'] = $item['quantity'] + $quantity;
+            return $item;
+        });
+
+
+        session()->put('cart', $this->cart);
+
+        return true;
     }
 
 
@@ -58,7 +82,24 @@ class CartService extends Facade
      */
     public function get(Product $product)
     {
-        return $this->make($this->cart->firstWhere('product', $product->id));
+        return $this->cart->firstWhere('product', $product->id) ? $this->make($this->cart->firstWhere('product', $product->id)) : false;
+    }
+
+
+    /**
+     * remove product from cart
+     *
+     * @param Product $product
+     * @return bool
+     */
+    public function remove(Product $product)
+    {
+        $item = $this->get($product)->toArray();
+        $this->cart->forget($item['id']);
+
+        session()->put('cart', $this->cart);
+
+        return true;
     }
 
 

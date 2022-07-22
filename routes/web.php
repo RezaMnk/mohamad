@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Auth\TwoFAController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
@@ -48,6 +49,7 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
 
 Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function () {
     Route::post('add/{product}', 'add')->name('add');
+    Route::get('remove/{product}', 'remove')->name('remove');
 });
 
 Route::controller(OrderController::class)->prefix('order')->name('order.')->group(function () {
@@ -63,8 +65,17 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
     Route::get('/resend', 'resend')->name('resend');
 });
 
+Route::post('/api/update-cart', function () {
+    return ('test');
+})->name('update-cart');
 
 
+/*
+ * --------------------------------- Api section ---------------------------------
+ */
+Route::middleware('auth')->controller(ApiController::class)->prefix('api')->name('api.')->group(function () {
+    Route::post('/update-cart', 'update_cart')->name('update-cart');
+});
 
 
 // -------------------------------------------- FOR TEST ONLY --------------------------------------------
@@ -164,7 +175,8 @@ Route::get('/fake_products', function () {
 });
 
 Route::get('test', function () {
-    dd(\App\Models\Product::whereRelation('categories', 'id', '1')->get());
+    $product = \App\Models\Product::find(39);
+    cart()->remove($product);
 })->name('test');
 
 Route::get('ses', function () {

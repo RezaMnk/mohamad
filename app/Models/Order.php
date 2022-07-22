@@ -18,7 +18,8 @@ class Order extends Model
      */
     protected $fillable = [
         'user_id',
-        'status'
+        'status',
+        'priced_at'
     ];
 
     /**
@@ -77,6 +78,17 @@ class Order extends Model
         }
 
         return $total_price;
+    }
+
+
+    /**
+     * get time left to pay the order
+     *
+     * @return Carbon|false
+     */
+    public function getTimeToPayAttribute()
+    {
+        return $this->priced_at->addMinutes(10)->diffAsCarbonInterval(now()) ?? false;
     }
 
 

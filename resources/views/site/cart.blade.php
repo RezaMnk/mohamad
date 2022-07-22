@@ -18,7 +18,7 @@
                                     <th class="product-quantity">تعداد</th>
                                     <th class="product-actuib">عملیات</th>
                                 </thead>
-                                @foreach(cart()->all() as $cart_item)
+                                @forelse(cart()->all() as $cart_item)
                                     @php($product = $cart_item['product'])
                                     <tr class="woocommerce-cart-form__cart-item cart_item">
                                         <td class="product-thumbnail">
@@ -34,15 +34,30 @@
                                             </dl>
                                         </td>
                                         <td class="product-quantity">
-                                            <div class="quantity">
-                                                <input type="number" name="quantity[{{ $product->id }}]" value="{{ $cart_item['count'] }}">
+                                            <div class="cart-quantity">
+                                                <p class="bg-gray" data-product="{{ $product->id }}">
+                                                    {{ $cart_item['quantity'] }}
+                                                </p>
+                                                <input type="hidden" name="quantity[{{ $product->id }}]" data-product="{{ $product->id }}" value="{{ $cart_item['quantity'] }}">
                                             </div>
                                         </td>
+{{--                                        <td class="product-quantity">--}}
+{{--                                            <div class="quantity">--}}
+{{--                                                <input type="number" name="quantity[{{ $product->id }}]" data-product="{{ $product->id }}" min="1" value="{{ $cart_item['quantity'] }}">--}}
+{{--                                                <input type="hidden" name="quantity[{{ $product->id }}]" data-product="{{ $product->id }}" value="{{ $cart_item['quantity'] }}">--}}
+{{--                                            </div>--}}
+{{--                                        </td>--}}
                                         <td class="product-remove">
-                                            <a href="#" class="remove">×</a>
+                                            <a href="{{ route('cart.remove', $product) }}" class="remove">×</a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr class="border-bottom">
+                                        <td colspan="4"  class="py-3">
+                                            سبد خرید خالی می باشد!
+                                        </td>
+                                    </tr>
+                                @endforelse
 {{--                                <tr>--}}
 {{--                                    <td colspan="6" class="actions">--}}
 {{--                                        <div class="coupon">--}}
@@ -156,7 +171,7 @@
                                         <td><strong><span class="woocommerce-Price-amount amount"><bdi>۵,۵۹۰,۰۰۰<span> تومان</span></bdi></span></strong> </td>
                                     </tr>
                                 </table>
-                                <button class="btn btn-primary">بروزرسانی</button>
+                                <a href="{{ route('home.cart') }}" class="btn btn-primary">بروزرسانی</a>
                                 <button type="submit" form="cart" class="btn btn-primary">ثبت سفارش</button>
                             </div>
                         </div>
@@ -165,4 +180,10 @@
             </div>
         </div>
         <!--==================== Cart Section End ====================-->
+@endsection
+
+@section('footer-scripts')
+    <script>
+        document.querySelectorAll('quantity-button')
+    </script>
 @endsection

@@ -248,6 +248,78 @@
 
     });
 
+    function update_cart(product, quantity)
+    {
+        $('.cart-quantity p[data-product="'+ product +'"]').html('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+
+        fetch('/api/update-cart', {
+            method: 'post',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content')
+            },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                product: product,
+                quantity: quantity,
+            })
+        })
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
+                $('.cart-quantity p[data-product="'+ product +'"]').html(quantity)
+            })
+            .catch(function(error){
+                console.log(error)
+            });
+    }
+
+    // Quantity number changing script
+    $('<div class="quantity-nav"><div class="quantity-button quantity-down">-</div><div class="quantity-button quantity-up">+</div></div>').insertAfter('.cart-quantity p');
+    $('.cart-quantity').each(function() {
+        var spinner = $(this),
+            display = spinner.find('p'),
+            input = spinner.find('input[type="hidden"]'),
+            btnUp = spinner.find('.quantity-up'),
+            btnDown = spinner.find('.quantity-down'),
+            min = 1,
+            max = 999;
+
+        btnUp.on('click', function() {
+            var oldValue = parseFloat(display.text());
+            if (oldValue >= max) {
+                var newVal = oldValue;
+            } else {
+                var newVal = oldValue + 1;
+            }
+
+            spinner.find("input").val(newVal);
+            spinner.find("input").trigger("change");
+
+            var product = display.data('product');
+            update_cart(product, newVal);
+        });
+
+        btnDown.on('click', function() {
+            var oldValue = parseFloat(display.text());
+            if (oldValue <= min) {
+                var newVal = oldValue;
+            } else {
+                var newVal = oldValue - 1;
+            }
+
+            spinner.find("input").val(newVal);
+            spinner.find("input").trigger("change");
+
+            var product = display.data('product');
+            update_cart(product, newVal);
+        });
+
+    });
+
 
     // Update Header Style + Scroll to Top
     function headerStyle() {

@@ -163,7 +163,6 @@
 
 @section('footer-assets')
     <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
-    <script src="{{ asset('admin/vendors/bundle.js') }}"></script>
     <script>
         Dropzone.autoDiscover = false;
 
