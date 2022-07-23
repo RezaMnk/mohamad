@@ -34,20 +34,24 @@
                                             <td>
                                                 @switch($order->status)
                                                     @case('unapproved')
-                                                    <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
-                                                    @break
+                                                        <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
+                                                        @break
                                                     @case('priced')
-                                                    <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
-                                                    @break
+                                                        @unless($order->time_to_pay)
+                                                            <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">سفارش منقضی شده</button>
+                                                        @else
+                                                            <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
+                                                        @endunless
+                                                        @break
                                                     @case('paid')
-                                                    <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
-                                                    @break
+                                                        <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
+                                                        @break
                                                     @case('approved')
-                                                    <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
-                                                    @break
+                                                        <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
+                                                        @break
                                                     @case('canceled')
-                                                    <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">لغو شده</button>
-                                                    @break
+                                                        <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">لغو شده</button>
+                                                        @break
                                                 @endswitch
                                             </td>
 
@@ -61,10 +65,19 @@
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
-                                                    @if($order->status = 'priced')
-                                                        <span class="btn btn-danger countdown p-0" title="لغو سفارش" style="width: 30%">
-                                                            10:00
-                                                        </span>
+                                                    @if($order->status == 'priced')
+                                                        @if($order->time_to_pay)
+                                                            <span class="btn btn-danger countdown p-0" data-id="{{ $order->id }}" style="width: 30%">
+                                                                {{ sprintf("%02d", $order->time_to_pay->minutes) .':'. sprintf("%02d", $order->time_to_pay->seconds) }}
+                                                            </span>
+                                                        @else
+                                                            <form action="{{ route('order.reorder', $order->id) }}" class="d-inline" method="post">
+                                                                @csrf
+                                                                <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning p-0" style="width: 30%">
+                                                                    سفارش مجدد
+                                                                </button>
+                                                            </form>
+                                                        @endif
                                                     @else
                                                     <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
                                                         @csrf
@@ -129,7 +142,7 @@
     <script>
         function TimerCountdown(duration, display) {
             let timer = duration, minutes, seconds;
-            setInterval(function () {
+            let countdownInterval = setInterval(function () {
                 minutes = parseInt(timer / 60, 10)
                 seconds = parseInt(timer % 60, 10);
 
@@ -139,17 +152,19 @@
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
-                    timer = duration;
+                    clearInterval(countdownInterval);
+                    display.textContent = 'منقضی شده'
                 }
             }, 1000);
         }
 
         window.onload = function () {
-            let time_left = 60 * 10,
-                countdowns = document.querySelectorAll('.countdown');
-            countdowns.forEach(function (countdown) {
-                TimerCountdown(time_left, countdown);
-            })
+            @foreach($user->orders as $order)
+                @if($order->status == 'priced' && $order->time_to_pay)
+                    TimerCountdown({{ $order->time_to_pay->minutes * 60 + $order->time_to_pay->seconds }},
+                                document.querySelector('.countdown[data-id="'+ {{ $order->id }} +'"]'));
+                @endif
+            @endforeach
         };
     </script>
 @endsection

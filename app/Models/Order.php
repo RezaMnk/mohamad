@@ -23,6 +23,15 @@ class Order extends Model
     ];
 
     /**
+     * Cast column to timestamp or else
+     *
+     * @var string[]
+     */
+    protected $casts = [
+        'priced_at' => 'datetime:Y-m-d'
+    ];
+
+    /**
      * Belongs to products
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -88,7 +97,16 @@ class Order extends Model
      */
     public function getTimeToPayAttribute()
     {
-        return $this->priced_at->addMinutes(10)->diffAsCarbonInterval(now()) ?? false;
+        if (!$this->priced_at)
+            return false;
+
+        $expire = $this->priced_at->addMinutes(10);
+
+        if ($expire->lte(now()))
+            return false;
+
+        return $expire->diffAsCarbonInterval(now());
+
     }
 
 
@@ -100,6 +118,7 @@ class Order extends Model
     public function priced()
     {
         $this->status = 'priced';
+        $this->priced_at = now();
         $this->update();
     }
 

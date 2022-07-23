@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('status', ['unapproved', 'priced', 'paid', 'approved', 'canceled']);
-            $table->timestamp('priced_at');
+            $table->timestamp('priced_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

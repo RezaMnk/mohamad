@@ -55,6 +55,7 @@ Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(f
 Route::controller(OrderController::class)->prefix('order')->name('order.')->group(function () {
     Route::post('create', 'create')->name('create');
     Route::post('cancel', 'cancel')->name('cancel');
+    Route::post('reorder', 'reorder')->name('reorder');
     Route::get('invoice/{order}', 'invoice')->name('invoice');
 });
 

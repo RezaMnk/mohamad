@@ -135,12 +135,15 @@
                                         @forelse(cart()->all() as $cart_item)
                                             @php($product = $cart_item['product'])
                                             <li class="mini-cart-item">
-                                                <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                                <a href="#" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
-                                                <a href="#" class="product-name">{{ $product->name }}</a>
+                                                <a href="{{ route('cart.remove', $product->id) }}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                                <a href="{{ route('home.product', $product->id) }}" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                                <a href="{{ route('home.product', $product->id) }}" class="product-name">{{ $product->name }}</a>
                                                 <div class="variation">
                                                     <span>دسته بندی:</span>
                                                     <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
+                                                </div>
+                                                <div class="cart-item-quantity">
+                                                    <span>تعداد: {{ $cart_item['quantity'] }}</span>
                                                 </div>
                                             </li>
                                         @empty
@@ -397,12 +400,15 @@
                                     @forelse(cart()->all() as $cart_item)
                                         @php($product = $cart_item['product'])
                                         <li class="mini-cart-item">
-                                            <a href="#" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                            <a href="#" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
-                                            <a href="#" class="product-name">{{ $product->name }}</a>
+                                            <a href="{{ route('cart.remove', $product->id) }}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                            <a href="{{ route('home.product', $product->id) }}" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                            <a href="{{ route('home.product', $product->id) }}" class="product-name">{{ $product->name }}</a>
                                             <div class="variation">
                                                 <span>دسته بندی:</span>
                                                 <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
+                                            </div>
+                                            <div class="cart-item-quantity">
+                                                <span>تعداد: {{ $cart_item['quantity'] }}</span>
                                             </div>
                                         </li>
                                     @empty
