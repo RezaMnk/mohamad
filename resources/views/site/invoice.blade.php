@@ -4,7 +4,7 @@
 @section('title', 'Invoice')
 
 @section('header-assets')
-    <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.css') }}" type="text/css">
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -117,7 +117,7 @@
             </div>
             <div class="text-right d-print-none">
                 <hr class="m-t-b-50">
-                @if($order->status == 'priced')
+                @if($order->status == 'priced' && $order->time_to_pay)
                     <button type="submit" class="btn btn-primary my-1" data-toggle="modal" data-target="#Checkout">
                         <i class="fa fa-dollar m-r-5"></i>
                         ثبت پرداخت
@@ -142,17 +142,21 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">ثبت فایل پرداخت</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">ثبت فیش پرداختی</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form action="#" class="dropzone"></form>
+              <div id="receipt"></div>
           </div>
           <div class="modal-footer">
+              <form action="{{ route('home.index') }}" class="m-0">
+                  <input type="file" class="d-none" name="receipt">
+                  <button type="button" class="btn btn-primary">ارسال فایل</button>
+              </form>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-            <button type="button" class="btn btn-primary">ارسال فایل</button>
+
           </div>
         </div>
       </div>
@@ -162,28 +166,19 @@
 @include('admin.layouts.sections.footer-scripts')
 
 @section('footer-assets')
-    <script src="{{ asset('admin/vendors/dropzone/dropzone.js') }}"></script>
+    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
     <script>
-        Dropzone.autoDiscover = false;
+        let myDropzone = new Dropzone("div#myId", { url: "/file/post"});
+        // The dropzone method is added to jQuery elements and can
+        // be invoked with an (optional) configuration object.
 
-        $(document).ready(function () {
-
-            new Dropzone(".dropzone", {
-                dictDefaultMessage:"فایل ها را برای ارسال اینجا بکشید",
-                dictFallbackMessage:"مرورگر شما از کشیدن و رها سازی برای ارسال فایل پشتیبانی نمی کند.",
-                dictFallbackText:"لطفا از فرم زیر برای ارسال فایل های خود مانند گذشته استفاده کنید.",
-                dictFileTooBig:"فایل خیلی بزرگ است (@{{filesize}}MiB). حداکثر اندازه مجاز: @{{maxFilesize}}MiB.",
-                dictInvalidFileType:"شما مجاز به ارسال این نوع فایل نیستید.",
-                dictResponseError:"سرور با کد @{{statusCode}} پاسخ داد.",
-                dictCancelUpload:"لغو ارسال",
-                dictUploadCanceled:"ارسال لغو شد.",
-                dictCancelUploadConfirmation:"آیا از لغو این ارسال اطمینان دارید؟",
-                dictRemoveFile:"حذف فایل",
-                dictRemoveFileConfirmation:"آیا از حذف این فایل اطمینان دارید؟",
-                dictMaxFilesExceeded:"شما نمی توانید فایل دیگری ارسال کنید."
-            });
-
-        });
+        let myDropzone = new Dropzone("div#receipt");
+        Dropzone.options.receipt = {
+            paramName: "receipt",
+            maxFilesize: 5,
+            maxFiles: 1,
+            uploadMultiple: false,
+        };
     </script>
 @endsection
 

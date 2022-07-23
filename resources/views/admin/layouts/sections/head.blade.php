@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('admin/media/image/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('storage/images/favicon.png') }}">
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#5867dd">

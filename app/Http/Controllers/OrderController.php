@@ -80,4 +80,28 @@ class OrderController extends Controller
         alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت لغو گردید');
         return redirect()->back();
     }
+
+
+    public function reorder(Request $request)
+    {
+        $request->validate([
+            'order' => ['required', 'numeric', 'exists:orders,id'],
+        ]);
+
+        $order = Order::find($request->order);
+        if ($order->status == 'priced' && !$order->time_to_pay)
+        {
+            $order->status = 'unapproved';
+            $order->priced_at = null;
+            $order->save();
+
+            foreach($order->products as $product) {
+                $product->pivot->price = null;
+                $product->save();
+            }
+
+            alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت مجددا ثبت گردید');
+            return redirect()->back();
+        }
+    }
 }
