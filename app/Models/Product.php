@@ -144,6 +144,13 @@ class Product extends Model
         return $this->gallery()->where('main', true)->firstOrFail();
     }
 
+
+    public function add_view_count()
+    {
+
+    }
+
+
     /**
      * declare columns to use in statistics data
      *

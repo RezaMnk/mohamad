@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -103,5 +105,31 @@ class OrderController extends Controller
             alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت مجددا ثبت گردید');
             return redirect()->back();
         }
+    }
+
+
+    public function upload_receipt(Request $request)
+    {
+        $request->validate([
+            'receipt' => ['required', 'max:10000', 'mimes:jpg,jpeg,png'],
+            'order' => ['required', 'numeric', 'exists:orders,id'],
+        ]);
+        $order = Order::find($request->order);
+
+        if ($order->status != 'priced')
+            return false;
+
+
+        $file_name = time() . '.' . $request->file('receipt')->getClientOriginalExtension();
+
+        $path_name = auth()->user()->id ."/$file_name";
+
+        Storage::disk('receipts')->put($path_name, file_get_contents($request->file('receipt')));
+
+        $order->receipt = '/'. $path_name;
+        $order->status = 'paid';
+        $order->save();
+
+        return true;
     }
 }

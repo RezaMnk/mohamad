@@ -21,6 +21,7 @@
 </main>
 <!-- end::main content -->
 
+@yield('modal')
 @include('admin.layouts.sections.footer-scripts')
 
 <div class="colors">

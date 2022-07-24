@@ -110,6 +110,11 @@ class Order extends Model
     }
 
 
+    public function getReceiptImageAttribute()
+    {
+        return route("uploads.receipt.show", $this->attributes['id']);
+    }
+
     /**
      * change status to "priced"
      *

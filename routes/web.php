@@ -56,6 +56,7 @@ Route::controller(OrderController::class)->prefix('order')->name('order.')->grou
     Route::post('create', 'create')->name('create');
     Route::post('cancel', 'cancel')->name('cancel');
     Route::post('reorder', 'reorder')->name('reorder');
+    Route::post('upload-receipt', 'upload_receipt')->name('upload-receipt');
     Route::get('invoice/{order}', 'invoice')->name('invoice');
 });
 
@@ -77,6 +78,14 @@ Route::post('/api/update-cart', function () {
 Route::middleware('auth')->controller(ApiController::class)->prefix('api')->name('api.')->group(function () {
     Route::post('/update-cart', 'update_cart')->name('update-cart');
 });
+
+
+/*
+ * --------------------------------- Private storage section ---------------------------------
+ */
+Route::get('uploads/receipt/{order}', 'StorageController@receipt')->name('uploads.receipt.show');
+Route::post('uploads/receipt/remove', 'StorageController@remove_receipt')->name('uploads.receipt.remove');
+
 
 
 // -------------------------------------------- FOR TEST ONLY --------------------------------------------

@@ -118,7 +118,7 @@
             <div class="text-right d-print-none">
                 <hr class="m-t-b-50">
                 @if($order->status == 'priced' && $order->time_to_pay)
-                    <button type="submit" class="btn btn-primary my-1" data-toggle="modal" data-target="#Checkout">
+                    <button type="button" class="btn btn-primary my-1" data-toggle="modal" data-target="#Checkout">
                         <i class="fa fa-dollar m-r-5"></i>
                         ثبت پرداخت
                     </button>
@@ -148,15 +148,14 @@
             </button>
           </div>
           <div class="modal-body">
-              <div id="receipt"></div>
+              <form action="{{ route('order.upload-receipt') }}" method="post" class="dropzone" id="receipt">
+                  @csrf
+                  <input type="hidden" name="order" value="{{ $order->id }}">
+
+              </form>
           </div>
           <div class="modal-footer">
-              <form action="{{ route('home.index') }}" class="m-0">
-                  <input type="file" class="d-none" name="receipt">
-                  <button type="button" class="btn btn-primary">ارسال فایل</button>
-              </form>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-
           </div>
         </div>
       </div>
@@ -168,17 +167,63 @@
 @section('footer-assets')
     <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
     <script>
-        let myDropzone = new Dropzone("div#myId", { url: "/file/post"});
-        // The dropzone method is added to jQuery elements and can
-        // be invoked with an (optional) configuration object.
-
-        let myDropzone = new Dropzone("div#receipt");
-        Dropzone.options.receipt = {
+        let receiptDropzone = new Dropzone("#receipt", {
             paramName: "receipt",
             maxFilesize: 5,
             maxFiles: 1,
             uploadMultiple: false,
-        };
+            acceptedFiles: ".jpeg,.jpg,.png",
+            addRemoveLinks: true,
+            thumbnailWidth: 120,
+            thumbnailHeight: 120,
+            thumbnailMethod: "crop",
+
+            dictDefaultMessage:"فایل ها را برای ارسال اینجا بکشید",
+            dictFallbackMessage:"مرورگر شما از کشیدن و رها سازی برای ارسال فایل پشتیبانی نمی کند.",
+            dictFallbackText:"لطفا از فرم زیر برای ارسال فایل های خود مانند گذشته استفاده کنید.",
+            dictFileTooBig:"فایل خیلی بزرگ است (@{{filesize}}MiB). حداکثر اندازه مجاز: @{{maxFilesize}}MiB.",
+            dictInvalidFileType:"شما مجاز به ارسال این نوع فایل نیستید.",
+            dictResponseError:"سرور با کد @{{statusCode}} پاسخ داد.",
+            dictCancelUpload:"لغو ارسال",
+            dictUploadCanceled:"ارسال لغو شد.",
+            dictCancelUploadConfirmation:"آیا از لغو این ارسال اطمینان دارید؟",
+            dictRemoveFile:"حذف فایل",
+            dictRemoveFileConfirmation:"آیا از حذف این فایل اطمینان دارید؟",
+            dictMaxFilesExceeded:"شما نمی توانید فایل دیگری ارسال کنید.",
+
+            removedfile: function (file, data) {
+                fetch('{{ route('uploads.receipt.remove') }}', {
+                    method: 'post',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-Token": "{{ csrf_token() }}"
+                    },
+                    credentials: "same-origin",
+                    body: JSON.stringify({
+                        order: {{ $order->id }}
+                    })
+                })
+                    .then(function(response){
+                        file.previewElement.remove();
+                })
+            }
+        });
+
+        @if($order->receipt)
+        let mockFile = { name: "فایل ارسال", dataURL: "{{ $order->receipt_image }}" };
+        receiptDropzone.files.push(mockFile);
+        receiptDropzone.emit("addedfile", mockFile);
+        receiptDropzone.createThumbnailFromUrl(mockFile,
+            receiptDropzone.options.thumbnailWidth,
+            receiptDropzone.options.thumbnailHeight,
+            receiptDropzone.options.thumbnailMethod, true, function (thumbnail)
+            {
+                receiptDropzone.emit('thumbnail', mockFile, thumbnail);
+            });
+        receiptDropzone.emit('complete', mockFile);
+        @endif
     </script>
 @endsection
 

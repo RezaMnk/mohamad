@@ -48,16 +48,19 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/products'),
             'url' => '',
-            'visibility' => 'public',
-            'throw' => false,
         ],
 
         'product-descriptions' => [
             'driver' => 'local',
             'root' => storage_path('app/public/products/descriptions'),
             'url' => '',
-            'visibility' => 'public',
-            'throw' => false,
+        ],
+
+        'receipts' => [
+            'driver' => 'local',
+            'root' => storage_path('app/uploads/receipts'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'private',
         ],
 
         's3' => [

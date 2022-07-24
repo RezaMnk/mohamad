@@ -130,10 +130,10 @@
                         لغو سفارش
                     </button>
                 @elseif($order->status == 'paid')
-                    <button type="button" class="btn btn-primary my-1">
+                    <a href="{{ $order->receipt_image }}" class="btn btn-primary my-1" data-fslightbox >
                         <i class="fa fa-clipboard m-r-5"></i>
                         مشاهده رسید پرداخت
-                    </button>
+                    </a>
                     <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-success m-l-5 my-1">
                         <i class="fa fa-check m-r-5"></i>
                         تایید سفارش
@@ -154,6 +154,7 @@
 @endsection
 
 @section('footer-assets')
+
     @if($order->status == 'unapproved')
         <script>
             $(document).ready(function () {
@@ -184,6 +185,8 @@
                 }
             })
         </script>
+    @elseif($order->receipt)
+        <script src="{{ asset('js/fslightbox.js') }}"></script>
     @endif
 @endsection
 
