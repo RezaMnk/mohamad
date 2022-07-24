@@ -39,6 +39,19 @@ trait Statistics {
         ];
     }
 
+    /**
+     * declare rules for calculation method
+     *
+     * @param $rules
+     * @return array
+     */
+    protected function calc_static_rules()
+    {
+        return [
+//            'admin' => false,
+        ];
+    }
+
 
     /**
      * get data changes percentage
@@ -56,7 +69,7 @@ trait Statistics {
     {
         $model = static::class::query();
 
-        foreach ($rules as $columns => $value)
+        foreach (array_merge($rules, $this->calc_static_rules()) as $columns => $value)
         {
             $model->where($columns, $value);
         }

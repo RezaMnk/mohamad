@@ -143,4 +143,18 @@ class User extends Authenticatable
             'admin' => false,
         ];
     }
+
+
+    /**
+     * declare rules for calculation method
+     *
+     * @param $rules
+     * @return array
+     */
+    protected function calc_static_rules()
+    {
+        return [
+            'admin' => false,
+        ];
+    }
 }

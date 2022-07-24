@@ -17,74 +17,78 @@ class OrderController extends Controller
     {
         $orders = Order::query();
 
-        if ($keyword = request('search')) {
-            $orders->whereHas('user', function($query) use ($keyword) {
-                $query->where('name', 'LIKE', "%$keyword%");
-            })
-            ->orWhere('id', 'LIKE', "%$keyword%");
-        }
-
-        $orders = $orders->latest()->paginate(20);
+        $orders = $this->search_filter($orders)->latest()->paginate(20);
         return view('admin.orders.index', compact('orders'));
     }
 
+
     /**
-     * Show the form for creating a new order.
+     * Display a listing of the unapproved orders.
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function create()
+    public function unapproved()
     {
-        /*
-        $categories = Category::where('parent_id', 0)->get();
-        $attributes = Attribute::where('parent_id', 0)->get();
+        $orders = Order::query()->where('status', 'unapproved');
 
-        $attributes_json = [];
-        foreach($attributes as $attribute) {
-            $attributes_json[$attribute->id] = [
-                'name' => $attribute->name,
-                'children' => $attribute->children
-            ];
-        }
-        $attributes_json = json_encode($attributes_json);
-
-        return view('admin.orders.create', compact('attributes', 'categories', 'attributes_json'));
-        */
+        $orders = $this->search_filter($orders)->latest()->paginate(20);
+        return view('admin.orders.index', compact('orders'));
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the priced orders.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\View\View
      */
-    public function store(Request $request)
+    public function priced()
     {
-        /*
-        $data = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'category' => ['required', 'numeric', 'exists:categories,id'],
-            'image' => ['required'],
-            'attributes' => ['array'],
-            'weight' => ['required', 'numeric', 'digits_between:1,10'],
-            'code' => ['required', 'numeric', 'digits_between:1,10'],
-            'description' => ['string', 'nullable'],
-            'short_description' => ['string', 'nullable', 'max:1000'],
-        ]);
+        $orders = Order::query()->where('status', 'priced');
 
-        if (!Storage::disk('orders')->exists($data['image']))
-            return back()->withErrors(['image' => 'تصویر مورد نظر یافت نشد.']);
+        $orders = $this->search_filter($orders)->latest()->paginate(20);
+        return view('admin.orders.index', compact('orders'));
+    }
 
-        $order = Order::create($data);
 
-        $order->categories()->sync($data['category']);
+    /**
+     * Display a listing of the paid orders.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function paid()
+    {
+        $orders = Order::query()->where('status', 'paid');
 
-        if($request->status)
-            $order->update(['status' => true]);
+        $orders = $this->search_filter($orders)->latest()->paginate(20);
+        return view('admin.orders.index', compact('orders'));
+    }
 
-        alert('عملیات موفقیت آمیز بود','سفارش با موفقیت به لیست سفارشات اضافه شد', 'success');
-        return redirect()->route('admin.orders.index');
-        */
+
+    /**
+     * Display a listing of the approved orders.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function approved()
+    {
+        $orders = Order::query()->where('status', 'approved');
+
+        $orders = $this->search_filter($orders)->latest()->paginate(20);
+        return view('admin.orders.index', compact('orders'));
+    }
+
+
+    /**
+     * Display a listing of the canceled orders.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function canceled()
+    {
+        $orders = Order::query()->where('status', 'canceled');
+
+        $orders = $this->search_filter($orders)->latest()->paginate(20);
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -131,22 +135,6 @@ class OrderController extends Controller
         return redirect()->route('admin.orders.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Order $order
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(Order $order)
-    {
-        /*
-        $order->delete();
-
-        alert('عملیات موفقیت آمیز بود','سفارش با موفقیت حذف شد', 'success');
-        return back();
-        */
-    }
-
 
     public function approve(Request $request)
     {
@@ -161,5 +149,23 @@ class OrderController extends Controller
 
         alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت تایید شد');
         return redirect()->route('admin.orders.index');
+    }
+
+    /**
+     * filter with search param
+     *
+     * @param $orders
+     * @return mixed
+     */
+    public function search_filter($orders)
+    {
+        if ($keyword = request('search')) {
+            $orders->whereHas('user', function($query) use ($keyword) {
+                $query->where('name', 'LIKE', "%$keyword%");
+            })
+                ->orWhere('id', 'LIKE', "%$keyword%");
+        }
+
+        return $orders;
     }
 }

@@ -195,7 +195,7 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.approved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.approved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.approved') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-success text-white mr-3">
@@ -210,7 +210,7 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.unapproved') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.unapproved') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-warning text-white mr-3">
@@ -225,7 +225,7 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.priced') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.priced') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.priced') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-secondary text-white mr-3">
@@ -240,7 +240,7 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.paid') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.paid') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.paid') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-info text-white mr-3">
@@ -255,7 +255,7 @@
                 </a>
             </li>
             <li>
-                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.index') }}">
+                <a class="{{ request()->routeIs('admin.orders.canceled') ? 'active' : '' }} mb-2" href="{{ route('admin.orders.canceled') }}">
                     <div class="d-flex align-items-center">
                         <div>
                             <div class="icon-block bg-danger text-white mr-3">

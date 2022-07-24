@@ -18,13 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::query();
+        $users = User::query()->where('admin', false);
 
-        if ($keyword = request('search')) {
-            $users->where('name', 'LIKE', "%$keyword%")->orWhere('phone', 'LIKE', "%$keyword%");
-        }
-
-        $users = $users->latest()->paginate(20);
+        $users = $this->search_filter($users)->latest()->paginate(20);
         return view('admin.users.index', compact('users'));
     }
 
@@ -124,13 +120,31 @@ class UserController extends Controller
 
 
     /**
+     * filter with search param
+     *
+     * @param $users
+     * @return mixed
+     */
+    public function search_filter($users)
+    {
+        if ($keyword = request('search')) {
+            $users->where('name', 'LIKE', "%$keyword%")->orWhere('phone', 'LIKE', "%$keyword%");
+        }
+
+        return $users;
+    }
+
+
+    /**
      * Display a listing of the vip users.
      *
      * @return \Illuminate\Contracts\View\View
      */
     public function vip_users()
     {
-        $users = User::where('admin', false)->where('vip', true)->paginate(20);
+        $users = User::query()->where('admin', false)->where('vip', true);
+
+        $users = $this->search_filter($users)->latest()->paginate(20);
         return view('admin.users.index', compact('users'));
     }
 
@@ -142,7 +156,9 @@ class UserController extends Controller
      */
     public function unapproved()
     {
-        $users = User::where('admin', false)->where('zarin', false)->paginate(20);
+        $users = User::query()->where('admin', false)->where('zarin', false);
+
+        $users = $this->search_filter($users)->latest()->paginate(20);
         return view('admin.users.index', compact('users'));
     }
 

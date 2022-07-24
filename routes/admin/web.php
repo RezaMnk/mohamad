@@ -66,6 +66,12 @@ Route::resource('attributes', 'AttributeController')->except('create');
  */
 Route::prefix('orders')->name('orders.')->controller('OrderController')->group(function () {
     Route::patch('approve', 'approve')->name('approve');
+
+    Route::get('/unapproved', 'unapproved')->name('unapproved');
+    Route::get('/priced', 'priced')->name('priced');
+    Route::get('/paid', 'paid')->name('paid');
+    Route::get('/approved', 'approved')->name('approved');
+    Route::get('/canceled', 'canceled')->name('canceled');
 });
 
 Route::resource('orders', 'OrderController');
