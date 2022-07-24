@@ -1,6 +1,6 @@
 
         <!--==================== Service Info Section Start ====================-->
-        <div class="full-row bg-dark">
+        <div class="full-row bg-dark d-none d-md-block">
             <div class="container">
                 <div class="row row-cols-xxl-5 row-cols-xl-3 row-cols-sm-2 row-cols-1 g-0 gy-4 gy-xxl-0">
                     <div class="col">
@@ -54,17 +54,28 @@
         <!--==================== Service Info Section End ====================-->
 
         <!--==================== Footer Section Start ====================-->
-        <footer class="full-row pt-0 bg-dark">
+        <hr>
+        <footer class="pt-0 bg-dark">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 col-12 text-center text-md-end">
                         <div class="footer-widget mb-5">
                             <div class="footer-logo mb-4">
                                 <a href="{{ route('home.index') }}"><img class="nav-logo" src="{{ asset('storage/logo/17.png') }}" alt="Image not found!" /></a>
                             </div>
+                            <div class="text-primary d-block d-md-none">
+                                 <a href="{{ route('home.shop') }}">فروشگاه</a>
+                                 | 
+                                 <a href="{{ route('home.contact') }}">تماس با ما</a>
+                                 | 
+                                 <a href="{{ route('home.about') }}"> درباره ما</a>
+                                 | 
+                                 <a href="{{ route('home.profile') }}">حساب کارقری</a>
+                                </div>
+                            <br class="d-block d-md-none">
                               <div class="widget-ecommerce-contact">
-                                <div class="text-light font-medium font-400 mt-2 ltr text-right">(090) 8001-8588, (090) 874 548</div>
-                                <span class="h6 text-secondary">آدرس:</span>
+                                <div class="text-light font-medium font-400 mt-2 ltr">(090) 8001-8588, (090) 874 548</div>
+                                <span class="h6 text-secondary d-none d-md-block">آدرس:</span>
                                 <div class="text-general">ایران، تهران  شهرک غرب، خیابان ظفر برج گردون</div>
                             </div>
                         </div>
@@ -76,7 +87,7 @@
                             <a href="#"><i class="fab fa-pinterest-p"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 col-4 d-none d-md-block">
                         <div class="footer-widget category-widget mb-5">
                             <h3 class="widget-title mb-4">سایر دسته بندی ها</h3>
                             <ul>
@@ -88,7 +99,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 col-4 d-none d-md-block">
                         <div class="footer-widget category-widget mb-5">
                             <h3 class="widget-title mb-4 xs-mx-none">&nbsp;</h3>
                             <ul>
@@ -100,7 +111,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6">
+                    <div class="col-lg-2 col-md-6 col-4 d-none d-md-block">
                         <div class="footer-widget widget-nav mb-5">
                             <h3 class="widget-title mb-4">حساب کاربری</h3>
                             <ul>
@@ -121,14 +132,17 @@
         <div class="full-row copyright bg-gray py-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <span class="text-light sm-mb-10 d-block">© 2021 تمام حقوق این سایت متعلق به بیگ بازار می باشد.</span>
+                    <div class="col-md-6 text-center">
+                        <span class="text-dark sm-mb-10 d-none d-md-block">© 2022 تمام حقوق این سایت متعلق به طلای محمد می باشد.</span>
 
                     </div>
-                    <div class="col-md-6">
-                    <span class="text-light sm-mb-10 d-block">© 2021 تمام حقوق این سایت متعلق به بیگ بازار می باشد.</span>
+                    <div class="col-md-6 text-center text-md-left">
+                    <span class="text-dark sm-mb-10 d-block">Developed & Designed By <a href="https://rahamteam.ir/">Raham Team</a></span>
                     </div>
                 </div>
             </div>
         </div>
         <!--==================== Copyright Section End ====================-->
+        <br class="d-block d-md-none">
+        <br class="d-block d-md-none">
+        
