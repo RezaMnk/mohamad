@@ -1444,7 +1444,7 @@ Side push nav and category Style Start
 .navbar-slide-push .navbar-nav .nav-item .nav-link,
 .categories-menu ul.menu li a {
     font-family: var(--theme-general-font);
-    color: var(--theme-general-color);
+    color: var(--theme-white-color);
     font-size: 15px;
     font-weight: 400;
     display: block;
@@ -1843,8 +1843,8 @@ Main Header Section Style Start
 .navbar .navbar-nav li>ul.dropdown-menu li.active>a,
 .dropdown-item:focus,
 .dropdown-item:hover {
-    color: var(--theme-secondary-color) !important;
-    background-color: var(--theme-light-color) !important;
+    color: var(--theme-dark-color) !important;
+    background-color: var(--theme-primary-color) !important;
 }
 
 .margin-right-1>div:not(:first-child) {
@@ -6882,7 +6882,6 @@ Footer Section Style Start
         width: 100%;
         height: 130px;
         background: #fff;
-        top: 0;
         left: 0;
         z-index: 110;
         visibility: hidden;

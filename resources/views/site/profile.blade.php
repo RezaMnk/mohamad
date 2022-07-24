@@ -6,12 +6,62 @@
 @section('content')
 <div class="full-row pt-0">
     <div class="container">
-        <div class="row">
+        <div class="row flex-column-reverse flex-md-row">
+            <!-- order box  -->
+            <div class="full-row p-4 d-block d-md-none" style="font-size: 13px;">
+                <h2>
+                    سفارشات من
+                    <hr>
+                </h2>
+                <div class="border border-light p-1">
+                    <div class="px-1 pb-3 pt-2">
+                        <div class="row">
+                            <div class="col-6">
+                                 سفارش : <span class="text-primary">۱۲۵۲۳</span>
+                                 <br>
+                                 ۱۴/۲۰/۲۰۰۰
+                            </div>
+                            <div class="col-6 text-start">
+                                قیمت تعیین نشده
+                                <br>
+                                <span class="text-success"> در انتظار پرداخت</span>
+                            </div>
+                        </div>
+                        <hr class="">
+                        <div class="row">
+                            <div class="col-12 d-flex">
+                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
+                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
+                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
+                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
+                                <div class="w-100 d-flex justify-content-center align-items-center">
+                                    <span>
+                                        <bdi>+2</bdi>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <button type="submit" name="order" value="3" class="text-warning">
+                                    سفارش مجدد
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="text-light" style="">
+                                    مشاهده فاکتور
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- orders part  -->
-            <div class="col-9">
+            <div class="col-12 col-md-9 d-none d-md-block">
                 <div class="card-body">
                     <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 table-responsive text-nowrap mb-4">
                                 <table class="table table-striped table-dark table-bordered dataTable dtr-inline">
                                     <thead>
                                     <tr role="row">
@@ -19,7 +69,7 @@
                                         <th>قیمت نهایی</th>
                                         <th>وضعیت</th>
                                         <th> ایجاد</th>
-                                        <th class="w-30">عملیات</th>
+                                        <th class="">عملیات</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -61,19 +111,19 @@
                                             <td>
                                                 @if(in_array($order->status, ['unapproved', 'priced']))
                                                     <a href="{{ route('order.invoice', $order->id) }}">
-                                                        <button type="button" class="btn btn-light float-end" style="width: 70%">
+                                                        <button type="button" class="btn btn-light" style="">
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
                                                     @if($order->status == 'priced')
                                                         @if($order->time_to_pay)
-                                                            <span class="btn btn-danger countdown p-0" data-id="{{ $order->id }}" style="width: 30%">
+                                                            <span class="btn btn-danger countdown p-0" data-id="{{ $order->id }}" style="">
                                                                 {{ sprintf("%02d", $order->time_to_pay->minutes) .':'. sprintf("%02d", $order->time_to_pay->seconds) }}
                                                             </span>
                                                         @else
                                                             <form action="{{ route('order.reorder', $order->id) }}" class="d-inline" method="post">
                                                                 @csrf
-                                                                <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning p-0" style="width: 30%">
+                                                                <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning" >
                                                                     سفارش مجدد
                                                                 </button>
                                                             </form>
@@ -92,10 +142,10 @@
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @empty
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            @empty
                                         <tr>
                                             <td colspan="5"  class="py-3">
                                                 هیچ سفارشی یافت نشد!
@@ -109,11 +159,11 @@
                 </div>
             </div>
             <!-- profile detail part -->
-            <div class="col-3 d-flex justify-content-center flex-wrap h-100 position-sticky sticky-section">
+            <div class="col-12 col-md-3 d-flex justify-content-center flex-wrap h-100 sticky-sm-top sticky-section">
                 <!--  prodile image start -->
 
                 <div class="rounded-circle profile-image p-1 mt-3 w-100 d-flex justify-content-center flex-wrap">
-                    <img src="http://localhost:8000/admin/media/image/avatar.jpg" class="rounded-circle w-75" alt="">
+                    <img src="/admin/media/image/avatar.jpg" class="rounded-circle w-75" alt="">
                 </div>
                 <!-- profile image end -->
                 <!-- profile info start -->

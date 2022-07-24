@@ -14,7 +14,7 @@
                                 <figure class="woocommerce-product-gallery__wrapper">
                                     <div class="bg-light">
                                         <a href="{{ $product->featuring_image()->image_url }}" data-fslightbox>
-                                            <img id="single-image-zoom" src="{{ $product->featuring_image()->image_url }}" alt="Thumb Image" data-zoom-image="assets/images/products/squire-233.png" />
+                                            <img id="single-image-zoom" src="{{ $product->featuring_image()->image_url }}" alt="{{ $product->name }}">
                                         </a>
                                     </div>
                                     @if($product->gallery->count())
@@ -80,7 +80,7 @@
                             </table>
                             @unless(Auth::guest())
                                 <div class="position-sticky add-to-cart" style="">
-                                    <form class="variations_form cart kapee-swatches-wrap" action="{{ route('cart.add' , $product->id) }}" method="post">
+                                    <form class="variations_form cart kapee-swatches-wrap" id="add-to-cart" action="{{ route('cart.add' , $product->id) }}" method="post">
                                         @csrf
                                         <div class="single_variation_wrap align-items-start">
                                             <div class="quantity">
@@ -125,6 +125,30 @@
         </div>
     </div>
     <!--==================== Related Products Section End ====================-->
+    <!-- bottom bar for adding to cart start -->
+    <div class="add-to-cart-bar bg-light d-block d-md-none">
+        <div class="row">
+            <div class="col-2">
+                <img src="{{ $product->featuring_image()->image_url }}" alt="{{ $product->name }}">
+            </div>
+            <div class="col-4 align-items-center d-flex">
+                {{ $product->name }}
+            </div>
+            <div class="col-6 text-start">
+                <button type="submit" form="add-to-cart" class="h-100 btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>
+            </div>
+        </div>
+    </div>
+    <!-- TODO: add to styles  -->
+    <style>
+        .add-to-cart-bar {
+            position: fixed;
+            width: 100%;
+            bottom: 60px;
+            z-index: 99999;
+
+        }
+    </style>
 @endsection
 
 @section('footer-assets')

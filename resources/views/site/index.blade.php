@@ -77,7 +77,7 @@
         <!--==================== Banner Section Start ====================-->
         <br>
         <br>
-        <div class="full-row m-4" style="background: url(https://www.globalagrocorp.com/assets/img/Vector-Smart-Object.png); background-size: contain; background-position: center; background-repeat: no-repeat">
+        <div class="d-none d-md-block full-row m-4" style="background: url(https://www.globalagrocorp.com/assets/img/Vector-Smart-Object.png); background-size: contain; background-position: center; background-repeat: no-repeat">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-xl-4 col-md-6">
