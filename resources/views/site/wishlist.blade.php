@@ -13,46 +13,45 @@
                             <table class="text-light shop_table cart wishlist_table wishlist_view traditional table" data-pagination="no" data-per-page="5" data-page="1" data-id="3989" data-token="G5CZRAZPRKEY">
                                 <thead class="text-dark">
                                     <tr>
-                                        <th>
-                                            تصویر
-                                        </th>
-                                        <th>
-                                            نام کالا
-                                        </th>
-                                        <th>
-                                            تعداد
-                                        </th>
-                                        <th>
-                                            عملیات
-                                        </th>
+                                        <th>تصویر</th>
+                                        <th>نام کالا</th>
+                                        <th>تعداد</th>
+                                        <th>عملیات</th>
                                     </tr>
                                 </thead>
                                 <tbody class="wishlist-items-wrapper">
-                                    <tr>
-                                        <td class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="assets/images/products/squire-1.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="product-name">
-                                            <a href="#">
-                                                ساعت مچی دیجیتال مردانه یونیک مدل کنتوری تاچ
-                                            </a>
-                                        </td>
-                                        <td class="product-price">
-                                            <form id="add-to-cart-{{ 2 }}" action="{{ route('cart.add' , 2) }}" method="post">
-                                                @csrf
-                                                <div>
-                                                    <div class="quantity mb-0" style="margin-bottom: 0 !important;">
-                                                        <input type="number" name="quantity" min="1" step="1" value="1">
+                                    @foreach(auth()->user()->wishlist as $wishlist)
+                                        @php($product = $wishlist->product)
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="{{ route('home.product', $product->id) }}">
+                                                    <img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}">
+                                                </a>
+                                            </td>
+                                            <td class="product-name">
+                                                <a href="{{ route('home.product', $product->id) }}">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </td>
+                                            <td class="product-price">
+                                                <form id="add-to-cart-{{ $product->id }}" action="{{ route('wishlist.add') }}" method="post">
+                                                    @csrf
+                                                    <div>
+                                                        <div class="quantity mb-0" style="margin-bottom: 0 !important;">
+                                                            <input type="number" name="quantity" min="1" step="1" value="1">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td class="product-add-to-cart">
-                                            <button type="submit" form="add-to-cart-{{ 2 }}" class="btn btn-primary">افزودن به سبد</button>
-                                        </td>
-                                    </tr>
+                                                </form>
+                                            </td>
+                                            <td class="product-add-to-cart">
+                                                <button type="submit" form="add-to-cart-{{ $product->id }}" class="btn btn-primary">افزودن به سبد</button>
+                                                <form action="{{ route('wishlist.remove') }}" method="post" class="d-inline">
+                                                    @csrf
+                                                    <button type="submit" name="product" value="{{ $product->id }}" class="btn btn-danger">حذف محصول</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -39,10 +39,10 @@ class WishlistController extends Controller
     public function remove(Request $request)
     {
         $request->validate([
-            'product' => ['required', 'numeric', 'exists:products,id', 'unique:wishlist,product_id']
+            'product' => ['required', 'numeric', 'exists:products,id']
         ]);
 
-        auth()->user()->wishlist->delete($request->product);
+        auth()->user()->wishlist->find($request->product)->delete();
 
         alert()->success('عملیات موفقیت آمیز بود', 'محصول با موفقیت از علاقه مندی ها حذف شد');
         return redirect()->back();

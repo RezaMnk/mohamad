@@ -79,27 +79,26 @@
                                 </tbody>
                             </table>
                             @unless(Auth::guest())
-                                <div class="position-sticky add-to-cart" style="">
+                                <div class="position-sticky add-to-cart">
                                     <form class="variations_form cart kapee-swatches-wrap" id="add-to-cart" action="{{ route('cart.add') }}" method="post">
                                         @csrf
                                         <div class="single_variation_wrap align-items-start">
                                             <div class="quantity">
                                                 <input type="number" name="quantity" min="1" step="1" value="1">
                                             </div>
-                                            <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
+                                            <div class="woocommerce-variation-add-to-cart">
                                                 <button type="submit" name="product" value="{{ $product->id }}" class="btn btn-primary">افزودن به سبد</button>
                                             </div>
                                         </div>
                                     </form>
-                                    <form class="variations_form cart kapee-swatches-wrap" id="add-to-cart" action="{{ route('wishlist.add') }}" method="post">
+                                    <form class="variations_form cart kapee-swatches-wrap" action="{{ route('wishlist.add') }}" method="post">
                                         @csrf
                                         <div class="single_variation_wrap align-items-start">
-                                            <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-enabled">
+                                            <div class="woocommerce-variation-add-to-cart">
                                                 <button type="submit" name="product" value="{{ $product->id }}" class="btn btn-primary">افزودن به علاقه مندی ها</button>
                                             </div>
                                         </div>
                                     </form>
-                                    <button class="btn btn-danger">افزودن به علاقه مندی ها</button>
                                 </div>
                             @endunless
                         </div>
