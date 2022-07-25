@@ -44,7 +44,7 @@ class HomeController extends Controller
     {
         $products = Product::query();
 
-        if ($request->has('order'))
+        if ($request->has('order') && !is_null($request->order))
         {
             switch ($request->order)
             {
@@ -62,42 +62,44 @@ class HomeController extends Controller
             };
         }
 
-        if ($request->has('attribute'))
+        if ($request->has('attribute') && !is_null($request->attribute))
         {
             foreach ($request->attribute as $attribute)
             {
-                $products->orWhereRelation('attributes','id', $attribute);
+                $products->whereRelation('attributes','id', $attribute);
             }
         }
 
-        if ($request->has('weight'))
+        if ($request->has('weight') && !is_null($request->weight))
         {
             foreach ($request->weight as $weight)
             {
                 $weight_l = explode('-', $weight);
                 if (count($weight_l) == 2)
-                    $products->orWhereBetween('weight', [$weight_l[0], $weight_l[1]]);
+                    $products->whereBetween('weight', [$weight_l[0], $weight_l[1]]);
 
                 elseif (str_contains($weight, '+'))
                 {
                     $weight = substr($weight, 1);
-                    $products->orWhere('weight', '>', $weight);
+                    $products->where('weight', '>', $weight);
                 }
 
             }
         }
 
-        if ($request->has('category'))
+        if ($request->has('category') && !is_null($request->category))
         {
-            $products->orWhereRelation('categories','id', $request->category);
+            $products->whereRelation('categories','id', $request->category);
         }
 
         if ($request->has('search') && !is_null($request->search))
         {
-            $products->where('name', 'LIKE', '%'. $request->search .'%')
-                ->orWhere('description', 'LIKE', '%'. $request->search .'%')
-                ->orWhere('short_description', 'LIKE', '%'. $request->search .'%')
-                ->orWhere('id', 'LIKE', '%'. $request->search .'%');
+            $products->where(function($query) use ($request) {
+                $query->where('name', 'LIKE', '%'. $request->search .'%')
+                    ->orWhere('description', 'LIKE', '%'. $request->search .'%')
+                    ->orWhere('short_description', 'LIKE', '%'. $request->search .'%')
+                    ->orWhere('id', 'LIKE', '%'. $request->search .'%');
+            });
         }
 
         return $products;
