@@ -99,6 +99,7 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <button class="btn btn-danger">افزودن به علاقه مندی ها</button>
                                 </div>
                             @endunless
                         </div>
