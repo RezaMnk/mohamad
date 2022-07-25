@@ -34,7 +34,7 @@
                                                 </a>
                                             </td>
                                             <td class="product-price">
-                                                <form id="add-to-cart-{{ $product->id }}" action="{{ route('wishlist.add') }}" method="post">
+                                                <form id="add-to-cart-{{ $product->id }}" action="{{ route('cart.add') }}" method="post">
                                                     @csrf
                                                     <div>
                                                         <div class="quantity mb-0" style="margin-bottom: 0 !important;">
@@ -44,7 +44,7 @@
                                                 </form>
                                             </td>
                                             <td class="product-add-to-cart">
-                                                <button type="submit" form="add-to-cart-{{ $product->id }}" class="btn btn-primary">افزودن به سبد</button>
+                                                <button type="submit" form="add-to-cart-{{ $product->id }}" name="product" value="{{ $product->id }}" class="btn btn-primary">افزودن به سبد</button>
                                                 <form action="{{ route('wishlist.remove') }}" method="post" class="d-inline">
                                                     @csrf
                                                     <button type="submit" name="product" value="{{ $product->id }}" class="btn btn-danger">حذف محصول</button>

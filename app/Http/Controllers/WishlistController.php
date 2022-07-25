@@ -18,7 +18,7 @@ class WishlistController extends Controller
             'product' => ['required', 'numeric', 'exists:products,id']
         ]);
 
-        if (auth()->user()->wishlist()->where('product_id', $request->product))
+        if (auth()->user()->wishlist->firstWhere('product_id', $request->product))
             return redirect()->back()->withErrors(['product' => 'محصول در لیست علاقه مندی ها وجود دارد']);
 
         auth()->user()->wishlist()->create([
