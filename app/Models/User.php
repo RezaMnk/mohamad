@@ -51,6 +51,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Relation connection with wishlist
+     *
+     * @return HasMany
+     */
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
+    /**
      * Relation connection with Orders
      *
      * @return HasMany

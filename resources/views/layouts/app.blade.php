@@ -15,6 +15,10 @@
 
         @include('layouts.sections.footer')
 
+        @foreach($errors->all() as $error)
+
+        @endforeach
+
     </div>
 
     @include('layouts.sections.footer-scripts')

@@ -10,7 +10,28 @@
 <script src="{{ asset('js/jquery.countdown.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 
+@if($errors->any())
+    <script src="/vendor/sweetalert/sweetalert.all.js"></script>
+@endif
+
 <script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        width: '32rem',
+        padding: '1.25rem',
+        showCloseButton:true,
+    })
+
+    @foreach($errors->all() as $error)
+        Toast.fire({
+            icon: 'error',
+            title: '{{ $error }}'
+        })
+    @endforeach
 
     $('#watch-slider').layerSlider({
         sliderVersion: '6.0.5',

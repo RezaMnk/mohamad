@@ -21,6 +21,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "@babel/core": "^7.18.9",
         "ckeditor4": "^4.19.0",
         "hover-effect": "^1.1.0"
     }

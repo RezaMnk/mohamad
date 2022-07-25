@@ -14,47 +14,104 @@
                     <hr>
                 </h2>
                 <div class="border border-light p-1">
-                    <div class="px-1 pb-3 pt-2">
-                        <div class="row">
-                            <div class="col-6">
-                                 سفارش : <span class="text-primary">۱۲۵۲۳</span>
-                                 <br>
-                                 ۱۴/۲۰/۲۰۰۰
-                            </div>
-                            <div class="col-6 text-start">
-                                قیمت تعیین نشده
-                                <br>
-                                <span class="text-success"> در انتظار پرداخت</span>
-                            </div>
-                        </div>
-                        <hr class="">
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
-                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
-                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
-                                <img class="border-light border-start" style="max-width: 20%;" src="/storage/products/thumbs/squire-14.png" alt="Product 4 gallery image">
-                                <div class="w-100 d-flex justify-content-center align-items-center">
-                                    <span>
-                                        <bdi>+2</bdi>
-                                    </span>
+                    @forelse($user->orders as $order)
+                        <div class="px-1 pb-3 pt-2">
+                            <div class="row">
+                                <div class="col-6">
+                                     سفارش : <span class="text-primary">{{ $order->id }}</span>
+                                     <br>
+                                    {{ $order->created_at() }}
+                                </div>
+                                <div class="col-6 text-start">
+                                     {{ $order->total_price ? number_format($order->total_price) . ' ﷼' : 'قیمت تعیین نشده' }}
+
+                                    <br>
+                                    @switch($order->status)
+                                        @case('unapproved')
+                                            <span class="text-secondary">در انتظار بررسی</span>
+                                            @break
+                                        @case('priced')
+                                        @unless($order->time_to_pay)
+                                                <span class="text-danger">منقضی شده</span>
+                                            @else
+                                                <span class="text-warning">در انتظار پرداخت</span>
+                                            @endunless
+                                        @break
+                                        @case('paid')
+                                            <span class="text-info">پرداخت شده</span>
+                                            @break
+                                        @case('approved')
+                                            <span class="text-success">تکمیل شده</span>
+                                            @break
+                                        @case('canceled')
+                                            <span class="text-danger">لغو شده</span>
+                                            @break
+                                    @endswitch
                                 </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row text-center">
-                            <div class="col-6">
-                                <button type="submit" name="order" value="3" class="text-warning">
-                                    سفارش مجدد
-                                </button>
+                            <hr class="">
+                            <div class="row">
+                                <div class="col-12 d-flex">
+                                    @foreach($order->products as $product)
+                                        <img @class(['border-light border-start' => !$loop->last]) style="max-width: 20%;" src="{{ $product->featuring_image()->image_url }}" alt="{{ $product->name }}">
+                                        @if ($loop->iteration > 3)
+                                            <div class="w-100 d-flex justify-content-center align-items-center">
+                                                <span>
+                                                    <bdi>+2</bdi>
+                                                </span>
+                                            </div>
+                                            @break
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <button type="button" class="text-light" style="">
-                                    مشاهده فاکتور
-                                </button>
+                            <hr>
+                            <div class="row text-center">
+                                @if(in_array($order->status, ['unapproved', 'priced']))
+                                    <div class="col-6">
+                                        <a href="{{ route('order.invoice', $order->id) }}">
+                                            <button type="button" class="text-light">
+                                                مشاهده فاکتور
+                                            </button>
+                                        </a>
+                                    </div>
+                                <div class="col-6">
+                                    @if($order->status == 'priced')
+                                        @if($order->time_to_pay)
+                                            <span class="text-danger border border-danger py-2 px-3 countdown" data-id="{{ $order->id }}">
+                                                {{ sprintf("%02d", $order->time_to_pay->minutes) .':'. sprintf("%02d", $order->time_to_pay->seconds) }}
+                                            </span>
+                                        @else
+                                            <form action="{{ route('order.reorder', $order->id) }}" class="d-inline" method="post">
+                                                @csrf
+                                                <button type="submit" name="order" value="{{ $order->id }}" class="text-warning" >
+                                                    سفارش مجدد
+                                                </button>
+                                            </form>
+                                        @endif
+                                    @else
+                                        <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
+                                            @csrf
+                                            <button type="submit" name="order" value="{{ $order->id }}" class="text-danger p-0">
+                                                لغو
+                                            </button>
+                                        </form>
+                                    @endif
+                                </div>
+                                @else
+                                    <div class="col-">
+                                        <a href="{{ route('order.invoice', $order->id) }}">
+                                            <button type="button" class="text-light w-100">
+                                                مشاهده فاکتور
+                                            </button>
+                                        </a>
+                                    </div>12
+                                @endif
                             </div>
                         </div>
-                    </div>
+                    @empty
+                        هیچ سفارشی یافت نشد!
+                    @endforelse
                 </div>
             </div>
             <!-- orders part  -->
@@ -111,41 +168,41 @@
                                             <td>
                                                 @if(in_array($order->status, ['unapproved', 'priced']))
                                                     <a href="{{ route('order.invoice', $order->id) }}">
-                                                        <button type="button" class="btn btn-light" style="">
+                                                        <button type="button" class="btn btn-light">
                                                             مشاهده فاکتور
                                                         </button>
                                                     </a>
                                                     @if($order->status == 'priced')
                                                         @if($order->time_to_pay)
-                                                            <span class="btn btn-danger countdown p-0" data-id="{{ $order->id }}" style="">
+                                                            <span class="btn btn-danger countdown" data-id="{{ $order->id }}">
                                                                 {{ sprintf("%02d", $order->time_to_pay->minutes) .':'. sprintf("%02d", $order->time_to_pay->seconds) }}
                                                             </span>
                                                         @else
                                                             <form action="{{ route('order.reorder', $order->id) }}" class="d-inline" method="post">
                                                                 @csrf
-                                                                <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning" >
+                                                                <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning">
                                                                     سفارش مجدد
                                                                 </button>
                                                             </form>
                                                         @endif
                                                     @else
-                                                    <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
-                                                        @csrf
-                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger p-0" style="width: 30%">
-                                                            لغو
-                                                        </button>
-                                                    </form>
-                                                @endif
-                                                @else
-                                                    <a href="{{ route('order.invoice', $order->id) }}">
-                                                        <button type="button" class="btn btn-light w-100">
-                                                            مشاهده فاکتور
-                                                        </button>
-                                                    </a>
+                                                        <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
+                                                            @csrf
+                                                            <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger p-0" style="width: 30%">
+                                                                لغو
+                                                            </button>
+                                                        </form>
                                                     @endif
-                                                </td>
-                                            </tr>
-                                            @empty
+                                                @else
+                                                <a href="{{ route('order.invoice', $order->id) }}">
+                                                    <button type="button" class="btn btn-light w-100">
+                                                        مشاهده فاکتور
+                                                    </button>
+                                                </a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @empty
                                         <tr>
                                             <td colspan="5"  class="py-3">
                                                 هیچ سفارشی یافت نشد!
@@ -211,8 +268,9 @@
         window.onload = function () {
             @foreach($user->orders as $order)
                 @if($order->status == 'priced' && $order->time_to_pay)
-                    TimerCountdown({{ $order->time_to_pay->minutes * 60 + $order->time_to_pay->seconds }},
-                                document.querySelector('.countdown[data-id="'+ {{ $order->id }} +'"]'));
+                    document.querySelectorAll('.countdown[data-id="'+ {{ $order->id }} +'"]').forEach(function (countdown) {
+                        TimerCountdown({{ $order->time_to_pay->minutes * 60 + $order->time_to_pay->seconds }}, countdown)
+                    });
                 @endif
             @endforeach
         };

@@ -14,11 +14,14 @@ class CartController extends Controller
      * @param Product $product
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function add(Request $request, Product $product)
+    public function add(Request $request)
     {
         $request->validate([
-            'quantity' => ['required', 'numeric', 'min:1', 'max:999']
+            'quantity' => ['required', 'numeric', 'min:1', 'max:999'],
+            'product' => ['required', 'numeric', 'exists:products,id']
         ]);
+
+        $product = Product::find($request->product);
 
         if (cart()->get($product))
             cart()->update($product, $request->quantity);
@@ -30,6 +33,13 @@ class CartController extends Controller
     }
 
 
+    /**
+     * remove product from cart
+     *
+     * @param Request $request
+     * @param Product $product
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function remove(Request $request, Product $product)
     {
         cart()->remove($product);

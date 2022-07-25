@@ -57,8 +57,6 @@ class ProductGallery extends Model
     }
 
 
-
-
     /**
      * Get image url for product
      *

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\TwoFAController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,9 +49,16 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
 
 
 Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function () {
-    Route::post('add/{product}', 'add')->name('add');
+    Route::post('add', 'add')->name('add');
     Route::get('remove/{product}', 'remove')->name('remove');
 });
+
+
+Route::controller(WishlistController::class)->prefix('wishlist')->name('wishlist.')->group(function () {
+    Route::post('add', 'add')->name('add');
+    Route::post('remove', 'remove')->name('remove');
+});
+
 
 Route::controller(OrderController::class)->prefix('order')->name('order.')->group(function () {
     Route::post('create', 'create')->name('create');
@@ -185,8 +193,7 @@ Route::get('/fake_products', function () {
 });
 
 Route::get('test', function () {
-    $product = \App\Models\Product::find(39);
-    cart()->remove($product);
+    //
 })->name('test');
 
 Route::get('ses', function () {
