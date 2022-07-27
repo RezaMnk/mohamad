@@ -320,13 +320,9 @@
                                                 </li>
                                             @endforelse
                                         </ul>
-<<<<<<< HEAD
-                                        <div class="buttons">
-                                            <a href="{{ route('home.cart') }}" class="btn btn-primary w-100">سبد خرید</a>
-                                        </div>
+                                      
                                     </div>
                                 </div>
-=======
                                         <div class="tab-content" id="menu-and-categoryContent">
                                             <div class="tab-pane fade show active woocommerce-Tabs-panel woocommerce-Tabs-panel--description" id="pills-push-menu" role="tabpanel" aria-labelledby="pills-push-menu-tab">
                                                 <div class="push-navbar">
@@ -458,7 +454,6 @@
                                 <button type="submit" form="filter" class="search-submit">
                                     <i class="flaticon-search flat-mini text-white"></i>
                                 </button>
->>>>>>> e9e95bff1aab6b3756da96c7576209d13859fb62
                             </div>
                         </div>
                     </div>
