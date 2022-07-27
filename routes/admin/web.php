@@ -62,6 +62,17 @@ Route::resource('attributes', 'AttributeController')->except('create');
 
 
 /*
+ * Attributes routes
+ */
+Route::prefix('feedbacks')->name('feedbacks.')->controller('FeedbackController')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/{feedback}', 'show')->name('show');
+
+});
+
+
+
+/*
  * Orders routes
  */
 Route::prefix('orders')->name('orders.')->controller('OrderController')->group(function () {
