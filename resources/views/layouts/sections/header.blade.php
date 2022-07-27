@@ -50,9 +50,9 @@
                                                 <div class="col">
                                                     <span class="d-inline-block px-3 font-600 text-uppercase text-secondary pb-2">صفحات فروشگاه</span>
                                                     <ul>
-                                                        <li><a class="dropdown-item" href="{{ route('home.cart') }}">سبد خرید</a></li>
+                                                        <li><a class="dropdown-item" href="cart.html">سبد خرید</a></li>
                                                         <li><a class="dropdown-item" href="checkout.html">تسویه حساب</a></li>
-                                                        <li><a class="dropdown-item" href="{{ route('home.profile') }}">حساب کاربری</a></li>
+                                                        <li><a class="dropdown-item" href="my-account.html">حساب کاربری</a></li>
                                                         <li><a class="dropdown-item" href="registration.html">ثبت نام</a></li>
                                                         <li><a class="dropdown-item" href="wishlist.html">لیست موردعلاقه</a></li>
                                                         <li><a class="dropdown-item" href="single-shop.html">جزئیات محصول 1</a></li>
@@ -258,32 +258,27 @@
                 </div>
                 <div class="col-xxl-3 col-xl-4 col-lg-3 col-6 order-lg-3">
                     <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 md-py-10">
-                        <div class="sign-in">
-                            <a href="{{ route('home.profile') }}" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
-                                <i class="flaticon-user-3 flat-mini text-dark mx-auto"></i>
+                        <div class="sign-in position-relative font-general my-account-dropdown">
+                            <a href="my-account.html" class="has-dropdown d-flex align-items-center text-dark text-decoration-none" title="My Account">
+                                <i class="flaticon-user-3 flat-mini mx-auto me-1"></i>
                             </a>
+                            <ul class="my-account-popup">
+                                <li><a href="my-account.html"><span class="menu-item-text">حساب کاربری</span></a></li>
+                                <li><a href="wishlist.html"><span class="menu-item-text">موردعلاقه های من</span></a></li>
+                            </ul>
                         </div>
-{{--                        <div class="sign-in position-relative font-general my-account-dropdown">--}}
-{{--                            <a href="{{ route('home.profile') }}" class="has-dropdown d-flex align-items-center text-dark text-decoration-none" title="My Account">--}}
-{{--                                <i class="flaticon-user-3 flat-mini mx-auto me-1"></i>--}}
-{{--                            </a>--}}
-{{--                            <ul class="my-account-popup">--}}
-{{--                                <li><a href="{{ route('home.profile') }}"><span class="menu-item-text">حساب کاربری</span></a></li>--}}
-{{--                                <li><a href="{{ route('home.wishlist') }}"><span class="menu-item-text">موردعلاقه های من</span></a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
                         <div class="search-view d-xxl-none">
                             <a href="#" class="search-pop top-quantity d-flex align-items-center text-decoration-none">
                                 <i class="flaticon-search flat-mini text-dark mx-auto"></i>
                             </a>
                         </div>
                         <div class="wishlist-view">
-                            <a href="{{ route('home.wishlist') }}" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
+                            <a href="wishlist.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
                                 <i class="flaticon-like flat-mini text-dark mx-auto"></i>
                             </a>
                         </div>
                         <div class="header-cart-1">
-                            <a href="{{ route('home.cart') }}" class="cart has-cart-data" title="View Cart">
+                            <a href="cart.html" class="cart has-cart-data" title="View Cart">
                                 <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i>
                                     <span class="header-cart-count">{{ cart()->all()->count() }}</span>
                                 </div>
@@ -516,17 +511,11 @@
                     <i class="fa fa-search"></i>
                     <span>جستجو</span>
                 </label>
-                @if(Auth::check())
-                    <label for="profile" onclick="location.href='{{ route('home.profile') }}';">
-                        <i class="fa fa-user"></i>
-                        <span>پروفایل</span>
-                    </label>
-                @else
-                    <label for="profile" onclick="location.href='{{ route('login') }}';">
-                        <i class="fa fa-sign-in-alt"></i>
-                        <span>ورود</span>
-                    </label>
-                @endif
+
+                <label for="profile" onclick="location.href='{{ route('home.profile') }}';">
+                    <i class="fa fa-user"></i>
+                    <span>پروفایل</span>
+                </label>
                 @if(request()->routeIs('home.shop'))
                     <label for="filter" class="" data-bs-toggle="modal" data-bs-target="#filter-modal">
                         <i class="fa fa-filter"></i>
