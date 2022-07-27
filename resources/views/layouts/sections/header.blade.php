@@ -88,14 +88,14 @@
                             @if(request()->routeIs('home.shop'))
                                 <div class="form-inline search-line-shape">
                                     <input type="text" form="filter" class="form-control search-field text-light" name="search" value="{{ request()->search }}" placeholder="جستجو کالا...">
-                                    <button type="submit" name="submit" class="search-submit">
+                                    <button type="submit" form="filter" class="search-submit">
                                         <i class="flaticon-search flat-mini"></i>
                                     </button>
                                 </div>
                             @else
                                 <form class="form-inline search-line-shape" action="{{ route('home.shop') }}">
                                     <input type="text" class="form-control search-field text-light" name="search" placeholder="جستجو کالا...">
-                                    <button type="submit" name="submit" class="search-submit">
+                                    <button type="submit" class="search-submit">
                                         <i class="flaticon-search flat-mini"></i>
                                     </button>
                                 </form>
@@ -240,119 +240,14 @@
                                                                 </a>
                                                             </form>
                                                         </li>
-                                                        
+
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="pills-push-categories" role="tabpanel" aria-labelledby="pills-push-categories-tab">
                                                 <div class="categories-menu">
                                                     <ul class="navbar-nav">
-                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle" href="#">پوشاک زنانه</a>
-                                                            <ul class="dropdown-menu">
-                                                                <li class="dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">پیراهن</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">تاپ</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تیشرت</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تونیک</a></li>
-                                                                        <li><a class="dropdown-item" href="#">شلوار جین</a></li>
-                                                                        <li><a class="dropdown-item" href="#">سرهمی</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="nav-item dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">پوشاک ورزشی</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">ژاکت و سویشرت</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کُت و شلوار</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کُت و جلیقه</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تاپ و شلوارک</a></li>
-                                                                        <li><a class="dropdown-item" href="#">دمپایی و صندل</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="nav-item dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">لباس ورزشی</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">کیف و کوله پشتی</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کفش ورزشی</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تیشرت</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لوازم جانبی کوهنوردی و سفر</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لوازم ورزشی</a></li>
-                                                                    </ul>
-                                                                </li>
-
-                                                                <li class="nav-item dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">لباس زیر زنانه</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">ست سوتین و لباس زیر</a></li>
-                                                                        <li><a class="dropdown-item" href="#">زیرشلواری</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لباس فرم</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لباس خواب</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کفش راحتی</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#">ست کیف و کفش</a></li>
-                                                                <li><a class="dropdown-item" href="#">اکسسوری</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle" href="#">پوشاک مردانه</a>
-                                                            <ul class="dropdown-menu">
-                                                                <li class="dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">پیراهن</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">تاپ</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تیشرت</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تونیک</a></li>
-                                                                        <li><a class="dropdown-item" href="#">شلوار جین</a></li>
-                                                                        <li><a class="dropdown-item" href="#">سرهمی</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="nav-item dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">پوشاک ورزشی</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">ژاکت و سویشرت</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کُت و شلوار</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کُت و جلیقه</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تاپ و شلوارک</a></li>
-                                                                        <li><a class="dropdown-item" href="#">دمپایی و صندل</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li class="nav-item dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">لباس ورزشی</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">کیف و کوله پشتی</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کفش ورزشی</a></li>
-                                                                        <li><a class="dropdown-item" href="#">تیشرت</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لوازم جانبی کوهنوردی و سفر</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لوازم ورزشی</a></li>
-                                                                    </ul>
-                                                                </li>
-
-                                                                <li class="nav-item dropdown">
-                                                                    <a class="dropdown-toggle dropdown-item" href="#">لباس زیر زنانه</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">ست شورت و رکابی</a></li>
-                                                                        <li><a class="dropdown-item" href="#">زیرشلواری</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لباس فرم</a></li>
-                                                                        <li><a class="dropdown-item" href="#">لباس خواب</a></li>
-                                                                        <li><a class="dropdown-item" href="#">کفش راحتی</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#">ست کیف و کفش</a></li>
-                                                                <li><a class="dropdown-item" href="#">اکسسوری</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">کالای دیجیتال</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">کتاب، لوازم تحریر و هنر</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">ابزار و تجهیزات صنعتی</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">زیورآلات و ساعت</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">محصولات بومی و محلی</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">ورزش و سفر</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">اسباب بازی، کودک و نوزاد</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">کالاهای سوپرمارکتی</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">زیبایی و سلامت</a></li>
-                                                        <li class="nav-item"><a class="nav-link" href="#">خانه و آشپزخانه</a></li>
+                                                        @each('partials.categories.header', \App\Models\Category::where('parent_id', 0)->get(), 'category')
                                                     </ul>
                                                 </div>
                                             </div>
@@ -370,18 +265,37 @@
                 </div>
                 <div class="col-xxl-7 col-xl-6 col-lg-6 col-12 order-lg-2">
                     <div class="product-search-one global-search touch-screen-view">
-                        <form class="form-inline search-pill-shape" action="#" method="post">
-                            <input type="text" class="form-control search-field" name="search" placeholder="جستجو کالا...">
-                            <div class="select-appearance-none">
-                                <select class="form-control">
-                                    <option selected>همه دسته بندی</option>
-                                    <option value="1">یک</option>
-                                    <option value="2">دو</option>
-                                    <option value="3">سه</option>
-                                </select>
+                        @if(request()->routeIs('home.shop'))
+                            <div class="form-inline search-pill-shape">
+                                <input type="text" form="filter" class="form-control search-field" name="search" placeholder="جستجو کالا...">
+                                <div class="select-appearance-none">
+                                    <select class="form-control" form="filter" name="category">
+                                        <option value selected>همه دسته بندی</option>
+                                        @foreach(\App\Models\Category::where('parent_id', 0)->get() as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <button type="submit" form="filter" class="search-submit">
+                                    <i class="flaticon-search flat-mini text-white"></i>
+                                </button>
                             </div>
-                            <button type="submit" name="submit" class="search-submit"><i class="flaticon-search flat-mini text-white"></i></button>
-                        </form>
+                        @else
+                            <form class="form-inline search-pill-shape" action="{{ route('home.shop') }}">
+                                <input type="text" class="form-control search-field" name="search" placeholder="جستجو کالا...">
+                                <div class="select-appearance-none">
+                                    <select class="form-control" name="category">
+                                        <option value selected>همه دسته بندی</option>
+                                        @foreach(\App\Models\Category::where('parent_id', 0)->get() as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <button type="submit" class="search-submit">
+                                    <i class="flaticon-search flat-mini text-white"></i>
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -395,16 +309,29 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <form action="" class="row">
-                    <div class="form-group col-8">
-                        <input type="text" class="form-control" placeholder="جستجو کالا...">
+                @if(request()->routeIs('home.shop'))
+                    <div class="row">
+                        <div class="form-group col-8">
+                            <input type="text" form="filter" name="search" class="form-control" placeholder="جستجو کالا...">
+                        </div>
+                        <div class="form-group col-4">
+                            <button type="submit" form="filter" class="btn btn-primary">
+                                <i class="flaticon-search flat-mini mx-auto"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group col-4">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="flaticon-search flat-mini mx-auto"></i>
-                        </button>
-                    </div>
-                </form>
+                @else
+                    <form action="{{ route('home.shop') }}" class="row">
+                        <div class="form-group col-8">
+                            <input type="text" name="search" class="form-control" placeholder="جستجو کالا...">
+                        </div>
+                        <div class="form-group col-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="flaticon-search flat-mini mx-auto"></i>
+                            </button>
+                        </div>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
@@ -491,7 +418,7 @@
                     <i class="fa fa-search"></i>
                     <span>جستجو</span>
                 </label>
-                
+
                 <label for="profile" onclick="location.href='{{ route('home.profile') }}';">
                     <i class="fa fa-user"></i>
                     <span>پروفایل</span>
@@ -596,6 +523,6 @@
     }
 </style>
 <script>
-  
+
 </script>
 <!-- mobile header sticky bottom end-->

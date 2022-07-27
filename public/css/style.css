@@ -1113,7 +1113,7 @@ input.text-dark::placeholder {
 
 [class*="product-search-"] .search-line-shape.form-inline button {
     background-color: transparent;
-    color: var(--theme-dark-color) !important;
+    color: var(--theme-secondary-color) !important;
     right: 0;
     padding: 0;
     left: inherit;
