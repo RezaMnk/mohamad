@@ -351,7 +351,7 @@ a.hover-text-extra1:hover {
 }
 
 .btn-secondary {
-    color: var(--theme-white-color);
+    color: var(--theme-dark-color);
     background-color: var(--theme-secondary-color);
 }
 
@@ -4099,7 +4099,7 @@ a.add_to_cart_button:hover,
 
 .btn-secondary:not(:disabled):not(.disabled):active,
 .btn-secondary:hover {
-    color: var(--theme-white-color);
+    color: var(--theme-dark-color);
     background-color: var(--theme-secondary-color);
     border-color: transparent;
     filter: brightness(125%);
