@@ -35,22 +35,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="badge badge-success">خوانده شده</span>
-                                        
-                                    </td>
-                                    <td>رضا نداف</td>
-                                    <td>۰۹۱۲۹۹۹۴۴۴۴</td>
-                                    <td>مشکل دارم</td>
-                                    <td>سلام من خیلی مشکل دارم و میخوام که ...</td>
-                                    <td><button class="btn btn-success">مشاهده پیام</button></td>
-                                </tr>
+                                
                             @foreach($feedbacks as $k => $feedback)
                                 <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }}">
                                     <td>
                                         {{ $feedback->created_at() }}
-                                        <span class="badge badge-danger">خوانده نشده</span>
+
+                                            <span class="badge badge-danger">خوانده نشده</span>
+                                            <span class="badge badge-success">خوانده شده</span>
+                                    </td>
+
                                     </td>
                                     <td class="sorting_1" tabindex="0">
                                         {{ $feedback->name }}
@@ -59,16 +53,13 @@
                                         {{ $feedback->phone }} 
                                     </td>
                                     <td>
-                                        @if($feedback->status)
-                                            <button type="button" class="btn btn-successw-100 justify-content-center" disabled="disabled">منتشر شده</button>
-                                        @else
-                                            <button type="button" class="btn btn-lightw-100 justify-content-center" disabled="disabled">پیش نویس</button>
-                                        @endif
+                                        {{ $feedback->title }}
                                     </td>
                                     <td>
-                                        
+                                        {{ $feedback->text }}
+
                                     </td>
-                                    <td><button class="btn btn-success">مشاهده پیام</button></td>
+                                    <td><a href="{{ route('admin.feedbacks.show', $feedback->id) }}" class="btn btn-success">مشاهده پیام</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
