@@ -228,6 +228,9 @@
                                                             <a class="nav-link" href="{{ route('home.about') }}">درباره ما</a>
                                                         </li>
                                                         <li class="nav-item dropdown mega-dropdown">
+                                                            <a class="nav-link" href="{{ route('home.wishlist') }}">علاقه مندی ها</a>
+                                                        </li>
+                                                        <li class="nav-item dropdown mega-dropdown">
                                                             <form action="{{ route('logout') }}" method="post" class="m-0">
                                                                 @csrf
                                                                 <a href="javascript:void(0)" class="go-to-page">
@@ -358,72 +361,11 @@
                                 </div>
                             </nav>
                         </div>
-                        <a class="navbar-brand" href="{{ route('home.index') }}"><img class="nav-logo" src="{{ asset('storage') }}/logo/17.png" alt="Image not found !"></a>
                     </div>
                 </div>
                 <div class="col-xxl-3 col-xl-4 col-lg-3 col-6 order-lg-3">
                     <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 md-py-10">
-                        <div class="sign-in position-relative font-general my-account-dropdown">
-                            <a href="my-account.html" class="has-dropdown d-flex align-items-center text-dark text-decoration-none" title="My Account">
-                                <i class="flaticon-user-3 flat-mini mx-auto me-1"></i>
-                            </a>
-                            <ul class="my-account-popup">
-                                <li><a href="my-account.html"><span class="menu-item-text">حساب کاربری</span></a></li>
-                                <li><a href="wishlist.html"><span class="menu-item-text">موردعلاقه های من</span></a></li>
-                            </ul>
-                        </div>
-                        <div class="search-view d-xxl-none">
-                            <a href="#" class="search-pop top-quantity d-flex align-items-center text-decoration-none">
-                                <i class="flaticon-search flat-mini text-dark mx-auto"></i>
-                            </a>
-                        </div>
-                        <div class="wishlist-view">
-                            <a href="wishlist.html" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
-                                <i class="flaticon-like flat-mini text-dark mx-auto"></i>
-                            </a>
-                        </div>
-                        <div class="header-cart-1">
-                            <a href="cart.html" class="cart has-cart-data" title="View Cart">
-                                <div class="cart-icon"><i class="flaticon-shopping-cart flat-mini"></i>
-                                    <span class="header-cart-count">{{ cart()->all()->count() }}</span>
-                                </div>
-                                <div class="cart-wrap">
-                                    <div class="cart-text">خرید</div>
-                                    <span class="header-cart-count">تعداد (2)</span>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <bdi>78500<span class="woocommerce-Price-currencySymbol">ت</span></bdi>
-                                    </span>
-                                </div>
-                            </a>
-                            <div class="cart-popup">
-                                <ul class="cart_list product_list_widget">
-                                    @forelse(cart()->all() as $cart_item)
-                                        @php($product = $cart_item['product'])
-                                        <li class="mini-cart-item">
-                                            <a href="{{ route('cart.remove', $product->id) }}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                            <a href="{{ route('home.product', $product->id) }}" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
-                                            <a href="{{ route('home.product', $product->id) }}" class="product-name">{{ $product->name }}</a>
-                                            <div class="variation">
-                                                <span>دسته بندی:</span>
-                                                <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
-                                            </div>
-                                            <div class="cart-item-quantity">
-                                                <span>تعداد: {{ $cart_item['quantity'] }}</span>
-                                            </div>
-                                        </li>
-                                    @empty
-                                        <li>
-                                            <span class="text-dark font-sixteen">
-                                                هیچ محصولی در سبد خرید وجود ندارد!
-                                            </span>
-                                        </li>
-                                    @endforelse
-                                </ul>
-                                <div class="buttons">
-                                    <a href="{{ route('home.cart') }}" class="btn btn-primary w-100 mt-2">سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="navbar-brand" href="{{ route('home.index') }}"><img class="" src="{{ asset('storage/logo/17.png') }}" alt="Image not found !"></a>
                     </div>
                 </div>
                 <div class="col-xxl-7 col-xl-6 col-lg-6 col-12 order-lg-2">
@@ -481,67 +423,32 @@
                         </button>
                     </div>
                     <div class="cart-modal-body">
-                        <div class="cart-modal-table">
-                            <table class="table table-responsive">
-                                <thead>
-                                <tr>
-                                    <th class="product-name">نام محصول</th>
-                                    <th class="product-price">قیمت</th>
-                                    <th class="product-quantity">تعداد</th>
-                                    <th class="product-subtotal">جمع</th>
-                                    <th class="product-remove">حذف</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="product-name">
-                                        <a href="#">
-                                            <img src="{{ asset('assets/images/product/product-1.jpg') }}" alt="product" class="img-fluid">
-                                            <span class="product-name">لپ تاپ اپل</span>
-                                        </a>
-                                    </td>
-                                    <td class="product-price">
-                                        <span class="amount">120000</span>
-                                    </td>
-                                    <td class="product-quantity">
-                                        <div class="quantity">
-                                            <div class="quantity-select">
-                                                <input type="text" class="qty" value="1">
-                                            </div>
+                        <div class="cart-popup">
+                            <ul class="cart_list product_list_widget">
+                                @forelse(cart()->all() as $cart_item)
+                                    @php($product = $cart_item['product'])
+                                    <li class="mini-cart-item">
+                                        <a href="{{ route('cart.remove', $product->id) }}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                        <a href="{{ route('home.product', $product->id) }}" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                        <a href="{{ route('home.product', $product->id) }}" class="product-name">{{ $product->name }}</a>
+                                        <div class="variation">
+                                            <span>دسته بندی:</span>
+                                            <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
                                         </div>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span class="amount">120000</span>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-cross"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="cart-modal-total">
-                            <div class="row">
-                                <div class="col-6">
-                                    <span class="text-muted">هزینه کل:</span>
-                                    <span class="amount">120000</span>
-                                </div>
-                                <div class="col-6">
-                                    <span class="text-muted">تخفیف:</span>
-                                    <span class="amount">0</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span class="text-muted">مالیات:</span>
-                                    <span class="amount">0</span>
-                                </div>
-                                <div class="col-6">
-                                    <span class="text-muted">قابل پرداخت:</span>
-                                    <span class="amount">120000</span>
-                                </div>
+                                        <div class="cart-item-quantity">
+                                            <span>تعداد: {{ $cart_item['quantity'] }}</span>
+                                        </div>
+                                    </li>
+                                @empty
+                                    <li>
+                                    <span class="text-dark font-sixteen">
+                                        هیچ محصولی در سبد خرید وجود ندارد!
+                                    </span>
+                                    </li>
+                                @endforelse
+                            </ul>
+                            <div class="buttons">
+                                <a href="{{ route('home.cart') }}" class="btn btn-primary w-100">سبد خرید</a>
                             </div>
                         </div>
                     </div>
