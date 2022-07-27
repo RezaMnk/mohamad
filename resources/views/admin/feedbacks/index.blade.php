@@ -9,7 +9,8 @@
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row align-items-end">
                     <div class="col-sm-12 col-md-6">
-                        <a class="btn btn-primary mb-2" href="{{ route('admin.products.create') }}">افزودن</a>
+                        <a class="btn btn-success mb-2" href="=">خوانده شده ها</a>
+                        <a class="btn btn-danger mb-2" href="">خوانده نشده ها</a>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <form class="d-flex justify-content-end">
@@ -25,25 +26,37 @@
                         <table id="example1" class="table table-striped table-bordered dataTable dtr-inline" width="100%" role="grid" aria-describedby="example1_info" style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="کد : فعال سازی نمایش به صورت نزولی">کد</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="کد : فعال سازی نمایش به صورت نزولی">وضعیت</th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="نام : فعال سازی نمایش به صورت نزولی">نام</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وزن : فعال سازی نمایش به صورت نزولی">حدود وزن</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وضعیت : فعال سازی نمایش به صورت صعودی">وضعیت</th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="زمان ایجاد : فعال سازی نمایش به صورت صعودی">زمان ایجاد</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وزن : فعال سازی نمایش به صورت نزولی">تلفن</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="وضعیت : فعال سازی نمایش به صورت صعودی">عتوان</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="زمان ایجاد : فعال سازی نمایش به صورت صعودی">خلاصه پیام</th>
                                 <th>عملیات</th>
                             </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="badge badge-success">خوانده شده</span>
+                                        
+                                    </td>
+                                    <td>رضا نداف</td>
+                                    <td>۰۹۱۲۹۹۹۴۴۴۴</td>
+                                    <td>مشکل دارم</td>
+                                    <td>سلام من خیلی مشکل دارم و میخوام که ...</td>
+                                    <td><button class="btn btn-success">مشاهده پیام</button></td>
+                                </tr>
                             @foreach($feedbacks as $k => $feedback)
                                 <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }}">
                                     <td>
-                                        {{ $feedback->code }}
+                                        {{ $feedback->created_at() }}
+                                        <span class="badge badge-danger">خوانده نشده</span>
                                     </td>
                                     <td class="sorting_1" tabindex="0">
                                         {{ $feedback->name }}
                                     </td>
                                     <td>
-                                        {{ $feedback->weight }} گرم
+                                        {{ $feedback->phone }} 
                                     </td>
                                     <td>
                                         @if($feedback->status)
@@ -53,28 +66,9 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {{ $feedback->created_at() }}
+                                        
                                     </td>
-                                    <td>
-                                        <a href="{{ route('admin.products.edit', $feedback->id) }}">
-                                            <button type="button" class="btn btn-warning btn-floating">
-                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                            </button>
-                                        </a>
-                                        <a href="{{ $feedback->status ? route('home.product', $feedback->id) : 'javascript:void(0)' }}">
-                                            <button type="button" class="btn btn-success btn-floating" @if(!$feedback->status) disabled="disabled" @endif>
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                            </button>
-                                        </a>
-                                        <form action="{{ route('admin.products.destroy', $feedback->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-
-                                            <button type="submit" class="btn btn-danger btn-floating">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <td><button class="btn btn-success">مشاهده پیام</button></td>
                                 </tr>
                             @endforeach
                             </tbody>

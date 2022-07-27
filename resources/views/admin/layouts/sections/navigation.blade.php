@@ -23,6 +23,11 @@
                     <i class="icon ti-bag"></i>
                 </a>
             </li>
+            <li class="{{ request()->routeIs('admin.feedbacks*') ? 'active' : '' }}" data-toggle="tooltip" title="پیشنهادات و انتقادات">
+                <a href="#FeedbackSubMenu" title="پیشنهادات و انتقادات">
+                    <i class="icon ti-comment-alt"></i>
+                </a>
+            </li>
         </ul>
         <!-- setting ul  -->
         <ul>
@@ -320,6 +325,13 @@
                 </a>
             </li>
         </ul>
+        <!-- Products -->
+        <!-- Products -->
+        <ul id="FeedbackSubMenu" class="{{ request()->routeIs('admin.products*', 'admin.attributes*', 'admin.categories*',) ? 'navigation-active' : '' }}">
+            <li class="navigation-divider">پیشنهادات و انتقادات</li>
+            
+        </ul>
+        <!-- Products -->
     </div>
 </div>
 <!-- end::navigation -->
