@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Auth\TwoFAController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WishlistController;
@@ -73,6 +74,11 @@ Route::controller(TwoFAController::class)->prefix('2fa')->name('2fa.')->group(fu
     Route::get('/', 'index')->name('index');
     Route::post('/', 'check');
     Route::get('/resend', 'resend')->name('resend');
+});
+
+
+Route::controller(FeedbackController::class)->prefix('feedback')->name('feedback.')->group(function () {
+    Route::post('/store', 'store')->name('store');
 });
 
 Route::post('/api/update-cart', function () {
@@ -193,7 +199,7 @@ Route::get('/fake_products', function () {
 });
 
 Route::get('test', function () {
-    //
+    dd(\App\Models\Feedback::getTableName());
 })->name('test');
 
 Route::get('ses', function () {

@@ -8,12 +8,11 @@
           <div class="full-row p-0">
             <div class="container-fluid">
                 <div class="row">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8237023722886!2d51.42043561520042!3d35.68134273757342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e01f24edf7155%3A0x1083cb76e6fd8022!2sTehran%20Province%2C%20Tehran%2C%20District%2012%2C%20Naser%20Khosrow%20St%2C%20Iran!5e0!3m2!1sen!2s!4v1658058554429!5m2!1sen!2s" width="600" height="450" style="border:0; filter: invert(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8237023722886!2d51.42043561520042!3d35.68134273757342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e01f24edf7155%3A0x1083cb76e6fd8022!2sTehran%20Province%2C%20Tehran%2C%20District%2012%2C%20Naser%20Khosrow%20St%2C%20Iran!5e0!3m2!1sen!2s!4v1658058554429!5m2!1sen!2s" width="600" height="450" style="border:0; filter: invert(92.5%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
         <!--==================== Map Section End ====================-->
-filter: invert(90%)
         <!--==================== Contact Section Start ====================-->
         <div class="full-row">
             <div class="container">
@@ -33,7 +32,7 @@ filter: invert(90%)
                         <div class="d-flex mb-3">
                             <ul>
                                 <li class="mb-3">
-                                    <strong>آدرس شرکت :</strong><br> ایران، تهران، شهرک غرب، مجتمع آریا، واحد 124، فروشگاه آنلاین 
+                                    <strong>آدرس شرکت :</strong><br> ایران، تهران، شهرک غرب، مجتمع آریا، واحد 124، فروشگاه آنلاین
                                 </li>
                                 <li class="mb-3">
                                     <strong>شماره های تماس :</strong><br>021658000 ، 81023737

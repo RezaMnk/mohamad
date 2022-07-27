@@ -4156,7 +4156,7 @@ Food Corner Page Style Start
     content: "";
     width: 50px;
     height: 2px;
-    background-color: var(--theme-secondary-color);
+    background-color: var(--theme-dark-color);
     top: 100%;
     right: 0;
 }
