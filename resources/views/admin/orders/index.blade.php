@@ -48,25 +48,25 @@
                                         @if($order->total_price)
                                             {{ number_format($order->total_price) }} ریال
                                         @else
-                                            <button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">قیمت تعیین نشده</button>
+                                            <button type="button" class="btn btn-light btn-block" disabled="disabled">قیمت تعیین نشده</button>
                                         @endunless
                                     </td>
                                     <td>
                                         @switch($order->status)
                                             @case('unapproved')
-                                                <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
+                                                <button type="button" class="btn btn-warning btn-block" disabled="disabled">در انتظار بررسی</button>
                                                 @break
                                             @case('priced')
-                                                <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
+                                                <button type="button" class="btn btn-secondary btn-block" disabled="disabled">در انتظار پرداخت</button>
                                                 @break
                                             @case('paid')
-                                                <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
+                                                <button type="button" class="btn btn-info btn-block" disabled="disabled">پرداخت شده</button>
                                                 @break
                                             @case('approved')
-                                                <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
+                                                <button type="button" class="btn btn-success btn-block" disabled="disabled">تکمیل شده</button>
                                                 @break
                                             @case('canceled')
-                                                <button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">لغو شده</button>
+                                                <button type="button" class="btn btn-light btn-block" disabled="disabled">لغو شده</button>
                                                 @break
                                         @endswitch
                                     </td>

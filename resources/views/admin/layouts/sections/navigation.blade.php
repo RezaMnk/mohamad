@@ -326,12 +326,41 @@
             </li>
         </ul>
         <!-- Products -->
-        <!-- Products -->
-        <ul id="FeedbackSubMenu" class="{{ request()->routeIs('admin.products*', 'admin.attributes*', 'admin.categories*',) ? 'navigation-active' : '' }}">
+        <!-- Feedbacks -->
+        <ul id="FeedbackSubMenu" class="{{ request()->routeIs('admin.feedbacks*') ? 'navigation-active' : '' }}">
             <li class="navigation-divider">پیشنهادات و انتقادات</li>
-            
+            <li>
+                <a class="{{ request()->routeIs('admin.feedbacks.index') && !request()->has('unread') ? 'active' : '' }} mb-2" href="{{ route('admin.feedbacks.index') }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-primary text-white mr-3">
+                                <i class="fa fa-comments"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">همه پیام ها</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Feedback::calc() }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('admin.feedbacks.index') && request()->has('unread') ? 'active' : '' }} mb-2" href="{{ route('admin.feedbacks.index', ['unread' => 'true']) }}">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="icon-block bg-warning text-white mr-3">
+                                <i class="fa fa-comment-o"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="font-size-13 line-height-22 primary-font m-b-5">خوانده نشده ها</h6>
+                            <h4 class="m-b-0 primary-font font-weight-bold line-height-30">{{ \App\Models\Feedback::calc(['read' => false]) }}</h4>
+                        </div>
+                    </div>
+                </a>
+            </li>
         </ul>
-        <!-- Products -->
+        <!-- Feedbacks -->
     </div>
 </div>
 <!-- end::navigation -->

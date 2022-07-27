@@ -13,9 +13,9 @@
                     سفارشات من
                     <hr>
                 </h2>
-                <div class="border border-light p-1">
-                    @forelse($user->orders as $order)
-                        <div class="px-1 pb-3 pt-2">
+                <div>
+                    @forelse($orders as $order)
+                        <div class="border border-light px-2 pb-3 pt-2 my-4">
                             <div class="row">
                                 <div class="col-6">
                                      سفارش : <span class="text-primary">{{ $order->id }}</span>
@@ -113,106 +113,110 @@
                         هیچ سفارشی یافت نشد!
                     @endforelse
                 </div>
+                <div class="d-block">
+                    {{ $orders->onEachSide(1)->links('vendor.pagination.shop', ['search' => request('search')]) }}
+                </div>
             </div>
             <!-- orders part  -->
             <div class="col-12 col-md-9 d-none d-md-block">
                 <div class="card-body">
                     <div class="row">
-                            <div class="col-sm-12 table-responsive text-nowrap mb-4">
-                                <table class="table table-striped table-dark table-bordered dataTable dtr-inline">
-                                    <thead>
-                                    <tr role="row">
-                                        <th>شماره سفارش</th>
-                                        <th>قیمت نهایی</th>
-                                        <th>وضعیت</th>
-                                        <th> ایجاد</th>
-                                        <th class="">عملیات</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @forelse($user->orders as $order)
-                                        <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }} align-middle">
-                                            <td>
-                                                {{ $order->id }}
-                                            </td>
-                                            <td>
-                                                {!! $order->total_price ? number_format($order->total_price) . ' ریال' : '<button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">قیمت تعیین نشده</button>' !!}
-                                            </td>
-                                            <td>
-                                                @switch($order->status)
-                                                    @case('unapproved')
-                                                        <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
-                                                        @break
-                                                    @case('priced')
-                                                        @unless($order->time_to_pay)
-                                                            <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">سفارش منقضی شده</button>
-                                                        @else
-                                                            <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
-                                                        @endunless
-                                                        @break
-                                                    @case('paid')
-                                                        <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
-                                                        @break
-                                                    @case('approved')
-                                                        <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
-                                                        @break
-                                                    @case('canceled')
-                                                        <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">لغو شده</button>
-                                                        @break
-                                                @endswitch
-                                            </td>
-
-                                            <td>
-                                                {{ $order->created_at() }}
-                                            </td>
-                                            <td>
-                                                @if(in_array($order->status, ['unapproved', 'priced']))
-                                                    <a href="{{ route('order.invoice', $order->id) }}">
-                                                        <button type="button" class="btn btn-light">
-                                                            مشاهده فاکتور
-                                                        </button>
-                                                    </a>
-                                                    @if($order->status == 'priced')
-                                                        @if($order->time_to_pay)
-                                                            <span class="btn btn-danger countdown" data-id="{{ $order->id }}">
-                                                                {{ sprintf("%02d", $order->time_to_pay->minutes) .':'. sprintf("%02d", $order->time_to_pay->seconds) }}
-                                                            </span>
-                                                        @else
-                                                            <form action="{{ route('order.reorder', $order->id) }}" class="d-inline" method="post">
-                                                                @csrf
-                                                                <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning">
-                                                                    سفارش مجدد
-                                                                </button>
-                                                            </form>
-                                                        @endif
+                        <div class="col-sm-12 table-responsive text-nowrap mb-4">
+                            <table class="table table-striped table-dark table-bordered dataTable dtr-inline">
+                                <thead>
+                                <tr role="row">
+                                    <th>شماره سفارش</th>
+                                    <th>قیمت نهایی</th>
+                                    <th>وضعیت</th>
+                                    <th> ایجاد</th>
+                                    <th class="">عملیات</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @forelse($orders as $order)
+                                    <tr role="row" class="{{ $loop->odd ? 'odd' : 'even' }} align-middle">
+                                        <td>
+                                            {{ $order->id }}
+                                        </td>
+                                        <td>
+                                            {!! $order->total_price ? number_format($order->total_price) . ' ریال' : '<button type="button" class="btn btn-light w-100 justify-content-center" disabled="disabled">قیمت تعیین نشده</button>' !!}
+                                        </td>
+                                        <td>
+                                            @switch($order->status)
+                                                @case('unapproved')
+                                                    <button type="button" class="btn btn-secondary w-100 justify-content-center" disabled="disabled">در انتظار بررسی</button>
+                                                    @break
+                                                @case('priced')
+                                                    @unless($order->time_to_pay)
+                                                        <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">سفارش منقضی شده</button>
                                                     @else
-                                                        <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
+                                                        <button type="button" class="btn btn-warning w-100 justify-content-center" disabled="disabled">در انتظار پرداخت</button>
+                                                    @endunless
+                                                    @break
+                                                @case('paid')
+                                                    <button type="button" class="btn btn-info w-100 justify-content-center" disabled="disabled">پرداخت شده</button>
+                                                    @break
+                                                @case('approved')
+                                                    <button type="button" class="btn btn-success w-100 justify-content-center" disabled="disabled">تکمیل شده</button>
+                                                    @break
+                                                @case('canceled')
+                                                    <button type="button" class="btn btn-danger w-100 justify-content-center" disabled="disabled">لغو شده</button>
+                                                    @break
+                                            @endswitch
+                                        </td>
+
+                                        <td>
+                                            {{ $order->created_at() }}
+                                        </td>
+                                        <td>
+                                            @if(in_array($order->status, ['unapproved', 'priced']))
+                                                <a href="{{ route('order.invoice', $order->id) }}">
+                                                    <button type="button" class="btn btn-light">
+                                                        مشاهده فاکتور
+                                                    </button>
+                                                </a>
+                                                @if($order->status == 'priced')
+                                                    @if($order->time_to_pay)
+                                                        <span class="btn btn-danger countdown" data-id="{{ $order->id }}">
+                                                            {{ sprintf("%02d", $order->time_to_pay->minutes) .':'. sprintf("%02d", $order->time_to_pay->seconds) }}
+                                                        </span>
+                                                    @else
+                                                        <form action="{{ route('order.reorder', $order->id) }}" class="d-inline" method="post">
                                                             @csrf
-                                                            <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger p-0" style="width: 30%">
-                                                                لغو
+                                                            <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-warning">
+                                                                سفارش مجدد
                                                             </button>
                                                         </form>
                                                     @endif
                                                 @else
-                                                <a href="{{ route('order.invoice', $order->id) }}">
-                                                    <button type="button" class="btn btn-light w-100">
-                                                        مشاهده فاکتور
-                                                    </button>
-                                                </a>
+                                                    <form action="{{ route('order.cancel', $order->id) }}" class="d-inline" method="post">
+                                                        @csrf
+                                                        <button type="submit" name="order" value="{{ $order->id }}" class="btn btn-danger p-0" style="width: 30%">
+                                                            لغو
+                                                        </button>
+                                                    </form>
                                                 @endif
-                                            </td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="5"  class="py-3">
-                                                هیچ سفارشی یافت نشد!
-                                            </td>
-                                        </tr>
-                                    @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
+                                            @else
+                                            <a href="{{ route('order.invoice', $order->id) }}">
+                                                <button type="button" class="btn btn-light w-100">
+                                                    مشاهده فاکتور
+                                                </button>
+                                            </a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="5"  class="py-3">
+                                            هیچ سفارشی یافت نشد!
+                                        </td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+                            </table>
                         </div>
+                        {{ $orders->onEachSide(1)->links('vendor.pagination.shop', ['search' => request('search')]) }}
+                    </div>
                 </div>
             </div>
             <!-- profile detail part -->
@@ -235,8 +239,6 @@
                     </h5>
                     <p class="text-center">{{ $user->phone }}</p>
                     <p class="text-center">خیابان آزادی، شهر آزادی، کوچه آزادی، پلاک آزادی</p>
-
-
                 </div>
             </div>
 

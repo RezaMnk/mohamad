@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Statistics;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Feedback extends Model
 {
-    use HasFactory;
+    use HasFactory, Statistics;
 
     protected $table = 'feedbacks';
 
@@ -22,6 +23,7 @@ class Feedback extends Model
         'phone',
         'title',
         'text',
+        'read'
     ];
 
 

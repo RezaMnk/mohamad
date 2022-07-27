@@ -159,15 +159,15 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col-8">
-                        <button type="submit" class="btn btn-light w-100 justify-content-center">ذخیره پیش نویس</button>
+                        <button type="submit" class="btn btn-light btn-block">ذخیره پیش نویس</button>
                     </div>
                     <div class="col-4">
                         <a href="{{ route('admin.products.index') }}">
-                            <button type="button" class="btn btn-danger w-100 justify-content-center">لغو</button>
+                            <button type="button" class="btn btn-danger btn-block">لغو</button>
                         </a>
                     </div>
                     <div class="col-12 mt-4">
-                        <button type="submit" name="status" value="1" class="btn btn-success w-100 justify-content-center">انتشار</button>
+                        <button type="submit" name="status" value="1" class="btn btn-success btn-block">انتشار</button>
                     </div>
                 </div>
             </div>

@@ -191,7 +191,8 @@ class HomeController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        return view('site.profile', compact('user'));
+        $orders = $user->orders()->paginate(20);
+        return view('site.profile', compact('user', 'orders'));
     }
 
 

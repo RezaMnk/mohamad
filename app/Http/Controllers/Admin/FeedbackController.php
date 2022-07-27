@@ -30,6 +30,9 @@ class FeedbackController extends Controller
      */
     public function search_filter($feedbacks)
     {
+        if (request('unread'))
+            $feedbacks->where('read', 'false');
+
         if ($keyword = request('search')) {
             $feedbacks->where('name', 'LIKE', "%$keyword%")
                 ->orWhere('phone', 'LIKE', "%$keyword%")
@@ -49,6 +52,11 @@ class FeedbackController extends Controller
      */
     public function show(Feedback $feedback)
     {
+        if (!$feedback->read)
+        {
+            $feedback->read = true;
+            $feedback->save();
+        }
         return view('admin.feedbacks.show', compact('feedback'));
     }
 

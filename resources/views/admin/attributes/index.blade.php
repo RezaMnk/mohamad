@@ -65,7 +65,7 @@
                         @enderror
                     </div>
                     <button type="submit"
-                            class="btn btn-primary w-100 justify-content-center">{{ isset($current_attribute) ? 'بروزرسانی ویژگی' : 'افزودن ویژگی جدید' }}</button>
+                            class="btn btn-primary btn-block">{{ isset($current_attribute) ? 'بروزرسانی ویژگی' : 'افزودن ویژگی جدید' }}</button>
                 </form>
         </div>
         <!-- right col : end  -->

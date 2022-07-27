@@ -61,7 +61,7 @@
                         </div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-block">
                         {{ isset($category) ? 'بروزرسانی دسته بندی' : 'افزودن دسته جدید' }}
                     </button>
                 </form>

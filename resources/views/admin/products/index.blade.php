@@ -50,9 +50,9 @@
                                     </td>
                                     <td>
                                         @if($product->status)
-                                            <button type="button" class="btn btn-successw-100 justify-content-center" disabled="disabled">منتشر شده</button>
+                                            <button type="button" class="btn btn-successbtn-block" disabled="disabled">منتشر شده</button>
                                         @else
-                                            <button type="button" class="btn btn-lightw-100 justify-content-center" disabled="disabled">پیش نویس</button>
+                                            <button type="button" class="btn btn-lightbtn-block" disabled="disabled">پیش نویس</button>
                                         @endif
                                     </td>
                                     <td>
