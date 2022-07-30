@@ -20,7 +20,7 @@
                     </span>
                 </h4>
                 <span class="text-muted">
-                    دیروز 15:33
+                    {{ $feedback->created_at() }}
                     <i class="fa fa-calendar text-primary ml-1"></i>
                 </span>
             </div>
