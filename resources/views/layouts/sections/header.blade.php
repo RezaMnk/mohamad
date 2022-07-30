@@ -413,79 +413,34 @@
                         </button>
                     </div>
                     <div class="cart-modal-body">
-                        <div class="cart-modal-table">
-                            <table class="table table-responsive">
-                                <thead>
-                                <tr>
-                                    <th class="product-name">نام محصول</th>
-                                    <th class="product-price">قیمت</th>
-                                    <th class="product-quantity">تعداد</th>
-                                    <th class="product-subtotal">جمع</th>
-                                    <th class="product-remove">حذف</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="product-name">
-                                        <a href="#">
-                                            <img src="{{ asset('assets/images/product/product-1.jpg') }}" alt="product" class="img-fluid">
-                                            <span class="product-name">لپ تاپ اپل</span>
-                                        </a>
-                                    </td>
-                                    <td class="product-price">
-                                        <span class="amount">120000</span>
-                                    </td>
-                                    <td class="product-quantity">
-                                        <div class="quantity">
-                                            <div class="quantity-select">
-                                                <input type="text" class="qty" value="1">
-                                            </div>
+                        
+                            <ul class="cart_list product_list_widget">
+                                @forelse(cart()->all() as $cart_item)
+                                    @php($product = $cart_item['product'])
+                                    <li class="mini-cart-item">
+                                        <a href="{{ route('cart.remove', $product->id) }}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
+                                        <a href="{{ route('home.product', $product->id) }}" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                        <a href="{{ route('home.product', $product->id) }}" class="product-name">{{ $product->name }}</a>
+                                        <div class="variation">
+                                            <span>دسته بندی:</span>
+                                            <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
                                         </div>
-                                    </td>
-                                    <td class="product-subtotal">
-                                        <span class="amount">120000</span>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-cross"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="cart-modal-total">
-                            <div class="row">
-                                <div class="col-6">
-                                    <span class="text-muted">هزینه کل:</span>
-                                    <span class="amount">120000</span>
-                                </div>
-                                <div class="col-6">
-                                    <span class="text-muted">تخفیف:</span>
-                                    <span class="amount">0</span>
-                                </div>
+                                        <div class="cart-item-quantity">
+                                            <span>تعداد: {{ $cart_item['quantity'] }}</span>
+                                        </div>
+                                    </li>
+                                @empty
+                                    <li>
+                                        <span class="text-dark font-sixteen">
+                                            هیچ محصولی در سبد خرید وجود ندارد!
+                                        </span>
+                                    </li>
+                                @endforelse
+                            </ul>
+                            <div class="buttons">
+                                <a href="{{ route('home.cart') }}" class="btn btn-primary w-100 mt-2">سبد خرید</a>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <span class="text-muted">مالیات:</span>
-                                    <span class="amount">0</span>
-                                </div>
-                                <div class="col-6">
-                                    <span class="text-muted">قابل پرداخت:</span>
-                                    <span class="amount">120000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-modal-footer">
-                        <a href="#" class="btn btn-primary">
-                            <i class="flaticon-shopping-cart"></i>
-                            خرید
-                        </a>
-                        <a href="#" class="btn btn-outline-primary">
-                            <i class="flaticon-heart"></i>
-                            علاقه مندی ها
-                        </a>
+
                     </div>
                 </div>
             </div>
