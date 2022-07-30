@@ -143,7 +143,7 @@
                 {{ $product->name }}
             </div>
             <div class="col-6 text-start">
-                <button type="submit" form="add-to-cart" class="h-100 btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>
+                <button type="submit" form="add-to-cart" name="product" value="{{ $product->id }}" class="h-100 btn btn-primary single_add_to_cart_button button alt single_add_to_cart_ajax_button">افزودن به سبد</button>
             </div>
         </div>
     </div>
@@ -153,7 +153,7 @@
             position: fixed;
             width: 100%;
             bottom: 60px;
-            z-index: 99999;
+            z-index: 999;
 
         }
     </style>

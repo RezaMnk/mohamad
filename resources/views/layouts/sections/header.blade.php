@@ -406,41 +406,34 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="cart-modal-content">
-                    <div class="cart-modal-header">
-                        <h3 class="cart-modal-title">سبد خرید</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
                     <div class="cart-modal-body">
-                        
-                            <ul class="cart_list product_list_widget">
-                                @forelse(cart()->all() as $cart_item)
-                                    @php($product = $cart_item['product'])
-                                    <li class="mini-cart-item">
-                                        <a href="{{ route('cart.remove', $product->id) }}" class="remove" title="Remove this item"><i class="fas fa-times"></i></a>
-                                        <a href="{{ route('home.product', $product->id) }}" class="product-image"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                        <ul>
+                            @forelse(cart()->all() as $cart_item)
+                                @php($product = $cart_item['product'])
+                                <li class="row align-items-center">
+                                    <a href="{{ route('home.product', $product->id) }}" class="product-image col-3"><img src="{{ $product->featuring_image()->image_url }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="{{ $product->name }}" /></a>
+                                    <div class="col-7">
                                         <a href="{{ route('home.product', $product->id) }}" class="product-name">{{ $product->name }}</a>
-                                        <div class="variation">
-                                            <span>دسته بندی:</span>
-                                            <a href="{{ route('home.shop', ['category' => $product->categories->first()->id]) }}" class="d-inline">{{ $product->categories->first()->name }}</a>
-                                        </div>
                                         <div class="cart-item-quantity">
                                             <span>تعداد: {{ $cart_item['quantity'] }}</span>
                                         </div>
-                                    </li>
-                                @empty
-                                    <li>
-                                        <span class="text-dark font-sixteen">
-                                            هیچ محصولی در سبد خرید وجود ندارد!
-                                        </span>
-                                    </li>
-                                @endforelse
-                            </ul>
-                            <div class="buttons">
-                                <a href="{{ route('home.cart') }}" class="btn btn-primary w-100 mt-2">سبد خرید</a>
-                            </div>
-
+                                    </div>
+                                    <a href="{{ route('cart.remove', $product->id) }}" class="col-2 text-center text-danger" title="Remove this item"><i class="fas fa-times"></i></a>
+                                </li>
+                                @unless($loop->last)
+                                    <hr class="my-2">
+                                @endunless
+                            @empty
+                                <li>
+                                    <span class="text-dark font-sixteen">
+                                        هیچ محصولی در سبد خرید وجود ندارد!
+                                    </span>
+                                </li>
+                            @endforelse
+                        </ul>
+                        <div class="buttons">
+                            <a href="{{ route('home.cart') }}" class="btn btn-primary w-100 mt-2">سبد خرید</a>
+                        </div>
                     </div>
                 </div>
             </div>
