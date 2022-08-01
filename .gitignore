@@ -5,6 +5,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-public/storage
+public_html/storage
 !resources/views/vendor
 /node_modules/
