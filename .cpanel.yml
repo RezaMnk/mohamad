@@ -1,5 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/mohamadg/
+    - export DEPLOYPATH=/home/mohamadg
     - /bin/cp -r * $DEPLOYPATH #copy all from root
+    - /bin/cp -rT /repositories/mohamad $DEPLOYPATH
+
