@@ -2,6 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/mohamadg
-    - /bin/cp -rT /repositories/mohamad $DEPLOYPATH
-    - /bin/cp /repositories/mohamad/.env $DEPLOYPATH
-
+    - /bin/cp -R * $DEPLOYPATH
