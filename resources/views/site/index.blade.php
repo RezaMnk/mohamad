@@ -77,7 +77,7 @@
         <!--==================== Banner Section Start ====================-->
         <br>
         <br>
-        <div class="d-none d-md-block full-row m-4" style="background: url(https://www.globalagrocorp.com/assets/img/Vector-Smart-Object.png); background-size: contain; background-position: center; background-repeat: no-repeat">
+        <div class="full-row" style="background: url(https://www.globalagrocorp.com/assets/img/Vector-Smart-Object.png); background-size: contain; background-position: center; background-repeat: no-repeat">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-xl-4 col-md-6">
@@ -150,34 +150,10 @@
         <div class="full-row pb-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-5 md-mb-30">
-                        <div class="bg-dark deal-product e-title-hover-primary e-image-bg-dark e-hover-image-zoom e-info-center">
-                            <div class="product type-product">
-                                <div class="product-wrapper">
-                                    <div class="product-image">
-                                        <a href="single-shop.html" class="woocommerce-LoopProduct-link"><img src="{{ asset('storage') }}/products/height-21.png" alt="Product Image"></a>
-                                        <div class="on-sale">- 25%</div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-title"><a href="single-shop.html">ساعت مچی مردانه اورینت</a></h3>
-                                        <div class="product-price">
-                                            <div class="price">
-                                                <ins>5700000 تومان</ins>
-                                                <del>6850000 تومان</del>
-                                            </div>
-                                        </div>
-                                        <div class="shipping-feed-back">
-                                            <div class="star-rating">
-                                                <div class="rating-wrap">
-                                                    <a href="single-shop.html"><i class="fas fa-star"></i><span> 4.7 (35)</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="shop-grid-full.html" class="btn btn-primary">افزودن به سبد خرید</a>
-                        </div>
+                    <div class="col-xl-4 col-lg-5 md-mb-30" style="background: url('{{ asset('storage') }}/banner/homepage-banner.jpeg');     background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;">
+                        
                     </div>
                     <div class="col-xl-8 col-lg-7">
 						<div class="products product-style-1">
@@ -193,7 +169,7 @@
 
         <!--==================== Banner Full Section Start ====================-->
         <div class="full-row">
-            <div class="container">
+            <div class="">
                 <div class="row">
                     <div class="col">
                         <div class="banner-four" style="background: url({{ asset('storage') }}/background/15.png) no-repeat center / 100%; margin: 40px 0;">
@@ -219,7 +195,7 @@
         <!--==================== Banner Full Section End ====================-->
 
         <!--==================== Trending Products Section Start ====================-->
-        <div class="full-row pb-0 bg-dark">
+        <div class="full-row bg-dark">
             <div class="container">
                 <div class="row justify-content-center wow fadeInUp animated" data-wow-delay="200ms" data-wow-duration="1000ms">
                     <div class="col-xxl-4 col-xl-6 col-lg-7 col-md-8">
@@ -246,7 +222,7 @@
         <div class="full-row pb-30">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-xl-6 col-lg-8">
+                    <div class="col-xl-4 col-lg-8">
                         <div class="banner-wrapper hover-img-zoom banner-one custom-class-122 bg-dark" style="background: url({{ asset('storage') }}/banner/97.png) no-repeat;">
                             <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/98.png" alt="Banner Image"></div>
                             <div class="banner-content y-center position-absolute">
@@ -258,15 +234,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-8 ms-auto">
-                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-123 bg-dark">
-                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/99.png" alt="Banner Image"></div>
-                            <div class="banner-content position-absolute">
+                    <div class="col-xl-4 col-lg-8">
+                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-122 bg-dark" style="background: url({{ asset('storage') }}/banner/97.png) no-repeat;">
+                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/98.png" alt="Banner Image"></div>
+                            <div class="banner-content y-center position-absolute reverse">
                                 <div class="middle-content">
-                                    <a href="single-shop.html" class="category">ساعت های مردانه</a>
-                                    <span class="sale">murex</span>
-                                    <span class="up-to-sale">تخفیف تا 30%</span>
-                                    <a href="shop-grid-full.html" class="btn btn-secondary">مشاهده</a>
+                                    <span class="up-to-sale">تخفیف تا 20%</span>
+                                    <h3><a href="single-shop.html" class="text-dark text-decoration-none">jacob jensen</a></h3>
+                                    <a href="single-shop.html" class="category">گامی دیگر در طراحی ساعت مچی</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-8">
+                        <div class="banner-wrapper hover-img-zoom banner-one custom-class-122 bg-dark" style="background: url({{ asset('storage') }}/banner/97.png) no-repeat;">
+                            <div class="banner-image overflow-hidden transation"><img src="{{ asset('storage') }}/banner/98.png" alt="Banner Image"></div>
+                            <div class="banner-content y-center position-absolute">
+                                <div class="middle-content">
+                                    <span class="up-to-sale">تخفیف تا 20%</span>
+                                    <h3><a href="single-shop.html" class="text-dark text-decoration-none">jacob jensen</a></h3>
+                                    <a href="single-shop.html" class="category">گامی دیگر در طراحی ساعت مچی</a>
                                 </div>
                             </div>
                         </div>

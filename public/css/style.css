@@ -3974,6 +3974,14 @@ Food Corner Page Style Start
     width: 130px;
 }
 
+.custom-class-122 .banner-content.reverse::before {
+    border: 3px solid var(--theme-light-color);
+}
+
+.custom-class-122 .banner-content.reverse::after {
+    background: var(--theme-primary-color)
+}
+
 .custom-class-122 .banner-content::before {
     content: "";
     width: 100%;
@@ -7699,6 +7707,7 @@ Footer Section Style Start
   .container .card:before{
     content: '';
     background-color: black;
+    /* background-image: var(--product-card-image); */
     position: absolute;
     top: 0;
     left: 0;
@@ -7887,4 +7896,11 @@ Footer Section Style Start
 }
 .sticky-section {
     top: 100px;
+}
+
+.form-control {
+    color: var(--theme-light-color) !important;
+}
+.form-control:focus {
+    color: var(--theme-white-color) !important;
 }
