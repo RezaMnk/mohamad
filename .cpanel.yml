@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mohamadg/
+    - /bin/cp -r * $DEPLOYPATH #copy all from root
