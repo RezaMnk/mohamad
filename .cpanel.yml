@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/mohamadg
-    - /bin/rsync -va ./ $DEPLOYPATH
+    - export DEPLOYPATH=/home/mohamadg/
+    - /bin/cp -r * $DEPLOYPATH
