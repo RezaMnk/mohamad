@@ -111,6 +111,36 @@ Breadcrumbs::for('admin.orders.index', function (BreadcrumbTrail $trail): void {
     $trail->push('سفارشات', route('admin.orders.index'));
 });
 
+Breadcrumbs::for('admin.orders.unapproved', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.orders.index');
+
+    $trail->push(' تاییده نشده ها', route('admin.orders.unapproved'));
+});
+
+Breadcrumbs::for('admin.orders.priced', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.orders.index');
+
+    $trail->push('قیمت گذاری شده ها', route('admin.orders.priced'));
+});
+
+Breadcrumbs::for('admin.orders.paid', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.orders.index');
+
+    $trail->push('پرداخت شده ها', route('admin.orders.paid'));
+});
+
+Breadcrumbs::for('admin.orders.approved', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.orders.index');
+
+    $trail->push('تکمیل شده ها', route('admin.orders.approved'));
+});
+
+Breadcrumbs::for('admin.orders.canceled', function (BreadcrumbTrail $trail): void {
+    $trail->parent('admin.orders.index');
+
+    $trail->push('لغو شده ها', route('admin.orders.canceled'));
+});
+
 Breadcrumbs::for('admin.orders.edit', function (BreadcrumbTrail $trail, Order $order): void {
     $trail->parent('admin.orders.index');
 
