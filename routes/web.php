@@ -144,6 +144,11 @@ Route::get('/produce', function () {
     ]);
 
     \App\Models\Attribute::create([
+        'name' => 'جنس',
+        'parent_id' => '0',
+    ]);
+
+    \App\Models\Attribute::create([
         'name' => 'صورتی',
         'parent_id' => '1',
     ]);
@@ -158,9 +163,14 @@ Route::get('/produce', function () {
         'parent_id' => '1',
     ]);
 
+    \App\Models\Attribute::create([
+        'name' => 'طلا',
+        'parent_id' => '2',
+    ]);
+
     foreach (range(1, 40) as $i) {
         $product = \App\Models\Product::create([
-            'name' => "test $i",
+            'name' => "انگشتر کد $i",
             'code' => $i*15,
             'weight' => '150',
             'description' => "Description for test $i",
@@ -172,7 +182,7 @@ Route::get('/produce', function () {
         $product->gallery()->create(['image' => '/squire-'. $i+10 .'.png']);
         $product->gallery()->create(['image' => '/squire-'. $i+15 .'.png']);
 
-        $product->attributes()->sync(['3', '2']);
+        $product->attributes()->sync(['3', '4','6']);
         $product->categories()->sync(['2']);
     }
 });
@@ -181,7 +191,7 @@ Route::get('/fake_products', function () {
 
     foreach (range(1, 40) as $i) {
         $product = \App\Models\Product::create([
-            'name' => "test $i",
+            'name' => "انگشتر کد $i",
             'code' => $i*15,
             'weight' => '150',
             'description' => "Description for test $i",

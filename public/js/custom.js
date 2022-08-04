@@ -1060,3 +1060,22 @@
     });
 
 })(jQuery);
+
+// add a circle behind the mouse cursor and on hover make behinde element color inverted
+$(document).ready(function() {
+    $('body').append('<div class="cursor-circle"></div>');
+    $('.cursor-circle').hide();
+    $(document).mousemove(function(e) {
+        $('.cursor-circle').css({
+            left: e.pageX,
+            top: e.pageY
+        });
+    });
+    $('.cursor-circle').hover(function() {
+        $(this).addClass('cursor-circle-active');
+    }, function() {
+        $(this).removeClass('cursor-circle-active');
+    });
+}
+);
+

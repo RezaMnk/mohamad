@@ -7689,7 +7689,7 @@ Footer Section Style Start
     position: relative;
   }
 
-  .container .card{
+  .container .card.product-box{
     position: relative;
     width: 100%;
     height: 22.5rem;
@@ -7700,11 +7700,11 @@ Footer Section Style Start
     /* background: url(https://www.toptal.com/designers/subtlepatterns/uploads/memphis-mini-dark.png); */
   }
 
-  .container .card:hover {
+  .container .card.product-box:hover {
     transition: 0.5s ease-in-out;
   }
 
-  .container .card:before{
+  .container .card.product-box:before{
     content: '';
     background-color: black;
     /* background-image: var(--product-card-image); */
@@ -7720,11 +7720,11 @@ Footer Section Style Start
     transition: 0.5s ease-in-out;
   }
 
-  .container .card:hover:before{
+  .container .card.product-box:hover:before{
     clip-path: circle(100% at 50% 40%);
 }
 
-  .container .card:after{
+  .container .card.product-box:after{
     content: '';
     position: absolute;
     top: 30%;
@@ -7737,7 +7737,7 @@ Footer Section Style Start
   body {
     overflow-x: hidden !important;
   }
-  .container .card .imgBx{
+  .container .card.product-box .imgBx{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -7746,13 +7746,13 @@ Footer Section Style Start
     transition: 0.5s;
   }
 
-  .container .card:hover .imgBx{
+  .container .card.product-box:hover .imgBx{
     top: 0%;
     transform: translateY(0%);
 
   }
 
-  .container .card .imgBx img{
+  .container .card.product-box .imgBx img{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -7760,10 +7760,10 @@ Footer Section Style Start
     width: 270px;
     transition: 0.75s;
   }
-  .container .card:hover .imgBx img {
+  .container .card.product-box:hover .imgBx img {
     transform: translate(-50%, -50%) rotate(0deg);
   }
-  .container .card .contentBx{
+  .container .card.product-box .contentBx{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -7773,11 +7773,11 @@ Footer Section Style Start
     z-index: 10;
   }
 
-  .container .card:hover .contentBx{
+  .container .card.product-box:hover .contentBx{
     height: 210px;
   }
 
-  .container .card .contentBx h2{
+  .container .card.product-box .contentBx h2{
     position: relative;
     font-size: 16px;
     font-weight: 400;
@@ -7786,23 +7786,23 @@ Footer Section Style Start
     margin: 0;
   }
 
-  .container .card .contentBx {
+  .container .card.product-box .contentBx {
     transform: translateY(2.5rem);
     transition: 0.75s;
   }
-  .container .card .contentBx a{
+  .container .card.product-box .contentBx a{
     transform: translateY(3.5rem);
     transition: 0.75s;
   }
 
 
 
-  .container .card:hover .contentBx {
+  .container .card.product-box:hover .contentBx {
     opacity: 1;
     transform: translateY(5.5rem);
   }
 
-  .container .card:hover .contentBx a{
+  .container .card.product-box:hover .contentBx a{
     opacity: 1;
     transform: translateY(1.5rem);
   }
@@ -7903,4 +7903,27 @@ Footer Section Style Start
 }
 .form-control:focus {
     color: var(--theme-white-color) !important;
+}
+.banner-bg {
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+}
+.fixed-bg {
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-size: 33.33% !important;
+    background-repeat: repeat !important;
+}
+.grayscale-bg {
+    filter: grayscale(100%);
+    transition: 0.5s ease-in-out;
+}
+.grayscale-bg:hover {
+    filter: grayscale(0%);
+    transition: 0.5s ease-in-out;
+}
+
+#rc-anchor-container {
+    background: var(--theme-dark-color) !important;
 }
