@@ -21,6 +21,7 @@ class KavenegarChannel
 
             $receptor = $data['phone'];
             $token = $data['code'];
+            $template = $data['template'];
 
             /*
              * Send null for tokens not defined in the template
@@ -28,7 +29,6 @@ class KavenegarChannel
             $token2 = null;
             $token3 = null;
 
-            $template = $data['template'];
 
             $result = Kavenegar::VerifyLookup($receptor, $token, $token2, $token3, $template, $type = null);
             if($result){
