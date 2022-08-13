@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone')->unique();
             $table->string('password');
+            $table->text('address');
             $table->boolean('zarin')->default(0);
             $table->boolean('vip')->default(0);
             $table->boolean('verified')->default(0);

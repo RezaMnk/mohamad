@@ -112,6 +112,7 @@ Route::get('/produce', function () {
         'name' => 'Reza Nadaf',
         'phone' => '09212969916',
         'password' => '12345678',
+        'address' => 'Tehran',
         'verified' => '1',
         'admin' => '1',
     ]);

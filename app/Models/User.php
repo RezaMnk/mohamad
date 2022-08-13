@@ -24,6 +24,7 @@ class User extends Authenticatable
         'name',
         'phone',
         'password',
+        'address',
         'vip',
         'zarin',
         'verified',
