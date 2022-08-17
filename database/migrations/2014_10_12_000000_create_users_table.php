@@ -24,7 +24,6 @@ return new class extends Migration
             $table->boolean('verified')->default(0);
             $table->boolean('admin')->default(0);
             $table->rememberToken();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 
 @if($errors->any())
-    <script src="/vendor/sweetalert/sweetalert.all.js"></script>
+    <script src="vendor/sweetalert/sweetalert.all.js"></script>
 @endif
 
 <script>

@@ -16,8 +16,9 @@ class WaitFor2FA
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->session()->has('user.user_id'))
+        if (!$request->session()->has('user.user_id')) {
             return redirect()->route('login');
+        }
 
         return $next($request);
     }

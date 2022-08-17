@@ -131,6 +131,8 @@ class OrderController extends Controller
         $order->products()->sync($sync);
         $order->priced();
 
+        $order->user->send_sms([$order->id], 'order-priced');
+
         alert('عملیات موفقیت آمیز بود','سفارش با موفقیت ویرایش شد', 'success');
         return redirect()->route('admin.orders.index');
     }
@@ -146,6 +148,8 @@ class OrderController extends Controller
 
         if ($order->status == 'paid')
             $order->approve();
+
+        $order->user->send_sms([$order->id], 'order-approved');
 
         alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت تایید شد');
         return redirect()->route('admin.orders.index');

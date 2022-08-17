@@ -103,7 +103,7 @@
                         </div>
                         <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 me-5">
                             <div class="wishlist-view">
-                                <a href="{{ route('home.profile') }}" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
+                                <a href="{{ route('home.profile') }}" class="position-relative top-quantity d-flex align-items-center text-decoration-none @if(Auth::check() && auth()->user()->vip ) text-dark bg-primary @else text-white @endif">
                                     <i class="flaticon-user-3 flat-mini mx-auto text-dark"></i>
                                 </a>
                             </div>
@@ -259,7 +259,7 @@
                 <div class="col-xxl-3 col-xl-4 col-lg-3 col-6 order-lg-3">
                     <div class="margin-right-1 d-flex align-items-center justify-content-end h-100 md-py-10">
                         <div class="sign-in">
-                            <a href="{{ route('home.profile') }}" class="position-relative top-quantity d-flex align-items-center text-white text-decoration-none">
+                            <a href="{{ route('home.profile') }}" class="position-relative top-quantity d-flex align-items-center text-decoration-none @if(Auth::check() && auth()->user()->vip ) text-dark bg-primary @else text-white @endif">
                                 <i class="flaticon-user-3 flat-mini text-dark mx-auto"></i>
                             </a>
                         </div>
@@ -465,12 +465,12 @@
                     <span>جستجو</span>
                 </label>
                 @if(Auth::check())
-                    <label for="profile" onclick="location.href='{{ route('home.profile') }}';">
-                        <i class="fa fa-user"></i>
+                    <label for="profile" onclick="location.href='{{ route('home.profile') }}'">
+                        <i class="fa fa-user @if(Auth::check() && auth()->user()->vip ) text-primary @endif"></i>
                         <span>پروفایل</span>
                     </label>
                 @else
-                    <label for="profile" onclick="location.href='{{ route('login') }}';">
+                    <label for="profile" onclick="location.href='{{ route('login') }}'">
                         <i class="fa fa-sign-in-alt"></i>
                         <span>ورود</span>
                     </label>

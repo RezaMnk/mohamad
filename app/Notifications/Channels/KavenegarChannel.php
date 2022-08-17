@@ -19,30 +19,19 @@ class KavenegarChannel
 
             $data = $notification->toKavenegar($notifiable);
 
-            $receptor = $data['phone'];
-            $token = $data['code'];
+            $receptor = $notifiable->phone;
             $template = $data['template'];
+            $tokens = $data['tokens'];
 
             /*
              * Send null for tokens not defined in the template
              */
-            $token2 = null;
-            $token3 = null;
-
-
-            $result = Kavenegar::VerifyLookup($receptor, $token, $token2, $token3, $template, $type = null);
-            if($result){
-                foreach($result as $r){
-                    echo "messageid = $r->messageid";
-                    echo "message = $r->message";
-                    echo "status = $r->status";
-                    echo "statustext = $r->statustext";
-                    echo "sender = $r->sender";
-                    echo "receptor = $r->receptor";
-                    echo "date = $r->date";
-                    echo "cost = $r->cost";
-                }
+            $result = Kavenegar::VerifyLookup($receptor, $tokens[0], $tokens[1] ?? null, $tokens[2] ?? null, $template, $type = null);
+            if ($result)
+            {
+                //
             }
+            dump($tokens);
         }
         catch(ApiException $e){
             // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد

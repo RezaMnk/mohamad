@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Http\Traits\Statistics;
+use App\Notifications\KavenegarNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,7 +14,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Statistics;
+    use HasApiTokens, HasFactory, Notifiable, Statistics;
 
     /**
      * The attributes that are mass assignable.
@@ -125,6 +126,19 @@ class User extends Authenticatable
         }
 
         return jdate($time)->format('%B %d، %Y');
+    }
+
+
+    /**
+     * send sms to the user
+     *
+     * @param $tokens
+     * @param $template
+     * @return void
+     */
+    public function send_sms($tokens, $template = 'verify')
+    {
+        $this->notify(new KavenegarNotification($tokens, $template));
     }
 
 

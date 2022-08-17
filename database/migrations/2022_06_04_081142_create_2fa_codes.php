@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('code');
             $table->unique(['user_id', 'code']);
-            $table->timestamp('expired_at');
+            $table->timestamp('expired_at')->nullable();
+            $table->timestamps();
         });
     }
 

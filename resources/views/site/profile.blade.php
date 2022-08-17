@@ -238,7 +238,13 @@
                         {{ $user->name }}
                     </h5>
                     <p class="text-center">{{ $user->phone }}</p>
-                    <p class="text-center">خیابان آزادی، شهر آزادی، کوچه آزادی، پلاک آزادی</p>
+                    <p class="text-center">
+                        {{ $user->address }}
+                    </p>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="text-danger">خروج از حساب کاربری</button>
+                    </form>
                 </div>
             </div>
 

@@ -8,24 +8,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class TwoFANotification extends Notification
+class KavenegarNotification extends Notification
 {
     use Queueable;
 
     public $code;
-    public $phone;
-
-    private string $template = 'verify';
+    public $template;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($code, $phone)
+    public function __construct($tokens, $template)
     {
-        $this->code = $code;
-        $this->phone = $phone;
+        $this->tokens = $tokens;
+        $this->template = $template;
     }
 
     /**
@@ -42,8 +40,7 @@ class TwoFANotification extends Notification
     public function toKavenegar($notifiable)
     {
         return [
-            'code' => $this->code,
-            'phone' => $this->phone,
+            'tokens' => $this->tokens,
             'template' => $this->template
         ];
     }

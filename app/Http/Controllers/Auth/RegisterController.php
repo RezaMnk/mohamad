@@ -51,6 +51,8 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $this->check_verified($data['phone']);
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'regex:/^09[0|1|2|3][0-9]{8}$/', 'unique:users'],
@@ -88,5 +90,23 @@ class RegisterController extends Controller
         ]);
 
         return redirect()->route('2fa.index');
+    }
+
+
+    /**
+     * check if user is not verified delete the user
+     *
+     * @param $phone
+     * @return \Illuminate\Http\RedirectResponse|void
+     */
+    private function check_verified($phone)
+    {
+        $user = User::firstWhere('phone', $phone);
+        if ($user && !$user->verified) {
+
+            $user->delete();
+
+            return back()->withErrors(['phone' => __('auth.failed')]);
+        }
     }
 }

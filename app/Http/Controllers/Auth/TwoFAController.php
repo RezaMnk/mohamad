@@ -13,7 +13,7 @@ use Psr\Container\NotFoundExceptionInterface;
 class TwoFAController extends Controller
 {
 
-    function __contruct() {
+    function __construct() {
         $this->middleware('wait2fa');
     }
 
@@ -21,8 +21,17 @@ class TwoFAController extends Controller
     {
         session()->reflash();
 
-        $code = $this->generate2FA();
-        //TODO send 2fa code
+        $user = User::find(session()->get('user.user_id'));
+        $last_code = $user->twoFA()->orderBy('created_at','desc')->first();
+
+        if (
+            ($last_code && $last_code->updated_at->addMinutes(2) < now())
+            || !$last_code
+        )
+        {
+            $code = $this->generate2FA();
+            $user->send_sms([$code]);
+        }
 
         return view('auth.verify');
     }
@@ -37,6 +46,7 @@ class TwoFAController extends Controller
      */
     public function check(Request $request)
     {
+        session()->reflash();
 
         $request->validate([
             'code' => ['required', 'numeric', 'digits:4'],
@@ -59,8 +69,7 @@ class TwoFAController extends Controller
 
         $request->session()->reflash();
 
-        alert()->error('Wrong Code');
-        return redirect()->back();
+        return redirect()->back()->withErrors(['code' => 'کد تایید وارد شده نادرست است']);
     }
 
     /**
@@ -74,9 +83,6 @@ class TwoFAController extends Controller
     public function resend(Request $request)
     {
         $request->session()->reflash();
-
-        $code = $this->generate2FA();
-        //TODO resend 2fa code
 
         alert()->success('Success', '2FA Code resent.');
         return redirect()->back();
@@ -97,6 +103,7 @@ class TwoFAController extends Controller
         if ($TwoFACode = $this->getAliveCode($user)) {
 
             $code = $TwoFACode->code;
+//            $TwoFACode->touch();
 
         } else {
 

@@ -11,8 +11,6 @@ class TwoFA extends Model
 
     protected $table = '2fa_codes';
 
-    public $timestamps = false;
-
     protected $fillable = ['user_id', 'code', 'expired_at'];
 
     public function user()

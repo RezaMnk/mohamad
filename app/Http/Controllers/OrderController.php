@@ -48,6 +48,8 @@ class OrderController extends Controller
 
         cart()->clear();
 
+        $order->user->send_sms([$order->id], 'order-created');
+
         return redirect()->route('home.profile');
     }
 
@@ -79,6 +81,8 @@ class OrderController extends Controller
         if ($order->status == 'unapproved')
             $order->cancel();
 
+        $order->user->send_sms([$order->id], 'order-canceled');
+
         alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت لغو گردید');
         return redirect()->back();
     }
@@ -101,6 +105,8 @@ class OrderController extends Controller
                 $product->pivot->price = null;
                 $product->save();
             }
+
+            $order->user->send_sms([$order->id], 'order-created');
 
             alert()->success('عملیات موفقیت آمیز بود', 'سفارش با موفقیت مجددا ثبت گردید');
             return redirect()->back();
