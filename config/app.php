@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\CartServiceProvider::class,
+        App\Providers\ZarinServiceProvider::class,
 
         /*
          * Notification Service Providers...
@@ -223,7 +224,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Kavenegar' => Kavenegar\Laravel\Facade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        'Cart' => App\Helpers\Cart\Cart::class,
+        'Cart' => App\Helpers\Cart\Zarin::class,
     ])->toArray(),
 
 ];

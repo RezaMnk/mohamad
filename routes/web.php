@@ -40,7 +40,7 @@ Route::controller(HomeController::class)->name('home.')->group(function () {
     /*
      * Only if user is logged in
      */
-    Route::middleware('auth')->group(function () {
+    Route::middleware(`auth`)->group(function () {
         Route::get('/profile', 'profile')->name('profile');
         Route::get('/wishlist', 'wishlist')->name('wishlist');
         Route::get('/cart', 'cart')->name('cart');
@@ -215,4 +215,9 @@ Route::get('test', function () {
 
 Route::get('ses', function () {
     dd(session()->all());
+});
+
+
+Route::get('testApi', function () {
+    dd(zarin()->exe('infogorooh'));
 });

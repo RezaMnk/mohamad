@@ -20,3 +20,11 @@ if (!function_exists('cart')) {
         return new \App\Helpers\Cart\CartService;
     }
 }
+
+
+if (!function_exists('zarin')) {
+    function zarin()
+    {
+        return new \App\Helpers\Zarin\ZarinService;
+    }
+}
